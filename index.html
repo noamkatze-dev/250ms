@@ -67,7 +67,7 @@ body{
 .nav-login.hidden{display:none;}
 
 /* HOME SCREEN */
-#homeScreen{position:fixed;inset:0;z-index:8999;overflow-y:auto;overflow-x:hidden;background:transparent;}
+#homeScreen{position:fixed;inset:0;z-index:8999;overflow-y:auto;overflow-x:hidden;color:#FF0003;}
 
 #homeHeroSection{
   position:relative;
@@ -369,6 +369,16 @@ canvas.va-preview{width:100%;aspect-ratio:5/3;display:block;border-radius:6px;ba
 #dataToolbarCollapseBtn{width:22px;height:22px;padding:0;cursor:pointer;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:100px;color:rgba(255,255,255,0.7);flex-shrink:0;transition:color 0.15s,background 0.15s;}
 #dataToolbarCollapseBtn:hover{color:#fff;background:rgba(255,255,255,0.18);}
 #dataToolbarCollapseBtn .tcb-arrow{font-size:10px;font-weight:900;line-height:1;}
+
+/* Home screen — all text red */
+#homeScreen .hi-label,#homeScreen .hi-title,#homeScreen .hi-sub,
+#homeScreen .step-num,#homeScreen .step-title,#homeScreen .step-desc,
+#homeScreen .howto-n,#homeScreen .howto-text,#homeScreen .howto-text strong,
+#homeScreen .home-eyebrow,#homeScreen .home-heading,
+#homeScreen #modeNum,#homeScreen #modeName,#homeScreen #modeDesc,
+#homeScreen p,#homeScreen h1,#homeScreen h2,#homeScreen label{color:#FF0003 !important;}
+#homeScreen .howto-dot{background:#FF0003 !important;}
+#homeScreen .howto-line{background:#FF0003 !important;}
 
 #heroEyeSvg{
   display:block;
