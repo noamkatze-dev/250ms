@@ -1,0 +1,2393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>0.25 Seconds</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@200;300;400;500;600;700;800;900&family=Heebo:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+[lang="he"] body,[lang="he"] button,[lang="he"] input,[lang="he"] select,[lang="he"] label,[lang="he"] span,[lang="he"] p,[lang="he"] h1,[lang="he"] h2,[lang="he"] div{font-family:Heebo,sans-serif;}
+[lang="he"] #modesSection{direction:rtl;}
+[lang="he"] #modesSection .hi-label,[lang="he"] #modesSection .hi-title,[lang="he"] #modesSection .hi-sub,[lang="he"] #modesSection #modeDesc{text-align:right;}
+body{
+  background-color:#edf7fd;
+  background-image:
+    radial-gradient(ellipse 70% 40% at 15% 8%,  rgba(178,224,243,0.7) 0%, transparent 70%),
+    radial-gradient(ellipse 55% 30% at 85% 18%, rgba(190,230,247,0.6) 0%, transparent 65%),
+    radial-gradient(ellipse 60% 25% at 30% 35%, rgba(205,237,250,0.5) 0%, transparent 60%),
+    radial-gradient(ellipse 70% 30% at 70% 52%, rgba(178,224,243,0.55) 0%, transparent 65%),
+    radial-gradient(ellipse 60% 25% at 20% 68%, rgba(190,230,247,0.5) 0%, transparent 65%),
+    radial-gradient(ellipse 55% 30% at 80% 82%, rgba(170,220,242,0.5) 0%, transparent 65%),
+    radial-gradient(ellipse 65% 20% at 45% 92%, rgba(205,237,250,0.45) 0%, transparent 60%);
+  background-attachment:fixed;
+  overflow:hidden;width:100vw;height:100vh;font-family:Urbanist,sans-serif;
+}
+#imgWrapper{cursor:none;}
+
+  background-color:#edf7fd;
+  background-image:
+    radial-gradient(ellipse 70% 40% at 15% 8%,  rgba(178,224,243,0.7) 0%, transparent 70%),
+    radial-gradient(ellipse 55% 30% at 85% 18%, rgba(190,230,247,0.6) 0%, transparent 65%),
+    radial-gradient(ellipse 60% 25% at 30% 35%, rgba(205,237,250,0.5) 0%, transparent 60%),
+    radial-gradient(ellipse 70% 30% at 70% 52%, rgba(178,224,243,0.55) 0%, transparent 65%),
+    radial-gradient(ellipse 60% 25% at 20% 68%, rgba(190,230,247,0.5) 0%, transparent 65%),
+    radial-gradient(ellipse 55% 30% at 80% 82%, rgba(170,220,242,0.5) 0%, transparent 65%),
+    radial-gradient(ellipse 65% 20% at 45% 92%, rgba(205,237,250,0.45) 0%, transparent 60%);
+  background-attachment:local;
+}
+#heroEyeSvg{display:none;}
+#scrollEye{display:none;}
+#eyeContainer{display:none;}
+#eyeBall{display:none;}
+.home-content{position:relative;z-index:1;}
+#mainNav{position:fixed;top:0;left:0;right:0;height:52px;background:transparent;backdrop-filter:none;-webkit-backdrop-filter:none;border-bottom:1px solid transparent;display:flex;align-items:center;justify-content:space-between;padding:0 60px;z-index:9000;cursor:default;transition:background 0.3s,border-color 0.3s,backdrop-filter 0.3s;}
+#navBrand{display:flex;align-items:center;gap:10px;}
+.nav-va{font-size:14px;font-weight:700;color:#fff;letter-spacing:0.06em;}
+.nav-title{font-size:10px;font-weight:700;letter-spacing:0.28em;color:#111;font-variant:small-caps;}
+#navLinks{display:flex;gap:28px;align-items:center;}
+.nav-link{font-size:10px;font-weight:700;letter-spacing:0.22em;color:rgba(255,255,255,0.7);cursor:pointer;user-select:none;transition:color 0.15s;}
+.nav-link:hover,.nav-link.active{color:#fff;}
+.nav-login{font-size:10px;font-weight:700;letter-spacing:0.22em;cursor:pointer;user-select:none;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.25);color:#fff;padding:6px 18px;border-radius:100px;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);transition:background 0.15s;}
+.nav-login:hover{background:rgba(255,255,255,0.55);}
+.nav-login-outline{background:transparent;border-color:rgba(255,255,255,0.4);}
+.nav-login-outline:hover{background:rgba(255,255,255,0.2);}
+/* ↓ FIXED: unified single hover rule, matching .nav-login:hover exactly */
+#homeStartBtn:hover{background:rgba(255,255,255,0.55);border-color:rgba(255,255,255,0.8);}
+.nav-login.hidden{display:none;}
+
+/* HOME SCREEN */
+#homeScreen{position:fixed;inset:0;z-index:8999;overflow-y:auto;overflow-x:hidden;background:transparent;}
+
+#homeHeroSection{
+  position:relative;
+  width:100%;
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  flex-shrink:0;
+}
+#heroRight{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  z-index:2;
+  text-align:center;
+}
+#fibCanvas{
+  width:480px;
+  height:480px;
+  display:block;
+}
+
+#eyeContainer{
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin-bottom:40px;
+  z-index:2;
+}
+
+#eyeBall{
+  position:fixed;
+  border-radius:50%;
+  background:#FF0003;
+  pointer-events:none;
+  z-index:8998;
+  transition:none;
+  transform-origin:center center;
+  opacity:0;
+}
+
+#homeHero{
+  position:absolute;
+  inset:0;
+  z-index:3;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  pointer-events:none;
+}
+.home-content{text-align:center;pointer-events:all;display:flex;flex-direction:column;align-items:center;}
+.home-eyebrow{font-size:9px;font-weight:700;letter-spacing:0.5em;color:rgba(255,255,255,0.7);margin-bottom:16px;text-transform:uppercase;}
+.home-heading{font-size:24px;font-weight:600;color:#fff;line-height:1.1;margin-bottom:32px;text-transform:uppercase;white-space:nowrap;}
+#homeStartBtn{background:rgba(255,255,255,0.08);color:#fff;border:1px solid rgba(255,255,255,0.6);font-family:Urbanist,sans-serif;font-size:13px;font-weight:700;letter-spacing:0.22em;padding:14px 48px;cursor:pointer;transition:all 0.18s;margin-top:24px;margin-bottom:36px;border-radius:100px;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);}
+.home-badges{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-bottom:40px;}
+.home-badge{font-size:10px;color:#555;border:1px solid #ddd;padding:5px 14px;border-radius:100px;letter-spacing:0.05em;}
+.home-scroll-hint{font-size:9px;font-weight:600;letter-spacing:0.4em;color:#FF0003;display:flex;flex-direction:column;align-items:center;gap:11px;position:absolute;bottom:28px;left:50%;transform:translateX(-50%);z-index:4;pointer-events:none;transition:opacity 0.4s ease;}
+.home-scroll-hint-arrow{font-size:22px;color:#FF0003;line-height:1;}
+
+#homeInfo{position:relative;z-index:4;pointer-events:all;background:#fff;}
+.hi-section{padding:72px 60px;}
+.hi-section+.hi-section{border-top:none;}
+.hi-section-dark{background:transparent;}
+.hi-label{font-size:8px;font-weight:700;letter-spacing:0.5em;color:#bbb;margin-bottom:20px;text-transform:uppercase;}
+.hi-label-light{color:#bbb;}
+.hi-title{font-size:28px;font-weight:700;color:#111;margin-bottom:8px;line-height:1.2;white-space:nowrap;}
+.hi-title-light{color:#111;}
+.hi-sub{font-size:13px;font-weight:300;color:#888;max-width:480px;line-height:1.7;margin-bottom:40px;}
+.steps-row{display:grid;grid-template-columns:repeat(3,1fr);gap:0;width:100%;}
+.step-item{padding:32px 36px;border-left:1px solid #eee;}
+.step-item:first-child{border-left:none;padding-left:0;}
+.step-num{font-size:9px;font-weight:700;letter-spacing:0.3em;color:#bbb;margin-bottom:10px;}
+.step-icon{font-size:28px;margin-bottom:12px;line-height:1;}
+.step-title{font-size:12px;font-weight:700;letter-spacing:0.18em;color:#111;margin-bottom:8px;text-transform:uppercase;}
+.step-desc{font-size:12px;font-weight:300;color:#888;line-height:1.7;}
+.howto-list{list-style:none;width:100%;display:flex;flex-direction:row;align-items:flex-start;position:relative;}
+.howto-list li{display:flex;flex-direction:column;align-items:center;flex:1;position:relative;padding:0 12px;}
+.howto-n{font-size:10px;font-weight:700;color:#bbb;letter-spacing:0.2em;}
+.howto-text{font-size:12px;font-weight:300;color:#666;line-height:1.65;text-align:center;}
+.howto-text strong{font-weight:700;color:#111;}
+.howto-dot{width:10px;height:10px;border-radius:50%;background:#111;flex-shrink:0;margin:10px 0 14px;position:relative;z-index:1;}
+.howto-line{position:absolute;top:calc(10px + 10px + 5px);left:50%;width:100%;height:1px;background:#e0e0e0;}
+.modes-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;background:transparent;width:100%;}
+.mode-card{background:#fff;padding:20px 20px 16px;border-left:1px solid #eee;border-bottom:1px solid #eee;}
+.mode-card:nth-child(1),.mode-card:nth-child(4){border-left:none;}
+.mode-card:nth-child(4),.mode-card:nth-child(5),.mode-card:nth-child(6){border-bottom:none;}
+.mode-card-name{font-size:8px;font-weight:700;letter-spacing:0.4em;color:#bbb;margin-bottom:10px;text-transform:uppercase;}
+.mode-card-desc{font-size:10px;font-weight:300;color:#ccc;line-height:1.5;margin-top:10px;}
+canvas.va-preview{width:100%;aspect-ratio:5/3;display:block;border-radius:6px;background:transparent;}
+.mode-preview-wrap{width:100%;aspect-ratio:5/2;overflow:hidden;display:flex;align-items:center;justify-content:center;background:transparent;border-radius:2px;}
+.mode-preview{display:block;width:100%;height:100%;}
+.va-btn{font-family:Urbanist,sans-serif;letter-spacing:0.18em;cursor:pointer;transition:background 0.18s,color 0.18s,border-color 0.18s;border-radius:100px;}
+.va-btn-primary{background:rgba(255,255,255,0.35);color:#333;border:1px solid rgba(255,255,255,0.6);font-size:13px;font-weight:700;padding:14px 48px;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:0 2px 16px rgba(178,224,243,0.25);}
+.va-btn-primary:hover{background:rgba(255,255,255,0.55);border-color:rgba(255,255,255,0.8);}
+.va-btn-secondary{background:#fff;color:#111;border:2px solid #111;font-size:12px;font-weight:700;padding:9px 24px;}
+.va-btn-secondary:hover{background:#111;color:#fff;}
+/* ══════════════════════════════════════════════════════════════════════
+   GLOBAL BACKGROUND - gradient on all screens
+   ══════════════════════════════════════════════════════════════════════ */
+#nameScreen,
+#libraryScreen,
+#calOverlay,
+#dataScreen,
+#galleryScreen,
+#dashboardScreen,
+#profileScreen{
+  background-color:#edf7fd;
+  background-image:
+    radial-gradient(ellipse 70% 40% at 15% 8%,  rgba(178,224,243,0.7) 0%, transparent 70%),
+    radial-gradient(ellipse 55% 30% at 85% 18%, rgba(190,230,247,0.6) 0%, transparent 65%),
+    radial-gradient(ellipse 60% 25% at 30% 35%, rgba(205,237,250,0.5) 0%, transparent 60%),
+    radial-gradient(ellipse 70% 30% at 70% 52%, rgba(178,224,243,0.55) 0%, transparent 65%),
+    radial-gradient(ellipse 60% 25% at 20% 68%, rgba(190,230,247,0.5) 0%, transparent 65%),
+    radial-gradient(ellipse 55% 30% at 80% 82%, rgba(170,220,242,0.5) 0%, transparent 65%),
+    radial-gradient(ellipse 65% 20% at 45% 92%, rgba(205,237,250,0.45) 0%, transparent 60%);
+  background-attachment:fixed;
+}
+
+/* glass cards for dashboard, gallery, profile, data */
+.dash-kpi,
+.dash-user-card,
+.dash-chart-area,
+.gallery-item,
+.compare-panel,
+.lib-card{
+  background:rgba(255,255,255,0.75) !important;
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+  border-color:rgba(255,255,255,0.6) !important;
+}
+
+/* library screen glass */
+#libraryScreen{
+  background-attachment:fixed;
+}
+
+/* calibration overlay */
+#calOverlay{
+  background-attachment:fixed;
+}
+#calCanvas{
+  background:transparent !important;
+}
+#calOverlay{position:fixed;inset:0;z-index:1000;}
+#calCanvas{position:absolute;inset:0;width:100%;height:100%;background:transparent;}
+#calStartBtn{position:absolute;top:63%;left:50%;transform:translateX(-50%);display:none;z-index:1001;}
+.screen{display:none;position:fixed;inset:0;z-index:1100;flex-direction:column;align-items:center;justify-content:center;}
+.screen-title{font-size:9px;font-weight:300;letter-spacing:0.6em;color:#bbb;margin-bottom:36px;}
+.lib-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;max-width:720px;width:90vw;margin-bottom:36px;max-height:52vh;overflow-y:auto;}
+.lib-card{aspect-ratio:4/3;border:1.5px solid #e0e0e0;cursor:pointer;overflow:hidden;position:relative;transition:border-color 0.15s;}
+.lib-card:hover{border-color:#999;}
+.lib-card.selected{border-color:#111;}
+.lib-card.viewed-once{opacity:0.55;}
+.lib-card.viewed-once::after{content:'VIEWED';position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.35);color:#fff;font-size:9px;font-weight:700;letter-spacing:0.3em;}
+.lib-card img{width:100%;height:100%;object-fit:cover;display:block;}
+.lib-num{position:absolute;top:6px;left:8px;font-size:9px;font-weight:700;color:#fff;text-shadow:0 0 4px rgba(0,0,0,0.8);letter-spacing:0.1em;}
+.lib-add{aspect-ratio:4/3;border:1.5px dashed #ddd;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:6px;transition:border-color 0.15s;}
+.lib-add:hover{border-color:#999;}
+.lib-add-plus{font-size:28px;color:#ccc;line-height:1;}
+.lib-add-label{font-size:9px;font-weight:300;letter-spacing:0.2em;color:#ccc;}
+#libFileInput{display:none;}
+#imgWrapper{position:fixed;inset:0;overflow:hidden;}
+#mainImg{display:block;width:100%;height:100%;object-fit:cover;}
+#dotCanvas{position:absolute;inset:0;pointer-events:none;z-index:5;}
+#annLayer{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:6;opacity:0;}
+#gazeDot{position:fixed;width:22px;height:22px;border-radius:50%;border:2px solid rgba(255,255,255,0.85);background:rgba(255,255,255,0.12);transform:translate(-50%,-50%);pointer-events:none;z-index:50;}
+#info{position:fixed;bottom:14px;left:50%;transform:translateX(-50%);font-family:Urbanist,sans-serif;font-size:10px;font-weight:300;letter-spacing:0.22em;color:rgba(255,255,255,0.6);pointer-events:none;transition:opacity 2s ease;white-space:nowrap;z-index:50;}
+#sessionInfoOverlay{display:none !important;}
+#finishBtn{position:fixed;bottom:28px;left:50%;transform:translateX(-50%);font-family:Urbanist,sans-serif;font-size:11px;font-weight:700;letter-spacing:0.2em;color:#fff;background:rgba(0,0,0,0.55);border:1.5px solid rgba(255,255,255,0.5);padding:11px 32px;cursor:pointer;z-index:60;display:none;transition:background 0.15s,color 0.15s,border-color 0.15s;border-radius:100px;backdrop-filter:blur(8px);}
+#finishBtn:hover{background:rgba(255,255,255,0.95);color:#111;border-color:#fff;}
+#dataScreen{display:none;position:fixed;inset:0;z-index:1500;flex-direction:column;overflow:hidden;padding-top:52px;}
+#dataHeader{display:none;}
+#dataBody{display:flex;flex:1;overflow:hidden;position:relative;}
+#dataCenter{flex:1;display:flex;flex-direction:column;overflow:hidden;position:relative;}
+#dataImgArea{position:relative;flex:1;overflow:hidden;background:#eee;}
+#dataImg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;}
+#dataCanvas{position:absolute;inset:0;pointer-events:none;z-index:2;}
+#dataSessionBadge{position:absolute;bottom:14px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:stretch;background:rgba(0,0,0,0.65);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.08);border-radius:12px;z-index:8;pointer-events:all;min-width:380px;overflow:hidden;}
+.dsb-header{display:flex;align-items:center;justify-content:space-between;padding:7px 14px;cursor:pointer;user-select:none;}
+.dsb-header-label{font-size:7px;font-weight:700;letter-spacing:0.35em;color:rgba(255,255,255,0.35);text-transform:uppercase;}
+.dsb-toggle{font-size:13px;color:rgba(255,255,255,0.75);transition:transform 0.2s;line-height:1;font-weight:900;}
+.dsb-toggle.collapsed{transform:rotate(180deg);}
+.dsb-content{display:flex;flex-direction:row;align-items:stretch;border-top:1px solid rgba(255,255,255,0.06);overflow:hidden;max-height:60px;transition:max-height 0.25s ease,border-top 0.25s;}
+.dsb-content.collapsed{max-height:0;border-top-width:0;}
+.dsb-item{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;padding:8px 14px;border-right:1px solid rgba(255,255,255,0.05);}
+.dsb-item:last-child{border-right:none;}
+.dsb-label{font-size:7px;font-weight:700;letter-spacing:0.3em;color:rgba(255,255,255,0.25);text-transform:uppercase;}
+.dsb-val{font-size:11px;font-weight:700;color:#fff;}
+#dataAnalysisBadge{position:absolute;bottom:14px;right:14px;display:none;flex-direction:column;background:rgba(0,0,0,0.65);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.08);border-radius:12px;z-index:8;pointer-events:all;min-width:170px;overflow:hidden;}
+.dab-header{display:flex;align-items:center;justify-content:space-between;padding:7px 12px;cursor:pointer;user-select:none;border-bottom:1px solid rgba(255,255,255,0.06);}
+.dab-header-label{font-size:7px;font-weight:700;letter-spacing:0.35em;color:rgba(255,255,255,0.4);text-transform:uppercase;}
+.dab-toggle{font-size:13px;color:rgba(255,255,255,0.75);transition:transform 0.2s;line-height:1;font-weight:900;}
+.dab-toggle.collapsed{transform:rotate(180deg);}
+.dab-content{overflow:hidden;max-height:200px;transition:max-height 0.25s ease;padding:8px 12px;}
+.dab-content.collapsed{max-height:0;padding-top:0;padding-bottom:0;}
+.dab-row{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:3px;gap:12px;}
+.dab-name{font-size:9px;font-weight:300;color:rgba(255,255,255,0.4);}
+.dab-val{font-size:11px;font-weight:700;color:#fff;}
+.dab-unit{font-size:8px;font-weight:300;color:rgba(255,255,255,0.35);margin-left:2px;}
+#dataToolbar{position:absolute;top:14px;left:50%;transform:translateX(-50%);display:flex;flex-wrap:nowrap;align-items:center;gap:2px;background:rgba(0,0,0,0.72);backdrop-filter:blur(14px);padding:5px 10px;border:1px solid rgba(255,255,255,0.08);border-radius:100px;z-index:10;transition:opacity 0.2s;}
+#dataToolbar.collapsed .toolbar-inner-content{display:none;}
+.toolbar-sep{width:1px;height:16px;background:rgba(255,255,255,0.22);flex-shrink:0;margin:0 8px;}
+.layer-btn{font-family:Urbanist,sans-serif;font-size:7.5px;font-weight:700;letter-spacing:0.06em;color:#555;background:transparent;border:1.5px solid transparent;padding:5px 9px;cursor:pointer;transition:color 0.15s,border-color 0.15s;white-space:nowrap;border-radius:100px;position:relative;}
+.layer-btn:hover{color:#fff;}
+.layer-btn.active{color:#fff;border-color:rgba(255,255,255,0.35);background:rgba(255,255,255,0.07);}
+.layer-btn[data-tooltip]::after{content:attr(data-tooltip);position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);background:rgba(0,0,0,0.88);color:#ccc;font-size:9px;font-weight:300;letter-spacing:0.04em;white-space:nowrap;padding:5px 10px;border-radius:6px;pointer-events:none;opacity:0;transition:opacity 0.15s;border:1px solid rgba(255,255,255,0.08);z-index:100;}
+.layer-btn[data-tooltip]:hover::after{opacity:1;}
+.toggle-group{display:flex;gap:2px;}
+.toggle-btn{font-family:Urbanist,sans-serif;font-size:7.5px;font-weight:700;letter-spacing:0.05em;padding:5px 8px;border:1.5px solid transparent;background:transparent;color:#555;cursor:pointer;transition:all 0.15s;white-space:nowrap;border-radius:100px;}
+.toggle-btn:hover{color:#fff;}
+.toggle-btn.active{color:#fff;border-color:rgba(255,255,255,0.35);background:rgba(255,255,255,0.07);}
+#playBtn{font-family:Urbanist,sans-serif;font-size:7.5px;font-weight:700;letter-spacing:0.06em;color:#fff;background:#222;border:1.5px solid #3a3a3a;padding:5px 10px;cursor:pointer;transition:background 0.15s;flex-shrink:0;border-radius:100px;}
+#playBtn:hover{background:#333;}
+.view-tab{font-family:Urbanist,sans-serif;font-size:7.5px;font-weight:700;letter-spacing:0.06em;padding:5px 9px;border:1.5px solid transparent;background:transparent;color:#555;cursor:pointer;transition:all 0.15s;border-radius:100px;}
+.view-tab.active{background:rgba(255,255,255,0.07);color:#fff;border-color:rgba(255,255,255,0.35);}
+.view-tab:hover{color:#fff;border-color:rgba(255,255,255,0.2);}
+#galleryScreen{display:none;position:fixed;inset:0;z-index:1500;;flex-direction:column;overflow:hidden;padding-top:52px;}
+#galleryHeader{display:flex;align-items:center;justify-content:space-between;padding:10px 60px;border-bottom:1px solid rgba(255,255,255,0.4);flex-shrink:0;background:rgba(255,255,255,0.45);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);}
+#galleryHeader .gallery-title{font-size:11px;font-weight:700;letter-spacing:0.45em;color:#111;}
+.gallery-header-right{display:flex;align-items:center;gap:8px;}
+#galleryBody{flex:1;overflow-y:auto;padding:16px 60px;}
+.gallery-user-block{margin-bottom:40px;}
+.gallery-user-name{font-size:11px;font-weight:700;letter-spacing:0.3em;color:#111;text-transform:uppercase;margin-bottom:6px;}
+.gallery-user-meta{font-size:9px;font-weight:300;color:#555;letter-spacing:0.06em;margin-bottom:16px;}
+.gallery-images-row{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:8px;}
+.gallery-item{background:#fff;border:1px solid #e0e0e0;border-radius:4px;overflow:hidden;cursor:pointer;transition:border-color 0.15s;}
+.gallery-item:hover{border-color:#999;}
+.gallery-item.active-view{border-color:#FF0003;}
+.gallery-item-img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;}
+.gallery-item-info{padding:5px 8px;display:flex;justify-content:space-between;align-items:center;}
+.gallery-item-name{font-size:8px;font-weight:700;letter-spacing:0.1em;color:#333;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.gallery-item-stats{font-size:7px;font-weight:300;color:#999;white-space:nowrap;}
+#compareView{display:none;flex:1;overflow:hidden;flex-direction:column;}
+#compareFilters{background:rgba(255,255,255,0.45);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,0.4);padding:10px 60px;display:flex;flex-wrap:wrap;gap:8px;align-items:center;flex-shrink:0;}
+.cf-label{font-size:8px;font-weight:700;letter-spacing:0.3em;color:#999;text-transform:uppercase;}
+.cf-select{font-family:Urbanist,sans-serif;font-size:10px;background:#fff;color:#333;border:1.5px solid #ddd;padding:5px 10px;cursor:pointer;border-radius:100px;outline:none;-webkit-appearance:none;}
+.cf-select:focus{border-color:#555;}
+.cf-sep{width:1px;height:16px;background:#ddd;align-self:center;}
+#compareGrid-wrap{flex:1;overflow:auto;padding:16px 60px;}
+#compareGrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;}
+.compare-panel{background:#fff;border:1px solid #e0e0e0;overflow:hidden;border-radius:4px;}
+.compare-panel-header{display:flex;justify-content:space-between;align-items:flex-start;padding:7px 10px;border-bottom:1px solid #eee;flex-wrap:wrap;gap:3px;}
+.cp-user{font-size:10px;font-weight:700;letter-spacing:0.1em;color:#111;}
+.cp-meta{font-size:7px;font-weight:300;color:#999;line-height:1.4;}
+.cp-time{font-size:8px;font-weight:300;color:#999;}
+.compare-canvas-wrap{position:relative;aspect-ratio:16/9;background:#000;overflow:hidden;}
+.cp-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;}
+.cp-canvas{position:absolute;inset:0;pointer-events:none;}
+.cp-stats{font-size:8px;font-weight:300;color:#999;padding:5px 10px;letter-spacing:0.05em;border-top:1px solid #eee;}
+#nameScreen{display:none;position:fixed;inset:0;z-index:2000;flex-direction:column;align-items:center;justify-content:center;overflow-y:auto;padding:40px 60px;}
+.ns-title{font-size:9px;font-weight:300;letter-spacing:0.55em;color:#bbb;margin-bottom:52px;}
+.ns-form{display:flex;flex-direction:column;align-items:center;width:100%;max-width:320px;}
+.ns-field{width:100%;margin-bottom:30px;}
+.ns-field label{display:block;font-size:9px;font-weight:700;letter-spacing:0.3em;color:#111;margin-bottom:12px;text-transform:uppercase;}
+.ns-field input,.ns-field select{background:#fff;border:1px solid rgba(255,255,255,0.7);color:#111;font-family:Urbanist,sans-serif;font-size:16px;letter-spacing:0.08em;padding:12px 16px;width:100%;caret-color:#111;transition:border-color 0.15s;-webkit-appearance:none;border-radius:6px;outline:none;}
+.ns-field input:focus,.ns-field select:focus{border-color:rgba(178,224,243,0.8);outline:none;}
+.ns-field input::placeholder{color:#bbb;font-size:14px;}
+.ns-field select{background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23aaa' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat right 14px center;}
+[dir="rtl"] .ns-field select{-webkit-appearance:none;appearance:none;background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23aaa' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat 14px center;padding-left:36px;padding-right:16px;}
+.ns-field input:-webkit-autofill,
+.ns-field input:-webkit-autofill:hover,
+.ns-field input:-webkit-autofill:focus{-webkit-box-shadow:0 0 0px 1000px #fff inset;-webkit-text-fill-color:#111;transition:background-color 5000s ease-in-out 0s;}
+.ns-row{display:flex;gap:24px;width:100%;}
+.ns-row .ns-field{flex:1;}
+#dashboardScreen{display:none;position:fixed;inset:0;z-index:1600;;flex-direction:column;overflow:hidden;padding-top:52px;}
+#dashboardHeader{display:flex;align-items:center;justify-content:space-between;padding:10px 20px;border-bottom:1px solid rgba(255,255,255,0.4);flex-shrink:0;background:rgba(255,255,255,0.45);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);}
+#dashboardHeader .dash-title{font-size:11px;font-weight:700;letter-spacing:0.45em;color:#111;}
+#dashboardBody{flex:1;overflow-y:auto;padding:16px 60px;}
+.dash-section{margin-bottom:28px;}
+.dash-section-title{font-size:8px;font-weight:700;letter-spacing:0.45em;color:#999;text-transform:uppercase;margin-bottom:14px;padding-bottom:8px;border-bottom:1px solid #e0e0e0;}
+.dash-kpi-row{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:8px;margin-bottom:20px;}
+.dash-kpi{background:#fff;border:1px solid #eee;border-radius:6px;padding:14px 16px;box-shadow:0 1px 4px rgba(0,0,0,0.04);}
+.dash-kpi-label{font-size:7px;font-weight:700;letter-spacing:0.35em;color:#bbb;text-transform:uppercase;margin-bottom:6px;}
+.dash-kpi-val{font-size:22px;font-weight:700;color:#111;line-height:1;}
+.dash-kpi-unit{font-size:9px;font-weight:300;color:#555;margin-left:3px;}
+.dash-kpi-sub{font-size:8px;font-weight:300;color:#bbb;margin-top:3px;}
+.dash-kpi.accent{border-color:rgba(255,255,255,0.15);}
+.dash-kpi.accent .dash-kpi-val{color:#FF0003;}
+.dash-chart-area{background:#fff;border:1px solid #eee;border-radius:6px;padding:16px;margin-bottom:12px;box-shadow:0 1px 4px rgba(0,0,0,0.04);}
+.dash-chart-title{font-size:8px;font-weight:700;letter-spacing:0.3em;color:#bbb;text-transform:uppercase;margin-bottom:12px;}
+.dash-bar-row{display:flex;align-items:center;gap:10px;margin-bottom:8px;}
+.dash-bar-label{font-size:9px;font-weight:300;color:#999;width:80px;flex-shrink:0;text-overflow:ellipsis;overflow:hidden;white-space:nowrap;}
+.dash-bar-wrap{flex:1;height:6px;background:#f0f0f0;border-radius:3px;overflow:hidden;}
+.dash-bar-fill{height:100%;background:#FF0003;border-radius:3px;transition:width 0.6s ease;}
+.dash-bar-val{font-size:8px;font-weight:700;color:#FF0003;width:40px;text-align:right;flex-shrink:0;}
+.dash-compare-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px;}
+.dash-user-card{background:#fff;border:1px solid #eee;border-radius:6px;padding:14px 16px;box-shadow:0 1px 4px rgba(0,0,0,0.04);}
+.dash-user-card-name{font-size:11px;font-weight:700;color:#111;margin-bottom:2px;}
+.dash-user-card-meta{font-size:8px;font-weight:300;color:#bbb;margin-bottom:10px;}
+.dash-user-stats{display:grid;grid-template-columns:1fr 1fr;gap:6px;}
+.dash-user-stat{background:#f8f8f8;border-radius:4px;padding:8px 10px;}
+.dash-user-stat-label{font-size:7px;font-weight:700;letter-spacing:0.25em;color:#bbb;text-transform:uppercase;margin-bottom:3px;}
+.dash-user-stat-val{font-size:13px;font-weight:700;color:#FF0003;}
+.dash-empty{color:#ccc;font-size:11px;letter-spacing:0.2em;text-align:center;padding:60px 0;}
+#dataToolbarCollapseBtn{width:22px;height:22px;padding:0;cursor:pointer;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:100px;color:rgba(255,255,255,0.7);flex-shrink:0;transition:color 0.15s,background 0.15s;}
+#dataToolbarCollapseBtn:hover{color:#fff;background:rgba(255,255,255,0.18);}
+#dataToolbarCollapseBtn .tcb-arrow{font-size:10px;font-weight:900;line-height:1;}
+
+#heroEyeSvg{
+  display:block;
+  width:240px;
+  height:144px;
+  margin-bottom:36px;
+  position:relative;
+  z-index:2;
+}
+
+#scrollEye{
+  position:fixed;
+  background:#FF0003;
+  pointer-events:none;
+  z-index:8997;
+  will-change:transform,width,height,border-radius,top,left;
+  opacity:0;
+  border-radius:50%;
+}
+</style>
+</head>
+<body>
+
+<nav id="mainNav">
+  <div id="navBrand" style="cursor:pointer;" id="navBrandLink">
+    <span class="nav-va">250ms</span>
+  </div>
+  <div id="navLinks">
+    <span class="nav-link nav-authenticated" id="navSessionLink" style="display:none;">DATA</span>
+    <span class="nav-link nav-authenticated" id="navGalleryLink" style="display:none;">GALLERY</span>
+    <span class="nav-link nav-authenticated" id="navDashboardLink" style="display:none;">DASHBOARD</span>
+    <span class="nav-link nav-authenticated" id="navProfileLink" style="display:none;">PROFILE</span>
+    <span class="nav-link" id="navAboutLink">ABOUT</span>
+    <span class="nav-login" id="navSignupBtn">SIGN UP</span>
+    <span class="nav-login nav-login-outline" id="navLoginBtn">LOG IN</span>
+    <button id="langToggle" style="background:none;border:none;font-family:Urbanist,sans-serif;font-size:10px;font-weight:700;letter-spacing:0.2em;color:rgba(255,255,255,0.7);cursor:pointer;padding:4px 8px;transition:color 0.15s;">EN</button>
+  </div>
+</nav>
+
+<div id="homeScreen">
+
+  <div id="homeHeroSection">
+
+    <!-- Sky video background -->
+    <video id="homeSkyVideo" src="sky.mp4" muted playsinline loop preload="auto"
+      style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;opacity:0.7;pointer-events:none;filter:contrast(1.1) saturate(1.15);"></video>
+
+    <div id="heroRight" style="position:relative;z-index:2;">
+      <div class="home-eyebrow">VISUAL ANALYSIS SYSTEM</div>
+      <h1 class="home-heading">YOU SEE, WE MEASURE.</h1>
+      <button id="homeStartBtn">START</button>
+    </div>
+
+    <div class="home-scroll-hint" id="scrollHint" style="z-index:3;">SCROLL TO LEARN MORE
+      <svg width="20" height="12" viewBox="0 0 28 16" fill="none" xmlns="http://www.w3.org/2000/svg" class="home-scroll-hint-arrow">
+        <path d="M2 2L14 13L26 2" stroke="#FF0003" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+  </div>
+
+  <div id="homeInfo">
+    <div class="hi-section">
+      <div class="hi-label">HOW IT WORKS</div>
+      <h2 class="hi-title">From eyes to insights in three steps.</h2>
+      <p class="hi-sub">The system uses your webcam to detect iris position in real-time, maps gaze to screen coordinates via affine calibration, then classifies movements into research-grade metrics.</p>
+      <div class="steps-row">
+        <div class="step-item"><div class="step-num">01</div><div class="step-title">EYE TRACKING</div><div class="step-desc">MediaPipe detects 478 facial landmarks per frame, isolating the iris center in both eyes for sub-pixel gaze estimation.</div></div>
+        <div class="step-item"><div class="step-num">02</div><div class="step-title">CALIBRATION</div><div class="step-desc">A 9-point affine calibration maps your unique eye movement range to screen coordinates. Keep your head still.</div></div>
+        <div class="step-item"><div class="step-num">03</div><div class="step-title">GAZE ANALYSIS</div><div class="step-desc">Gaze samples are classified in real-time into fixations, saccades, scan paths, and heatmaps using I-DT and I-VT algorithms.</div></div>
+      </div>
+    </div>
+
+
+    <div class="hi-section" id="modesSection" style="padding:0;overflow:hidden;">
+      <div style="display:grid;grid-template-columns:1fr 1fr;align-items:stretch;">
+        <!-- Left: text + nav -->
+        <div style="padding:72px 60px 72px 60px;display:flex;flex-direction:column;justify-content:space-between;">
+          <div>
+            <div class="hi-label">ANALYSIS MODES</div>
+            <h2 class="hi-title">Six ways to read visual attention.</h2>
+            <p class="hi-sub">Switch between modes in real-time to explore different dimensions of how a viewer scans an image.</p>
+            <div style="margin-top:40px;">
+              <div id="modeNum" style="font-size:9px;font-weight:700;letter-spacing:0.4em;color:#bbb;margin-bottom:12px;">01 / 06</div>
+              <div id="modeName" style="font-size:28px;font-weight:600;color:#111;margin-bottom:12px;line-height:1.1;"></div>
+              <div id="modeDesc" style="font-size:14px;font-weight:300;color:#888;line-height:1.7;"></div>
+            </div>
+          </div>
+          <div style="display:flex;gap:12px;margin-top:28px;align-items:center;">
+            <button id="modePrev" style="width:44px;height:44px;border-radius:50%;border:1.5px solid #bbb;background:#fff;cursor:pointer;font-size:22px;display:flex;align-items:center;justify-content:center;color:#333;transition:all 0.15s;">‹</button>
+            <button id="modeNext" style="width:44px;height:44px;border-radius:50%;border:1.5px solid #bbb;background:#fff;cursor:pointer;font-size:22px;display:flex;align-items:center;justify-content:center;color:#333;transition:all 0.15s;">›</button>
+            <div id="modeDots" style="display:flex;gap:6px;margin-left:24px;margin-right:24px;"></div>
+          </div>
+        </div>
+        <!-- Right: canvas -->
+        <div style="display:flex;align-items:stretch;padding:72px 60px 72px 0;position:relative;" id="modeVideoCol">
+          <div style="position:relative;width:100%;border-radius:0;overflow:hidden;">
+            <video id="statueVideo" src="statue.mp4" muted playsinline style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:1;filter:saturate(0.7) brightness(1.1);"></video>
+            <div style="position:absolute;inset:0;background:rgba(180,210,240,0.25);mix-blend-mode:color;pointer-events:none;z-index:1;"></div>
+            <canvas id="modeCanvas" style="width:100%;height:100%;display:block;background:transparent;position:relative;z-index:2;"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hi-section">
+      <div class="hi-label">QUICK START</div>
+      <h2 class="hi-title" style="margin-bottom:36px;">Up and running in under a minute.</h2>
+      <ol class="howto-list">
+        <li><span class="howto-n">01</span><span class="howto-dot"></span><span class="howto-line"></span><span class="howto-text"><strong>Allow camera access</strong> when the browser prompts.</span></li>
+        <li><span class="howto-n">02</span><span class="howto-dot"></span><span class="howto-line"></span><span class="howto-text"><strong>Enter your details</strong> for group comparison.</span></li>
+        <li><span class="howto-n">03</span><span class="howto-dot"></span><span class="howto-line"></span><span class="howto-text"><strong>Complete the 9-point calibration.</strong> Eyes only.</span></li>
+        <li><span class="howto-n">04</span><span class="howto-dot"></span><span class="howto-line"></span><span class="howto-text"><strong>The images appear</strong> automatically, one at a time.</span></li>
+        <li><span class="howto-n">05</span><span class="howto-dot"></span><span class="howto-line"></span><span class="howto-text"><strong>View naturally.</strong> Each image lasts 5 seconds.</span></li>
+        <li><span class="howto-n">06</span><span class="howto-dot"></span><span class="howto-line"></span><span class="howto-text"><strong>Explore your data</strong> and compare with others.</span></li>
+      </ol>
+    </div>
+
+    <div class="hi-section hi-section-dark" style="text-align:center;padding:80px 60px;">
+      <div class="hi-label hi-label-light">READY?</div>
+      <h2 class="hi-title hi-title-light" style="margin-bottom:32px;">Start your session now.</h2>
+      <button id="homeStartBtn2" style="background:transparent;color:#111;border:1.5px solid #111;font-family:Urbanist,sans-serif;font-size:13px;font-weight:700;letter-spacing:0.22em;padding:16px 48px;cursor:pointer;border-radius:100px;transition:background 0.18s,color 0.18s;" onmouseover="this.style.background='#111';this.style.color='#fff'" onmouseout="this.style.background='transparent';this.style.color='#111'">START</button>
+    </div>
+  </div>
+</div>
+
+<div id="imgWrapper" style="display:none;">
+  <img id="mainImg" src="" alt="stimulus"/>
+  <canvas id="dotCanvas"></canvas>
+  <div id="annLayer"></div>
+</div>
+
+<div id="sessionInfoOverlay" style="display:none !important;"></div>
+<div id="gazeDot"></div>
+<div id="info">ALLOW CAMERA ACCESS</div>
+<!-- SKY VIDEO OVERLAY -->
+<div id="skyOverlay" style="display:none;position:fixed;inset:0;z-index:200;background:#000;">
+  <video id="skyVideo" src="sky.mp4" muted playsinline style="width:100%;height:100%;object-fit:cover;display:block;"></video>
+  <div id="skyProgress" style="position:absolute;bottom:0;left:0;height:3px;background:#fff;width:0%;transition:none;"></div>
+</div>
+
+<!-- finishBtn removed - sessions are automatic -->
+
+<div id="calOverlay">
+  <canvas id="calCanvas"></canvas>
+  <button id="calStartBtn" class="va-btn va-btn-primary">BEGIN CALIBRATION</button>
+</div>
+
+<div id="libraryScreen" class="screen">
+  <div class="screen-title">SELECT IMAGE</div>
+  <div class="lib-grid" id="libGrid"></div>
+  <input type="file" id="libFileInput" accept="image/*" multiple>
+  <button id="libBeginBtn" class="va-btn va-btn-primary" disabled style="opacity:0.4">BEGIN SESSION</button>
+</div>
+
+<div id="dataScreen">
+  <div id="dataHeader" style="display:none;"></div>
+  <div id="dataBody" style="padding-top:0;">
+    <div id="dataCenter">
+      <div id="dataImgArea">
+        <img id="dataImg" src="" alt=""/>
+        <canvas id="dataCanvas"></canvas>
+
+        <div id="dataToolbar">
+            <button class="view-tab active" id="sessionViewBtn">DATA</button>
+            <button class="view-tab" id="compareViewBtn">COMPARE</button>
+            <span class="toolbar-sep"></span>
+            <button class="layer-btn active" data-layer="GAZE" data-tooltip="Raw gaze sample positions">GAZE</button>
+            <button class="layer-btn" data-layer="FIXATION" data-tooltip="Fixations: sustained gaze on one area">FIXATION</button>
+            <button class="layer-btn" data-layer="SACCADE" data-tooltip="Saccades: rapid eye jumps between regions">SACCADE</button>
+            <button class="layer-btn" data-layer="SCANPATH" data-tooltip="Scan path: ordered sequence of fixations">SCAN PATH</button>
+            <button class="layer-btn" data-layer="HEATMAP" data-tooltip="Heatmap: density contours of visual attention">HEATMAP</button>
+            <button class="layer-btn" data-layer="FIRSTFIX" data-tooltip="First fixation: very first area noticed">FIRST FIXATION</button>
+            <span class="toolbar-sep"></span>
+            <button id="playBtn">REPLAY</button>
+            <div class="toggle-group">
+              <button class="toggle-btn active" id="animatedBtn">ANIMATED</button>
+              <button class="toggle-btn" id="staticBtn">STATIC</button>
+            </div>
+            <div class="toggle-group">
+              <button class="toggle-btn active" id="withImgBtn">IMAGE ON</button>
+              <button class="toggle-btn" id="withoutImgBtn">IMAGE OFF</button>
+            </div>
+            <span class="toolbar-sep"></span>
+            <button id="dataToolbarCollapseBtn" title="Hide toolbar"><span class="tcb-arrow">&#9660;</span></button>
+          </div>
+
+        <div id="dataSessionBadge">
+          <div class="dsb-header" id="dsbHeader">
+            <span class="dsb-header-label">SESSION INFO</span>
+            <span class="dsb-toggle" id="dsbToggle">&#9650;</span>
+          </div>
+          <div class="dsb-content" id="dsbContent">
+            <div class="dsb-item"><span class="dsb-label">NAME</span><span class="dsb-val" id="dsb-name">&#8212;</span></div>
+            <div class="dsb-item"><span class="dsb-label">AGE</span><span class="dsb-val" id="dsb-age">&#8212;</span></div>
+            <div class="dsb-item"><span class="dsb-label">GENDER</span><span class="dsb-val" id="dsb-gender">&#8212;</span></div>
+            <div class="dsb-item"><span class="dsb-label">LOCATION</span><span class="dsb-val" id="dsb-location">&#8212;</span></div>
+            <div class="dsb-item"><span class="dsb-label">DURATION</span><span class="dsb-val" id="dsb-duration">&#8212;</span></div>
+            <div class="dsb-item"><span class="dsb-label">SAMPLES</span><span class="dsb-val" id="dsb-samples">&#8212;</span></div>
+          </div>
+        </div>
+
+        <div id="dataAnalysisBadge">
+          <div class="dab-header" id="dabHeader">
+            <span class="dab-header-label" id="dabHeaderLabel">ANALYSIS</span>
+            <span class="dab-toggle" id="dabToggle">&#9650;</span>
+          </div>
+          <div class="dab-content" id="dabContent"></div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div id="compareView">
+    <div id="compareFilters">
+      <span class="cf-label">FILTER</span>
+      <select class="cf-select" id="cf-user"><option value="">All Users</option></select>
+      <select class="cf-select" id="cf-gender"><option value="">All Genders</option></select>
+      <select class="cf-select" id="cf-location"><option value="">All Locations</option></select>
+      <span class="cf-sep"></span>
+      <span class="cf-label">SORT BY</span>
+      <select class="cf-select" id="cf-sort">
+        <option value="">Default</option>
+        <option value="fixations_desc">Most Fixations</option>
+        <option value="fixations_asc">Fewest Fixations</option>
+        <option value="saccades_desc">Most Saccades</option>
+        <option value="saccades_asc">Fewest Saccades</option>
+        <option value="duration_desc">Longest Session</option>
+        <option value="duration_asc">Shortest Session</option>
+        <option value="samples_desc">Most Samples</option>
+        <option value="ttff_asc">Fastest TTFF</option>
+        <option value="ttff_desc">Slowest TTFF</option>
+        <option value="sacAmp_desc">Highest Sac Amp</option>
+        <option value="age_asc">Age Up</option>
+        <option value="age_desc">Age Down</option>
+      </select>
+      <span class="cf-sep"></span>
+      <span class="cf-label">LAYER</span>
+      <select class="cf-select" id="cf-layer">
+        <option value="GAZE">Gaze</option>
+        <option value="FIXATION">Fixation</option>
+        <option value="SACCADE">Saccade</option>
+        <option value="SCANPATH">Scan Path</option>
+        <option value="HEATMAP">Heatmap</option>
+        <option value="FIRSTFIX">First Fix</option>
+      </select>
+      <button id="cf-apply" class="va-btn va-btn-secondary" style="margin-left:4px;font-size:10px;padding:6px 18px;">APPLY</button>
+    </div>
+    <div id="compareGrid-wrap">
+      <div id="compareGrid"></div>
+    </div>
+  </div>
+</div>
+
+<div id="galleryScreen">
+  <div id="galleryHeader" style="display:none;"></div>
+  <div id="galleryBody"></div>
+</div>
+
+<div id="nameScreen">
+  <div class="ns-title">VISUAL ANALYSIS SYSTEM</div>
+
+  <!-- Tabs -->
+  <div id="nsTabRow" style="display:flex;gap:0;margin-bottom:36px;border-bottom:1px solid #eee;">
+    <button id="nsTabSignup" style="font-family:Urbanist,sans-serif;font-size:10px;font-weight:700;letter-spacing:0.3em;color:#111;background:none;border:none;border-bottom:2px solid #111;padding:10px 24px 10px 0;cursor:pointer;transition:all 0.15s;">SIGN UP</button>
+    <button id="nsTabLogin" style="font-family:Urbanist,sans-serif;font-size:10px;font-weight:700;letter-spacing:0.3em;color:#bbb;background:none;border:none;border-bottom:2px solid transparent;padding:10px 24px;cursor:pointer;transition:all 0.15s;">LOG IN</button>
+  </div>
+
+  <!-- SIGN UP: step 1 — age + gender -->
+  <div class="ns-form" id="nsFormStep1">
+    <div class="ns-row">
+      <div class="ns-field">
+        <label for="ageInput">AGE</label>
+        <input id="ageInput" type="number" min="1" max="120" placeholder="&#8212;"/>
+      </div>
+      <div class="ns-field">
+        <label for="genderInput">GENDER</label>
+        <select id="genderInput">
+          <option value="" disabled selected id="genderSelectDefault">Select</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+    </div>
+    <button id="nameContinue" class="va-btn va-btn-primary">CONTINUE</button>
+  </div>
+
+  <!-- SIGN UP: step 2 — show code -->
+  <div id="nsFormStep2" style="display:none;flex-direction:column;align-items:center;gap:24px;">
+    <div style="font-size:9px;font-weight:700;letter-spacing:0.45em;color:#bbb;font-family:Urbanist,sans-serif;">YOUR PARTICIPANT CODE</div>
+    <div id="nsCode" style="font-size:48px;font-weight:700;color:#111;letter-spacing:0.15em;font-family:Urbanist,sans-serif;"></div>
+    <div style="font-size:12px;font-weight:300;color:#999;text-align:center;max-width:280px;line-height:1.7;font-family:Urbanist,sans-serif;">Save this code if you wish to return. It identifies your session anonymously.</div>
+    <div id="nsCodeWarning" style="display:none;font-size:11px;color:#FF0003;text-align:center;max-width:280px;line-height:1.6;font-family:Urbanist,sans-serif;">⚠️ Could not save to server. Your code works for this session only.</div>
+    <button id="nsCodeContinue" class="va-btn va-btn-primary">BEGIN</button>
+  </div>
+
+  <!-- LOG IN: enter existing code -->
+  <div class="ns-form" id="nsFormLogin" style="display:none;">
+    <div class="ns-field">
+      <label for="loginCodeInput">YOUR CODE</label>
+      <input id="loginCodeInput" type="text" autocomplete="off" spellcheck="false" placeholder="e.g. P-4F7K" style="text-transform:uppercase;letter-spacing:0.2em;"/>
+    </div>
+    <div id="nsLoginError" style="font-size:11px;color:#FF0003;margin-top:-16px;margin-bottom:8px;display:none;font-family:Urbanist,sans-serif;">Code not found. Please check and try again.</div>
+    <button id="nsLoginBtn" class="va-btn va-btn-primary">LOG IN</button>
+  </div>
+</div>
+
+<div id="dashboardScreen">
+  <div id="dashboardHeader" style="display:none;"></div>
+  <div id="dashboardBody">
+    <div id="dashboardContent"></div>
+  </div>
+</div>
+
+<!-- ABOUT SCREEN -->
+<div id="aboutScreen" style="display:none;position:fixed;inset:0;z-index:1600;flex-direction:column;overflow:hidden;padding-top:52px;">
+  <div id="aboutBody" style="flex:1;overflow-y:auto;padding:48px 60px;">
+    <div style="max-width:720px;margin:0 auto;padding:0;">
+
+    <p id="about-label-title" style="font-size:9px;font-weight:700;letter-spacing:0.45em;color:#aaa;margin:0 0 20px;font-family:Urbanist,sans-serif;">ABOUT</p>
+
+    <h1 style="font-size:36px;font-weight:900;color:#111;margin:0 0 12px;line-height:1.1;font-family:Urbanist,sans-serif;">0.25 SECONDS</h1>
+
+    <p style="font-size:15px;color:#666;margin:0 0 48px;line-height:1.8;font-family:Urbanist,sans-serif;">
+      The name refers to the first 250 milliseconds of visual attention - the window before conscious processing begins. In eye tracking research, fixations are measured in the range of 200-300 milliseconds, making 0.25 seconds both a poetic and scientifically grounded threshold.
+    </p>
+
+    <div style="border-top:1px solid rgba(178,224,243,0.4);padding-top:36px;margin-bottom:36px;">
+      <p id="about-label-system" style="font-size:9px;font-weight:700;letter-spacing:0.4em;color:#aaa;margin:0 0 16px;font-family:Urbanist,sans-serif;">THE SYSTEM</p>
+      <p style="font-size:15px;color:#666;line-height:1.8;margin:0 0 14px;font-family:Urbanist,sans-serif;">
+        0.25 Seconds is a browser-based eye tracking system for analyzing visual attention on political imagery. It measures where viewers look, what they notice first, and how their gaze moves across an image - without any hardware beyond a standard webcam.
+      </p>
+      <p style="font-size:15px;color:#666;line-height:1.8;margin:0;font-family:Urbanist,sans-serif;">
+        The system uses MediaPipe to detect 478 facial landmarks per frame, isolating iris position in real time. A 9-point affine calibration maps eye movement to screen coordinates, and gaze samples are classified into fixations, saccades, scan paths, and heatmaps using I-DT and I-VT algorithms.
+      </p>
+    </div>
+
+    <div style="border-top:1px solid rgba(178,224,243,0.4);padding-top:36px;margin-bottom:36px;">
+      <p id="about-label-research" style="font-size:9px;font-weight:700;letter-spacing:0.4em;color:#aaa;margin:0 0 16px;font-family:Urbanist,sans-serif;">RESEARCH FOCUS</p>
+      <p style="font-size:15px;color:#666;line-height:1.8;margin:0 0 14px;font-family:Urbanist,sans-serif;">
+        The system was designed to study visual attention patterns on political images - examining which regions attract the eye first, how long the gaze dwells on different areas, and whether distinct viewing patterns emerge across different observers.
+      </p>
+      <p style="font-size:15px;color:#666;line-height:1.8;margin:0;font-family:Urbanist,sans-serif;">
+        Each session is linked to a named profile including age, gender, and detected location. Participation is voluntary and data is used solely for research purposes.
+      </p>
+    </div>
+
+    <div style="border-top:1px solid rgba(178,224,243,0.4);padding-top:36px;margin-bottom:36px;">
+      <p id="about-label-measure" style="font-size:9px;font-weight:700;letter-spacing:0.4em;color:#aaa;margin:0 0 24px;font-family:Urbanist,sans-serif;">WHAT WE MEASURE</p>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;">
+        <div style="background:rgba(255,255,255,0.7);border-radius:10px;padding:16px;border:1px solid rgba(255,255,255,0.6);backdrop-filter:blur(12px);">
+          <p style="font-size:9px;font-weight:700;letter-spacing:0.25em;color:#aaa;margin:0 0 6px;font-family:Urbanist,sans-serif;">FIXATION</p>
+          <p style="font-size:12px;color:#888;margin:0;line-height:1.6;font-family:Urbanist,sans-serif;">Sustained gaze on a single region. Indicates interest or cognitive processing.</p>
+        </div>
+        <div style="background:rgba(255,255,255,0.7);border-radius:10px;padding:16px;border:1px solid rgba(255,255,255,0.6);backdrop-filter:blur(12px);">
+          <p style="font-size:9px;font-weight:700;letter-spacing:0.25em;color:#aaa;margin:0 0 6px;font-family:Urbanist,sans-serif;">SACCADE</p>
+          <p style="font-size:12px;color:#888;margin:0;line-height:1.6;font-family:Urbanist,sans-serif;">Rapid eye movement between regions. Reveals how the eye scans a scene.</p>
+        </div>
+        <div style="background:rgba(255,255,255,0.7);border-radius:10px;padding:16px;border:1px solid rgba(255,255,255,0.6);backdrop-filter:blur(12px);">
+          <p style="font-size:9px;font-weight:700;letter-spacing:0.25em;color:#aaa;margin:0 0 6px;font-family:Urbanist,sans-serif;">SCAN PATH</p>
+          <p style="font-size:12px;color:#888;margin:0;line-height:1.6;font-family:Urbanist,sans-serif;">The ordered sequence of fixations. Maps the visual journey across the image.</p>
+        </div>
+        <div style="background:rgba(255,255,255,0.7);border-radius:10px;padding:16px;border:1px solid rgba(255,255,255,0.6);backdrop-filter:blur(12px);">
+          <p style="font-size:9px;font-weight:700;letter-spacing:0.25em;color:#aaa;margin:0 0 6px;font-family:Urbanist,sans-serif;">HEATMAP</p>
+          <p style="font-size:12px;color:#888;margin:0;line-height:1.6;font-family:Urbanist,sans-serif;">Density map of visual attention. Shows where most fixations cluster.</p>
+        </div>
+        <div style="background:rgba(255,255,255,0.7);border-radius:10px;padding:16px;border:1px solid rgba(255,255,255,0.6);backdrop-filter:blur(12px);">
+          <p style="font-size:9px;font-weight:700;letter-spacing:0.25em;color:#aaa;margin:0 0 6px;font-family:Urbanist,sans-serif;">TTFF</p>
+          <p style="font-size:12px;color:#888;margin:0;line-height:1.6;font-family:Urbanist,sans-serif;">Time to first fixation. Measures how quickly a region captures attention.</p>
+        </div>
+        <div style="background:rgba(255,255,255,0.7);border-radius:10px;padding:16px;border:1px solid rgba(255,255,255,0.6);backdrop-filter:blur(12px);">
+          <p style="font-size:9px;font-weight:700;letter-spacing:0.25em;color:#aaa;margin:0 0 6px;font-family:Urbanist,sans-serif;">FIRST FIX</p>
+          <p style="font-size:12px;color:#888;margin:0;line-height:1.6;font-family:Urbanist,sans-serif;">The very first area noticed. The pre-conscious entry point of visual attention.</p>
+        </div>
+      </div>
+    </div>
+
+    <div style="border-top:1px solid rgba(178,224,243,0.4);padding-top:36px;padding-bottom:60px;">
+      <p id="about-label-built" style="font-size:9px;font-weight:700;letter-spacing:0.4em;color:#aaa;margin:0 0 16px;font-family:Urbanist,sans-serif;">BUILT BY</p>
+      <p style="font-size:17px;font-weight:700;color:#111;margin:0 0 6px;font-family:Urbanist,sans-serif;">Noam Katzenelbogen</p>
+      <p style="font-size:13px;color:#888;line-height:1.8;margin:0;font-family:Urbanist,sans-serif;">
+        Final project - Bachelor of Visual Communication, University of Haifa.<br>
+        Supervised by Ronit Izraeli.<br>
+        Conceived, designed, and developed from scratch - including research framework, UX design, and full front-end and back-end development.
+      </p>
+    </div>
+
+    <div style="border-top:1px solid rgba(178,224,243,0.4);padding-top:36px;padding-bottom:60px;">
+      <p id="about-label-credits" style="font-size:9px;font-weight:700;letter-spacing:0.4em;color:#aaa;margin:0 0 20px;font-family:Urbanist,sans-serif;">IMAGE CREDITS</p>
+      <p style="font-size:12px;font-weight:300;color:#aaa;line-height:1.8;margin:0 0 20px;font-family:Urbanist,sans-serif;">
+        All images courtesy of the Government Press Office of Israel (לשכת העיתונות הממשלתית).
+      </p>
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px 32px;font-family:Urbanist,sans-serif;">
+          <div style="font-size:8px;font-weight:700;letter-spacing:0.3em;color:#bbb;padding-bottom:8px;border-bottom:1px solid #f0f0f0;">IMAGE</div>
+          <div style="font-size:8px;font-weight:700;letter-spacing:0.3em;color:#bbb;padding-bottom:8px;border-bottom:1px solid #f0f0f0;">PHOTOGRAPHER</div>
+          <div style="font-size:12px;font-weight:300;color:#888;">Politics 4</div>
+          <div style="font-size:12px;font-weight:300;color:#888;">Government Press Office</div>
+          <div style="font-size:12px;font-weight:300;color:#888;">Politics 5</div>
+          <div style="font-size:12px;font-weight:300;color:#888;">Government Press Office</div>
+          <div style="font-size:12px;font-weight:300;color:#888;">Politics 7</div>
+          <div style="font-size:12px;font-weight:300;color:#888;">Government Press Office</div>
+          <div style="font-size:12px;font-weight:300;color:#888;">Politics 8</div>
+          <div style="font-size:12px;font-weight:300;color:#888;">Government Press Office</div>
+          <div style="font-size:12px;font-weight:300;color:#888;">Politics 9</div>
+          <div style="font-size:12px;font-weight:300;color:#888;">Government Press Office</div>
+        </div>
+      </div>
+    </div>
+
+    </div>
+  </div>
+</div>
+<div id="profileScreen" style="display:none;position:fixed;inset:0;z-index:1600;;flex-direction:column;overflow:hidden;padding-top:52px;">
+  <div id="profileBody" style="flex:1;overflow-y:auto;padding:32px 60px;"></div>
+</div>
+
+<script type="module">
+'use strict';
+import { FaceLandmarker, FilesetResolver } from 'https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.14/vision_bundle.mjs';
+
+/* ══════════════════════════════════════════════════════════════════════
+   SCROLL-DRIVEN EYE ANIMATION
+   ══════════════════════════════════════════════════════════════════════ */
+/* ══════════════════════════════════════════════════════════════════════
+   APP
+   ══════════════════════════════════════════════════════════════════════ */
+
+const homeScreen=document.getElementById('homeScreen');
+const navHomeLink={classList:{add:()=>{},remove:()=>{}}};// stub - logo handles home now
+const navSessionLink=document.getElementById('navSessionLink');
+const navGalleryLink=document.getElementById('navGalleryLink');
+const navDashboardLink=document.getElementById('navDashboardLink');
+const navProfileLink=document.getElementById('navProfileLink');
+const navAboutLink=document.getElementById('navAboutLink');
+const navLoginBtn=document.getElementById('navLoginBtn');
+const navSignupBtn=document.getElementById('navSignupBtn');
+navAboutLink.addEventListener('click',()=>openAbout());
+navSignupBtn.addEventListener('click',async()=>{
+  await showNameScreen('signup');
+  showAuthNav();
+  userLoggedIn=true;
+  showHome();
+});
+navLoginBtn.addEventListener('click',async()=>{
+  await showNameScreen('login');
+  showAuthNav();
+  userLoggedIn=true;
+  showHome();
+});
+document.getElementById('navBrand').addEventListener('click',()=>showHome());
+let appStarted=false;
+let userLoggedIn=false;
+
+function setNavTheme(theme){
+  // theme: 'light' (dark text, for white screens) or 'dark' (white text, for home hero)
+  const isLight = theme === 'light';
+  const nav = document.getElementById('mainNav');
+  if(nav){
+    nav.style.background = isLight ? 'rgba(255,255,255,0.85)' : 'transparent';
+    nav.style.backdropFilter = isLight ? 'blur(16px)' : 'none';
+    nav.style.webkitBackdropFilter = isLight ? 'blur(16px)' : 'none';
+    nav.style.borderBottomColor = isLight ? 'rgba(0,0,0,0.06)' : 'transparent';
+  }
+  document.querySelectorAll('.nav-link').forEach(el=>{
+    el.style.color = isLight ? '#111' : 'rgba(255,255,255,0.7)';
+  });
+  const va = document.querySelector('.nav-va');
+  if(va) va.style.color = isLight ? '#111' : '#fff';
+  const lang = document.getElementById('langToggle');
+  if(lang) lang.style.color = isLight ? '#111' : 'rgba(255,255,255,0.7)';
+  const login = document.getElementById('navLoginBtn');
+  if(login){
+    login.style.color = isLight ? '#111' : '#fff';
+    login.style.borderColor = isLight ? 'rgba(0,0,0,0.25)' : 'rgba(255,255,255,0.4)';
+  }
+  const signup = document.getElementById('navSignupBtn');
+  if(signup){
+    signup.style.color = isLight ? '#111' : '#fff';
+    signup.style.borderColor = isLight ? 'rgba(0,0,0,0.25)' : 'rgba(255,255,255,0.25)';
+    signup.style.background = isLight ? 'transparent' : 'rgba(255,255,255,0.08)';
+  }
+}
+
+function showHome(){
+  hideAllScreens();
+  setNavTheme('dark');
+  homeScreen.style.display='block';
+  navHomeLink.classList.add('active');
+}
+function hideHome(){homeScreen.style.display='none';navHomeLink.classList.remove('active');}
+
+function goToSession(){hideHome();if(!appStarted){appStarted=true;startApp();}}
+
+document.getElementById('homeStartBtn').addEventListener('click',goToSession);
+document.getElementById('homeStartBtn2').addEventListener('click',goToSession);
+navSessionLink.addEventListener('click',()=>{
+  if(userLoggedIn){
+    hideAllScreens();
+    navSessionLink.classList.add('active');
+    document.getElementById('dataScreen').style.display='flex';
+    if(allSessions.length===0){
+      showEmptyState('dataScreen','Start your first session to see your data.');
+    }
+  } else {
+    goToSession();
+  }
+});
+navGalleryLink.addEventListener('click',()=>openGallery());
+
+const dsbHeader=document.getElementById('dsbHeader');
+const dsbContent=document.getElementById('dsbContent');
+const dsbToggle=document.getElementById('dsbToggle');
+dsbHeader.addEventListener('click',()=>{const c=dsbContent.classList.toggle('collapsed');dsbToggle.classList.toggle('collapsed',c);});
+
+const dabHeader=document.getElementById('dabHeader');
+const dabContent=document.getElementById('dabContent');
+const dabToggle=document.getElementById('dabToggle');
+dabHeader.addEventListener('click',()=>{const c=dabContent.classList.toggle('collapsed');dabToggle.classList.toggle('collapsed',c);});
+
+let userLocation='';
+async function fetchLocation(){try{const r=await fetch('https://ipapi.co/json/');const d=await r.json();userLocation=[d.city,d.country_name].filter(Boolean).join(', ');}catch(_){userLocation='Unknown';}}
+fetchLocation();
+
+const FIX_DISPERSION=0.04,FIX_MIN_DURATION=150,SAC_VELOCITY=0.8,SAC_MIN_AMP=0.03;
+const W_HEAT=200,H_HEAT=112,HEAT_SIGMA=0.07,HEAT_WEIGHT=0.18,HEAT_DECAY=0.9975,GAZE_LERP=0.08;
+const CAL_PTS=[[0.1,0.1],[0.5,0.1],[0.9,0.1],[0.9,0.5],[0.5,0.5],[0.1,0.5],[0.1,0.9],[0.5,0.9],[0.9,0.9]];
+const CAL_VAR_THRESH=0.0012,CAL_FILL_RATE=0.6,CAL_DRAIN_RATE=0.8,BUF_MAX=30;
+
+const mainImg=document.getElementById('mainImg'),imgWrapper=document.getElementById('imgWrapper');
+const dotCanvas=document.getElementById('dotCanvas'),dotCtx=dotCanvas.getContext('2d');
+const annLayer=document.getElementById('annLayer'),gazeDot=document.getElementById('gazeDot');
+const infoEl=document.getElementById('info'),calOverlay=document.getElementById('calOverlay');
+const calCanvas=document.getElementById('calCanvas'),calCtx=calCanvas.getContext('2d');
+const calStartBtn=document.getElementById('calStartBtn');
+
+let currentUser='',currentAge='',currentGender='';
+let imageLibrary=[],currentImageIdx=0,viewedImages={};
+let fixationHistory=[],currentFixation=null,scanPathHistory=[],saccadeHistory=[],saccadeActive=false,saccadeStart=null;
+let heatmap=new Float32Array(W_HEAT*H_HEAT),heatCanvas,heatCtx2;
+let firstFix=null,firstFixDone=false,firstFixModeTs=0,sessionStartTs=0,gazeLog=[];
+let rawGX=0.5,rawGY=0.5,sGX=0.5,sGY=0.5,gazeOn=false,lastGazeTs=0;
+let curOffX=0.5,curOffY=0.5,curEyeOffX=0.5,curEyeOffY=0.5,eyeValid=false;
+const offXBuf=[],offYBuf=[],eyeOffXBuf=[],eyeOffYBuf=[];
+let eyeCalMap=null;
+window._gazeHistory=[];
+let currentAnimation=null,dataActiveLayer='GAZE',playMode='ANIMATED',showImg=true,viewSession=null;
+const allSessions=[];
+
+function eyeStab(){const N=Math.min(eyeOffXBuf.length,20);if(N<8)return 0;const xs=eyeOffXBuf.slice(-N),ys=eyeOffYBuf.slice(-N);const mx=xs.reduce((a,b)=>a+b,0)/N,my=ys.reduce((a,b)=>a+b,0)/N;const vx=xs.reduce((a,b)=>a+(b-mx)**2,0)/N,vy=ys.reduce((a,b)=>a+(b-my)**2,0)/N;return Math.max(0,Math.min(1,1-(vx+vy)/CAL_VAR_THRESH));}
+
+function updateFixations(ts){const gh=window._gazeHistory;if(gh.length<2)return;const win=gh.filter(p=>p.ts>ts-600);if(win.length<2)return;const xs=win.map(p=>p.x),ys=win.map(p=>p.y);const disp=(Math.max(...xs)-Math.min(...xs))+(Math.max(...ys)-Math.min(...ys));if(disp<FIX_DISPERSION){const cx=xs.reduce((a,b)=>a+b,0)/xs.length,cy=ys.reduce((a,b)=>a+b,0)/ys.length;if(!currentFixation){currentFixation={startTs:ts,cx,cy};}else{currentFixation.cx=cx;currentFixation.cy=cy;currentFixation.duration=ts-currentFixation.startTs;}}else{if(currentFixation){const dur=ts-currentFixation.startTs;if(dur>=FIX_MIN_DURATION){const fe={x:currentFixation.cx,y:currentFixation.cy,startTs:currentFixation.startTs,endTs:ts,duration:dur};fixationHistory.push(fe);if(fixationHistory.length>100)fixationHistory.shift();scanPathHistory.push(fe);if(scanPathHistory.length>50)scanPathHistory.shift();}currentFixation=null;}}}
+
+function updateSaccades(ts){const gh=window._gazeHistory;if(gh.length<2)return;const last=gh[gh.length-1],prev=gh[gh.length-2],dt=(last.ts-prev.ts)/1000;if(dt<=0)return;const vel=Math.hypot(last.x-prev.x,last.y-prev.y)/dt;if(vel>=SAC_VELOCITY){if(!saccadeActive){saccadeActive=true;saccadeStart={x:prev.x,y:prev.y,ts:prev.ts};}}else{if(saccadeActive&&saccadeStart){const amp=Math.hypot(last.x-saccadeStart.x,last.y-saccadeStart.y);if(amp>=SAC_MIN_AMP){saccadeHistory.push({fromX:saccadeStart.x,fromY:saccadeStart.y,toX:last.x,toY:last.y,startTs:saccadeStart.ts,endTs:ts,duration:ts-saccadeStart.ts});if(saccadeHistory.length>100)saccadeHistory.shift();}saccadeActive=false;saccadeStart=null;}}}
+
+function updateHeatmap(){for(let i=0;i<heatmap.length;i++)heatmap[i]*=HEAT_DECAY;const gx=sGX*W_HEAT,gy=sGY*H_HEAT,sigma=HEAT_SIGMA*Math.max(W_HEAT,H_HEAT),r=Math.ceil(3*sigma);const x0=Math.max(0,Math.floor(gx-r)),x1=Math.min(W_HEAT-1,Math.ceil(gx+r));const y0=Math.max(0,Math.floor(gy-r)),y1=Math.min(H_HEAT-1,Math.ceil(gy+r));const inv2s2=1/(2*sigma*sigma);for(let y=y0;y<=y1;y++)for(let x=x0;x<=x1;x++)heatmap[y*W_HEAT+x]+=HEAT_WEIGHT*Math.exp(-((x-gx)**2+(y-gy)**2)*inv2s2);}
+function updateFirstFix(){if(firstFixDone)return;const recent=fixationHistory.filter(f=>f.startTs>=firstFixModeTs);if(recent.length>0){firstFix=recent[0];firstFixDone=true;}}
+function drawFrame(){dotCtx.clearRect(0,0,dotCanvas.width,dotCanvas.height);}
+function applyGaze(ts){lastGazeTs=ts;sGX+=(rawGX-sGX)*GAZE_LERP;sGY+=(rawGY-sGY)*GAZE_LERP;const W=imgWrapper.offsetWidth,H=imgWrapper.offsetHeight;if(!W||!H)return;const rect=imgWrapper.getBoundingClientRect();gazeDot.style.left=(rect.left+sGX*W)+'px';gazeDot.style.top=(rect.top+sGY*H)+'px';window._gazeHistory.push({x:sGX,y:sGY,ts});if(window._gazeHistory.length>90)window._gazeHistory.shift();}
+function mainLoop(ts){applyGaze(ts);updateFixations(ts);updateSaccades(ts);updateHeatmap();updateFirstFix();drawFrame();requestAnimationFrame(mainLoop);}
+
+function fitAffine(data){let A00=0,A01=0,A02=0,A11=0,A12=0,Bx0=0,Bx1=0,Bx2=0,By0=0,By1=0,By2=0;const n=data.length;for(const d of data){A00+=d.ox*d.ox;A01+=d.ox*d.oy;A02+=d.ox;A11+=d.oy*d.oy;A12+=d.oy;Bx0+=d.ox*d.sx;Bx1+=d.oy*d.sx;Bx2+=d.sx;By0+=d.ox*d.sy;By1+=d.oy*d.sy;By2+=d.sy;}const M=[[A00,A01,A02],[A01,A11,A12],[A02,A12,n]];const inv=inv3(M);if(!inv)return null;const[ax,bx,cx]=mv3(inv,[Bx0,Bx1,Bx2]);const[ay,by,cy]=mv3(inv,[By0,By1,By2]);return{ax,bx,cx,ay,by,cy};}
+function inv3(m){const[[a,b,c],[d,e,f],[g,h,k]]=m;const det=a*(e*k-f*h)-b*(d*k-f*g)+c*(d*h-e*g);if(Math.abs(det)<1e-12)return null;const s=1/det;return[[(e*k-f*h)*s,(c*h-b*k)*s,(b*f-c*e)*s],[(f*g-d*k)*s,(a*k-c*g)*s,(c*d-a*f)*s],[(d*h-e*g)*s,(b*g-a*h)*s,(a*e-b*d)*s]];}
+function mv3(m,v){return[m[0][0]*v[0]+m[0][1]*v[1]+m[0][2]*v[2],m[1][0]*v[0]+m[1][1]*v[1]+m[1][2]*v[2],m[2][0]*v[0]+m[2][1]*v[1]+m[2][2]*v[2]];}
+
+function resizeCal(){
+  const dpr=window.devicePixelRatio||1;
+  calCanvas.width=window.innerWidth*dpr;
+  calCanvas.height=window.innerHeight*dpr;
+  calCanvas.style.width=window.innerWidth+'px';
+  calCanvas.style.height=window.innerHeight+'px';
+  calCtx.scale(dpr,dpr);
+}
+
+/* ── Canvas font: all Urbanist ── */
+function drawCalIntro(){const W=window.innerWidth,H=window.innerHeight;
+  const grad=calCtx.createRadialGradient(W*0.15,H*0.08,0,W*0.15,H*0.08,W*0.7);
+  grad.addColorStop(0,'rgba(178,224,243,0.7)');
+  grad.addColorStop(1,'rgba(237,247,253,1)');
+  calCtx.fillStyle='#edf7fd';
+  calCtx.fillRect(0,0,W,H);
+  calCtx.fillStyle=grad;
+  calCtx.fillRect(0,0,W,H);
+  calCtx.textAlign='center';
+  calCtx.fillStyle='#aaa';
+  calCtx.font='700 11px Urbanist';
+  calCtx.fillText('VISUAL ANALYSIS SYSTEM',W/2,H/2-130);
+  calCtx.fillStyle='#111';
+  calCtx.font='700 28px Urbanist';
+  calCtx.fillText('EYE TRACKING CALIBRATION',W/2,H/2-90);
+  calCtx.strokeStyle='rgba(178,224,243,0.5)';
+  calCtx.lineWidth=1;
+  calCtx.beginPath();
+  calCtx.moveTo(W/2-200,H/2-68);
+  calCtx.lineTo(W/2+200,H/2-68);
+  calCtx.stroke();
+  calCtx.fillStyle='#111';
+  calCtx.font='300 14px Urbanist';
+  calCtx.fillText('Keep your head still - move only your eyes to each dot',W/2,H/2-42);
+  calCtx.fillText('Hold your gaze until the ring fills completely',W/2,H/2-18);
+  calCtx.strokeStyle='rgba(178,224,243,0.3)';
+  calCtx.beginPath();
+  calCtx.moveTo(W/2-200,H/2+4);
+  calCtx.lineTo(W/2+200,H/2+4);
+  calCtx.stroke();
+  calCtx.fillStyle='#111';
+  calCtx.font='300 13px Urbanist';
+  calCtx.fillText('After calibration, you will see 5 political images, one at a time.',W/2,H/2+26);
+  calCtx.fillText('Look naturally - there are no right or wrong answers.',W/2,H/2+48);
+  calCtx.fillStyle='#555';
+  calCtx.font='300 11px Urbanist';
+  calCtx.fillText('Each image will appear for 12 seconds.',W/2,H/2+70);
+}
+function drawCalDone(){const W=window.innerWidth,H=window.innerHeight;
+  const grad=calCtx.createRadialGradient(W*0.15,H*0.08,0,W*0.15,H*0.08,W*0.7);
+  grad.addColorStop(0,"rgba(178,224,243,0.7)");grad.addColorStop(1,"rgba(237,247,253,1)");
+  calCtx.fillStyle="#edf7fd";calCtx.fillRect(0,0,W,H);
+  calCtx.fillStyle=grad;calCtx.fillRect(0,0,W,H);
+  calCtx.textAlign="center";
+  calCtx.fillStyle="#111";calCtx.font="700 28px Urbanist";
+  calCtx.fillText("READY",W/2,H/2-8);
+  calCtx.fillStyle="#aaa";calCtx.font="300 13px Urbanist";
+  calCtx.fillText('Calibration complete - the session is about to begin.',W/2,H/2+20);
+}
+function awaitDot(px,py,index){return new Promise(resolve=>{let progress=0,prevTs=null;const samples=[];function frame(ts){const dt=prevTs?Math.min((ts-prevTs)/1000,0.05):0;prevTs=ts;const s=eyeStab();progress+=s*CAL_FILL_RATE*dt;progress-=(1-s)*CAL_DRAIN_RATE*dt;progress=Math.max(0,Math.min(1,progress));if(s>0.45&&eyeValid)samples.push({ox:curEyeOffX,oy:curEyeOffY});const W=window.innerWidth,H=window.innerHeight;
+  const grad=calCtx.createRadialGradient(W*0.15,H*0.08,0,W*0.15,H*0.08,W*0.7);
+  grad.addColorStop(0,'rgba(178,224,243,0.7)');grad.addColorStop(1,'rgba(237,247,253,1)');
+  calCtx.fillStyle='#edf7fd';calCtx.fillRect(0,0,W,H);
+  calCtx.fillStyle=grad;calCtx.fillRect(0,0,W,H);
+  calCtx.textAlign='right';calCtx.fillStyle='#bbb';calCtx.font='400 14px Urbanist';calCtx.fillText((index+1)+'  /  '+CAL_PTS.length,W-28,36);calCtx.beginPath();calCtx.arc(px,py,22,0,Math.PI*2);calCtx.strokeStyle='rgba(178,224,243,0.5)';calCtx.lineWidth=1.5;calCtx.stroke();if(progress>0){calCtx.beginPath();calCtx.arc(px,py,22,-Math.PI/2,-Math.PI/2+progress*Math.PI*2);calCtx.strokeStyle='rgba(255,0,3,'+(0.35+s*0.65)+')';calCtx.lineWidth=2;calCtx.stroke();}const r=3.5+s*2.5;calCtx.beginPath();calCtx.arc(px,py,r,0,Math.PI*2);calCtx.fillStyle='rgba(255,0,3,'+(0.2+s*0.8)+')';calCtx.fill();if(progress>=1){calCtx.beginPath();calCtx.arc(px,py,22,0,Math.PI*2);calCtx.strokeStyle='rgba(255,0,3,0.9)';calCtx.lineWidth=2;calCtx.stroke();const n=samples.length||1;setTimeout(()=>resolve({ox:samples.reduce((a,v)=>a+v.ox,0)/n,oy:samples.reduce((a,v)=>a+v.oy,0)/n}),280);}else requestAnimationFrame(frame);}requestAnimationFrame(frame);});}
+
+async function runCalibration(){
+  const nav=document.getElementById('mainNav');
+  nav.style.display='none';
+  nav.style.background='transparent';
+  resizeCal();window.addEventListener('resize',resizeCal);drawCalIntro();calStartBtn.style.display='block';await new Promise(r=>calStartBtn.addEventListener('click',r,{once:true}));calStartBtn.style.display='none';const calData=[];for(let i=0;i<CAL_PTS.length;i++){const[nx,ny]=CAL_PTS[i],px=nx*window.innerWidth,py=ny*window.innerHeight;if(i>0)await new Promise(r=>setTimeout(r,320));const{ox,oy}=await awaitDot(px,py,i);calData.push({sx:nx,sy:ny,ox,oy});}if(calData.length>=4)eyeCalMap=fitAffine(calData);drawCalDone();await new Promise(r=>setTimeout(r,900));calOverlay.style.display='none';nav.style.display='flex';}
+
+async function startEyeTracking(){let fl;try{const fs=await FilesetResolver.forVisionTasks('https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.14/wasm');fl=await FaceLandmarker.createFromOptions(fs,{baseOptions:{modelAssetPath:'https://storage.googleapis.com/mediapipe-models/face_landmarker/face_landmarker/float16/1/face_landmarker.task',delegate:'GPU'},outputFaceBlendshapes:false,runningMode:'VIDEO',numFaces:1});}catch(e){console.warn('[eye]',e);return false;}try{const webcamEl=document.createElement('video');webcamEl.style.cssText='position:fixed;bottom:8px;right:8px;width:1px;height:1px;opacity:0;';webcamEl.autoplay=true;webcamEl.muted=true;webcamEl.playsInline=true;document.body.appendChild(webcamEl);const stream=await navigator.mediaDevices.getUserMedia({video:{facingMode:'user',width:{ideal:320},height:{ideal:240}}});webcamEl.srcObject=stream;await new Promise(r=>{webcamEl.onloadeddata=r;});let lastCamT=-1;function track(){if(webcamEl.readyState>=2&&webcamEl.currentTime!==lastCamT){lastCamT=webcamEl.currentTime;try{const res=fl.detectForVideo(webcamEl,performance.now());if(res.faceLandmarks?.length>0){const lm=res.faceLandmarks[0];const nose=lm[1],brow=lm[168],chin=lm[152],lChk=lm[234],rChk=lm[454];const hxR=(nose.x*4+brow.x+chin.x+lChk.x+rChk.x)/8,hyR=(nose.y*4+brow.y+chin.y+lChk.y+rChk.y)/8;curOffX=1-hxR;curOffY=hyR;offXBuf.push(curOffX);if(offXBuf.length>BUF_MAX)offXBuf.shift();offYBuf.push(curOffY);if(offYBuf.length>BUF_MAX)offYBuf.shift();const lI=lm[468],rI=lm[473],lIn=lm[33],lO=lm[133],rIn=lm[362],rO=lm[263];if(lI&&rI&&lIn&&lO&&rIn&&rO){const lEW=Math.hypot(lO.x-lIn.x,lO.y-lIn.y),rEW=Math.hypot(rO.x-rIn.x,rO.y-rIn.y);if(lEW>0.01&&rEW>0.01){let eX=((lI.x-lIn.x)/lEW+(rI.x-rIn.x)/rEW)/2,eY=((lI.y-lIn.y)/lEW+(rI.y-rIn.y)/rEW)/2;eX=(eX-0.5)*2.5+0.5;eY=(eY-0.5)*2.5+0.5;eX=1-eX;curEyeOffX=eX;curEyeOffY=eY;eyeOffXBuf.push(eX);if(eyeOffXBuf.length>BUF_MAX)eyeOffXBuf.shift();eyeOffYBuf.push(eY);if(eyeOffYBuf.length>BUF_MAX)eyeOffYBuf.shift();eyeValid=true;if(eyeCalMap){rawGX=eyeCalMap.ax*eX+eyeCalMap.bx*eY+eyeCalMap.cx;rawGY=eyeCalMap.ay*eX+eyeCalMap.by*eY+eyeCalMap.cy;}else{rawGX=eX;rawGY=eY;}rawGX=Math.max(0,Math.min(1,rawGX));rawGY=Math.max(0,Math.min(1,rawGY));if(!gazeOn){gazeOn=true;infoEl.style.opacity='0';}}else eyeValid=false;}else eyeValid=false;}}catch(_){}}requestAnimationFrame(track);}requestAnimationFrame(track);}catch(e){console.warn('[eye] webcam',e);return false;}return true;}
+
+function enablePointerFallback(){infoEl.textContent='MOVE MOUSE TO EXPLORE';const onMove=(cx,cy)=>{const rect=imgWrapper.getBoundingClientRect();const nx=(cx-rect.left)/rect.width,ny=(cy-rect.top)/rect.height;if(nx>=0&&nx<=1&&ny>=0&&ny<=1){rawGX=nx;rawGY=ny;if(!gazeOn){gazeOn=true;infoEl.style.opacity='0';}}};document.addEventListener('mousemove',e=>onMove(e.clientX,e.clientY));document.addEventListener('touchmove',e=>{e.preventDefault();onMove(e.touches[0].clientX,e.touches[0].clientY);},{passive:false});}
+
+function isImageViewed(i){return !!viewedImages[currentUser+'::'+i];}
+function markImageViewed(i){viewedImages[currentUser+'::'+i]=true;}
+function showLib(){document.getElementById('libraryScreen').style.display='flex';renderLib();}
+function renderLib(){const grid=document.getElementById('libGrid');grid.innerHTML='';imageLibrary.forEach((img,i)=>{const viewed=isImageViewed(i);const card=document.createElement('div');card.className='lib-card'+(i===currentImageIdx&&!viewed?' selected':'')+(viewed?' viewed-once':'');card.innerHTML='<img src="'+img.src+'" alt="'+img.name+'"/><span class="lib-num">'+String(i+1).padStart(2,'0')+'</span>';if(!viewed){card.onclick=()=>{currentImageIdx=i;document.querySelectorAll('.lib-card').forEach(c=>c.classList.remove('selected'));card.classList.add('selected');updateBeginBtn();};}else{card.style.cursor='default';}grid.appendChild(card);});const add=document.createElement('div');add.className='lib-add';add.innerHTML='<span class="lib-add-plus">+</span><span class="lib-add-label">ADD IMAGE</span>';add.onclick=()=>document.getElementById('libFileInput').click();grid.appendChild(add);updateBeginBtn();}
+function updateBeginBtn(){const btn=document.getElementById('libBeginBtn');const ok=imageLibrary.length>0&&!isImageViewed(currentImageIdx);btn.disabled=!ok;btn.style.opacity=ok?'1':'0.4';}
+document.getElementById('libFileInput').addEventListener('change',e=>{Array.from(e.target.files).forEach(file=>{const r=new FileReader();r.onload=ev=>{imageLibrary.push({src:ev.target.result,name:file.name.replace(/\.[^.]+$/,'')});renderLib();};r.readAsDataURL(file);});e.target.value='';});
+
+function generateCode(){
+  const chars='ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+  let code='P-';
+  for(let i=0;i<4;i++) code+=chars[Math.floor(Math.random()*chars.length)];
+  return code;
+}
+
+async function showNameScreen(initialTab='signup'){return new Promise(resolve=>{
+  document.getElementById('aboutScreen').style.display='none';
+  document.getElementById('homeScreen').style.display='none';
+  const scr=document.getElementById('nameScreen');
+  const step1=document.getElementById('nsFormStep1');
+  const step2=document.getElementById('nsFormStep2');
+  const formLogin=document.getElementById('nsFormLogin');
+  const ageInp=document.getElementById('ageInput');
+  const genderInp=document.getElementById('genderInput');
+  const btn=document.getElementById('nameContinue');
+  const codeEl=document.getElementById('nsCode');
+  const codeBtn=document.getElementById('nsCodeContinue');
+  const loginBtn=document.getElementById('nsLoginBtn');
+  const loginInput=document.getElementById('loginCodeInput');
+  const loginError=document.getElementById('nsLoginError');
+  const tabSignup=document.getElementById('nsTabSignup');
+  const tabLogin=document.getElementById('nsTabLogin');
+
+  const showSignup=()=>{
+    step1.style.display='flex';step2.style.display='none';formLogin.style.display='none';
+    tabSignup.style.color='#111';tabSignup.style.borderBottomColor='#111';
+    tabLogin.style.color='#bbb';tabLogin.style.borderBottomColor='transparent';
+  };
+  const showLogin=()=>{
+    step1.style.display='none';step2.style.display='none';formLogin.style.display='flex';
+    tabLogin.style.color='#111';tabLogin.style.borderBottomColor='#111';
+    tabSignup.style.color='#bbb';tabSignup.style.borderBottomColor='transparent';
+    setTimeout(()=>loginInput.focus(),50);
+  };
+
+  tabSignup.onclick=showSignup;
+  tabLogin.onclick=showLogin;
+  if(initialTab==='login') showLogin(); else showSignup();
+  scr.style.display='flex';
+
+  // SIGN UP
+  btn.onclick=async()=>{
+    const code=generateCode();
+    currentUser=code;
+    currentAge=ageInp.value.trim();
+    currentGender=genderInp.value;
+
+    // Save to Supabase FIRST, then show code
+    btn.textContent='...';
+    let saveOk = false;
+    try{
+      await sbFetch('profiles?on_conflict=name',{
+        method:'POST',
+        headers:{'Prefer':'resolution=merge-duplicates,return=minimal'},
+        body:JSON.stringify({name:currentUser,age:currentAge,gender:currentGender,location:userLocation})
+      });
+      saveOk = true;
+      console.log('[profile:create] saved', currentUser);
+    }catch(e){
+      console.warn('[profile:create] FAILED', e);
+      // Show code anyway but warn user
+      codeEl.textContent=code;
+      codeEl.style.color='#FF0003';
+      step1.style.display='none';
+      step2.style.display='flex';
+      const warnEl = document.getElementById('nsCodeWarning');
+      if(warnEl) warnEl.style.display='block';
+      btn.textContent='CONTINUE';
+      return;
+    }
+
+    codeEl.textContent=code;
+    step1.style.display='none';
+    step2.style.display='flex';
+    btn.textContent='CONTINUE';
+  };
+  codeBtn.onclick=()=>{ scr.style.display='none'; resolve(); };
+
+  // LOG IN
+  const doLogin=async()=>{
+    const code=loginInput.value.trim().toUpperCase();
+    if(!code){loginInput.focus();return;}
+    loginError.style.display='none';
+    loginBtn.textContent='...';
+
+    // First check local sessions (in case Supabase save failed)
+    const localMatch = allSessions.find(s=>s.user===code);
+    if(localMatch){
+      currentUser=code;
+      currentAge=localMatch.age||'';
+      currentGender=localMatch.gender||'';
+      scr.style.display='none';
+      resolve();
+      return;
+    }
+
+    // Then check Supabase
+    try{
+      const rows=await sbFetch(`profiles?name=eq.${encodeURIComponent(code)}&select=*`);
+      if(!rows||rows.length===0){
+        loginError.style.display='block';
+        loginBtn.textContent='LOG IN';
+        return;
+      }
+      const profile=rows[0];
+      currentUser=code;
+      currentAge=profile.age||'';
+      currentGender=profile.gender||'';
+      scr.style.display='none';
+      resolve();
+    }catch(e){
+      console.warn('[login]',e);
+      loginError.style.display='block';
+      loginBtn.textContent='LOG IN';
+    }
+  };
+  loginBtn.onclick=doLogin;
+  loginInput.onkeydown=e=>{ if(e.key==='Enter') doLogin(); };
+});}
+function startSessionInfoOverlay(){}
+function stopSessionInfoOverlay(){}
+
+function renderDataSessionBadge(sess){const dur=sess.sessionDuration?(sess.sessionDuration/1000).toFixed(1)+'s':'--';document.getElementById('dsb-samples').textContent=sess.gazeLog?.length||'--';document.getElementById('dsb-duration').textContent=dur;document.getElementById('dsb-location').textContent=sess.location||'--';document.getElementById('dsb-name').textContent=sess.user||'--';document.getElementById('dsb-age').textContent=sess.age||'--';document.getElementById('dsb-gender').textContent=sess.gender||'--';document.getElementById('dsbContent').classList.remove('collapsed');document.getElementById('dsbToggle').classList.remove('collapsed');}
+
+const ANALYSIS_LAYERS=['FIXATION','SACCADE','SCANPATH','HEATMAP','FIRSTFIX'];
+function renderAnalysisBadge(layer,sess){
+  const badge=document.getElementById('dataAnalysisBadge');
+  const content=document.getElementById('dabContent');
+  const headerLabel=document.getElementById('dabHeaderLabel');
+  if(!ANALYSIS_LAYERS.includes(layer)){badge.style.display='none';return;}
+  badge.style.display='flex';content.innerHTML='';
+  const fh=sess.fixationHistory||[],sh=sess.saccadeHistory||[],sp=sess.scanPathHistory||[],ff=sess.firstFix,ft=sess.firstFixModeTs||0;
+  function row(label,val,unit){const d=document.createElement('div');d.className='dab-row';d.innerHTML='<span class="dab-name">'+label+'</span><span><span class="dab-val">'+val+'</span>'+(unit?'<span class="dab-unit">'+unit+'</span>':'')+'</span>';return d;}
+  if(layer==='FIXATION'){headerLabel.textContent='FIXATION';const fixC=fh.length,fixAvg=fixC?Math.round(fh.reduce((s,f)=>s+f.duration,0)/fixC):0,fixTotal=fh.reduce((s,f)=>s+f.duration,0);content.appendChild(row('Count',fixC||'--'));content.appendChild(row('Avg dur',fixAvg||'--','ms'));content.appendChild(row('Total dwell',fixTotal||'--','ms'));}
+  else if(layer==='SACCADE'){headerLabel.textContent='SACCADE';const sacC=sh.length,sacAmp=sacC?+(sh.reduce((s,f)=>s+Math.hypot(f.toX-f.fromX,f.toY-f.fromY),0)/sacC*100).toFixed(1):0;content.appendChild(row('Count',sacC||'--'));content.appendChild(row('Avg amp',sacAmp||'--','%'));}
+  else if(layer==='SCANPATH'){headerLabel.textContent='SCAN PATH';content.appendChild(row('Steps',sp.length||'--'));}
+  else if(layer==='HEATMAP'){headerLabel.textContent='HEATMAP';content.appendChild(row('Samples',sess.gazeLog?.length||'--'));}
+  else if(layer==='FIRSTFIX'){headerLabel.textContent='FIRST FIXATION';const ttff=ff?((ff.startTs-ft)/1000):null;content.appendChild(row('TTFF',ttff!==null?ttff.toFixed(2)+'s':'--'));content.appendChild(row('X',ff?(ff.x*100).toFixed(1)+'%':'--'));content.appendChild(row('Y',ff?(ff.y*100).toFixed(1)+'%':'--'));}
+  content.classList.remove('collapsed');document.getElementById('dabToggle').classList.remove('collapsed');
+}
+
+function buildHeatmapFromLog(log,hmW,hmH){const hm=new Float32Array(hmW*hmH),sigma=0.07*Math.max(hmW,hmH),r=Math.ceil(3*sigma),inv2s2=1/(2*sigma*sigma);for(const p of log){const gx=p.x*hmW,gy=p.y*hmH,x0=Math.max(0,Math.floor(gx-r)),x1=Math.min(hmW-1,Math.ceil(gx+r)),y0=Math.max(0,Math.floor(gy-r)),y1=Math.min(hmH-1,Math.ceil(gy+r));for(let y=y0;y<=y1;y++)for(let x=x0;x<=x1;x++)hm[y*hmW+x]+=0.18*Math.exp(-((x-gx)**2+(y-gy)**2)*inv2s2);}return hm;}
+function getMSSegs(idx,T,R,B,L){switch(idx){case 1:return[[L,B]];case 2:return[[R,B]];case 3:return[[L,R]];case 4:return[[T,R]];case 5:return[[T,R],[L,B]];case 6:return[[T,B]];case 7:return[[T,L]];case 8:return[[T,L]];case 9:return[[T,B]];case 10:return[[L,T],[R,B]];case 11:return[[T,R]];case 12:return[[L,R]];case 13:return[[R,B]];case 14:return[[L,B]];default:return[];}}
+function drawMarchingSquares(ctx,W,H,hm,hmW,hmH,col='255,0,3'){let maxVal=0;for(let i=0;i<hm.length;i++)if(hm[i]>maxVal)maxVal=hm[i];if(maxVal<0.01)return;const levels=[0.15,0.3,0.45,0.6,0.75,0.9];for(const level of levels){ctx.strokeStyle='rgba('+col+','+Math.min(1,(0.55+level*0.5)).toFixed(2)+')';ctx.lineWidth=3.5;ctx.beginPath();for(let cy=0;cy<hmH-1;cy++)for(let cx=0;cx<hmW-1;cx++){const vTL=hm[cy*hmW+cx]/maxVal,vTR=hm[cy*hmW+(cx+1)]/maxVal,vBR=hm[(cy+1)*hmW+(cx+1)]/maxVal,vBL=hm[(cy+1)*hmW+cx]/maxVal;const idx=(vTL>=level?8:0)+(vTR>=level?4:0)+(vBR>=level?2:0)+(vBL>=level?1:0);if(idx===0||idx===15)continue;const sx0=cx*W/hmW,sx1=(cx+1)*W/hmW,sy0=cy*H/hmH,sy1=(cy+1)*H/hmH;function lerp(v0,v1){return Math.abs(v1-v0)<1e-10?0.5:Math.max(0,Math.min(1,(level-v0)/(v1-v0)));}const T=[sx0+lerp(vTL,vTR)*(sx1-sx0),sy0],R=[sx1,sy0+lerp(vTR,vBR)*(sy1-sy0)],B=[sx0+lerp(vBL,vBR)*(sx1-sx0),sy1],L=[sx0,sy0+lerp(vTL,vBL)*(sy1-sy0)];for(const[p1,p2]of getMSSegs(idx,T,R,B,L)){ctx.moveTo(p1[0],p1[1]);ctx.lineTo(p2[0],p2[1]);}}ctx.stroke();}}
+
+function staticGaze(ctx,W,H,log,col='255,0,3'){ctx.clearRect(0,0,W,H);ctx.fillStyle='rgba('+col+',0.9)';for(const p of log){ctx.beginPath();ctx.arc(p.x*W,p.y*H,5,0,Math.PI*2);ctx.fill();}}
+function staticFixation(ctx,W,H,history,col='255,0,3'){ctx.clearRect(0,0,W,H);for(const fix of history){const cx=fix.x*W,cy=fix.y*H,r=Math.min(8+fix.duration/80,44);ctx.beginPath();ctx.arc(cx,cy,r,0,Math.PI*2);ctx.fillStyle='rgba('+col+',0.3)';ctx.fill();ctx.beginPath();ctx.arc(cx,cy,r,0,Math.PI*2);ctx.strokeStyle='rgba('+col+',1)';ctx.lineWidth=2.5;ctx.stroke();if(fix.duration>300){ctx.fillStyle='rgba('+col+',1)';ctx.font='700 10px Urbanist';ctx.textAlign='center';ctx.textBaseline='alphabetic';ctx.fillText(Math.round(fix.duration)+'ms',cx,cy+r+13);}}}
+function staticSaccade(ctx,W,H,history,col='255,0,3'){ctx.clearRect(0,0,W,H);for(const sac of history){const fx=sac.fromX*W,fy=sac.fromY*H,tx=sac.toX*W,ty=sac.toY*H;ctx.beginPath();ctx.moveTo(fx,fy);ctx.lineTo(tx,ty);ctx.strokeStyle='rgba('+col+',1)';ctx.lineWidth=2.5;ctx.stroke();const a=Math.atan2(ty-fy,tx-fx),l=11;ctx.beginPath();ctx.moveTo(tx,ty);ctx.lineTo(tx-l*Math.cos(a-Math.PI/6),ty-l*Math.sin(a-Math.PI/6));ctx.lineTo(tx-l*Math.cos(a+Math.PI/6),ty-l*Math.sin(a+Math.PI/6));ctx.closePath();ctx.fillStyle='rgba('+col+',1)';ctx.fill();}}
+function staticScanPath(ctx,W,H,history,col='255,0,3'){ctx.clearRect(0,0,W,H);if(!history.length)return;const R=12;if(history.length>=2){ctx.save();ctx.setLineDash([4,6]);ctx.strokeStyle='rgba('+col+',1)';ctx.lineWidth=2.5;ctx.beginPath();for(let j=0;j<history.length-1;j++){const ax=history[j].x*W,ay=history[j].y*H,bx=history[j+1].x*W,by=history[j+1].y*H;const dx=bx-ax,dy=by-ay,dist=Math.hypot(dx,dy);if(dist<1)continue;const ux=dx/dist,uy=dy/dist;ctx.moveTo(ax+ux*R,ay+uy*R);ctx.lineTo(bx-ux*R,by-uy*R);}ctx.stroke();ctx.setLineDash([]);ctx.restore();}for(let j=0;j<history.length;j++){const cx=history[j].x*W,cy=history[j].y*H;ctx.beginPath();ctx.arc(cx,cy,R,0,Math.PI*2);ctx.strokeStyle='rgba('+col+',1)';ctx.lineWidth=3;ctx.stroke();ctx.fillStyle='rgba('+col+',1)';ctx.font='700 10px Urbanist';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText(j+1,cx,cy);ctx.textBaseline='alphabetic';}}
+function staticHeatmap(ctx,W,H,log,col='255,0,3'){ctx.clearRect(0,0,W,H);const hmW=200,hmH=112;drawMarchingSquares(ctx,W,H,buildHeatmapFromLog(log,hmW,hmH),hmW,hmH,col);}
+function staticFirstFix(ctx,W,H,fix,modeTs,col='255,0,3'){ctx.clearRect(0,0,W,H);if(!fix){ctx.fillStyle='rgba(150,150,150,0.7)';ctx.font='300 11px Urbanist';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText('NO FIRST FIXATION DETECTED',W/2,H/2);return;}const cx=fix.x*W,cy=fix.y*H,offset=modeTs?((fix.startTs-modeTs)/1000):0;ctx.beginPath();ctx.arc(cx,cy,14,0,Math.PI*2);ctx.fillStyle='rgba('+col+',1)';ctx.fill();ctx.textAlign='center';ctx.textBaseline='alphabetic';ctx.fillStyle='rgba('+col+',1)';ctx.font='700 11px Urbanist';ctx.fillText('FIRST FIXATION',cx,cy-46);ctx.font='300 9px Urbanist';ctx.fillText('+'+offset.toFixed(2)+'s',cx,cy-32);}
+
+function buildModePreviews(){
+  const modes=[{key:'GAZE',name:'GAZE',desc:'Sample-by-sample gaze positions.'},{key:'FIXATION',name:'FIXATION',desc:'Circles proportional to dwell time.'},{key:'SACCADE',name:'SACCADE',desc:'Rapid eye jumps between regions.'},{key:'SCANPATH',name:'SCAN PATH',desc:'Ordered sequence of fixated areas.'},{key:'HEATMAP',name:'HEATMAP',desc:'Contour density map of attention.'},{key:'FIRSTFIX',name:'FIRST FIXATION',desc:'First area captured after onset.'},];
+  const gazeLog=[{x:0.22,y:0.32},{x:0.24,y:0.34},{x:0.52,y:0.25},{x:0.54,y:0.27},{x:0.70,y:0.50},{x:0.72,y:0.52},{x:0.36,y:0.65},{x:0.38,y:0.63},{x:0.50,y:0.42},{x:0.26,y:0.48},{x:0.66,y:0.22},{x:0.56,y:0.70}];
+  const fixHist=[{x:0.22,y:0.32,duration:280},{x:0.52,y:0.25,duration:420},{x:0.70,y:0.50,duration:200},{x:0.36,y:0.65,duration:380}];
+  const sacHist=[{fromX:0.22,fromY:0.32,toX:0.52,toY:0.25},{fromX:0.52,fromY:0.25,toX:0.70,toY:0.50},{fromX:0.70,fromY:0.50,toX:0.36,toY:0.65}];
+  const firstFixPrev={x:0.22,y:0.32,startTs:80};
+  const grid=document.getElementById('modesGrid');grid.innerHTML='';
+  for(const m of modes){
+    const card=document.createElement('div');card.className='mode-card';
+    const wrap=document.createElement('div');wrap.className='mode-preview-wrap';
+    const canvas=document.createElement('canvas');canvas.className='mode-preview';
+    const dpr=window.devicePixelRatio||1;
+    const CW=300,CH=120;
+    canvas.width=CW*dpr;canvas.height=CH*dpr;
+    canvas.style.width=CW+'px';canvas.style.height=CH+'px';
+    wrap.appendChild(canvas);card.innerHTML='<div class="mode-card-name">'+m.name+'</div>';card.appendChild(wrap);
+    const desc=document.createElement('div');desc.className='mode-card-desc';desc.textContent=m.desc;card.appendChild(desc);
+    grid.appendChild(card);
+    const ctx=canvas.getContext('2d');
+    ctx.scale(dpr,dpr);
+    const W=CW,H=CH;ctx.clearRect(0,0,W,H);
+    const M=10;
+    const safeX=x=>Math.max(M,Math.min(W-M,x));
+    const safeY=y=>Math.max(M,Math.min(H-M,y));
+    const R='rgba(255,0,3,1)',LW=1;
+    switch(m.key){
+      case 'GAZE':for(const p of gazeLog){ctx.beginPath();ctx.arc(safeX(p.x*W),safeY(p.y*H),2,0,Math.PI*2);ctx.fillStyle=R;ctx.fill();}break;
+      case 'FIXATION':for(const fix of fixHist){const cx=safeX(fix.x*W),cy=safeY(fix.y*H);const r=Math.min(6+fix.duration/130,H*0.3-M);ctx.beginPath();ctx.arc(cx,cy,r,0,Math.PI*2);ctx.strokeStyle=R;ctx.lineWidth=LW;ctx.stroke();ctx.beginPath();ctx.arc(cx,cy,2,0,Math.PI*2);ctx.fillStyle=R;ctx.fill();}break;
+      case 'SACCADE':for(const sac of sacHist){const fx=safeX(sac.fromX*W),fy=safeY(sac.fromY*H),tx=safeX(sac.toX*W),ty=safeY(sac.toY*H);ctx.beginPath();ctx.moveTo(fx,fy);ctx.lineTo(tx,ty);ctx.strokeStyle=R;ctx.lineWidth=LW;ctx.stroke();const a=Math.atan2(ty-fy,tx-fx),l=7;ctx.beginPath();ctx.moveTo(tx,ty);ctx.lineTo(tx-l*Math.cos(a-Math.PI/6),ty-l*Math.sin(a-Math.PI/6));ctx.lineTo(tx-l*Math.cos(a+Math.PI/6),ty-l*Math.sin(a+Math.PI/6));ctx.closePath();ctx.fillStyle=R;ctx.fill();}break;
+      case 'SCANPATH':{const PR=9;if(fixHist.length>=2){ctx.save();ctx.setLineDash([3,6]);ctx.strokeStyle=R;ctx.lineWidth=LW;ctx.beginPath();for(let j=0;j<fixHist.length-1;j++){const ax=safeX(fixHist[j].x*W),ay=safeY(fixHist[j].y*H),bx=safeX(fixHist[j+1].x*W),by=safeY(fixHist[j+1].y*H);const dx=bx-ax,dy=by-ay,dist=Math.hypot(dx,dy);if(dist<1)continue;const ux=dx/dist,uy=dy/dist;ctx.moveTo(ax+ux*PR,ay+uy*PR);ctx.lineTo(bx-ux*PR,by-uy*PR);}ctx.stroke();ctx.setLineDash([]);ctx.restore();}for(let j=0;j<fixHist.length;j++){const cx=safeX(fixHist[j].x*W),cy=safeY(fixHist[j].y*H);ctx.beginPath();ctx.arc(cx,cy,PR,0,Math.PI*2);ctx.strokeStyle=R;ctx.lineWidth=LW;ctx.stroke();ctx.fillStyle=R;ctx.font='700 8px Urbanist';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText(j+1,cx,cy);}break;}
+      case 'HEATMAP':{const hmW=50,hmH=20,hm=new Float32Array(hmW*hmH);const sigma=0.13*Math.max(hmW,hmH),hr=Math.ceil(3*sigma),inv2s2=1/(2*sigma*sigma);for(const p of gazeLog){const gx=p.x*hmW,gy=p.y*hmH,x0=Math.max(0,Math.floor(gx-hr)),x1=Math.min(hmW-1,Math.ceil(gx+hr)),y0=Math.max(0,Math.floor(gy-hr)),y1=Math.min(hmH-1,Math.ceil(gy+hr));for(let y=y0;y<=y1;y++)for(let x=x0;x<=x1;x++)hm[y*hmW+x]+=0.22*Math.exp(-((x-gx)**2+(y-gy)**2)*inv2s2);}let maxVal=0;for(let i=0;i<hm.length;i++)if(hm[i]>maxVal)maxVal=hm[i];if(maxVal>0.01){const levels=[0.2,0.4,0.6,0.8];const getMSS=(idx,T,R,B,L)=>{switch(idx){case 1:return[[L,B]];case 2:return[[R,B]];case 3:return[[L,R]];case 4:return[[T,R]];case 5:return[[T,R],[L,B]];case 6:return[[T,B]];case 7:return[[T,L]];case 8:return[[T,L]];case 9:return[[T,B]];case 10:return[[L,T],[R,B]];case 11:return[[T,R]];case 12:return[[L,R]];case 13:return[[R,B]];case 14:return[[L,B]];default:return[];}};for(const level of levels){ctx.strokeStyle='rgba(255,0,3,'+Math.min(1,(0.35+level*0.65)).toFixed(2)+')';ctx.lineWidth=LW;ctx.beginPath();for(let cy=0;cy<hmH-1;cy++)for(let cx2=0;cx2<hmW-1;cx2++){const vTL=hm[cy*hmW+cx2]/maxVal,vTR=hm[cy*hmW+(cx2+1)]/maxVal,vBR=hm[(cy+1)*hmW+(cx2+1)]/maxVal,vBL=hm[(cy+1)*hmW+cx2]/maxVal;const idx=(vTL>=level?8:0)+(vTR>=level?4:0)+(vBR>=level?2:0)+(vBL>=level?1:0);if(idx===0||idx===15)continue;const sx0=M+cx2*(W-2*M)/hmW,sx1=M+(cx2+1)*(W-2*M)/hmW,sy0=M+cy*(H-2*M)/hmH,sy1=M+(cy+1)*(H-2*M)/hmH;const lp=(v0,v1)=>Math.abs(v1-v0)<1e-10?0.5:Math.max(0,Math.min(1,(level-v0)/(v1-v0)));const T2=[sx0+lp(vTL,vTR)*(sx1-sx0),sy0],R2=[sx1,sy0+lp(vTR,vBR)*(sy1-sy0)],B2=[sx0+lp(vBL,vBR)*(sx1-sx0),sy1],L2=[sx0,sy0+lp(vTL,vBL)*(sy1-sy0)];for(const[p1,p2]of getMSS(idx,T2,R2,B2,L2)){ctx.moveTo(p1[0],p1[1]);ctx.lineTo(p2[0],p2[1]);}}ctx.stroke();}}}break;
+      case 'FIRSTFIX':{const cx=safeX(firstFixPrev.x*W),cy=safeY(firstFixPrev.y*H);[22,14].forEach(r=>{ctx.beginPath();ctx.arc(cx,cy,r,0,Math.PI*2);ctx.strokeStyle=R;ctx.lineWidth=LW;ctx.stroke();});ctx.beginPath();ctx.arc(cx,cy,5,0,Math.PI*2);ctx.fillStyle=R;ctx.fill();}break;
+    }
+  }
+}
+
+function cancelAnimation(){if(currentAnimation){currentAnimation.cancel();currentAnimation=null;}}
+function getDataCanvas(){const dc=document.getElementById('dataCanvas'),area=document.getElementById('dataImgArea');dc.width=area.offsetWidth;dc.height=area.offsetHeight;return dc;}
+function animateGaze(ctx,W,H,log){let tid=null,cancelled=false;const pts=log.slice();let i=0;function step(){if(cancelled||i>=pts.length)return;const p=pts[i++];ctx.beginPath();ctx.arc(p.x*W,p.y*H,5,0,Math.PI*2);ctx.fillStyle='rgba(255,0,3,0.9)';ctx.fill();tid=setTimeout(step,50);}step();return{cancel:()=>{cancelled=true;clearTimeout(tid);}};}
+function animateFixation(ctx,W,H,history){let tid=null,rafId=null,cancelled=false;const fixes=history.slice();let i=0;const drawn=[];function redrawAll(){for(const fix of drawn){const cx=fix.x*W,cy=fix.y*H,r=Math.min(8+fix.duration/80,44);ctx.beginPath();ctx.arc(cx,cy,r,0,Math.PI*2);ctx.fillStyle='rgba(255,0,3,0.3)';ctx.fill();ctx.beginPath();ctx.arc(cx,cy,r,0,Math.PI*2);ctx.strokeStyle='rgba(255,0,3,1)';ctx.lineWidth=2.5;ctx.stroke();if(fix.duration>300){ctx.fillStyle='rgba(255,0,3,1)';ctx.font='700 10px Urbanist';ctx.textAlign='center';ctx.textBaseline='alphabetic';ctx.fillText(Math.round(fix.duration)+'ms',cx,cy+r+13);}}}function next(){if(cancelled||i>=fixes.length)return;const fix=fixes[i++];const cx=fix.x*W,cy=fix.y*H,rFinal=Math.min(8+fix.duration/80,44);const start=performance.now();function grow(now){if(cancelled)return;const t=Math.min(1,(now-start)/300);ctx.clearRect(0,0,W,H);redrawAll();const r=rFinal*t;ctx.beginPath();ctx.arc(cx,cy,r,0,Math.PI*2);ctx.fillStyle='rgba(255,0,3,0.3)';ctx.fill();ctx.beginPath();ctx.arc(cx,cy,r,0,Math.PI*2);ctx.strokeStyle='rgba(255,0,3,1)';ctx.lineWidth=2.5;ctx.stroke();if(t<1){rafId=requestAnimationFrame(grow);}else{if(fix.duration>300){ctx.fillStyle='rgba(255,0,3,1)';ctx.font='700 10px Urbanist';ctx.textAlign='center';ctx.textBaseline='alphabetic';ctx.fillText(Math.round(fix.duration)+'ms',cx,cy+rFinal+13);}drawn.push(fix);tid=setTimeout(next,600);}}rafId=requestAnimationFrame(grow);}next();return{cancel:()=>{cancelled=true;clearTimeout(tid);cancelAnimationFrame(rafId);}};}
+function animateSaccade(ctx,W,H,history){let tid=null,rafId=null,cancelled=false;const sacs=history.slice();let i=0;const drawn=[];function drawSacFull(sac){const fx=sac.fromX*W,fy=sac.fromY*H,tx=sac.toX*W,ty=sac.toY*H;ctx.beginPath();ctx.moveTo(fx,fy);ctx.lineTo(tx,ty);ctx.strokeStyle='rgba(255,0,3,1)';ctx.lineWidth=2.5;ctx.stroke();const a=Math.atan2(ty-fy,tx-fx),l=9;ctx.beginPath();ctx.moveTo(tx,ty);ctx.lineTo(tx-l*Math.cos(a-Math.PI/6),ty-l*Math.sin(a-Math.PI/6));ctx.lineTo(tx-l*Math.cos(a+Math.PI/6),ty-l*Math.sin(a+Math.PI/6));ctx.closePath();ctx.fillStyle='rgba(255,0,3,1)';ctx.fill();}function redrawAll(){for(const s of drawn)drawSacFull(s);}function next(){if(cancelled||i>=sacs.length)return;const sac=sacs[i++];const fx=sac.fromX*W,fy=sac.fromY*H,tx=sac.toX*W,ty=sac.toY*H;const start=performance.now();function anim(now){if(cancelled)return;const t=Math.min(1,(now-start)/200);ctx.clearRect(0,0,W,H);redrawAll();const ex=fx+(tx-fx)*t,ey=fy+(ty-fy)*t;ctx.beginPath();ctx.moveTo(fx,fy);ctx.lineTo(ex,ey);ctx.strokeStyle='rgba(255,0,3,1)';ctx.lineWidth=2.5;ctx.stroke();if(t<1){rafId=requestAnimationFrame(anim);}else{drawSacFull(sac);drawn.push(sac);tid=setTimeout(next,500);}}rafId=requestAnimationFrame(anim);}next();return{cancel:()=>{cancelled=true;clearTimeout(tid);cancelAnimationFrame(rafId);}};}
+function animateScanPath(ctx,W,H,history){let tid=null,cancelled=false;const pts=history.slice();let shown=0;const R=11;function drawAll(n){ctx.clearRect(0,0,W,H);if(n<1)return;if(n>=2){ctx.save();ctx.setLineDash([4,6]);ctx.strokeStyle='rgba(255,0,3,1)';ctx.lineWidth=2.5;ctx.beginPath();for(let j=0;j<n-1;j++){const ax=pts[j].x*W,ay=pts[j].y*H,bx=pts[j+1].x*W,by=pts[j+1].y*H;const dx=bx-ax,dy=by-ay,dist=Math.hypot(dx,dy);if(dist<1)continue;const ux=dx/dist,uy=dy/dist;ctx.moveTo(ax+ux*R,ay+uy*R);ctx.lineTo(bx-ux*R,by-uy*R);}ctx.stroke();ctx.setLineDash([]);ctx.restore();}for(let j=0;j<n;j++){const{x,y}=pts[j],cx=x*W,cy=y*H;ctx.beginPath();ctx.arc(cx,cy,R,0,Math.PI*2);ctx.strokeStyle='rgba(255,0,3,1)';ctx.lineWidth=3;ctx.stroke();ctx.fillStyle='rgba(255,0,3,1)';ctx.font='700 10px Urbanist';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText(j+1,cx,cy);ctx.textBaseline='alphabetic';}}function next(){if(cancelled||shown>=pts.length)return;shown++;drawAll(shown);tid=setTimeout(next,700);}next();return{cancel:()=>{cancelled=true;clearTimeout(tid);}};}
+function animateHeatmap(ctx,W,H,log){let tid=null,cancelled=false;const hmW=200,hmH=112,hm=new Float32Array(hmW*hmH),sigma=0.07*Math.max(hmW,hmH),r=Math.ceil(3*sigma),inv2s2=1/(2*sigma*sigma);const pts=log.slice();let i=0;function addPt(p){const gx=p.x*hmW,gy=p.y*hmH,x0=Math.max(0,Math.floor(gx-r)),x1=Math.min(hmW-1,Math.ceil(gx+r)),y0=Math.max(0,Math.floor(gy-r)),y1=Math.min(hmH-1,Math.ceil(gy+r));for(let y=y0;y<=y1;y++)for(let x=x0;x<=x1;x++)hm[y*hmW+x]+=0.18*Math.exp(-((x-gx)**2+(y-gy)**2)*inv2s2);}function render(){ctx.clearRect(0,0,W,H);drawMarchingSquares(ctx,W,H,hm,hmW,hmH);}const perStep=Math.max(1,Math.ceil(pts.length/60));function step(){if(cancelled)return;let c=0;while(i<pts.length&&c<perStep){addPt(pts[i++]);c++;}render();if(i<pts.length)tid=setTimeout(step,50);}step();return{cancel:()=>{cancelled=true;clearTimeout(tid);}};}
+function animateFirstFix(ctx,W,H,fix,modeTs){let tid=null,rafId=null,cancelled=false;if(!fix){ctx.fillStyle='rgba(150,150,150,0.7)';ctx.font='300 11px Urbanist';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText('NO FIRST FIXATION DETECTED',W/2,H/2);return{cancel:()=>{}};}const cx=fix.x*W,cy=fix.y*H,offset=(fix.startTs-modeTs)/1000;tid=setTimeout(()=>{if(cancelled)return;const startPhase=performance.now();function phase2(now){if(cancelled)return;const t=Math.min(1,(now-startPhase)/600);ctx.clearRect(0,0,W,H);const ringR=20+t*40;ctx.beginPath();ctx.arc(cx,cy,ringR,0,Math.PI*2);ctx.strokeStyle='rgba(255,0,3,'+(1-t)*0.9+')';ctx.lineWidth=2.5;ctx.stroke();ctx.globalAlpha=t;ctx.beginPath();ctx.arc(cx,cy,14,0,Math.PI*2);ctx.fillStyle='rgba(255,0,3,1)';ctx.fill();ctx.globalAlpha=1;if(t>0.5){ctx.globalAlpha=(t-0.5)*2;ctx.textAlign='center';ctx.textBaseline='alphabetic';ctx.fillStyle='rgba(255,0,3,1)';ctx.font='700 11px Urbanist';ctx.fillText('FIRST FIXATION',cx,cy-46);ctx.font='300 9px Urbanist';ctx.fillText('+'+offset.toFixed(2)+'s',cx,cy-32);ctx.globalAlpha=1;}if(t<1){rafId=requestAnimationFrame(phase2);}else{const startPulse=performance.now();function pulse(now){if(cancelled)return;const pt=(now-startPulse)/1000,pr=20+Math.sin(pt*Math.PI*2)*5;ctx.clearRect(0,0,W,H);ctx.beginPath();ctx.arc(cx,cy,pr,0,Math.PI*2);ctx.strokeStyle='rgba(255,0,3,0.7)';ctx.lineWidth=2.5;ctx.stroke();ctx.beginPath();ctx.arc(cx,cy,14,0,Math.PI*2);ctx.fillStyle='rgba(255,0,3,1)';ctx.fill();ctx.textAlign='center';ctx.textBaseline='alphabetic';ctx.fillStyle='rgba(255,0,3,1)';ctx.font='700 11px Urbanist';ctx.fillText('FIRST FIXATION',cx,cy-46);ctx.font='300 9px Urbanist';ctx.fillText('+'+offset.toFixed(2)+'s',cx,cy-32);rafId=requestAnimationFrame(pulse);}rafId=requestAnimationFrame(pulse);}}rafId=requestAnimationFrame(phase2);},1000);return{cancel:()=>{cancelled=true;clearTimeout(tid);cancelAnimationFrame(rafId);}};}
+
+function playLayer(layer){cancelAnimation();const dc=getDataCanvas();const ctx=dc.getContext('2d');ctx.clearRect(0,0,dc.width,dc.height);const W=dc.width,H=dc.height;const sess=viewSession||{gazeLog,fixationHistory,saccadeHistory,scanPathHistory,firstFix,firstFixModeTs};renderAnalysisBadge(layer,sess);if(playMode==='STATIC'){switch(layer){case 'GAZE':staticGaze(ctx,W,H,sess.gazeLog);break;case 'FIXATION':staticFixation(ctx,W,H,sess.fixationHistory);break;case 'SACCADE':staticSaccade(ctx,W,H,sess.saccadeHistory);break;case 'SCANPATH':staticScanPath(ctx,W,H,sess.scanPathHistory);break;case 'HEATMAP':staticHeatmap(ctx,W,H,sess.gazeLog);break;case 'FIRSTFIX':staticFirstFix(ctx,W,H,sess.firstFix,sess.firstFixModeTs);break;}}else{switch(layer){case 'GAZE':currentAnimation=animateGaze(ctx,W,H,sess.gazeLog);break;case 'FIXATION':currentAnimation=animateFixation(ctx,W,H,sess.fixationHistory);break;case 'SACCADE':currentAnimation=animateSaccade(ctx,W,H,sess.saccadeHistory);break;case 'SCANPATH':currentAnimation=animateScanPath(ctx,W,H,sess.scanPathHistory);break;case 'HEATMAP':currentAnimation=animateHeatmap(ctx,W,H,sess.gazeLog);break;case 'FIRSTFIX':currentAnimation=animateFirstFix(ctx,W,H,sess.firstFix,sess.firstFixModeTs);break;}}}
+
+function populateCompareFilters(){const users=[...new Set(allSessions.map(s=>s.user))];const genders=[...new Set(allSessions.map(s=>s.gender).filter(Boolean))];const locations=[...new Set(allSessions.map(s=>s.location).filter(Boolean))];const cfUser=document.getElementById('cf-user');cfUser.innerHTML='<option value="">All Users</option>'+users.map(u=>'<option value="'+u+'">'+u+'</option>').join('');const cfGender=document.getElementById('cf-gender');cfGender.innerHTML='<option value="">All Genders</option>'+genders.map(g=>'<option value="'+g+'">'+g+'</option>').join('');const cfLoc=document.getElementById('cf-location');cfLoc.innerHTML='<option value="">All Locations</option>'+locations.map(l=>'<option value="'+l+'">'+l+'</option>').join('');}
+function getFilteredSessions(){const user=document.getElementById('cf-user').value,gender=document.getElementById('cf-gender').value,location=document.getElementById('cf-location').value,sort=document.getElementById('cf-sort').value;let list=allSessions.filter(s=>(!user||s.user===user)&&(!gender||s.gender===gender)&&(!location||s.location===location));if(sort){const[key,dir]=sort.split('_');const asc=dir==='asc';const getVal=(s)=>{switch(key){case 'fixations':return s.fixationHistory?.length||0;case 'saccades':return s.saccadeHistory?.length||0;case 'duration':return s.sessionDuration||0;case 'samples':return s.gazeLog?.length||0;case 'ttff':return s.firstFix?(s.firstFix.startTs-s.firstFixModeTs):Infinity;case 'sacAmp':{const sh=s.saccadeHistory||[];return sh.length?sh.reduce((a,f)=>a+Math.hypot(f.toX-f.fromX,f.toY-f.fromY),0)/sh.length:0;}case 'age':return parseInt(s.age)||0;default:return 0;}};list.sort((a,b)=>asc?getVal(a)-getVal(b):getVal(b)-getVal(a));}return list;}
+
+function renderCompareView(){populateCompareFilters();const grid=document.getElementById('compareGrid');grid.innerHTML='';const layer=document.getElementById('cf-layer').value||dataActiveLayer||'GAZE';const filteredSessions=getFilteredSessions();if(sessions.length===0){grid.innerHTML='<div style="color:#555;font-size:11px;letter-spacing:0.2em;text-align:center;padding:40px 0;grid-column:1/-1;">NO SESSIONS TO COMPARE YET</div>';return;}for(const sess of filteredSessions){const cell=document.createElement('div');cell.className='compare-panel';const ts=new Date(sess.timestamp).toLocaleTimeString();const dur=sess.sessionDuration?(sess.sessionDuration/1000).toFixed(1)+'s':'--';cell.innerHTML='<div class="compare-panel-header"><div><div class="cp-user">'+sess.user+'</div><div class="cp-meta">'+(sess.age?sess.age+' yrs':'')+((sess.age&&sess.gender)?' . ':'')+( sess.gender||'')+(sess.location?' . '+sess.location:'')+'</div></div><div style="text-align:right"><div class="cp-time">'+sess.imageName+'</div><div class="cp-time">'+ts+' . '+dur+'</div></div></div><div class="compare-canvas-wrap"><img class="cp-img" src="'+sess.imageSrc+'"><canvas class="cp-canvas"></canvas></div><div class="cp-stats">'+sess.fixationHistory.length+' fix . '+sess.saccadeHistory.length+' sac . '+sess.gazeLog.length+' samples</div>';grid.appendChild(cell);const wrap=cell.querySelector('.compare-canvas-wrap'),canvas=cell.querySelector('.cp-canvas');setTimeout(()=>{canvas.width=wrap.offsetWidth;canvas.height=wrap.offsetHeight;const ctx=canvas.getContext('2d');const W=canvas.width,H=canvas.height;const RC='255,0,3';switch(layer){case 'GAZE':staticGaze(ctx,W,H,sess.gazeLog,RC);break;case 'FIXATION':staticFixation(ctx,W,H,sess.fixationHistory,RC);break;case 'SACCADE':staticSaccade(ctx,W,H,sess.saccadeHistory,RC);break;case 'SCANPATH':staticScanPath(ctx,W,H,sess.scanPathHistory,RC);break;case 'HEATMAP':staticHeatmap(ctx,W,H,sess.gazeLog,RC);break;case 'FIRSTFIX':staticFirstFix(ctx,W,H,sess.firstFix,sess.firstFixModeTs,RC);break;}},60);}}
+
+document.getElementById('cf-apply').addEventListener('click',renderCompareView);
+document.getElementById('cf-layer').addEventListener('change',renderCompareView);
+
+function openGallery(){
+  hideAllScreens();
+  setNavTheme('light');
+  navGalleryLink.classList.add('active');
+  document.getElementById('galleryScreen').style.display='flex';
+  if(allSessions.length===0){
+    showEmptyState('galleryScreen','Start your first session to see your gallery.');
+  } else {
+    renderGalleryScreen();
+  }
+}
+function closeGallery(){document.getElementById('galleryScreen').style.display='none';navGalleryLink.classList.remove('active');}
+function renderGalleryScreen(){const body=document.getElementById('galleryBody');body.innerHTML='';const byUser=new Map();for(const sess of allSessions){if(!byUser.has(sess.user))byUser.set(sess.user,[]);byUser.get(sess.user).push(sess);}if(byUser.size===0){body.innerHTML='<div style="color:#555;font-size:11px;letter-spacing:0.2em;text-align:center;margin-top:60px;">NO SESSIONS YET</div>';return;}for(const[userName,userSessions]of byUser){const block=document.createElement('div');block.className='gallery-user-block';const meta=userSessions[0];const metaStr=[meta.age?meta.age+'y':'',meta.gender||'',meta.location||''].filter(Boolean).join(' . ');block.innerHTML='<div class="gallery-user-name">'+userName+'</div><div class="gallery-user-meta">'+metaStr+'</div><div class="gallery-images-row" id="gallery-row-'+userName.replace(/\s/g,'_')+'"></div>';body.appendChild(block);const row=block.querySelector('.gallery-images-row');for(const sess of userSessions){const item=document.createElement('div');item.className='gallery-item'+(sess===viewSession?' active-view':'');const dur=sess.sessionDuration?(sess.sessionDuration/1000).toFixed(1)+'s':'--';item.innerHTML='<img class="gallery-item-img" src="'+sess.imageSrc+'" alt="'+sess.imageName+'"/><div class="gallery-item-info"><span class="gallery-item-name">'+sess.imageName+'</span><span class="gallery-item-stats">'+sess.fixationHistory.length+'F . '+sess.gazeLog.length+'S . '+dur+'</span></div>';item.onclick=()=>{viewSession=sess;document.querySelectorAll('.gallery-item').forEach(el=>el.classList.remove('active-view'));item.classList.add('active-view');openData(false);};row.appendChild(item);}}}
+
+function captureSession(){return{user:currentUser||'Unknown',age:currentAge,gender:currentGender,location:userLocation,imageSrc:mainImg.src,imageName:imageLibrary[currentImageIdx]?.name||'image',timestamp:Date.now(),sessionDuration:sessionStartTs?Date.now()-sessionStartTs:0,gazeLog:gazeLog.slice(),fixationHistory:fixationHistory.slice(),saccadeHistory:saccadeHistory.slice(),scanPathHistory:scanPathHistory.slice(),firstFix,firstFixModeTs,sessionStartTs};}
+
+/* ══════════════════════════════════════════════════════════════════════
+   profile - save & load (Supabase)
+   ══════════════════════════════════════════════════════════════════════ */
+const SUPABASE_URL = 'https://idtghubjdrpcayyarzdr.supabase.co';
+const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlkdGdodWJqZHJwY2F5eWFyemRyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA3OTE4MjIsImV4cCI6MjA5NjM2NzgyMn0.8hIgJUT1aQ3OvgpcRRAEOeHw7uvLUJn-rzw3PjJS9BY';
+
+async function sbFetch(path, options={}) {
+  const res = await fetch(SUPABASE_URL + '/rest/v1/' + path, {
+    ...options,
+    headers: {
+      'apikey': SUPABASE_KEY,
+      'Authorization': 'Bearer ' + SUPABASE_KEY,
+      'Content-Type': 'application/json',
+      'Prefer': 'return=representation',
+      ...(options.headers||{})
+    }
+  });
+  if (!res.ok) throw new Error(await res.text());
+  return res.json();
+}
+
+let currentProfile = null;
+
+async function loadProfile(name) {
+  try {
+    const rows = await sbFetch(`profiles?name=eq.${encodeURIComponent(name)}&select=*`);
+    if (!rows || rows.length === 0) return null;
+    const profile = rows[0];
+    // load sessions for this user
+    const sessions = await sbFetch(`sessions?user_name=eq.${encodeURIComponent(name)}&select=*&order=created_at.asc`);
+    profile.sessions = sessions || [];
+    return profile;
+  } catch (e) { console.warn('[profile:load]', e); return null; }
+}
+
+async function saveProfile(session) {
+  try {
+    // upsert profile
+    await sbFetch('profiles?on_conflict=name', {
+      method: 'POST',
+      headers: { 'Prefer': 'resolution=merge-duplicates,return=minimal' },
+      body: JSON.stringify({
+        name: currentUser,
+        age: currentAge,
+        gender: currentGender,
+        location: userLocation
+      })
+    });
+    // insert session
+    await sbFetch('sessions', {
+      method: 'POST',
+      headers: { 'Prefer': 'return=minimal' },
+      body: JSON.stringify({
+        user_name: currentUser,
+        image_name: session.imageName,
+        image_src: session.imageSrc,
+        timestamp: session.timestamp,
+        session_duration: session.sessionDuration,
+        fixation_count: session.fixationHistory ? session.fixationHistory.length : 0,
+        saccade_count: session.saccadeHistory ? session.saccadeHistory.length : 0,
+        gaze_count: session.gazeLog ? session.gazeLog.length : 0,
+        first_fix: session.firstFix || null,
+        fixation_history: session.fixationHistory || [],
+        saccade_history: session.saccadeHistory || [],
+        scan_path_history: session.scanPathHistory || [],
+        gaze_log: session.gazeLog || []
+      })
+    });
+  } catch (e) { console.warn('[profile:save]', e); }
+}
+
+function openData(pushNew=true){if(pushNew){const snap=captureSession();allSessions.push(snap);viewSession=snap;}const dataScreen=document.getElementById('dataScreen');const dataBody=document.getElementById('dataBody');const compareView=document.getElementById('compareView');dataScreen.style.display='flex';dataBody.style.display='flex';compareView.style.display='none';setNavTheme('light');document.getElementById('sessionViewBtn').classList.add('active');document.getElementById('compareViewBtn').classList.remove('active');document.getElementById('galleryScreen').style.display='none';document.getElementById('dataImg').src=viewSession.imageSrc;document.getElementById('dataImg').style.opacity=showImg?'1':'0';renderDataSessionBadge(viewSession);const activeBtn=document.querySelector('.layer-btn.active');const layer=activeBtn?activeBtn.dataset.layer:'GAZE';dataActiveLayer=layer;playLayer(layer);}
+
+/* ══════════════════════════════════════════════════════════════════════
+   POLITICAL IMAGES SEQUENCE
+   ══════════════════════════════════════════════════════════════════════ */
+const POLITICAL_IMAGES = [
+  { src: 'Politics 4.png', name: 'Politics 4' },
+  { src: 'Politics 5.png', name: 'Politics 5' },
+  { src: 'Politics 7.png', name: 'Politics 7' },
+  { src: 'Politics 8.png', name: 'Politics 8' },
+  { src: 'Politics 9.png', name: 'Politics 9' },
+];
+const IMAGE_DURATION = 5000; // 5 seconds
+
+function shuffleArray(arr){
+  const a=[...arr];
+  for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}
+  return a;
+}
+
+function showSkyVideo(){
+  return new Promise(resolve=>{
+    const overlay=document.getElementById('skyOverlay');
+    const video=document.getElementById('skyVideo');
+    const progress=document.getElementById('skyProgress');
+    overlay.style.display='block';
+    progress.style.width='0%';
+    progress.style.transition='none';
+    video.currentTime=0;
+    video.load();
+    video.play().catch(()=>{});
+    // animate progress bar
+    requestAnimationFrame(()=>{
+      progress.style.transition=`width ${SKY_DURATION}ms linear`;
+      progress.style.width='100%';
+    });
+    setTimeout(()=>{
+      video.pause();
+      overlay.style.display='none';
+      progress.style.width='0%';
+      progress.style.transition='none';
+      resolve();
+    }, SKY_DURATION);
+  });
+}
+
+function runImageSession(imgData){
+  return new Promise(resolve=>{
+    // reset session data for this image
+    fixationHistory=[];currentFixation=null;scanPathHistory=[];saccadeHistory=[];
+    saccadeActive=false;saccadeStart=null;gazeLog=[];firstFix=null;firstFixDone=false;
+    heatmap=new Float32Array(W_HEAT*H_HEAT);window._gazeHistory=[];
+
+    // set image
+    imgWrapper.style.display='block';
+    mainImg.src=imgData.src;
+    sessionStartTs=Date.now();
+    firstFixModeTs=performance.now();
+
+    // collect gaze
+    const gazeInterval=setInterval(()=>{
+      if(!gazeOn)return;
+      gazeLog.push({t:Date.now()-sessionStartTs,x:sGX,y:sGY});
+      if(gazeLog.length>10000)gazeLog.shift();
+    },100);
+
+    // auto-advance after 12s
+    setTimeout(()=>{
+      clearInterval(gazeInterval);
+      imgWrapper.style.display='none';
+
+      // save session
+      const snap={
+        user:currentUser||'Unknown',age:currentAge,gender:currentGender,
+        location:userLocation,imageSrc:mainImg.src,imageName:imgData.name,
+        timestamp:Date.now(),sessionDuration:Date.now()-sessionStartTs,
+        gazeLog:gazeLog.slice(),fixationHistory:fixationHistory.slice(),
+        saccadeHistory:saccadeHistory.slice(),scanPathHistory:scanPathHistory.slice(),
+        firstFix,firstFixModeTs,sessionStartTs
+      };
+      allSessions.push(snap);
+      viewSession=snap;
+      saveProfile(snap);
+      resolve();
+    }, IMAGE_DURATION);
+  });
+}
+
+async function runFullSequence(){
+  const shuffled=shuffleArray(POLITICAL_IMAGES);
+  document.getElementById('mainNav').style.display='none';
+  for(let i=0;i<shuffled.length;i++){
+    await runImageSession(shuffled[i]);
+  }
+  document.getElementById('mainNav').style.display='flex';
+  openGallery();
+}
+
+async function boot(){
+  dotCanvas.width=window.innerWidth;dotCanvas.height=window.innerHeight;
+  window.addEventListener('resize',()=>{dotCanvas.width=window.innerWidth;dotCanvas.height=window.innerHeight;});
+  heatCanvas=document.createElement('canvas');heatCanvas.width=W_HEAT;heatCanvas.height=H_HEAT;
+  heatCtx2=heatCanvas.getContext('2d');
+  const ok=await startEyeTracking();
+  if(ok) await runCalibration();
+  else{calOverlay.style.display='none';enablePointerFallback();}
+  requestAnimationFrame(mainLoop);
+  await runFullSequence();
+}
+
+// finishBtn removed - sessions are automatic
+document.getElementById('sessionViewBtn').addEventListener('click',()=>{
+  document.getElementById('sessionViewBtn').classList.add('active');
+  document.getElementById('compareViewBtn').classList.remove('active');
+  document.getElementById('dataBody').style.display='flex';
+  document.getElementById('compareView').style.display='none';
+  setTimeout(()=>{
+    const dc=document.getElementById('dataCanvas'),area=document.getElementById('dataImgArea');
+    dc.width=area.offsetWidth;dc.height=area.offsetHeight;
+    playLayer(dataActiveLayer);
+  },50);
+});
+document.getElementById('compareViewBtn').addEventListener('click',()=>{
+  document.getElementById('compareViewBtn').classList.add('active');
+  document.getElementById('sessionViewBtn').classList.remove('active');
+  document.getElementById('dataBody').style.display='none';
+  document.getElementById('compareView').style.display='flex';
+  renderCompareView();
+});
+document.getElementById('animatedBtn').addEventListener('click',()=>{playMode='ANIMATED';document.getElementById('animatedBtn').classList.add('active');document.getElementById('staticBtn').classList.remove('active');playLayer(dataActiveLayer);});
+document.getElementById('staticBtn').addEventListener('click',()=>{playMode='STATIC';document.getElementById('staticBtn').classList.add('active');document.getElementById('animatedBtn').classList.remove('active');playLayer(dataActiveLayer);});
+document.getElementById('withImgBtn').addEventListener('click',()=>{showImg=true;document.getElementById('withImgBtn').classList.add('active');document.getElementById('withoutImgBtn').classList.remove('active');document.getElementById('dataImg').style.opacity='1';});
+document.getElementById('withoutImgBtn').addEventListener('click',()=>{showImg=false;document.getElementById('withoutImgBtn').classList.add('active');document.getElementById('withImgBtn').classList.remove('active');document.getElementById('dataImg').style.opacity='0';});
+document.querySelectorAll('.layer-btn').forEach(btn=>{btn.addEventListener('click',()=>{document.querySelectorAll('.layer-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');dataActiveLayer=btn.dataset.layer;playLayer(dataActiveLayer);});});
+document.getElementById('playBtn').addEventListener('click',()=>{playLayer(dataActiveLayer||'GAZE');});
+
+function hideAllScreens(){
+  homeScreen.style.display='none';
+  document.getElementById('dataScreen').style.display='none';
+  document.getElementById('galleryScreen').style.display='none';
+  document.getElementById('dashboardScreen').style.display='none';
+  document.getElementById('profileScreen').style.display='none';
+  document.getElementById('aboutScreen').style.display='none';
+  document.getElementById('imgWrapper').style.display='none';
+  document.getElementById('nameScreen').style.display='none';
+  document.getElementById('libraryScreen').style.display='none';
+  // remove any empty state overlays
+  document.querySelectorAll('.empty-state-overlay').forEach(el=>el.remove());
+  [navSessionLink,navGalleryLink,navDashboardLink,navProfileLink,navAboutLink,navHomeLink].forEach(l=>l.classList.remove('active'));
+}
+
+function showAuthNav(){
+  document.querySelectorAll('.nav-authenticated').forEach(el=>el.style.display='');
+  document.getElementById('navLoginBtn').classList.add('hidden');
+  const signup=document.getElementById('navSignupBtn');
+  if(signup) signup.classList.add('hidden');
+}
+
+
+async function startApp(){
+  hideHome();
+  await showNameScreen();
+  showAuthNav();
+  userLoggedIn=true;
+  hideHome();
+  await boot();
+}
+/* ══════════════════════════════════════════════════════════════════════
+   MODE SLIDER
+   ══════════════════════════════════════════════════════════════════════ */
+(function(){
+  var RED='#E91C1C';
+  function ra(a){return 'rgba(233,28,28,'+a+')';}
+
+  var MODES=[
+    {name:'Gaze',num:'01 / 06',desc:'Raw gaze positions sampled continuously - every point where the eye looked, frame by frame.'},
+    {name:'Fixation',num:'02 / 06',desc:'Sustained gaze on a single region for ≥200ms. Indicates active cognitive processing.'},
+    {name:'Saccade',num:'03 / 06',desc:'Rapid eye jumps between fixations. Reveals how the eye explores and scans a scene.'},
+    {name:'Scan path',num:'04 / 06',desc:'The chronological sequence of fixations - the full visual journey across the image.'},
+    {name:'Heatmap',num:'05 / 06',desc:'Density map of visual attention. Hotter areas received more and longer fixations.'},
+    {name:'First fixation',num:'06 / 06',desc:'The very first region noticed - the pre-conscious entry point of visual attention.'}
+  ];
+  window._MODES_REF = MODES;
+
+  var gazeLog=[
+    {x:0.18,y:0.30},{x:0.20,y:0.28},{x:0.22,y:0.32},
+    {x:0.50,y:0.22},{x:0.52,y:0.24},{x:0.54,y:0.20},
+    {x:0.74,y:0.50},{x:0.72,y:0.52},{x:0.76,y:0.48},
+    {x:0.34,y:0.68},{x:0.36,y:0.66},{x:0.38,y:0.70},
+    {x:0.60,y:0.78},{x:0.62,y:0.76},{x:0.58,y:0.80},
+    {x:0.28,y:0.48},{x:0.50,y:0.50},{x:0.65,y:0.35}
+  ];
+  var fixHist=[
+    {x:0.20,y:0.30,dur:380},{x:0.52,y:0.22,dur:260},
+    {x:0.74,y:0.50,dur:500},{x:0.36,y:0.68,dur:180},{x:0.61,y:0.78,dur:320}
+  ];
+  var sacHist=[
+    {fx:0.20,fy:0.30,tx:0.52,ty:0.22},{fx:0.52,fy:0.22,tx:0.74,ty:0.50},
+    {fx:0.74,fy:0.50,tx:0.36,ty:0.68},{fx:0.36,fy:0.68,tx:0.61,ty:0.78}
+  ];
+
+  var cur=0, raf=null, stopFlag=false;
+  var el, ctx, W, H;
+
+  function setup(){
+    el=document.getElementById('modeCanvas');
+    if(!el)return false;
+    var dpr=window.devicePixelRatio||1;
+    var rect=el.getBoundingClientRect();
+    W=rect.width||280; H=rect.height||168;
+    el.width=W*dpr; el.height=H*dpr;
+    ctx=el.getContext('2d',{alpha:true});
+    ctx.scale(dpr,dpr);
+    ctx.clearRect(0,0,W,H);
+    return true;
+  }
+
+  function drawArrow(fx,fy,tx,ty){
+    ctx.beginPath();ctx.moveTo(fx,fy);ctx.lineTo(tx,ty);ctx.stroke();
+    var a=Math.atan2(ty-fy,tx-fx),l=8;
+    ctx.beginPath();
+    ctx.moveTo(tx,ty);
+    ctx.lineTo(tx-l*Math.cos(a-Math.PI/6),ty-l*Math.sin(a-Math.PI/6));
+    ctx.lineTo(tx-l*Math.cos(a+Math.PI/6),ty-l*Math.sin(a+Math.PI/6));
+    ctx.closePath();ctx.fillStyle=RED;ctx.fill();
+  }
+
+  function startAnim(idx){
+    stopFlag=true;
+    if(raf)cancelAnimationFrame(raf);
+    setTimeout(function(){
+      stopFlag=false;
+      if(!setup())return;
+      ctx.clearRect(0,0,W,H);
+      switch(idx){
+        case 0: runGaze(); break;
+        case 1: runFixation(); break;
+        case 2: runSaccade(); break;
+        case 3: runScanPath(); break;
+        case 4: runHeatmap(); break;
+        case 5: runFirstFix(); break;
+      }
+    },50);
+  }
+
+  function runGaze(){
+    var dots=[],dIdx=0,t=0;
+    function addDot(){
+      var p=gazeLog[dIdx%gazeLog.length];
+      var jit=function(){return(Math.random()-0.5)*0.06;};
+      dots.push({x:Math.max(0.05,Math.min(0.95,p.x+jit())),y:Math.max(0.05,Math.min(0.95,p.y+jit())),age:0});
+      if(dots.length>28)dots.shift();dIdx++;
+    }
+    for(var i=0;i<12;i++)addDot();
+    function draw(){
+      if(stopFlag)return;
+      ctx.clearRect(0,0,W,H);
+      for(var i=0;i<dots.length;i++){
+        dots[i].age++;
+        var alpha=Math.max(0,1-dots[i].age/160);
+        ctx.beginPath();ctx.arc(dots[i].x*W,dots[i].y*H,3,0,Math.PI*2);
+        ctx.fillStyle=ra(alpha*0.85);ctx.fill();
+      }
+      t++;if(t%8===0)addDot();
+      raf=requestAnimationFrame(draw);
+    }
+    draw();
+  }
+
+  function runFixation(){
+    var fIdx=0,shown=[],start=null,phase='grow';
+    function maxR(dur){return Math.min(6+dur/80,Math.min(W,H)*0.22);}
+    function drawAll(){
+      ctx.clearRect(0,0,W,H);
+      for(var i=0;i<shown.length;i++){
+        var f=shown[i],cx=f.x*W,cy=f.y*H,r=maxR(f.dur);
+        ctx.beginPath();ctx.arc(cx,cy,r,0,Math.PI*2);ctx.fillStyle=ra(0.15);ctx.fill();
+        ctx.beginPath();ctx.arc(cx,cy,r,0,Math.PI*2);ctx.strokeStyle=RED;ctx.lineWidth=1.5;ctx.stroke();
+        ctx.beginPath();ctx.arc(cx,cy,3,0,Math.PI*2);ctx.fillStyle=RED;ctx.fill();
+      }
+    }
+    function draw(ts){
+      if(stopFlag)return;
+      if(!start)start=ts;var elapsed=ts-start;
+      if(phase==='grow'){
+        var f=fixHist[fIdx],dur=500,prog=Math.min(1,elapsed/dur);
+        var cx=f.x*W,cy=f.y*H,r=maxR(f.dur)*prog;
+        drawAll();
+        ctx.beginPath();ctx.arc(cx,cy,Math.max(1,r),0,Math.PI*2);ctx.fillStyle=ra(0.15*prog);ctx.fill();
+        ctx.beginPath();ctx.arc(cx,cy,Math.max(1,r),0,Math.PI*2);ctx.strokeStyle=ra(prog);ctx.lineWidth=1.5;ctx.stroke();
+        if(prog>=1){shown.push(f);fIdx=(fIdx+1)%fixHist.length;phase='wait';start=ts;}
+      } else {drawAll();if(elapsed>500){if(fIdx===0)shown=[];phase='grow';start=ts;}}
+      raf=requestAnimationFrame(draw);
+    }
+    raf=requestAnimationFrame(draw);
+  }
+
+  function runSaccade(){
+    var sIdx=0,drawn=[],start=null,phase='draw';
+    function drawAll(){
+      ctx.clearRect(0,0,W,H);
+      for(var i=0;i<drawn.length;i++){
+        var sc=drawn[i];ctx.strokeStyle=RED;ctx.lineWidth=1.5;
+        drawArrow(sc.fx*W,sc.fy*H,sc.tx*W,sc.ty*H);
+      }
+    }
+    function draw(ts){
+      if(stopFlag)return;
+      if(!start)start=ts;var elapsed=ts-start;
+      if(phase==='draw'){
+        var sc=sacHist[sIdx],dur=300,prog=Math.min(1,elapsed/dur);
+        var ex=sc.fx*W+(sc.tx*W-sc.fx*W)*prog,ey=sc.fy*H+(sc.ty*H-sc.fy*H)*prog;
+        drawAll();ctx.strokeStyle=RED;ctx.lineWidth=1.5;
+        ctx.beginPath();ctx.moveTo(sc.fx*W,sc.fy*H);ctx.lineTo(ex,ey);ctx.stroke();
+        if(prog>=1){drawn.push(sc);sIdx=(sIdx+1)%sacHist.length;phase='wait';start=ts;}
+      } else {drawAll();if(elapsed>400){if(sIdx===0)drawn.length=0;phase='draw';start=ts;}}
+      raf=requestAnimationFrame(draw);
+    }
+    raf=requestAnimationFrame(draw);
+  }
+
+  function runScanPath(){
+    var n=0,start=null,phase='add',NODE_R=14;
+    function drawN(count){
+      ctx.clearRect(0,0,W,H);
+      if(count>=2){
+        ctx.save();ctx.setLineDash([4,7]);ctx.strokeStyle=RED;ctx.lineWidth=1.5;
+        for(var j=0;j<count-1;j++){
+          var a=fixHist[j],b=fixHist[j+1];
+          var ax=a.x*W,ay=a.y*H,bx=b.x*W,by=b.y*H;
+          var dx=bx-ax,dy=by-ay,dist=Math.sqrt(dx*dx+dy*dy);if(dist<1)continue;
+          var ux=dx/dist,uy=dy/dist;
+          ctx.beginPath();ctx.moveTo(ax+ux*NODE_R,ay+uy*NODE_R);ctx.lineTo(bx-ux*NODE_R,by-uy*NODE_R);ctx.stroke();
+        }
+        ctx.setLineDash([]);ctx.restore();
+      }
+      for(var j=0;j<count;j++){
+        var p=fixHist[j],cx=p.x*W,cy=p.y*H;
+        ctx.beginPath();ctx.arc(cx,cy,NODE_R,0,Math.PI*2);ctx.fillStyle='rgba(255,255,255,0.15)';ctx.fill();
+        ctx.beginPath();ctx.arc(cx,cy,NODE_R,0,Math.PI*2);ctx.strokeStyle=RED;ctx.lineWidth=1.5;ctx.stroke();
+        ctx.fillStyle=RED;ctx.font='bold 11px Arial';ctx.textAlign='center';ctx.textBaseline='middle';
+        ctx.fillText(j+1,cx,cy);
+      }
+    }
+    function draw(ts){
+      if(stopFlag)return;
+      if(!start)start=ts;var elapsed=ts-start;
+      if(phase==='add'){
+        if(elapsed>650){n++;drawN(n);if(n>=fixHist.length)phase='pause';start=ts;}
+        else drawN(n);
+      } else {drawN(n);if(elapsed>1200){n=0;phase='add';start=ts;}}
+      raf=requestAnimationFrame(draw);
+    }
+    raf=requestAnimationFrame(draw);
+  }
+
+  function runHeatmap(){
+    var hmW=60,hmH=36,hm=new Float32Array(hmW*hmH);
+    var sigma=0.10*Math.max(hmW,hmH),r=Math.ceil(3*sigma),inv2=1/(2*sigma*sigma);
+    var allPts=[];
+    for(var rep=0;rep<3;rep++){
+      for(var i=0;i<gazeLog.length;i++){
+        var jx=(Math.random()-0.5)*0.08,jy=(Math.random()-0.5)*0.08;
+        allPts.push({x:Math.max(0.05,Math.min(0.95,gazeLog[i].x+jx)),y:Math.max(0.05,Math.min(0.95,gazeLog[i].y+jy))});
+      }
+    }
+    function addPoint(p){
+      var gx=p.x*hmW,gy=p.y*hmH;
+      var x0=Math.max(0,Math.floor(gx-r)),x1=Math.min(hmW-1,Math.ceil(gx+r));
+      var y0=Math.max(0,Math.floor(gy-r)),y1=Math.min(hmH-1,Math.ceil(gy+r));
+      for(var y=y0;y<=y1;y++)for(var x=x0;x<=x1;x++)
+        hm[y*hmW+x]+=0.22*Math.exp(-((x-gx)*(x-gx)+(y-gy)*(y-gy))*inv2);
+    }
+    function getMSSegs(idx,T,R,B,L){
+      switch(idx){
+        case 1:return[[L,B]];case 2:return[[R,B]];case 3:return[[L,R]];
+        case 4:return[[T,R]];case 5:return[[T,R],[L,B]];case 6:return[[T,B]];
+        case 7:return[[T,L]];case 8:return[[T,L]];case 9:return[[T,B]];
+        case 10:return[[L,T],[R,B]];case 11:return[[T,R]];case 12:return[[L,R]];
+        case 13:return[[R,B]];case 14:return[[L,B]];default:return[];
+      }
+    }
+    function render(){
+      ctx.clearRect(0,0,W,H);
+      var maxVal=0;for(var i=0;i<hm.length;i++)if(hm[i]>maxVal)maxVal=hm[i];
+      if(maxVal<0.01)return;
+      var levels=[0.15,0.30,0.50,0.70,0.88],M=4;
+      for(var li=0;li<levels.length;li++){
+        var level=levels[li];
+        ctx.strokeStyle=ra(Math.min(1,0.35+level*0.65));ctx.lineWidth=2.5;ctx.beginPath();
+        for(var cy2=0;cy2<hmH-1;cy2++){
+          for(var cx2=0;cx2<hmW-1;cx2++){
+            var vTL=hm[cy2*hmW+cx2]/maxVal,vTR=hm[cy2*hmW+(cx2+1)]/maxVal;
+            var vBR=hm[(cy2+1)*hmW+(cx2+1)]/maxVal,vBL=hm[(cy2+1)*hmW+cx2]/maxVal;
+            var idx2=(vTL>=level?8:0)+(vTR>=level?4:0)+(vBR>=level?2:0)+(vBL>=level?1:0);
+            if(idx2===0||idx2===15)continue;
+            var sx0=M+cx2*(W-2*M)/hmW,sx1=M+(cx2+1)*(W-2*M)/hmW;
+            var sy0=M+cy2*(H-2*M)/hmH,sy1=M+(cy2+1)*(H-2*M)/hmH;
+            var lp=function(v0,v1){return Math.abs(v1-v0)<1e-10?0.5:Math.max(0,Math.min(1,(level-v0)/(v1-v0)));};
+            var T2=[sx0+lp(vTL,vTR)*(sx1-sx0),sy0],R2=[sx1,sy0+lp(vTR,vBR)*(sy1-sy0)];
+            var B2=[sx0+lp(vBL,vBR)*(sx1-sx0),sy1],L2=[sx0,sy0+lp(vTL,vBL)*(sy1-sy0)];
+            var segs=getMSSegs(idx2,T2,R2,B2,L2);
+            for(var si=0;si<segs.length;si++){ctx.moveTo(segs[si][0][0],segs[si][0][1]);ctx.lineTo(segs[si][1][0],segs[si][1][1]);}
+          }
+        }
+        ctx.stroke();
+      }
+    }
+    var ptIdx=0,BATCH=3,INTERVAL=120;
+    function step(){
+      if(stopFlag)return;
+      for(var b=0;b<BATCH&&ptIdx<allPts.length;b++,ptIdx++)addPoint(allPts[ptIdx]);
+      render();
+      if(ptIdx<allPts.length){setTimeout(step,INTERVAL);}
+      else{setTimeout(function(){if(stopFlag)return;for(var i=0;i<hm.length;i++)hm[i]=0;ptIdx=0;setTimeout(step,400);},2500);}
+    }
+    setTimeout(step,200);
+  }
+
+  function runFirstFix(){
+    var fix={x:0.35,y:0.45},phase='flash',start=null;
+    function draw(ts){
+      if(stopFlag)return;
+      if(!start)start=ts;var elapsed=ts-start;
+      ctx.clearRect(0,0,W,H);
+      var cx=fix.x*W,cy=fix.y*H;
+      if(phase==='flash'){
+        var prog=Math.min(1,elapsed/700);
+        ctx.beginPath();ctx.arc(cx,cy,8+prog*34,0,Math.PI*2);ctx.strokeStyle=ra((1-prog)*0.85);ctx.lineWidth=2;ctx.stroke();
+        ctx.beginPath();ctx.arc(cx,cy,Math.max(2,14*prog),0,Math.PI*2);ctx.fillStyle=ra(prog);ctx.fill();
+        if(prog>=1){phase='pulse';start=ts;}
+      } else {
+        var pt=(elapsed%1400)/1400,pr=14+Math.sin(pt*Math.PI*2)*5;
+        ctx.beginPath();ctx.arc(cx,cy,pr,0,Math.PI*2);ctx.strokeStyle=ra(0.45);ctx.lineWidth=1.5;ctx.stroke();
+        ctx.beginPath();ctx.arc(cx,cy,14,0,Math.PI*2);ctx.fillStyle=RED;ctx.fill();
+        ctx.beginPath();ctx.arc(cx,cy,22,0,Math.PI*2);ctx.strokeStyle=ra(0.25);ctx.lineWidth=1;ctx.stroke();
+        ctx.fillStyle=RED;ctx.font='bold 10px Arial';ctx.textAlign='center';ctx.textBaseline='alphabetic';
+        ctx.fillText('FIRST FIX',cx,cy-34);
+        if(elapsed>2200){phase='flash';start=ts;}
+      }
+      raf=requestAnimationFrame(draw);
+    }
+    raf=requestAnimationFrame(draw);
+  }
+
+  function goTo(n){
+    cur=(n+6)%6;
+    window._modeCur=cur;
+    document.getElementById('modeNum').textContent=MODES[cur].num;
+    document.getElementById('modeName').textContent=MODES[cur].name;
+    document.getElementById('modeDesc').textContent=MODES[cur].desc;
+    document.querySelectorAll('.mode-dot').forEach(function(d,i){
+      d.style.background=i===cur?'#111':'#ddd';
+      d.style.transform=i===cur?'scale(1.3)':'scale(1)';
+    });
+    startAnim(cur);
+  }
+
+  function init(){
+    var dotsEl=document.getElementById('modeDots');
+    if(!dotsEl)return;
+    dotsEl.innerHTML='';
+    for(var i=0;i<6;i++){
+      var d=document.createElement('div');
+      d.className='mode-dot';
+      d.style.cssText='width:6px;height:6px;border-radius:50%;background:#ddd;cursor:pointer;transition:all 0.2s;';
+      (function(idx){d.onclick=function(){goTo(idx);};})(i);
+      dotsEl.appendChild(d);
+    }
+    document.getElementById('modePrev').onclick=function(){goTo(cur-1);};
+    document.getElementById('modeNext').onclick=function(){goTo(cur+1);};
+    goTo(0);
+  }
+
+  document.fonts.ready.then(function(){setTimeout(init,150);});
+})();
+
+ bootHome();
+// Sync bottom START button width to top START button
+document.fonts.ready.then(()=>{
+  const btn1 = document.getElementById('homeStartBtn');
+  const btn2 = document.getElementById('homeStartBtn2');
+  if(btn1 && btn2){
+    const syncWidth = () => {
+      btn2.style.width = btn1.offsetWidth + 'px';
+    };
+    syncWidth();
+    window.addEventListener('resize', syncWidth);
+  }
+});
+// Autoplay statue video and freeze on last frame
+const statueVid = document.getElementById('statueVideo');
+if(statueVid){
+  const seekToEnd = () => {
+    if(statueVid.duration && isFinite(statueVid.duration)){
+      statueVid.currentTime = statueVid.duration;
+      statueVid.pause();
+    }
+  };
+  statueVid.addEventListener('loadedmetadata', seekToEnd);
+  statueVid.addEventListener('durationchange', seekToEnd);
+  statueVid.load();
+}
+
+/* ══════════════════════════════════════════════════════════════════════
+   FIBONACCI SPHERE - removed
+   ══════════════════════════════════════════════════════════════════════ */
+
+function bootHome(){
+  const hint=document.getElementById('scrollHint');
+  const hs=document.getElementById('homeScreen');
+  if(hint&&hs){
+    hs.addEventListener('scroll',()=>{
+      hint.style.opacity=hs.scrollTop>10?'0':'1';
+      const heroH = document.getElementById('homeHeroSection').offsetHeight;
+      const dark = hs.scrollTop < heroH - 10;
+      const nav = document.getElementById('mainNav');
+      if(nav){
+        nav.style.background = dark ? 'transparent' : 'rgba(255,255,255,0.35)';
+        nav.style.backdropFilter = dark ? 'none' : 'blur(16px)';
+        nav.style.webkitBackdropFilter = dark ? 'none' : 'blur(16px)';
+        nav.style.borderBottomColor = dark ? 'transparent' : 'rgba(0,0,0,0.06)';
+      }
+      document.querySelectorAll('.nav-link').forEach(el=>{
+        el.style.color = dark ? '' : '#111';
+      });
+      const va = document.querySelector('.nav-va');
+      if(va) va.style.color = dark ? '#fff' : '#111';
+      const lang = document.getElementById('langToggle');
+      if(lang) lang.style.color = dark ? 'rgba(255,255,255,0.7)' : '#111';
+      const login = document.getElementById('navLoginBtn');
+      if(login){
+        login.style.color = dark ? '#fff' : '#111';
+        login.style.borderColor = dark ? 'rgba(255,255,255,0.4)' : 'rgba(0,0,0,0.25)';
+      }
+      const signup = document.getElementById('navSignupBtn');
+      if(signup){
+        signup.style.color = dark ? '#fff' : '#111';
+        signup.style.borderColor = dark ? 'rgba(255,255,255,0.25)' : 'rgba(0,0,0,0.25)';
+        signup.style.background = dark ? 'rgba(255,255,255,0.08)' : 'transparent';
+      }
+    },{passive:true});
+  }
+
+  const skyVideo=document.getElementById('homeSkyVideo');
+  if(!skyVideo) return;
+
+  skyVideo.pause();
+
+  let targetTime=0, currentSkyTime=0;
+  let lastX=0.5;
+  let skyLoopRunning=false;
+  let lastSkyUpdate=0;
+
+  function updateSkyVideo(ts){
+    targetTime = lastX * (skyVideo.duration || 5);
+    currentSkyTime += (targetTime - currentSkyTime) * 0.06;
+    if(ts - lastSkyUpdate > 80 && skyVideo.duration && !isNaN(currentSkyTime)){
+      skyVideo.currentTime = Math.max(0, Math.min(skyVideo.duration - 0.01, currentSkyTime));
+      lastSkyUpdate = ts;
+    }
+    requestAnimationFrame(updateSkyVideo);
+  }
+
+  function startSkyLoop(){
+    if(!skyLoopRunning){ skyLoopRunning=true; requestAnimationFrame(updateSkyVideo); }
+  }
+  skyVideo.addEventListener('loadedmetadata', startSkyLoop);
+  if(skyVideo.readyState >= 1) startSkyLoop();
+  setTimeout(startSkyLoop, 500);
+
+  document.addEventListener('mousemove', e=>{
+    lastX = e.clientX / window.innerWidth;
+  });
+}
+
+/* ══════════════════════════════════════════════════════════════════════
+   PROFILE SCREEN
+   ══════════════════════════════════════════════════════════════════════ */
+function openProfile(){
+  hideAllScreens();
+  setNavTheme('light');
+  navProfileLink.classList.add('active');
+  document.getElementById('profileScreen').style.display='flex';
+  renderProfile();
+}
+
+async function renderProfile(){
+  const body=document.getElementById('profileBody');
+  body.innerHTML='<div style="font-size:11px;letter-spacing:0.2em;color:#bbb;text-align:center;padding:40px 0;">LOADING...</div>';
+
+  if(!currentUser){
+    body.innerHTML='<div style="font-size:11px;letter-spacing:0.2em;color:#bbb;text-align:center;padding:60px 0;">START YOUR FIRST SESSION</div>';
+    return;
+  }
+
+  const remoteProfile = await loadProfile(currentUser);
+
+  // Use remote profile if available, otherwise build from local sessions
+  const localSessions = allSessions.filter(s => s.user === currentUser);
+  if(!remoteProfile && localSessions.length === 0){
+    body.innerHTML='<div style="font-size:11px;letter-spacing:0.2em;color:#bbb;text-align:center;padding:60px 0;">NO SESSIONS YET FOR '+currentUser.toUpperCase()+'</div>';
+    return;
+  }
+
+  const profile = remoteProfile || { name: currentUser, age: currentAge, gender: currentGender, created_at: new Date().toISOString() };
+
+  // Sessions: prefer remote, fall back to local
+  const remoteSessions = remoteProfile ? (remoteProfile.sessions || []) : [];
+  const sessions = remoteSessions.length > 0 ? remoteSessions : localSessions.map(s=>({
+    image_name: s.imageName,
+    timestamp: s.timestamp,
+    session_duration: s.sessionDuration,
+    fixation_count: s.fixationHistory?.length || 0,
+    saccade_count: s.saccadeHistory?.length || 0,
+  }));
+
+  const totalFix=sessions.reduce((s,ss)=>s+(ss.fixation_count||ss.fixationHistory?.length||0),0);
+  const totalSac=sessions.reduce((s,ss)=>s+(ss.saccade_count||ss.saccadeHistory?.length||0),0);
+  const avgFix=0;
+  const avgDur=sessions.length?+(sessions.reduce((s,ss)=>s+(ss.session_duration||ss.sessionDuration||0),0)/sessions.length/1000).toFixed(1):0;
+
+  body.innerHTML=`
+    <div style="max-width:800px;margin:0 auto;">
+
+      <!-- header -->
+      <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:32px;padding-bottom:20px;border-bottom:1px solid #e0e0e0;">
+        <div>
+          <div style="font-size:9px;font-weight:700;letter-spacing:0.45em;color:#bbb;margin-bottom:8px;font-family:Urbanist,sans-serif;">PROFILE</div>
+          <div style="font-size:28px;font-weight:700;color:#111;font-family:Urbanist,sans-serif;">${profile.name}</div>
+          <div style="font-size:11px;font-weight:300;color:#999;margin-top:4px;font-family:Urbanist,sans-serif;">${[profile.age?profile.age+'y':'',profile.gender||'',profile.location||''].filter(Boolean).join(' · ')}</div>
+        </div>
+        <div style="font-size:9px;font-weight:300;color:#bbb;letter-spacing:0.1em;font-family:Urbanist,sans-serif;">MEMBER SINCE ${new Date(profile.created_at).toLocaleDateString()}</div>
+      </div>
+
+      <!-- KPIs -->
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:28px;">
+        ${[
+          ['SESSIONS',sessions.length,'total'],
+          ['FIXATIONS',totalFix,'all time'],
+          ['SACCADES',totalSac,'all time'],
+          ['AVG DURATION',avgDur+'s','per session'],
+        ].map(([label,val,sub])=>`
+          <div style="background:#fff;border:1px solid #eee;border-radius:8px;padding:16px;box-shadow:0 1px 4px rgba(0,0,0,0.04);">
+            <div style="font-size:7px;font-weight:700;letter-spacing:0.35em;color:#bbb;margin-bottom:8px;font-family:Urbanist,sans-serif;">${label}</div>
+            <div style="font-size:22px;font-weight:700;color:#FF0003;font-family:Urbanist,sans-serif;">${val}</div>
+            <div style="font-size:8px;color:#bbb;margin-top:3px;font-family:Urbanist,sans-serif;">${sub}</div>
+          </div>`).join('')}
+      </div>
+
+      <!-- session history -->
+      <div style="font-size:8px;font-weight:700;letter-spacing:0.45em;color:#999;margin-bottom:14px;padding-bottom:8px;border-bottom:1px solid #e0e0e0;font-family:Urbanist,sans-serif;">SESSION HISTORY</div>
+      ${sessions.length===0
+        ? '<div style="color:#ccc;font-size:11px;text-align:center;padding:40px 0;font-family:Urbanist,sans-serif;">NO SESSIONS YET</div>'
+        : sessions.slice().reverse().map((s,i)=>`
+          <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 16px;background:#fff;border:1px solid #eee;border-radius:8px;margin-bottom:8px;font-family:Urbanist,sans-serif;">
+            <div>
+              <div style="font-size:11px;font-weight:700;color:#111;">${s.image_name||s.imageName||'—'}</div>
+              <div style="font-size:9px;color:#bbb;margin-top:2px;">${new Date(s.timestamp||s.created_at).toLocaleString()}</div>
+            </div>
+            <div style="display:flex;gap:20px;text-align:right;">
+              <div><div style="font-size:9px;color:#bbb;">FIXATIONS</div><div style="font-size:13px;font-weight:700;color:#FF0003;">${s.fixation_count||0}</div></div>
+              <div><div style="font-size:9px;color:#bbb;">SACCADES</div><div style="font-size:13px;font-weight:700;color:#FF0003;">${s.saccade_count||0}</div></div>
+              <div><div style="font-size:9px;color:#bbb;">DURATION</div><div style="font-size:13px;font-weight:700;color:#FF0003;">${((s.session_duration||0)/1000).toFixed(1)}s</div></div>
+              ${s.ttff!==null&&s.ttff!==undefined?`<div><div style="font-size:9px;color:#bbb;">TTFF</div><div style="font-size:13px;font-weight:700;color:#FF0003;">${s.ttff}s</div></div>`:''}
+            </div>
+          </div>`).join('')}
+    </div>
+  `;
+}
+
+/* ══════════════════════════════════════════════════════════════════════
+   TOOLBAR COLLAPSE
+   ══════════════════════════════════════════════════════════════════════ */
+const dataToolbarCollapseBtn=document.getElementById('dataToolbarCollapseBtn');
+const dataToolbar=document.getElementById('dataToolbar');
+let toolbarCollapsed=false;
+const toolbarInnerEls=()=>Array.from(dataToolbar.children).filter(el=>el!==dataToolbarCollapseBtn);
+dataToolbarCollapseBtn.addEventListener('click',()=>{
+  toolbarCollapsed=!toolbarCollapsed;
+  toolbarInnerEls().forEach(el=>{el.style.display=toolbarCollapsed?'none':'';});
+  const arrow=dataToolbarCollapseBtn.querySelector('.tcb-arrow');
+  arrow.innerHTML=toolbarCollapsed?'&#9654;':'&#9660;';
+  dataToolbarCollapseBtn.title=toolbarCollapsed?'Show toolbar':'Hide toolbar';
+  dataToolbar.style.padding=toolbarCollapsed?'5px':'5px 10px';
+});
+
+/* ══════════════════════════════════════════════════════════════════════
+   DASHBOARD
+   ══════════════════════════════════════════════════════════════════════ */
+navDashboardLink.addEventListener('click',()=>openDashboard());
+
+navProfileLink.addEventListener('click',()=>openProfile());
+
+navAboutLink.addEventListener('click',()=>openAbout());
+
+function openAbout(){
+  hideAllScreens();
+  setNavTheme('light');
+  navAboutLink.classList.add('active');
+  document.getElementById('aboutScreen').style.display='flex';
+}
+
+function showEmptyState(screenId,msg){
+  const scr=document.getElementById(screenId);
+  scr.style.display='flex';
+  scr.style.position='relative';
+  const existing=document.querySelector('.empty-state-overlay');
+  if(existing)existing.remove();
+  const overlay=document.createElement('div');
+  overlay.className='empty-state-overlay';
+  overlay.style.cssText='position:fixed;inset:0;top:52px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;z-index:8990;pointer-events:all;';
+  overlay.innerHTML=`
+    <div style="font-size:9px;font-weight:700;letter-spacing:0.45em;color:#aaa;font-family:Urbanist,sans-serif;margin-bottom:4px;">NO SESSIONS YET</div>
+    <div style="font-size:13px;font-weight:300;color:#999;font-family:Urbanist,sans-serif;margin-bottom:16px;">${msg}</div>
+    <button class="empty-state-btn" style="background:rgba(255,255,255,0.35);color:#111;border:1px solid rgba(255,255,255,0.6);font-family:Urbanist,sans-serif;font-size:12px;font-weight:700;letter-spacing:0.2em;padding:12px 36px;cursor:pointer;border-radius:100px;backdrop-filter:blur(12px);">START SESSION</button>
+  `;
+  overlay.querySelector('.empty-state-btn').addEventListener('click',()=>{
+    overlay.remove();
+    goToSession();
+  });
+  document.body.appendChild(overlay);
+}
+
+function openDashboard(){
+  hideAllScreens();
+  setNavTheme('light');
+  navDashboardLink.classList.add('active');
+  const scr=document.getElementById('dashboardScreen');
+  scr.style.display='flex';
+  if(allSessions.length===0){
+    showEmptyState('dashboardScreen','Start your first session to see your dashboard.');
+  } else {
+    renderDashboard();
+  }
+}
+
+function renderDashboard(){
+  const container=document.getElementById('dashboardContent');
+  container.innerHTML='';
+  if(allSessions.length===0){container.innerHTML='<div style="padding:60px 0;text-align:center;font-size:11px;letter-spacing:0.25em;color:#ccc;font-family:Urbanist,sans-serif;">NO SESSIONS YET</div>';return;}
+  const latest=allSessions[allSessions.length-1];
+  const totalFix=latest.fixationHistory.length;
+  const totalSac=latest.saccadeHistory.length;
+  const avgFixDur=totalFix?Math.round(latest.fixationHistory.reduce((s,f)=>s+f.duration,0)/totalFix):0;
+  const sacAmp=totalSac?+(latest.saccadeHistory.reduce((s,f)=>s+Math.hypot(f.toX-f.fromX,f.toY-f.fromY),0)/totalSac*100).toFixed(1):0;
+  const dur=latest.sessionDuration?(latest.sessionDuration/1000).toFixed(1):0;
+  const ttff=latest.firstFix?((latest.firstFix.startTs-latest.firstFixModeTs)/1000).toFixed(2):null;
+  const kpiSection=document.createElement('div');kpiSection.className='dash-section';
+  kpiSection.innerHTML='<div class="dash-section-title">MY LAST SESSION - '+latest.user+'</div>';
+  const kpiRow=document.createElement('div');kpiRow.className='dash-kpi-row';
+  kpiRow.innerHTML=`<div class="dash-kpi accent"><div class="dash-kpi-label">FIXATIONS</div><div class="dash-kpi-val">${totalFix||'-'}</div><div class="dash-kpi-sub">gaze holds</div></div><div class="dash-kpi accent"><div class="dash-kpi-label">AVG FIXATION</div><div class="dash-kpi-val">${avgFixDur||'-'}<span class="dash-kpi-unit">ms</span></div><div class="dash-kpi-sub">dwell time</div></div><div class="dash-kpi accent"><div class="dash-kpi-label">SACCADES</div><div class="dash-kpi-val">${totalSac||'-'}</div><div class="dash-kpi-sub">eye jumps</div></div><div class="dash-kpi accent"><div class="dash-kpi-label">SAC AMPLITUDE</div><div class="dash-kpi-val">${sacAmp||'-'}<span class="dash-kpi-unit">%</span></div><div class="dash-kpi-sub">avg distance</div></div><div class="dash-kpi accent"><div class="dash-kpi-label">DURATION</div><div class="dash-kpi-val">${dur}<span class="dash-kpi-unit">s</span></div><div class="dash-kpi-sub">viewing time</div></div><div class="dash-kpi accent"><div class="dash-kpi-label">TTFF</div><div class="dash-kpi-val">${ttff||'-'}<span class="dash-kpi-unit">${ttff?'s':''}</span></div><div class="dash-kpi-sub">time to first fix</div></div><div class="dash-kpi"><div class="dash-kpi-label">SAMPLES</div><div class="dash-kpi-val">${latest.gazeLog.length}</div><div class="dash-kpi-sub">gaze points</div></div><div class="dash-kpi"><div class="dash-kpi-label">IMAGE</div><div class="dash-kpi-val" style="font-size:13px">${latest.imageName}</div></div>`;
+  kpiSection.appendChild(kpiRow);container.appendChild(kpiSection);
+  const sparkSection=document.createElement('div');sparkSection.className='dash-section';
+  sparkSection.innerHTML='<div class="dash-section-title">MY SESSION OVERVIEW</div>';
+  sparkSection.appendChild(makeRingChart([{label:'Fixations',val:totalFix,max:Math.max(totalFix,50)},{label:'Saccades',val:totalSac,max:Math.max(totalSac,40)},{label:'Samples',val:latest.gazeLog.length,max:Math.max(latest.gazeLog.length,200)},]));
+  container.appendChild(sparkSection);
+  if(allSessions.length>1){const compSection=document.createElement('div');compSection.className='dash-section';compSection.innerHTML='<div class="dash-section-title">SESSIONS COMPARISON</div>';compSection.appendChild(makeBarChart('FIXATION COUNT',allSessions.map(s=>({label:s.user,val:s.fixationHistory.length}))));compSection.appendChild(makeBarChart('SACCADE COUNT',allSessions.map(s=>({label:s.user,val:s.saccadeHistory.length}))));compSection.appendChild(makeBarChart('SESSION DURATION (s)',allSessions.map(s=>({label:s.user,val:+(s.sessionDuration/1000).toFixed(1)}))));compSection.appendChild(makeBarChart('AVG FIXATION DURATION (ms)',allSessions.map(s=>{const f=s.fixationHistory;return{label:s.user,val:f.length?Math.round(f.reduce((a,x)=>a+x.duration,0)/f.length):0};})));container.appendChild(compSection);}
+  const byUser=new Map();for(const sess of allSessions){if(!byUser.has(sess.user))byUser.set(sess.user,[]);byUser.get(sess.user).push(sess);}
+  if(byUser.size>1){const userSection=document.createElement('div');userSection.className='dash-section';userSection.innerHTML='<div class="dash-section-title">USER COMPARISON</div>';const grid=document.createElement('div');grid.className='dash-compare-grid';for(const[user,userSessions]of byUser){const card=document.createElement('div');card.className='dash-user-card';const allFix=userSessions.flatMap(ss=>ss.fixationHistory);const totFix=allFix.length;const totSac=sessions.reduce((s,ss)=>s+ss.saccadeHistory.length,0);const totDur=sessions.reduce((s,ss)=>s+ss.sessionDuration,0);const avgF=totFix?Math.round(allFix.reduce((s,f)=>s+f.duration,0)/totFix):0;const meta=userSessions[0];card.innerHTML=`<div class="dash-user-card-name">${user}</div><div class="dash-user-card-meta">${meta.age?meta.age+'y · ':''}${meta.gender||''} · ${sessions.length} session${sessions.length>1?'s':''}</div><div class="dash-user-stats"><div class="dash-user-stat"><div class="dash-user-stat-label">FIXATIONS</div><div class="dash-user-stat-val">${totFix}</div></div><div class="dash-user-stat"><div class="dash-user-stat-label">AVG DUR</div><div class="dash-user-stat-val">${avgF}ms</div></div><div class="dash-user-stat"><div class="dash-user-stat-label">SACCADES</div><div class="dash-user-stat-val">${totSac}</div></div><div class="dash-user-stat"><div class="dash-user-stat-label">TOTAL TIME</div><div class="dash-user-stat-val">${(totDur/1000).toFixed(1)}s</div></div></div>`;grid.appendChild(card);}userSection.appendChild(grid);container.appendChild(userSection);}
+}
+
+function makeRingChart(metrics){const wrap=document.createElement('div');wrap.style.cssText='display:flex;gap:16px;flex-wrap:wrap;';const dpr=window.devicePixelRatio||1;const SIZE=120;metrics.forEach(m=>{const cell=document.createElement('div');cell.style.cssText='display:flex;flex-direction:column;align-items:center;gap:6px;background:#fff;border:1px solid #eee;border-radius:8px;padding:14px 18px;box-shadow:0 1px 4px rgba(0,0,0,0.04);';const canvas=document.createElement('canvas');canvas.width=SIZE*dpr;canvas.height=SIZE*dpr;canvas.style.width=SIZE+'px';canvas.style.height=SIZE+'px';const label=document.createElement('div');label.style.cssText='font-size:8px;font-weight:700;letter-spacing:0.3em;color:#bbb;font-family:Urbanist,sans-serif;text-transform:uppercase;';label.textContent=m.label;cell.appendChild(canvas);cell.appendChild(label);wrap.appendChild(cell);setTimeout(()=>{const ctx=canvas.getContext('2d');ctx.scale(dpr,dpr);const cx=SIZE/2,cy=SIZE/2,outerR=SIZE/2-8;const pct=Math.min(1,m.val/m.max);const startA=-Math.PI/2;ctx.beginPath();ctx.arc(cx,cy,outerR,0,Math.PI*2);ctx.strokeStyle='#f0f0f0';ctx.lineWidth=14;ctx.stroke();if(pct>0){ctx.beginPath();ctx.arc(cx,cy,outerR,startA,startA+pct*Math.PI*2);ctx.strokeStyle='#FF0003';ctx.lineWidth=14;ctx.lineCap='round';ctx.stroke();}ctx.fillStyle='#111';ctx.font='700 22px Urbanist';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText(m.val,cx,cy-6);ctx.fillStyle='#ccc';ctx.font='300 9px Urbanist';ctx.fillText('/ '+m.max,cx,cy+12);},60);});return wrap;}
+
+function makeBarChart(title,data,unit=''){const wrap=document.createElement('div');wrap.className='dash-chart-area';const dpr=window.devicePixelRatio||1;const PAD_L=100,PAD_R=60,PAD_T=28,PAD_B=8;const rowH=28,barH=12;const H_canvas=PAD_T+data.length*rowH+PAD_B;const canvas=document.createElement('canvas');canvas.style.width='100%';canvas.style.height=H_canvas+'px';canvas.style.display='block';wrap.appendChild(canvas);setTimeout(()=>{const W2=canvas.offsetWidth||600;canvas.width=W2*dpr;canvas.height=H_canvas*dpr;const ctx=canvas.getContext('2d');ctx.scale(dpr,dpr);const maxVal=Math.max(...data.map(d=>d.val),1);const barZone=W2-PAD_L-PAD_R;ctx.font='700 8px Urbanist';ctx.fillStyle='rgba(0,0,0,0.25)';ctx.textAlign='left';ctx.fillText(title.toUpperCase(),PAD_L,14);for(let g=0;g<=4;g++){const x=PAD_L+barZone*g/4;ctx.strokeStyle='rgba(0,0,0,0.06)';ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(x,PAD_T);ctx.lineTo(x,H_canvas-PAD_B);ctx.stroke();}data.forEach((d,i)=>{const y=PAD_T+i*rowH;const barW=barZone*d.val/maxVal;ctx.font='300 9px Urbanist';ctx.fillStyle='rgba(0,0,0,0.45)';ctx.textAlign='right';ctx.textBaseline='middle';ctx.fillText(d.label,PAD_L-10,y+barH/2);ctx.fillStyle='#f0f0f0';ctx.beginPath();const r=barH/2;ctx.roundRect(PAD_L,y,barZone,barH,r);ctx.fill();if(barW>0){ctx.fillStyle='#FF0003';ctx.beginPath();ctx.roundRect(PAD_L,y,barW,barH,r);ctx.fill();}ctx.font='700 9px Urbanist';ctx.fillStyle='rgba(0,0,0,0.4)';ctx.textAlign='left';ctx.textBaseline='middle';ctx.fillText(d.val+(unit?' '+unit:''),PAD_L+barW+8,y+barH/2);});},60);return wrap;}
+
+/* ══════════════════════════════════════════════════════════════════════
+   i18n - Language Toggle
+   ══════════════════════════════════════════════════════════════════════ */
+const TRANSLATIONS = {
+  en: {
+    navData:'DATA', navGallery:'GALLERY', navDashboard:'DASHBOARD',
+    navProfile:'PROFILE', navAbout:'ABOUT', navLogin:'LOG IN', navSignup:'SIGN UP',
+    eyebrow:'VISUAL ANALYSIS SYSTEM', heading:'YOU SEE, WE MEASURE.',
+    startBtn:'START', scrollHint:'SCROLL TO LEARN MORE',
+    howItWorks:'HOW IT WORKS', analysisModes:'ANALYSIS MODES',
+    quickStart:'QUICK START', ready:'READY?',
+    howTitle:'From eyes to insights in three steps.',
+    howSub:'The system uses your webcam to detect iris position in real-time, maps gaze to screen coordinates via affine calibration, then classifies movements into research-grade metrics.',
+    step1Title:'EYE TRACKING', step1Desc:'MediaPipe detects 478 facial landmarks per frame, isolating the iris center in both eyes for sub-pixel gaze estimation.',
+    step2Title:'CALIBRATION', step2Desc:'A 9-point affine calibration maps your unique eye movement range to screen coordinates. Keep your head still.',
+    step3Title:'GAZE ANALYSIS', step3Desc:'Gaze samples are classified in real-time into fixations, saccades, scan paths, and heatmaps using I-DT and I-VT algorithms.',
+    modesSub:'Switch between modes in real-time to explore different dimensions of how a viewer scans an image.',
+    modesTitle:'Six ways to read visual attention.',
+    startTitle:'Up and running in under a minute.',
+    readyTitle:'Start your session now.',
+    howto1:'<strong>Allow camera access</strong> when the browser prompts.',
+    howto2:'<strong>Enter your details</strong> for group comparison.',
+    howto3:'<strong>Complete the 9-point calibration.</strong> Eyes only.',
+    howto4:'<strong>Select an image</strong> from the library or upload.',
+    howto5:'<strong>View naturally.</strong> Press FINISH when done.',
+    howto6:'<strong>Explore your data</strong> and compare with others.',
+    modeDescs:[
+      'Raw gaze positions sampled continuously - every point where the eye looked, frame by frame.',
+      'Sustained gaze on a single region for ≥200ms. Indicates active cognitive processing.',
+      'Rapid eye jumps between fixations. Reveals how the eye explores and scans a scene.',
+      'The chronological sequence of fixations - the full visual journey across the image.',
+      'Density map of visual attention. Hotter areas received more and longer fixations.',
+      'The very first region noticed - the pre-conscious entry point of visual attention.'
+    ],
+    startSession:'START',
+    nameLabel:'YOUR CODE', namePlaceholder:'e.g. P-4F7K',
+    ageLabel:'AGE', genderLabel:'GENDER',
+    male:'Male', female:'Female', other:'Other',
+    continueBtn:'CONTINUE',
+    participantCode:'YOUR PARTICIPANT CODE',
+    saveCode:'Save this code if you wish to return. It identifies your session anonymously.',
+    beginBtn:'BEGIN',
+    calTitle:'EYE TRACKING CALIBRATION',
+    calInstr1:'Keep your head still - move only your eyes to each dot',
+    calInstr2:'Hold your gaze until the ring fills completely',
+    calAfter1:'After calibration, you will see 5 political images, one at a time.',
+    calAfter2:'Look naturally - there are no right or wrong answers.',
+    calAfter3:'Each image will appear for 5 seconds.',
+    calBegin:'BEGIN CALIBRATION',
+    calReady:'READY',
+    calDone:'Calibration complete - the session is about to begin.',
+    noSessions:'NO SESSIONS YET',
+    noSessionsData:'Start your first session to see your data.',
+    noSessionsGallery:'Start your first session to see your gallery.',
+    noSessionsDash:'Start your first session to see your dashboard.',
+    startSessionBtn:'START SESSION',
+    aboutTitle:'ABOUT', theSystem:'THE SYSTEM', researchFocus:'RESEARCH FOCUS',
+    whatWeMeasure:'WHAT WE MEASURE', builtBy:'BUILT BY',
+    imageCredits:'IMAGE CREDITS',
+    imageCreditsDesc:'All images courtesy of the Government Press Office of Israel.',
+    memberSince:'MEMBER SINCE',
+    noSessionsYet:'NO SESSIONS YET',
+    sessionHistory:'SESSION HISTORY',
+    profileTitle:'PROFILE',
+    loading:'LOADING...',
+  },
+  he: {
+    navData:'נתונים', navGallery:'גלריה', navDashboard:'לוח בקרה',
+    navProfile:'פרופיל', navAbout:'אודות', navLogin:'כניסה', navSignup:'הרשמה',
+    eyebrow:'מערכת ניתוח חזותי', heading:'אתה מביט, אנחנו מודדים.',
+    startBtn:'התחל', scrollHint:'גלול למידע נוסף',
+    howItWorks:'איך זה עובד', analysisModes:'מצבי ניתוח',
+    quickStart:'התחלה מהירה', ready:'מוכן?',
+    howTitle:'משלושה שלבים לתובנות.',
+    howSub:'המערכת משתמשת במצלמת הרשת לאיתור מיקום האיריס בזמן אמת, ממפה את המבט לקואורדינטות המסך דרך כיול אפיני, ומסווגת תנועות למדדים ברמת מחקר.',
+    step1Title:'EYE TRACKING', step1Desc:'MediaPipe מזהה 478 נקודות ציון פנים בכל פריים, ומבודד את מרכז האיריס בשתי העיניים לאומדן מבט ברזולוציית תת-פיקסל.',
+    step2Title:'CALIBRATION', step2Desc:'כיול אפיני של 9 נקודות ממפה את טווח תנועת העין הייחודי שלך לקואורדינטות המסך. שמור על ראשך ללא תנועה.',
+    step3Title:'GAZE ANALYSIS', step3Desc:'דגימות המבט מסווגות בזמן אמת לקיבועים, סקאדות, מסלולי סריקה ומפות חום באמצעות אלגוריתמי I-DT ו-I-VT.',
+    modesSub:'עברו בין מצבים בזמן אמת כדי לחקור ממדים שונים של האופן שבו צופה סורק תמונה.',
+    modesTitle:'שש דרכים לקרוא תשומת לב חזותית.',
+    startTitle:'פעיל ועובד בפחות מדקה.',
+    readyTitle:'התחל את הסשן שלך עכשיו.',
+    howto1:'<strong>אפשר גישה למצלמה</strong> כשהדפדפן מבקש.',
+    howto2:'<strong>הזן את פרטיך</strong> להשוואה קבוצתית.',
+    howto3:'<strong>השלם את הכיול של 9 הנקודות.</strong> עיניים בלבד.',
+    howto4:'<strong>בחר תמונה</strong> מהספרייה.',
+    howto5:'<strong>צפה באופן טבעי.</strong> הסשן מסתיים אוטומטית.',
+    howto6:'<strong>חקור את הנתונים שלך</strong> והשווה עם אחרים.',
+    modeDescs:[
+      'מיקומי מבט גולמיים שנדגמו ברציפות - כל נקודה שהעין הסתכלה עליה, פריים אחר פריים.',
+      'מבט ממושך על אזור אחד למשך 200ms לפחות. מעיד על עיבוד קוגניטיבי פעיל.',
+      'קפיצות עין מהירות בין קיבועים. מגלה כיצד העין חוקרת וסורקת סצנה.',
+      'הרצף הכרונולוגי של הקיבועים - המסע החזותי המלא על פני התמונה.',
+      'מפת צפיפות של תשומת הלב החזותית. אזורים חמים יותר קיבלו קיבועים ארוכים יותר.',
+      'האזור הראשון שנוצד - נקודת הכניסה הטרום-מודעת של תשומת הלב החזותית.'
+    ],
+    startSession:'התחל',
+    nameLabel:'הקוד שלך', namePlaceholder:'לדוגמה P-4F7K',
+    ageLabel:'גיל', genderLabel:'מגדר',
+    male:'זכר', female:'נקבה', other:'אחר', selectDefault:'בחר',
+    continueBtn:'המשך',
+    participantCode:'קוד המשתתף שלך',
+    saveCode:'שמור את הקוד אם תרצה לחזור. הוא מזהה את הסשן שלך באופן אנונימי.',
+    beginBtn:'התחל',
+    calTitle:'כיול מעקב עיניים',
+    calInstr1:'שמור על ראשך ללא תנועה - הזז רק את עינייך לכל נקודה',
+    calInstr2:'החזק את המבט עד שהטבעת תתמלא לחלוטין',
+    calAfter1:'לאחר הכיול תראה 5 תמונות פוליטיות, אחת בכל פעם.',
+    calAfter2:'הסתכל באופן טבעי - אין תשובות נכונות או שגויות.',
+    calAfter3:'כל תמונה תופיע למשך 5 שניות.',
+    calBegin:'התחל כיול',
+    calReady:'מוכן',
+    calDone:'הכיול הושלם - הסשן עומד להתחיל.',
+    noSessions:'עדיין אין סשנים',
+    noSessionsData:'התחל את הסשן הראשון שלך כדי לראות את הנתונים.',
+    noSessionsGallery:'התחל את הסשן הראשון שלך כדי לראות את הגלריה.',
+    noSessionsDash:'התחל את הסשן הראשון שלך כדי לראות את לוח הבקרה.',
+    startSessionBtn:'התחל סשן',
+    aboutTitle:'אודות', theSystem:'המערכת', researchFocus:'מוקד המחקר',
+    whatWeMeasure:'מה אנחנו מודדים', builtBy:'נבנה על ידי',
+    imageCredits:'קרדיטים לתמונות',
+    imageCreditsDesc:'כל התמונות באדיבות לשכת העיתונות הממשלתית של ישראל.',
+    memberSince:'משתתף מאז',
+    noSessionsYet:'עדיין אין סשנים',
+    sessionHistory:'היסטוריית סשנים',
+    profileTitle:'פרופיל',
+    loading:'טוען...',
+    readyTitle:'התחל את הסשן שלך עכשיו.',
+  }
+};
+
+let currentLang = localStorage.getItem('lang') || 'en';
+
+function fixTimelineLines(isRtl){
+  const items = document.querySelectorAll('.howto-list li');
+  items.forEach((li, i) => {
+    const line = li.querySelector('.howto-line');
+    if(!line) return;
+    if(isRtl){
+      // RTL: flex reverses visually, last item in DOM appears leftmost
+      // hide line on last item (06, leftmost in RTL = no next step)
+      line.style.display = i === items.length - 1 ? 'none' : 'block';
+      line.style.left = 'auto';
+      line.style.right = '50%';
+    } else {
+      line.style.display = i === items.length - 1 ? 'none' : 'block';
+      line.style.left = '50%';
+      line.style.right = 'auto';
+    }
+  });
+}
+
+function applyLang(lang){
+  currentLang = lang;
+  localStorage.setItem('lang', lang);
+  const t = TRANSLATIONS[lang];
+  const isHe = lang === 'he';
+  
+  document.documentElement.setAttribute('lang', lang);
+  document.getElementById('langToggle').textContent = isHe ? 'EN' : 'HE';
+  document.body.style.direction = isHe ? 'rtl' : 'ltr';
+  document.body.setAttribute('dir', isHe ? 'rtl' : 'ltr');
+
+  // Nav
+  const navSession = document.getElementById('navSessionLink');
+  if(navSession) navSession.textContent = t.navData;
+  const navGal = document.getElementById('navGalleryLink');
+  if(navGal) navGal.textContent = t.navGallery;
+  const navDash = document.getElementById('navDashboardLink');
+  if(navDash) navDash.textContent = t.navDashboard;
+  const navProf = document.getElementById('navProfileLink');
+  if(navProf) navProf.textContent = t.navProfile;
+  const navAbt = document.getElementById('navAboutLink');
+  if(navAbt) navAbt.textContent = t.navAbout;
+  const navLog = document.getElementById('navLoginBtn');
+  if(navLog) navLog.textContent = t.navLogin;
+  const navSup = document.getElementById('navSignupBtn');
+  if(navSup) navSup.textContent = t.navSignup;
+
+  // Home hero
+  const eyebrow = document.querySelector('.home-eyebrow');
+  if(eyebrow) eyebrow.textContent = t.eyebrow;
+  const heading = document.querySelector('.home-heading');
+  if(heading) heading.textContent = t.heading;
+  const startBtn = document.getElementById('homeStartBtn');
+  if(startBtn) startBtn.textContent = t.startBtn;
+  const scrollHint = document.getElementById('scrollHint');
+  if(scrollHint) scrollHint.childNodes[0].textContent = t.scrollHint + ' ';
+
+  // Name screen - new code flow
+  const ageLabel = document.querySelector('label[for="ageInput"]');
+  if(ageLabel) ageLabel.textContent = t.ageLabel;
+  const genderLabel = document.querySelector('label[for="genderInput"]');
+  if(genderLabel) genderLabel.textContent = t.genderLabel;
+  const continueBtn = document.getElementById('nameContinue');
+  if(continueBtn) continueBtn.textContent = t.continueBtn;
+  const genderSel = document.getElementById('genderInput');
+  if(genderSel && genderSel.options.length >= 3){
+    const defOpt = document.getElementById('genderSelectDefault');
+    if(defOpt) defOpt.text = t.selectDefault || 'Select';
+    genderSel.options[1].text = t.male;
+    genderSel.options[2].text = t.female;
+    genderSel.options[3] && (genderSel.options[3].text = t.other);
+  }
+  // Step 2: code display
+  const participantCodeEl = document.querySelector('#nameScreen [style*="letter-spacing:0.45em"]');
+  if(participantCodeEl && t.participantCode) participantCodeEl.textContent = t.participantCode;
+  const saveCodeEl = document.querySelector('#nameScreen [style*="max-width:280px"]');
+  if(saveCodeEl && t.saveCode) saveCodeEl.textContent = t.saveCode;
+  const beginBtn = document.getElementById('nsCodeContinue');
+  if(beginBtn && t.beginBtn) beginBtn.textContent = t.beginBtn;
+
+  // ns-title
+  const nsTitle = document.querySelector('.ns-title');
+  if(nsTitle) nsTitle.textContent = t.eyebrow;
+
+  // Empty states
+  document.querySelectorAll('.empty-state-overlay').forEach(el=>{
+    const msg = el.querySelector('div:nth-child(2)');
+    const btn = el.querySelector('.empty-state-btn');
+    if(btn) btn.textContent = t.startSessionBtn || t.startBtn;
+  });
+
+  // Gallery screen title
+  const galleryTitle = document.querySelector('#galleryHeader .gallery-title');
+  if(galleryTitle) galleryTitle.textContent = t.navGallery;
+
+  // Dashboard title
+  const dashTitle = document.querySelector('#dashboardHeader .dash-title');
+  if(dashTitle) dashTitle.textContent = t.navDashboard;
+
+  // Profile loading text (if visible)
+  const profileBody = document.getElementById('profileBody');
+  if(profileBody && profileBody.textContent.trim() === 'LOADING...') {
+    profileBody.innerHTML = `<div style="font-size:11px;letter-spacing:0.2em;color:#bbb;text-align:center;padding:40px 0;">${t.loading||'LOADING...'}</div>`;
+  }
+
+  // Calibration canvas text is drawn dynamically - store lang for drawCalIntro/drawCalDone
+  // Home sections
+  const hiLabels = document.querySelectorAll('.hi-label');
+  const labelKeys = ['howItWorks','analysisModes','quickStart','ready'];
+  hiLabels.forEach((el,i)=>{ if(labelKeys[i]) el.textContent=t[labelKeys[i]]; });
+
+  const hiTitles = document.querySelectorAll('.hi-title');
+  const titleKeys = ['howTitle','modesTitle','startTitle','readyTitle'];
+  hiTitles.forEach((el,i)=>{ if(titleKeys[i]) el.textContent=t[titleKeys[i]]; });
+
+  const hiSubs = document.querySelectorAll('.hi-sub');
+  if(hiSubs[0]) hiSubs[0].textContent=t.howSub;
+  if(hiSubs[1]) hiSubs[1].textContent=t.modesSub;
+
+  // Steps
+  const stepDescs = document.querySelectorAll('.step-desc');
+  if(stepDescs[0]) stepDescs[0].textContent=t.step1Desc;
+  if(stepDescs[1]) stepDescs[1].textContent=t.step2Desc;
+  if(stepDescs[2]) stepDescs[2].textContent=t.step3Desc;
+  const stepTitles = document.querySelectorAll('.step-title');
+  if(stepTitles[0]) stepTitles[0].textContent=t.step1Title;
+  if(stepTitles[1]) stepTitles[1].textContent=t.step2Title;
+  if(stepTitles[2]) stepTitles[2].textContent=t.step3Title;
+
+  // Quick start list
+  const howtoItems = document.querySelectorAll('.howto-text');
+  const howtoKeys = ['howto1','howto2','howto3','howto4','howto5','howto6'];
+  howtoItems.forEach((el,i)=>{ if(t[howtoKeys[i]]) el.innerHTML=t[howtoKeys[i]]; });
+
+  // Mode slider desc
+  if(t.modeDescs) {
+    const MODES_LOCAL = window._MODES_REF;
+    if(MODES_LOCAL) {
+      t.modeDescs.forEach((d,i)=>{ if(MODES_LOCAL[i]) MODES_LOCAL[i].desc=d; });
+    }
+    const modeDescEl = document.getElementById('modeDesc');
+    if(modeDescEl && t.modeDescs[window._modeCur||0]) modeDescEl.textContent=t.modeDescs[window._modeCur||0];
+  }
+
+  const startBtn2 = document.getElementById('homeStartBtn2');
+  if(startBtn2) startBtn2.textContent=t.startSession;
+
+  // About screen labels
+  const aboutMap = {
+    'about-label-title': 'aboutTitle',
+    'about-label-system': 'theSystem',
+    'about-label-research': 'researchFocus',
+    'about-label-measure': 'whatWeMeasure',
+    'about-label-built': 'builtBy',
+    'about-label-credits': 'imageCredits',
+  };
+  Object.entries(aboutMap).forEach(([id, key])=>{
+    const el = document.getElementById(id);
+    if(el && t[key]) el.textContent = t[key];
+  });
+  const creditsDesc = document.querySelector('#aboutBody p[style*="max-width:480px"]') || 
+    [...document.querySelectorAll('#aboutBody p')].find(p=>p.textContent.includes('courtesy of'));
+  if(creditsDesc && t.imageCreditsDesc) creditsDesc.textContent = t.imageCreditsDesc;
+
+  fixTimelineLines(isHe);
+
+  // Fix video column padding for RTL/LTR
+  const modeVideoCol = document.getElementById('modeVideoCol');
+  if(modeVideoCol){
+    modeVideoCol.style.padding = isHe
+      ? '72px 0 72px 60px'   // RTL: gap on right side
+      : '72px 60px 72px 0';  // LTR: gap on left side
+  }
+}
+
+function toggleLang(){
+  applyLang(currentLang === 'en' ? 'he' : 'en');
+}
+window.toggleLang = toggleLang;
+document.getElementById('langToggle').addEventListener('click', toggleLang);
+
+// Apply on load
+applyLang(currentLang);
+
+</script>
+</body>
+</html>
