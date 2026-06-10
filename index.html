@@ -372,7 +372,7 @@ canvas.va-preview{width:100%;aspect-ratio:5/3;display:block;border-radius:6px;ba
 #dataToolbarCollapseBtn:hover{color:#fff;background:rgba(255,255,255,0.18);}
 #dataToolbarCollapseBtn .tcb-arrow{font-size:10px;font-weight:900;line-height:1;}
 
-/* Home screen — all text red */
+/* Home screen — all text and borders red */
 #homeScreen .hi-label,#homeScreen .hi-title,#homeScreen .hi-sub,
 #homeScreen .step-num,#homeScreen .step-title,#homeScreen .step-desc,
 #homeScreen .howto-n,#homeScreen .howto-text,#homeScreen .howto-text strong,
@@ -381,6 +381,20 @@ canvas.va-preview{width:100%;aspect-ratio:5/3;display:block;border-radius:6px;ba
 #homeScreen p,#homeScreen h1,#homeScreen h2,#homeScreen label{color:#FF0003 !important;}
 #homeScreen .howto-dot{background:#FF0003 !important;}
 #homeScreen .howto-line{background:#FF0003 !important;}
+#homeScreen #homeStartBtn,#homeScreen #homeStartBtn2{
+  color:#FF0003 !important;
+  border-color:#FF0003 !important;
+  background:transparent !important;
+}
+#homeScreen #homeStartBtn:hover,#homeScreen #homeStartBtn2:hover{
+  background:rgba(255,0,3,0.08) !important;
+}
+#homeScreen #modePrev,#homeScreen #modeNext{
+  color:#FF0003 !important;
+  border-color:#FF0003 !important;
+}
+#homeScreen .mode-dot{background:#ddd !important;}
+#homeScreen .mode-dot[style*="111"]{background:#FF0003 !important;}
 
 #heroEyeSvg{
   display:block;
