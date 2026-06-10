@@ -9,7 +9,15 @@
   <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@200;300;400;500;600;700;800;900&family=Heebo:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
-[lang="he"] body,[lang="he"] button,[lang="he"] input,[lang="he"] select,[lang="he"] label,[lang="he"] span,[lang="he"] p,[lang="he"] h1,[lang="he"] h2,[lang="he"] div{font-family:Heebo,sans-serif;}
+
+@font-face {
+  font-family: 'HaimClassic';
+  src: url('haim-classic-light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+[lang="he"] body,[lang="he"] button,[lang="he"] input,[lang="he"] select,[lang="he"] label,[lang="he"] span,[lang="he"] p,[lang="he"] h1,[lang="he"] h2,[lang="he"] div{font-family:'HaimClassic',Heebo,sans-serif;font-weight:300;}
 [lang="he"] #modesSection{direction:rtl;}
 [lang="he"] #modesSection .hi-label,[lang="he"] #modesSection .hi-title,[lang="he"] #modesSection .hi-sub,[lang="he"] #modesSection #modeDesc{text-align:right;}
 body{
