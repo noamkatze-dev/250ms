@@ -55,12 +55,12 @@ body{
 .home-content{position:relative;z-index:1;}
 #mainNav{position:fixed;top:0;left:0;right:0;height:52px;background:transparent;backdrop-filter:none;-webkit-backdrop-filter:none;border-bottom:1px solid transparent;display:flex;align-items:center;justify-content:space-between;padding:0 60px;z-index:9000;cursor:default;transition:background 0.3s,border-color 0.3s,backdrop-filter 0.3s;}
 #navBrand{display:flex;align-items:center;gap:10px;}
-.nav-va{font-size:14px;font-weight:700;color:#fff;letter-spacing:0.06em;}
-.nav-title{font-size:10px;font-weight:700;letter-spacing:0.28em;color:#111;font-variant:small-caps;}
+.nav-va{font-size:14px;font-weight:700;color:#FF0003;letter-spacing:0.06em;}
+.nav-title{font-size:10px;font-weight:700;letter-spacing:0.28em;color:#FF0003;font-variant:small-caps;}
 #navLinks{display:flex;gap:28px;align-items:center;}
-.nav-link{font-size:10px;font-weight:700;letter-spacing:0.22em;color:rgba(255,255,255,0.7);cursor:pointer;user-select:none;transition:color 0.15s;}
-.nav-link:hover,.nav-link.active{color:#fff;}
-.nav-login{font-size:10px;font-weight:700;letter-spacing:0.22em;cursor:pointer;user-select:none;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.25);color:#fff;padding:6px 18px;border-radius:100px;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);transition:background 0.15s;}
+.nav-link{font-size:10px;font-weight:700;letter-spacing:0.22em;color:#FF0003;cursor:pointer;user-select:none;transition:color 0.15s;}
+.nav-link:hover,.nav-link.active{color:#FF0003;}
+.nav-login{font-size:10px;font-weight:700;letter-spacing:0.22em;cursor:pointer;user-select:none;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.25);color:#FF0003;padding:6px 18px;border-radius:100px;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);transition:background 0.15s,color 0.15s,border-color 0.15s;}
 .nav-login:hover{background:rgba(255,255,255,0.55);}
 .nav-login-outline{background:transparent;border-color:rgba(255,255,255,0.4);}
 .nav-login-outline:hover{background:rgba(255,255,255,0.2);}
@@ -69,7 +69,7 @@ body{
 .nav-login.hidden{display:none;}
 
 /* HOME SCREEN */
-#homeScreen{position:fixed;inset:0;z-index:8999;overflow-y:auto;overflow-x:hidden;color:#FF0003;}
+#homeScreen{position:fixed;inset:0;z-index:8999;overflow-y:auto;overflow-x:hidden;color:#FF0003;background:transparent;}
 
 #homeHeroSection{
   position:relative;
@@ -133,7 +133,7 @@ body{
 .home-scroll-hint{font-size:9px;font-weight:600;letter-spacing:0.4em;color:#FF0003;display:flex;flex-direction:column;align-items:center;gap:11px;position:absolute;bottom:28px;left:50%;transform:translateX(-50%);z-index:4;pointer-events:none;transition:opacity 0.4s ease;}
 .home-scroll-hint-arrow{font-size:22px;color:#FF0003;line-height:1;}
 
-#homeInfo{position:relative;z-index:4;pointer-events:all;background:#fff;}
+#homeInfo{position:relative;z-index:4;pointer-events:all;background:rgba(255,255,255,0.75);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);}
 .hi-section{padding:72px 60px;}
 .hi-section+.hi-section{border-top:none;}
 .hi-section-dark{background:transparent;}
@@ -396,6 +396,10 @@ canvas.va-preview{width:100%;aspect-ratio:5/3;display:block;border-radius:6px;ba
 #homeScreen .mode-dot{background:#ddd !important;}
 #homeScreen .mode-dot[style*="111"]{background:#FF0003 !important;}
 
+/* Nav red on home */
+#navSignupBtn, #navLoginBtn, #navAboutLink, .nav-va, #langToggle,
+.nav-link { transition: color 0.15s; }
+
 #heroEyeSvg{
   display:block;
   width:240px;
@@ -434,13 +438,13 @@ canvas.va-preview{width:100%;aspect-ratio:5/3;display:block;border-radius:6px;ba
   </div>
 </nav>
 
+<!-- Sky video - fixed background for entire home page -->
+<video id="homeSkyVideo" src="sky.mp4" muted playsinline loop preload="auto"
+  style="display:none;position:fixed;inset:0;width:100%;height:100%;object-fit:cover;z-index:8998;opacity:0.7;pointer-events:none;filter:contrast(1.1) saturate(1.15);"></video>
+
 <div id="homeScreen">
 
   <div id="homeHeroSection">
-
-    <!-- Sky video background -->
-    <video id="homeSkyVideo" src="sky.mp4" muted playsinline loop preload="auto"
-      style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;opacity:0.7;pointer-events:none;filter:contrast(1.1) saturate(1.15);"></video>
 
     <div id="heroRight" style="position:relative;z-index:2;">
       <div class="home-eyebrow">VISUAL ANALYSIS SYSTEM</div>
@@ -884,9 +888,14 @@ function showHome(){
   hideAllScreens();
   setNavTheme('dark');
   homeScreen.style.display='block';
+  document.getElementById('homeSkyVideo').style.display='block';
   navHomeLink.classList.add('active');
 }
-function hideHome(){homeScreen.style.display='none';navHomeLink.classList.remove('active');}
+function hideHome(){
+  homeScreen.style.display='none';
+  document.getElementById('homeSkyVideo').style.display='none';
+  navHomeLink.classList.remove('active');
+}
 
 function goToSession(){hideHome();if(!appStarted){appStarted=true;startApp();}}
 
@@ -1478,6 +1487,8 @@ document.getElementById('playBtn').addEventListener('click',()=>{playLayer(dataA
 
 function hideAllScreens(){
   homeScreen.style.display='none';
+  const skyVid=document.getElementById('homeSkyVideo');
+  if(skyVid) skyVid.style.display='none';
   document.getElementById('dataScreen').style.display='none';
   document.getElementById('galleryScreen').style.display='none';
   document.getElementById('dashboardScreen').style.display='none';
@@ -1818,6 +1829,8 @@ async function startApp(){
 })();
 
  bootHome();
+document.getElementById('homeSkyVideo').style.display='block';
+setNavTheme('dark');
 // Sync bottom START button width to top START button
 document.fonts.ready.then(()=>{
   const btn1 = document.getElementById('homeStartBtn');
