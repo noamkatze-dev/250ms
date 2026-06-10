@@ -133,8 +133,8 @@ body{
 .home-scroll-hint{font-size:9px;font-weight:600;letter-spacing:0.4em;color:#FF0003;display:flex;flex-direction:column;align-items:center;gap:11px;position:absolute;bottom:28px;left:50%;transform:translateX(-50%);z-index:4;pointer-events:none;transition:opacity 0.4s ease;}
 .home-scroll-hint-arrow{font-size:22px;color:#FF0003;line-height:1;}
 
-#homeInfo{position:relative;z-index:4;pointer-events:all;background:rgba(255,255,255,0.75);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);}
-.hi-section{padding:72px 60px;}
+#homeInfo{position:relative;z-index:4;pointer-events:all;background:transparent;}
+.hi-section{padding:72px 60px;background:transparent;}
 .hi-section+.hi-section{border-top:none;}
 .hi-section-dark{background:transparent;}
 .hi-label{font-size:8px;font-weight:700;letter-spacing:0.5em;color:#bbb;margin-bottom:20px;text-transform:uppercase;}
@@ -487,8 +487,8 @@ canvas.va-preview{width:100%;aspect-ratio:5/3;display:block;border-radius:6px;ba
             </div>
           </div>
           <div style="display:flex;gap:12px;margin-top:28px;align-items:center;">
-            <button id="modePrev" style="width:44px;height:44px;border-radius:50%;border:1.5px solid #bbb;background:#fff;cursor:pointer;font-size:22px;display:flex;align-items:center;justify-content:center;color:#333;transition:all 0.15s;">‹</button>
-            <button id="modeNext" style="width:44px;height:44px;border-radius:50%;border:1.5px solid #bbb;background:#fff;cursor:pointer;font-size:22px;display:flex;align-items:center;justify-content:center;color:#333;transition:all 0.15s;">›</button>
+            <button id="modePrev" style="width:44px;height:44px;border-radius:50%;border:1.5px solid #FF0003;background:transparent;cursor:pointer;font-size:22px;display:flex;align-items:center;justify-content:center;color:#FF0003;transition:all 0.15s;">‹</button>
+            <button id="modeNext" style="width:44px;height:44px;border-radius:50%;border:1.5px solid #FF0003;background:transparent;cursor:pointer;font-size:22px;display:flex;align-items:center;justify-content:center;color:#FF0003;transition:all 0.15s;">›</button>
             <div id="modeDots" style="display:flex;gap:6px;margin-left:24px;margin-right:24px;"></div>
           </div>
         </div>
