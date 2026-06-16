@@ -1040,6 +1040,8 @@ function awaitDot(px,py,index){return new Promise(resolve=>{let progress=0,prevT
 
 async function runCalibration(){
   showSharedBg();
+  calOverlay.style.display='block';
+  calOverlay.style.zIndex='2100';
   const nav=document.getElementById('mainNav');
   nav.style.display='none';
   nav.style.background='transparent';
@@ -1388,7 +1390,7 @@ async function boot(){
   heatCtx2=heatCanvas.getContext('2d');
   const ok=await startEyeTracking();
   if(ok) await runCalibration();
-  else{calOverlay.style.display='none';enablePointerFallback();}
+  else{ enablePointerFallback(); await runCalibration(); }
   requestAnimationFrame(mainLoop);
   await runFullSequence();
 }
