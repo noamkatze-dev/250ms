@@ -1057,50 +1057,39 @@ function generateCode(){
   return code;
 }
 
-async function showNameScreen(initialTab='signup'){return new Promise(resolve=>{
-  document.getElementById('aboutScreen').style.display='none';
-  document.getElementById('homeScreen').style.display='none';
+async function showNameScreen(initialTab='signup'){
   const scr=document.getElementById('nameScreen');
   const step1=document.getElementById('nsFormStep1');
-  const step2=document.getElementById('nsFormStep2');
-  const formLogin=document.getElementById('nsFormLogin');
   const ageInp=document.getElementById('ageInput');
   const genderInp=document.getElementById('genderInput');
   const btn=document.getElementById('nameContinue');
-  const codeEl=document.getElementById('nsCode');
-  const codeBtn=document.getElementById('nsCodeContinue');
-  const loginBtn=document.getElementById('nsLoginBtn');
-  const loginInput=document.getElementById('loginCodeInput');
-  const loginError=document.getElementById('nsLoginError');
-  const tabSignup=document.getElementById('nsTabSignup');
-  const tabLogin=document.getElementById('nsTabLogin');
 
   step1.style.display='flex';
   showSharedBg();
   scr.style.display='flex';
 
-  // SIGN UP — click continues directly
-  btn.onclick=async()=>{
-    const age=ageInp.value.trim();
-    const gender=genderInp.value;
-    if(!age||!gender){return;}
-    currentUser=generateCode();
-    currentAge=age;
-    currentGender=gender;
-    btn.textContent='...';
-    try{
-      await sbFetch('profiles?on_conflict=name',{
-        method:'POST',
-        headers:{'Prefer':'resolution=merge-duplicates,return=minimal'},
-        body:JSON.stringify({name:currentUser,age:currentAge,gender:currentGender,location:userLocation})
-      });
-    }catch(e){ console.warn('[profile:create] FAILED',e); }
-    scr.style.display='none';
-    btn.textContent='התחלה';
-    resolve();
-  };
-});}
-function startSessionInfoOverlay(){}
+  return new Promise(resolve=>{
+    btn.onclick=async()=>{
+      const age=ageInp.value.trim();
+      const gender=genderInp.value;
+      if(!age||!gender){return;}
+      currentUser=generateCode();
+      currentAge=age;
+      currentGender=gender;
+      btn.textContent='...';
+      try{
+        await sbFetch('profiles?on_conflict=name',{
+          method:'POST',
+          headers:{'Prefer':'resolution=merge-duplicates,return=minimal'},
+          body:JSON.stringify({name:currentUser,age:currentAge,gender:currentGender,location:userLocation})
+        });
+      }catch(e){ console.warn('[profile:create] FAILED',e); }
+      scr.style.display='none';
+      btn.textContent='התחלה';
+      resolve();
+    };
+  });
+}function startSessionInfoOverlay(){}
 function stopSessionInfoOverlay(){}
 
 function renderDataSessionBadge(sess){const dur=sess.sessionDuration?(sess.sessionDuration/1000).toFixed(1)+'s':'--';document.getElementById('dsb-samples').textContent=sess.gazeLog?.length||'--';document.getElementById('dsb-duration').textContent=dur;document.getElementById('dsb-location').textContent=sess.location||'--';document.getElementById('dsb-name').textContent=sess.user||'--';document.getElementById('dsb-age').textContent=sess.age||'--';document.getElementById('dsb-gender').textContent=sess.gender||'--';document.getElementById('dsbContent').classList.remove('collapsed');document.getElementById('dsbToggle').classList.remove('collapsed');}
