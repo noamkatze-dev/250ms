@@ -441,13 +441,13 @@ canvas.va-preview{width:100%;aspect-ratio:5/3;display:block;border-radius:6px;ba
     <span class="nav-va">250ms</span>
   </div>
   <div id="navLinks">
-    <span class="nav-link nav-authenticated" id="navSessionLink" style="display:none;">DATA</span>
-    <span class="nav-link nav-authenticated" id="navGalleryLink" style="display:none;">GALLERY</span>
-    <span class="nav-link nav-authenticated" id="navDashboardLink" style="display:none;">DASHBOARD</span>
-    <span class="nav-link nav-authenticated" id="navProfileLink" style="display:none;">PROFILE</span>
-    <span class="nav-link" id="navAboutLink">ABOUT</span>
-    <span class="nav-login" id="navSignupBtn">SIGN UP</span>
-    <span class="nav-login nav-login-outline" id="navLoginBtn">LOG IN</span>
+    <span class="nav-link nav-authenticated" id="navSessionLink" style="display:none;">נתונים</span>
+    <span class="nav-link nav-authenticated" id="navGalleryLink" style="display:none;">גלריה</span>
+    <span class="nav-link nav-authenticated" id="navDashboardLink" style="display:none;">לוח בקרה</span>
+    <span class="nav-link nav-authenticated" id="navProfileLink" style="display:none;">פרופיל</span>
+    <span class="nav-link" id="navAboutLink">אודות</span>
+    <span class="nav-login" id="navSignupBtn">הרשמה</span>
+    <span class="nav-login nav-login-outline" id="navLoginBtn">כניסה</span>
 
   </div>
 </nav>
@@ -469,7 +469,7 @@ canvas.va-preview{width:100%;aspect-ratio:5/3;display:block;border-radius:6px;ba
   <div id="homeHeroSection">
 
     <div id="heroRight" style="position:relative;z-index:2;">
-      <div class="home-eyebrow">VISUAL ANALYSIS SYSTEM</div>
+      <div class="home-eyebrow">מערכת ניתוח חזותי</div>
       <h1 class="home-heading">YOU SEE, WE MEASURE.</h1>
       <button id="homeStartBtn">התחלה</button>
     </div>
@@ -499,14 +499,14 @@ canvas.va-preview{width:100%;aspect-ratio:5/3;display:block;border-radius:6px;ba
 
 <div id="calOverlay">
   <canvas id="calCanvas"></canvas>
-  <button id="calStartBtn" class="va-btn va-btn-primary">BEGIN CALIBRATION</button>
+  <button id="calStartBtn" class="va-btn va-btn-primary">התחל כיול</button>
 </div>
 
 <div id="libraryScreen" class="screen">
-  <div class="screen-title">SELECT IMAGE</div>
+  <div class="screen-title">בחר תמונה</div>
   <div class="lib-grid" id="libGrid"></div>
   <input type="file" id="libFileInput" accept="image/*" multiple>
-  <button id="libBeginBtn" class="va-btn va-btn-primary" disabled style="opacity:0.4">BEGIN SESSION</button>
+  <button id="libBeginBtn" class="va-btn va-btn-primary" disabled style="opacity:0.4">התחל סשן</button>
 </div>
 
 <div id="dataScreen">
@@ -518,24 +518,24 @@ canvas.va-preview{width:100%;aspect-ratio:5/3;display:block;border-radius:6px;ba
         <canvas id="dataCanvas"></canvas>
 
         <div id="dataToolbar">
-            <button class="view-tab active" id="sessionViewBtn">DATA</button>
-            <button class="view-tab" id="compareViewBtn">COMPARE</button>
+            <button class="view-tab active" id="sessionViewBtn">נתונים</button>
+            <button class="view-tab" id="compareViewBtn">השוואה</button>
             <span class="toolbar-sep"></span>
-            <button class="layer-btn active" data-layer="GAZE" data-tooltip="Raw gaze sample positions">GAZE</button>
-            <button class="layer-btn" data-layer="FIXATION" data-tooltip="Fixations: sustained gaze on one area">FIXATION</button>
-            <button class="layer-btn" data-layer="SACCADE" data-tooltip="Saccades: rapid eye jumps between regions">SACCADE</button>
-            <button class="layer-btn" data-layer="SCANPATH" data-tooltip="Scan path: ordered sequence of fixations">SCAN PATH</button>
-            <button class="layer-btn" data-layer="HEATMAP" data-tooltip="Heatmap: density contours of visual attention">HEATMAP</button>
-            <button class="layer-btn" data-layer="FIRSTFIX" data-tooltip="First fixation: very first area noticed">FIRST FIXATION</button>
+            <button class="layer-btn active" data-layer="GAZE" data-tooltip="מיקומי מבט גולמיים">מבט</button>
+            <button class="layer-btn" data-layer="FIXATION" data-tooltip="קיבועים: מבט ממושך על אזור אחד">קיבוע</button>
+            <button class="layer-btn" data-layer="SACCADE" data-tooltip="סקאדות: קפיצות עין מהירות בין אזורים">סקאדה</button>
+            <button class="layer-btn" data-layer="SCANPATH" data-tooltip="מסלול סריקה: רצף קיבועים ממוין">מסלול סריקה</button>
+            <button class="layer-btn" data-layer="HEATMAP" data-tooltip="מפת חום: קווי צפיפות תשומת לב">מפת חום</button>
+            <button class="layer-btn" data-layer="FIRSTFIX" data-tooltip="קיבוע ראשון: האזור הראשון שנוצד">קיבוע ראשון</button>
             <span class="toolbar-sep"></span>
-            <button id="playBtn">REPLAY</button>
+            <button id="playBtn">הפעל מחדש</button>
             <div class="toggle-group">
-              <button class="toggle-btn active" id="animatedBtn">ANIMATED</button>
-              <button class="toggle-btn" id="staticBtn">STATIC</button>
+              <button class="toggle-btn active" id="animatedBtn">אנימציה</button>
+              <button class="toggle-btn" id="staticBtn">סטטי</button>
             </div>
             <div class="toggle-group">
-              <button class="toggle-btn active" id="withImgBtn">IMAGE ON</button>
-              <button class="toggle-btn" id="withoutImgBtn">IMAGE OFF</button>
+              <button class="toggle-btn active" id="withImgBtn">תמונה פועלת</button>
+              <button class="toggle-btn" id="withoutImgBtn">תמונה כבויה</button>
             </div>
             <span class="toolbar-sep"></span>
             <button id="dataToolbarCollapseBtn" title="Hide toolbar"><span class="tcb-arrow">&#9660;</span></button>
@@ -543,22 +543,22 @@ canvas.va-preview{width:100%;aspect-ratio:5/3;display:block;border-radius:6px;ba
 
         <div id="dataSessionBadge">
           <div class="dsb-header" id="dsbHeader">
-            <span class="dsb-header-label">SESSION INFO</span>
+            <span class="dsb-header-label">מידע על הסשן</span>
             <span class="dsb-toggle" id="dsbToggle">&#9650;</span>
           </div>
           <div class="dsb-content" id="dsbContent">
-            <div class="dsb-item"><span class="dsb-label">NAME</span><span class="dsb-val" id="dsb-name">&#8212;</span></div>
-            <div class="dsb-item"><span class="dsb-label">AGE</span><span class="dsb-val" id="dsb-age">&#8212;</span></div>
-            <div class="dsb-item"><span class="dsb-label">GENDER</span><span class="dsb-val" id="dsb-gender">&#8212;</span></div>
-            <div class="dsb-item"><span class="dsb-label">LOCATION</span><span class="dsb-val" id="dsb-location">&#8212;</span></div>
-            <div class="dsb-item"><span class="dsb-label">DURATION</span><span class="dsb-val" id="dsb-duration">&#8212;</span></div>
-            <div class="dsb-item"><span class="dsb-label">SAMPLES</span><span class="dsb-val" id="dsb-samples">&#8212;</span></div>
+            <div class="dsb-item"><span class="dsb-label">שם</span><span class="dsb-val" id="dsb-name">&#8212;</span></div>
+            <div class="dsb-item"><span class="dsb-label">גיל</span><span class="dsb-val" id="dsb-age">&#8212;</span></div>
+            <div class="dsb-item"><span class="dsb-label">מגדר</span><span class="dsb-val" id="dsb-gender">&#8212;</span></div>
+            <div class="dsb-item"><span class="dsb-label">מיקום</span><span class="dsb-val" id="dsb-location">&#8212;</span></div>
+            <div class="dsb-item"><span class="dsb-label">משך</span><span class="dsb-val" id="dsb-duration">&#8212;</span></div>
+            <div class="dsb-item"><span class="dsb-label">דגימות</span><span class="dsb-val" id="dsb-samples">&#8212;</span></div>
           </div>
         </div>
 
         <div id="dataAnalysisBadge">
           <div class="dab-header" id="dabHeader">
-            <span class="dab-header-label" id="dabHeaderLabel">ANALYSIS</span>
+            <span class="dab-header-label" id="dabHeaderLabel">ניתוח</span>
             <span class="dab-toggle" id="dabToggle">&#9650;</span>
           </div>
           <div class="dab-content" id="dabContent"></div>
@@ -570,38 +570,38 @@ canvas.va-preview{width:100%;aspect-ratio:5/3;display:block;border-radius:6px;ba
 
   <div id="compareView">
     <div id="compareFilters">
-      <span class="cf-label">FILTER</span>
-      <select class="cf-select" id="cf-user"><option value="">All Users</option></select>
-      <select class="cf-select" id="cf-gender"><option value="">All Genders</option></select>
-      <select class="cf-select" id="cf-location"><option value="">All Locations</option></select>
+      <span class="cf-label">סינון</span>
+      <select class="cf-select" id="cf-user"><option value="">כל המשתמשים</option></select>
+      <select class="cf-select" id="cf-gender"><option value="">כל המגדרים</option></select>
+      <select class="cf-select" id="cf-location"><option value="">כל המיקומים</option></select>
       <span class="cf-sep"></span>
-      <span class="cf-label">SORT BY</span>
+      <span class="cf-label">מיון לפי</span>
       <select class="cf-select" id="cf-sort">
-        <option value="">Default</option>
-        <option value="fixations_desc">Most Fixations</option>
-        <option value="fixations_asc">Fewest Fixations</option>
-        <option value="saccades_desc">Most Saccades</option>
-        <option value="saccades_asc">Fewest Saccades</option>
-        <option value="duration_desc">Longest Session</option>
-        <option value="duration_asc">Shortest Session</option>
-        <option value="samples_desc">Most Samples</option>
-        <option value="ttff_asc">Fastest TTFF</option>
-        <option value="ttff_desc">Slowest TTFF</option>
-        <option value="sacAmp_desc">Highest Sac Amp</option>
-        <option value="age_asc">Age Up</option>
-        <option value="age_desc">Age Down</option>
+        <option value="">ברירת מחדל</option>
+        <option value="fixations_desc">הכי הרבה קיבועים</option>
+        <option value="fixations_asc">הכי מעט קיבועים</option>
+        <option value="saccades_desc">הכי הרבה סקאדות</option>
+        <option value="saccades_asc">הכי מעט סקאדות</option>
+        <option value="duration_desc">סשן הארוך ביותר</option>
+        <option value="duration_asc">סשן הקצר ביותר</option>
+        <option value="samples_desc">הכי הרבה דגימות</option>
+        <option value="ttff_asc">TTFF מהיר ביותר</option>
+        <option value="ttff_desc">TTFF איטי ביותר</option>
+        <option value="sacAmp_desc">משרעת סקאדה גבוהה</option>
+        <option value="age_asc">גיל עולה</option>
+        <option value="age_desc">גיל יורד</option>
       </select>
       <span class="cf-sep"></span>
-      <span class="cf-label">LAYER</span>
+      <span class="cf-label">שכבה</span>
       <select class="cf-select" id="cf-layer">
-        <option value="GAZE">Gaze</option>
-        <option value="FIXATION">Fixation</option>
-        <option value="SACCADE">Saccade</option>
-        <option value="SCANPATH">Scan Path</option>
-        <option value="HEATMAP">Heatmap</option>
-        <option value="FIRSTFIX">First Fix</option>
+        <option value="GAZE">מבט</option>
+        <option value="FIXATION">קיבוע</option>
+        <option value="SACCADE">סקאדה</option>
+        <option value="SCANPATH">מסלול סריקה</option>
+        <option value="HEATMAP">מפת חום</option>
+        <option value="FIRSTFIX">קיבוע ראשון</option>
       </select>
-      <button id="cf-apply" class="va-btn va-btn-secondary" style="margin-left:4px;font-size:10px;padding:6px 18px;">APPLY</button>
+      <button id="cf-apply" class="va-btn va-btn-secondary" style="margin-left:4px;font-size:10px;padding:6px 18px;">החל</button>
     </div>
     <div id="compareGrid-wrap">
       <div id="compareGrid"></div>
@@ -615,23 +615,23 @@ canvas.va-preview{width:100%;aspect-ratio:5/3;display:block;border-radius:6px;ba
 </div>
 
 <div id="nameScreen">
-  <div class="ns-title">VISUAL ANALYSIS SYSTEM</div>
+  <div class="ns-title">מערכת ניתוח חזותי</div>
 
   <!-- Tabs -->
   <div id="nsTabRow" style="display:flex;gap:0;margin-bottom:36px;border-bottom:1px solid #eee;">
-    <button id="nsTabSignup" style="font-family:HaimClassic,Heebo,sans-serif;font-size:10px;font-weight:400;letter-spacing:0.3em;color:#111;background:none;border:none;border-bottom:2px solid #111;padding:10px 24px 10px 0;cursor:pointer;transition:all 0.15s;">SIGN UP</button>
-    <button id="nsTabLogin" style="font-family:HaimClassic,Heebo,sans-serif;font-size:10px;font-weight:400;letter-spacing:0.3em;color:#bbb;background:none;border:none;border-bottom:2px solid transparent;padding:10px 24px;cursor:pointer;transition:all 0.15s;">LOG IN</button>
+    <button id="nsTabSignup" style="font-family:HaimClassic,Heebo,sans-serif;font-size:10px;font-weight:400;letter-spacing:0.3em;color:#111;background:none;border:none;border-bottom:2px solid #111;padding:10px 24px 10px 0;cursor:pointer;transition:all 0.15s;">הרשמה</button>
+    <button id="nsTabLogin" style="font-family:HaimClassic,Heebo,sans-serif;font-size:10px;font-weight:400;letter-spacing:0.3em;color:#bbb;background:none;border:none;border-bottom:2px solid transparent;padding:10px 24px;cursor:pointer;transition:all 0.15s;">כניסה</button>
   </div>
 
   <!-- SIGN UP: step 1 — age + gender -->
   <div class="ns-form" id="nsFormStep1">
     <div class="ns-row">
       <div class="ns-field">
-        <label for="ageInput">AGE</label>
+        <label for="ageInput">גיל</label>
         <input id="ageInput" type="number" min="1" max="120" placeholder="&#8212;"/>
       </div>
       <div class="ns-field">
-        <label for="genderInput">GENDER</label>
+        <label for="genderInput">מגדר</label>
         <select id="genderInput">
           <option value="" disabled selected id="genderSelectDefault">Select</option>
           <option value="Male">Male</option>
@@ -640,26 +640,26 @@ canvas.va-preview{width:100%;aspect-ratio:5/3;display:block;border-radius:6px;ba
         </select>
       </div>
     </div>
-    <button id="nameContinue" class="va-btn va-btn-primary">CONTINUE</button>
+    <button id="nameContinue" class="va-btn va-btn-primary">המשך</button>
   </div>
 
   <!-- SIGN UP: step 2 — show code -->
   <div id="nsFormStep2" style="display:none;flex-direction:column;align-items:center;gap:24px;">
-    <div style="font-size:9px;font-weight:700;letter-spacing:0.45em;color:#bbb;font-family:HaimClassic,Heebo,sans-serif;">YOUR PARTICIPANT CODE</div>
+    <div style="font-size:9px;font-weight:700;letter-spacing:0.45em;color:#bbb;font-family:HaimClassic,Heebo,sans-serif;">קוד המשתתף שלך</div>
     <div id="nsCode" style="font-size:48px;font-weight:700;color:#111;letter-spacing:0.15em;font-family:HaimClassic,Heebo,sans-serif;"></div>
-    <div style="font-size:12px;font-weight:300;color:#999;text-align:center;max-width:280px;line-height:1.7;font-family:HaimClassic,Heebo,sans-serif;">Save this code if you wish to return. It identifies your session anonymously.</div>
-    <div id="nsCodeWarning" style="display:none;font-size:11px;color:#FF0003;text-align:center;max-width:280px;line-height:1.6;font-family:HaimClassic,Heebo,sans-serif;">⚠️ Could not save to server. Your code works for this session only.</div>
-    <button id="nsCodeContinue" class="va-btn va-btn-primary">BEGIN</button>
+    <div style="font-size:12px;font-weight:300;color:#999;text-align:center;max-width:280px;line-height:1.7;font-family:HaimClassic,Heebo,sans-serif;">שמור את הקוד אם תרצה לחזור. הוא מזהה את הסשן שלך באופן אנונימי.</div>
+    <div id="nsCodeWarning" style="display:none;font-size:11px;color:#FF0003;text-align:center;max-width:280px;line-height:1.6;font-family:HaimClassic,Heebo,sans-serif;">⚠️ לא ניתן היה לשמור בשרת. הקוד שלך תקף לסשן זה בלבד.</div>
+    <button id="nsCodeContinue" class="va-btn va-btn-primary">התחלה</button>
   </div>
 
   <!-- LOG IN: enter existing code -->
   <div class="ns-form" id="nsFormLogin" style="display:none;">
     <div class="ns-field">
-      <label for="loginCodeInput">YOUR CODE</label>
-      <input id="loginCodeInput" type="text" autocomplete="off" spellcheck="false" placeholder="e.g. P-4F7K" style="text-transform:uppercase;letter-spacing:0.2em;"/>
+      <label for="loginCodeInput">הקוד שלך</label>
+      <input id="loginCodeInput" type="text" autocomplete="off" spellcheck="false" placeholder="לדוגמה P-4F7K" style="text-transform:uppercase;letter-spacing:0.2em;"/>
     </div>
-    <div id="nsLoginError" style="font-size:11px;color:#FF0003;margin-top:-16px;margin-bottom:8px;display:none;font-family:HaimClassic,Heebo,sans-serif;">Code not found. Please check and try again.</div>
-    <button id="nsLoginBtn" class="va-btn va-btn-primary">LOG IN</button>
+    <div id="nsLoginError" style="font-size:11px;color:#FF0003;margin-top:-16px;margin-bottom:8px;display:none;font-family:HaimClassic,Heebo,sans-serif;">הקוד לא נמצא. בדוק ונסה שוב.</div>
+    <button id="nsLoginBtn" class="va-btn va-btn-primary">כניסה</button>
   </div>
 </div>
 
@@ -894,7 +894,7 @@ navSessionLink.addEventListener('click',()=>{
     navSessionLink.classList.add('active');
     document.getElementById('dataScreen').style.display='flex';
     if(allSessions.length===0){
-      showEmptyState('dataScreen','Start your first session to see your data.');
+      showEmptyState('dataScreen','התחל את הסשן הראשון שלך כדי לראות את הנתונים.');
     }
   } else {
     goToSession();
@@ -972,10 +972,10 @@ function drawCalIntro(){const W=window.innerWidth,H=window.innerHeight;
   calCtx.textAlign='center';
   calCtx.fillStyle='#aaa';
   calCtx.font='700 11px HaimClassic';
-  calCtx.fillText('VISUAL ANALYSIS SYSTEM',W/2,H/2-130);
+  calCtx.fillText('מערכת ניתוח חזותי',W/2,H/2-130);
   calCtx.fillStyle='#111';
   calCtx.font='700 28px HaimClassic';
-  calCtx.fillText('EYE TRACKING CALIBRATION',W/2,H/2-90);
+  calCtx.fillText('כיול מעקב עיניים',W/2,H/2-90);
   calCtx.strokeStyle='rgba(178,224,243,0.5)';
   calCtx.lineWidth=1;
   calCtx.beginPath();
@@ -984,8 +984,8 @@ function drawCalIntro(){const W=window.innerWidth,H=window.innerHeight;
   calCtx.stroke();
   calCtx.fillStyle='#111';
   calCtx.font='300 14px HaimClassic';
-  calCtx.fillText('Keep your head still - move only your eyes to each dot',W/2,H/2-42);
-  calCtx.fillText('Hold your gaze until the ring fills completely',W/2,H/2-18);
+  calCtx.fillText('שמור על ראשך ללא תנועה — הזז רק את עינייך לכל נקודה',W/2,H/2-42);
+  calCtx.fillText('החזק את המבט עד שהטבעת תתמלא לחלוטין',W/2,H/2-18);
   calCtx.strokeStyle='rgba(178,224,243,0.3)';
   calCtx.beginPath();
   calCtx.moveTo(W/2-200,H/2+4);
@@ -993,19 +993,19 @@ function drawCalIntro(){const W=window.innerWidth,H=window.innerHeight;
   calCtx.stroke();
   calCtx.fillStyle='#111';
   calCtx.font='300 13px HaimClassic';
-  calCtx.fillText('After calibration, you will see 5 political images, one at a time.',W/2,H/2+26);
-  calCtx.fillText('Look naturally - there are no right or wrong answers.',W/2,H/2+48);
+  calCtx.fillText('לאחר הכיול תראה 5 תמונות, אחת בכל פעם.',W/2,H/2+26);
+  calCtx.fillText('הסתכל באופן טבעי — אין תשובות נכונות או שגויות.',W/2,H/2+48);
   calCtx.fillStyle='#555';
   calCtx.font='300 11px HaimClassic';
-  calCtx.fillText('Each image will appear for 12 seconds.',W/2,H/2+70);
+  calCtx.fillText('כל תמונה תופיע למשך 5 שניות.',W/2,H/2+70);
 }
 function drawCalDone(){const W=window.innerWidth,H=window.innerHeight;
   calCtx.clearRect(0,0,W,H);
   calCtx.textAlign="center";
   calCtx.fillStyle="#111";calCtx.font="700 28px HaimClassic";
-  calCtx.fillText("READY",W/2,H/2-8);
+  calCtx.fillText("מוכן",W/2,H/2-8);
   calCtx.fillStyle="#aaa";calCtx.font="300 13px HaimClassic";
-  calCtx.fillText('Calibration complete - the session is about to begin.',W/2,H/2+20);
+  calCtx.fillText('הכיול הושלם — הסשן עומד להתחיל.',W/2,H/2+20);
 }
 function awaitDot(px,py,index){return new Promise(resolve=>{let progress=0,prevTs=null;const samples=[];function frame(ts){const dt=prevTs?Math.min((ts-prevTs)/1000,0.05):0;prevTs=ts;const s=eyeStab();progress+=s*CAL_FILL_RATE*dt;progress-=(1-s)*CAL_DRAIN_RATE*dt;progress=Math.max(0,Math.min(1,progress));if(s>0.45&&eyeValid)samples.push({ox:curEyeOffX,oy:curEyeOffY});const W=window.innerWidth,H=window.innerHeight;
   const grad=calCtx.createRadialGradient(W*0.15,H*0.08,0,W*0.15,H*0.08,W*0.7);
@@ -1022,7 +1022,7 @@ async function runCalibration(){
 
 async function startEyeTracking(){let fl;try{const fs=await FilesetResolver.forVisionTasks('https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.14/wasm');fl=await FaceLandmarker.createFromOptions(fs,{baseOptions:{modelAssetPath:'https://storage.googleapis.com/mediapipe-models/face_landmarker/face_landmarker/float16/1/face_landmarker.task',delegate:'GPU'},outputFaceBlendshapes:false,runningMode:'VIDEO',numFaces:1});}catch(e){console.warn('[eye]',e);return false;}try{const webcamEl=document.createElement('video');webcamEl.style.cssText='position:fixed;bottom:8px;right:8px;width:1px;height:1px;opacity:0;';webcamEl.autoplay=true;webcamEl.muted=true;webcamEl.playsInline=true;document.body.appendChild(webcamEl);const stream=await navigator.mediaDevices.getUserMedia({video:{facingMode:'user',width:{ideal:320},height:{ideal:240}}});webcamEl.srcObject=stream;await new Promise(r=>{webcamEl.onloadeddata=r;});let lastCamT=-1;function track(){if(webcamEl.readyState>=2&&webcamEl.currentTime!==lastCamT){lastCamT=webcamEl.currentTime;try{const res=fl.detectForVideo(webcamEl,performance.now());if(res.faceLandmarks?.length>0){const lm=res.faceLandmarks[0];const nose=lm[1],brow=lm[168],chin=lm[152],lChk=lm[234],rChk=lm[454];const hxR=(nose.x*4+brow.x+chin.x+lChk.x+rChk.x)/8,hyR=(nose.y*4+brow.y+chin.y+lChk.y+rChk.y)/8;curOffX=1-hxR;curOffY=hyR;offXBuf.push(curOffX);if(offXBuf.length>BUF_MAX)offXBuf.shift();offYBuf.push(curOffY);if(offYBuf.length>BUF_MAX)offYBuf.shift();const lI=lm[468],rI=lm[473],lIn=lm[33],lO=lm[133],rIn=lm[362],rO=lm[263];if(lI&&rI&&lIn&&lO&&rIn&&rO){const lEW=Math.hypot(lO.x-lIn.x,lO.y-lIn.y),rEW=Math.hypot(rO.x-rIn.x,rO.y-rIn.y);if(lEW>0.01&&rEW>0.01){let eX=((lI.x-lIn.x)/lEW+(rI.x-rIn.x)/rEW)/2,eY=((lI.y-lIn.y)/lEW+(rI.y-rIn.y)/rEW)/2;eX=(eX-0.5)*2.5+0.5;eY=(eY-0.5)*2.5+0.5;eX=1-eX;curEyeOffX=eX;curEyeOffY=eY;eyeOffXBuf.push(eX);if(eyeOffXBuf.length>BUF_MAX)eyeOffXBuf.shift();eyeOffYBuf.push(eY);if(eyeOffYBuf.length>BUF_MAX)eyeOffYBuf.shift();eyeValid=true;if(eyeCalMap){rawGX=eyeCalMap.ax*eX+eyeCalMap.bx*eY+eyeCalMap.cx;rawGY=eyeCalMap.ay*eX+eyeCalMap.by*eY+eyeCalMap.cy;}else{rawGX=eX;rawGY=eY;}rawGX=Math.max(0,Math.min(1,rawGX));rawGY=Math.max(0,Math.min(1,rawGY));if(!gazeOn){gazeOn=true;infoEl.style.opacity='0';}}else eyeValid=false;}else eyeValid=false;}}catch(_){}}requestAnimationFrame(track);}requestAnimationFrame(track);}catch(e){console.warn('[eye] webcam',e);return false;}return true;}
 
-function enablePointerFallback(){infoEl.textContent='MOVE MOUSE TO EXPLORE';const onMove=(cx,cy)=>{const rect=imgWrapper.getBoundingClientRect();const nx=(cx-rect.left)/rect.width,ny=(cy-rect.top)/rect.height;if(nx>=0&&nx<=1&&ny>=0&&ny<=1){rawGX=nx;rawGY=ny;if(!gazeOn){gazeOn=true;infoEl.style.opacity='0';}}};document.addEventListener('mousemove',e=>onMove(e.clientX,e.clientY));document.addEventListener('touchmove',e=>{e.preventDefault();onMove(e.touches[0].clientX,e.touches[0].clientY);},{passive:false});}
+function enablePointerFallback(){infoEl.textContent='הזז את העכבר לחקירה';const onMove=(cx,cy)=>{const rect=imgWrapper.getBoundingClientRect();const nx=(cx-rect.left)/rect.width,ny=(cy-rect.top)/rect.height;if(nx>=0&&nx<=1&&ny>=0&&ny<=1){rawGX=nx;rawGY=ny;if(!gazeOn){gazeOn=true;infoEl.style.opacity='0';}}};document.addEventListener('mousemove',e=>onMove(e.clientX,e.clientY));document.addEventListener('touchmove',e=>{e.preventDefault();onMove(e.touches[0].clientX,e.touches[0].clientY);},{passive:false});}
 
 function isImageViewed(i){return !!viewedImages[currentUser+'::'+i];}
 function markImageViewed(i){viewedImages[currentUser+'::'+i]=true;}
@@ -1158,7 +1158,7 @@ function stopSessionInfoOverlay(){}
 
 function renderDataSessionBadge(sess){const dur=sess.sessionDuration?(sess.sessionDuration/1000).toFixed(1)+'s':'--';document.getElementById('dsb-samples').textContent=sess.gazeLog?.length||'--';document.getElementById('dsb-duration').textContent=dur;document.getElementById('dsb-location').textContent=sess.location||'--';document.getElementById('dsb-name').textContent=sess.user||'--';document.getElementById('dsb-age').textContent=sess.age||'--';document.getElementById('dsb-gender').textContent=sess.gender||'--';document.getElementById('dsbContent').classList.remove('collapsed');document.getElementById('dsbToggle').classList.remove('collapsed');}
 
-const ANALYSIS_LAYERS=['FIXATION','SACCADE','SCANPATH','HEATMAP','FIRSTFIX'];
+const ANALYSIS_LAYERS=['קיבוע','סקאדה','SCANPATH','מפת חום','FIRSTFIX'];
 function renderAnalysisBadge(layer,sess){
   const badge=document.getElementById('dataAnalysisBadge');
   const content=document.getElementById('dabContent');
@@ -1167,11 +1167,11 @@ function renderAnalysisBadge(layer,sess){
   badge.style.display='flex';content.innerHTML='';
   const fh=sess.fixationHistory||[],sh=sess.saccadeHistory||[],sp=sess.scanPathHistory||[],ff=sess.firstFix,ft=sess.firstFixModeTs||0;
   function row(label,val,unit){const d=document.createElement('div');d.className='dab-row';d.innerHTML='<span class="dab-name">'+label+'</span><span><span class="dab-val">'+val+'</span>'+(unit?'<span class="dab-unit">'+unit+'</span>':'')+'</span>';return d;}
-  if(layer==='FIXATION'){headerLabel.textContent='FIXATION';const fixC=fh.length,fixAvg=fixC?Math.round(fh.reduce((s,f)=>s+f.duration,0)/fixC):0,fixTotal=fh.reduce((s,f)=>s+f.duration,0);content.appendChild(row('Count',fixC||'--'));content.appendChild(row('Avg dur',fixAvg||'--','ms'));content.appendChild(row('Total dwell',fixTotal||'--','ms'));}
-  else if(layer==='SACCADE'){headerLabel.textContent='SACCADE';const sacC=sh.length,sacAmp=sacC?+(sh.reduce((s,f)=>s+Math.hypot(f.toX-f.fromX,f.toY-f.fromY),0)/sacC*100).toFixed(1):0;content.appendChild(row('Count',sacC||'--'));content.appendChild(row('Avg amp',sacAmp||'--','%'));}
-  else if(layer==='SCANPATH'){headerLabel.textContent='SCAN PATH';content.appendChild(row('Steps',sp.length||'--'));}
-  else if(layer==='HEATMAP'){headerLabel.textContent='HEATMAP';content.appendChild(row('Samples',sess.gazeLog?.length||'--'));}
-  else if(layer==='FIRSTFIX'){headerLabel.textContent='FIRST FIXATION';const ttff=ff?((ff.startTs-ft)/1000):null;content.appendChild(row('TTFF',ttff!==null?ttff.toFixed(2)+'s':'--'));content.appendChild(row('X',ff?(ff.x*100).toFixed(1)+'%':'--'));content.appendChild(row('Y',ff?(ff.y*100).toFixed(1)+'%':'--'));}
+  if(layer==='קיבוע'){headerLabel.textContent='קיבוע';const fixC=fh.length,fixAvg=fixC?Math.round(fh.reduce((s,f)=>s+f.duration,0)/fixC):0,fixTotal=fh.reduce((s,f)=>s+f.duration,0);content.appendChild(row('ספירה',fixC||'--'));content.appendChild(row('משך ממוצע',fixAvg||'--','ms'));content.appendChild(row('סה"כ שהייה',fixTotal||'--','ms'));}
+  else if(layer==='סקאדה'){headerLabel.textContent='סקאדה';const sacC=sh.length,sacAmp=sacC?+(sh.reduce((s,f)=>s+Math.hypot(f.toX-f.fromX,f.toY-f.fromY),0)/sacC*100).toFixed(1):0;content.appendChild(row('ספירה',sacC||'--'));content.appendChild(row('משרעת ממוצעת',sacAmp||'--','%'));}
+  else if(layer==='SCANPATH'){headerLabel.textContent='מסלול סריקה';content.appendChild(row('שלבים',sp.length||'--'));}
+  else if(layer==='מפת חום'){headerLabel.textContent='מפת חום';content.appendChild(row('דגימות',sess.gazeLog?.length||'--'));}
+  else if(layer==='FIRSTFIX'){headerLabel.textContent='קיבוע ראשון';const ttff=ff?((ff.startTs-ft)/1000):null;content.appendChild(row('TTFF',ttff!==null?ttff.toFixed(2)+'s':'--'));content.appendChild(row('X',ff?(ff.x*100).toFixed(1)+'%':'--'));content.appendChild(row('Y',ff?(ff.y*100).toFixed(1)+'%':'--'));}
   content.classList.remove('collapsed');document.getElementById('dabToggle').classList.remove('collapsed');
 }
 
@@ -1184,10 +1184,10 @@ function staticFixation(ctx,W,H,history,col='255,0,3'){ctx.clearRect(0,0,W,H);fo
 function staticSaccade(ctx,W,H,history,col='255,0,3'){ctx.clearRect(0,0,W,H);for(const sac of history){const fx=sac.fromX*W,fy=sac.fromY*H,tx=sac.toX*W,ty=sac.toY*H;ctx.beginPath();ctx.moveTo(fx,fy);ctx.lineTo(tx,ty);ctx.strokeStyle='rgba('+col+',1)';ctx.lineWidth=2.5;ctx.stroke();const a=Math.atan2(ty-fy,tx-fx),l=11;ctx.beginPath();ctx.moveTo(tx,ty);ctx.lineTo(tx-l*Math.cos(a-Math.PI/6),ty-l*Math.sin(a-Math.PI/6));ctx.lineTo(tx-l*Math.cos(a+Math.PI/6),ty-l*Math.sin(a+Math.PI/6));ctx.closePath();ctx.fillStyle='rgba('+col+',1)';ctx.fill();}}
 function staticScanPath(ctx,W,H,history,col='255,0,3'){ctx.clearRect(0,0,W,H);if(!history.length)return;const R=12;if(history.length>=2){ctx.save();ctx.setLineDash([4,6]);ctx.strokeStyle='rgba('+col+',1)';ctx.lineWidth=2.5;ctx.beginPath();for(let j=0;j<history.length-1;j++){const ax=history[j].x*W,ay=history[j].y*H,bx=history[j+1].x*W,by=history[j+1].y*H;const dx=bx-ax,dy=by-ay,dist=Math.hypot(dx,dy);if(dist<1)continue;const ux=dx/dist,uy=dy/dist;ctx.moveTo(ax+ux*R,ay+uy*R);ctx.lineTo(bx-ux*R,by-uy*R);}ctx.stroke();ctx.setLineDash([]);ctx.restore();}for(let j=0;j<history.length;j++){const cx=history[j].x*W,cy=history[j].y*H;ctx.beginPath();ctx.arc(cx,cy,R,0,Math.PI*2);ctx.strokeStyle='rgba('+col+',1)';ctx.lineWidth=3;ctx.stroke();ctx.fillStyle='rgba('+col+',1)';ctx.font='700 10px HaimClassic';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText(j+1,cx,cy);ctx.textBaseline='alphabetic';}}
 function staticHeatmap(ctx,W,H,log,col='255,0,3'){ctx.clearRect(0,0,W,H);const hmW=200,hmH=112;drawMarchingSquares(ctx,W,H,buildHeatmapFromLog(log,hmW,hmH),hmW,hmH,col);}
-function staticFirstFix(ctx,W,H,fix,modeTs,col='255,0,3'){ctx.clearRect(0,0,W,H);if(!fix){ctx.fillStyle='rgba(150,150,150,0.7)';ctx.font='300 11px HaimClassic';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText('NO FIRST FIXATION DETECTED',W/2,H/2);return;}const cx=fix.x*W,cy=fix.y*H,offset=modeTs?((fix.startTs-modeTs)/1000):0;ctx.beginPath();ctx.arc(cx,cy,14,0,Math.PI*2);ctx.fillStyle='rgba('+col+',1)';ctx.fill();ctx.textAlign='center';ctx.textBaseline='alphabetic';ctx.fillStyle='rgba('+col+',1)';ctx.font='700 11px HaimClassic';ctx.fillText('FIRST FIXATION',cx,cy-46);ctx.font='300 9px HaimClassic';ctx.fillText('+'+offset.toFixed(2)+'s',cx,cy-32);}
+function staticFirstFix(ctx,W,H,fix,modeTs,col='255,0,3'){ctx.clearRect(0,0,W,H);if(!fix){ctx.fillStyle='rgba(150,150,150,0.7)';ctx.font='300 11px HaimClassic';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText('לא זוהה קיבוע ראשון',W/2,H/2);return;}const cx=fix.x*W,cy=fix.y*H,offset=modeTs?((fix.startTs-modeTs)/1000):0;ctx.beginPath();ctx.arc(cx,cy,14,0,Math.PI*2);ctx.fillStyle='rgba('+col+',1)';ctx.fill();ctx.textAlign='center';ctx.textBaseline='alphabetic';ctx.fillStyle='rgba('+col+',1)';ctx.font='700 11px HaimClassic';ctx.fillText('קיבוע ראשון',cx,cy-46);ctx.font='300 9px HaimClassic';ctx.fillText('+'+offset.toFixed(2)+'s',cx,cy-32);}
 
 function buildModePreviews(){
-  const modes=[{key:'GAZE',name:'GAZE',desc:'Sample-by-sample gaze positions.'},{key:'FIXATION',name:'FIXATION',desc:'Circles proportional to dwell time.'},{key:'SACCADE',name:'SACCADE',desc:'Rapid eye jumps between regions.'},{key:'SCANPATH',name:'SCAN PATH',desc:'Ordered sequence of fixated areas.'},{key:'HEATMAP',name:'HEATMAP',desc:'Contour density map of attention.'},{key:'FIRSTFIX',name:'FIRST FIXATION',desc:'First area captured after onset.'},];
+  const modes=[{key:'GAZE',name:'GAZE',desc:'Sample-by-sample gaze positions.'},{key:'קיבוע',name:'קיבוע',desc:'Circles proportional to dwell time.'},{key:'סקאדה',name:'סקאדה',desc:'Rapid eye jumps between regions.'},{key:'SCANPATH',name:'מסלול סריקה',desc:'Ordered sequence of fixated areas.'},{key:'מפת חום',name:'מפת חום',desc:'Contour density map of attention.'},{key:'FIRSTFIX',name:'קיבוע ראשון',desc:'First area captured after onset.'},];
   const gazeLog=[{x:0.22,y:0.32},{x:0.24,y:0.34},{x:0.52,y:0.25},{x:0.54,y:0.27},{x:0.70,y:0.50},{x:0.72,y:0.52},{x:0.36,y:0.65},{x:0.38,y:0.63},{x:0.50,y:0.42},{x:0.26,y:0.48},{x:0.66,y:0.22},{x:0.56,y:0.70}];
   const fixHist=[{x:0.22,y:0.32,duration:280},{x:0.52,y:0.25,duration:420},{x:0.70,y:0.50,duration:200},{x:0.36,y:0.65,duration:380}];
   const sacHist=[{fromX:0.22,fromY:0.32,toX:0.52,toY:0.25},{fromX:0.52,fromY:0.25,toX:0.70,toY:0.50},{fromX:0.70,fromY:0.50,toX:0.36,toY:0.65}];
@@ -1213,10 +1213,10 @@ function buildModePreviews(){
     const R='rgba(255,0,3,1)',LW=1;
     switch(m.key){
       case 'GAZE':for(const p of gazeLog){ctx.beginPath();ctx.arc(safeX(p.x*W),safeY(p.y*H),2,0,Math.PI*2);ctx.fillStyle=R;ctx.fill();}break;
-      case 'FIXATION':for(const fix of fixHist){const cx=safeX(fix.x*W),cy=safeY(fix.y*H);const r=Math.min(6+fix.duration/130,H*0.3-M);ctx.beginPath();ctx.arc(cx,cy,r,0,Math.PI*2);ctx.strokeStyle=R;ctx.lineWidth=LW;ctx.stroke();ctx.beginPath();ctx.arc(cx,cy,2,0,Math.PI*2);ctx.fillStyle=R;ctx.fill();}break;
-      case 'SACCADE':for(const sac of sacHist){const fx=safeX(sac.fromX*W),fy=safeY(sac.fromY*H),tx=safeX(sac.toX*W),ty=safeY(sac.toY*H);ctx.beginPath();ctx.moveTo(fx,fy);ctx.lineTo(tx,ty);ctx.strokeStyle=R;ctx.lineWidth=LW;ctx.stroke();const a=Math.atan2(ty-fy,tx-fx),l=7;ctx.beginPath();ctx.moveTo(tx,ty);ctx.lineTo(tx-l*Math.cos(a-Math.PI/6),ty-l*Math.sin(a-Math.PI/6));ctx.lineTo(tx-l*Math.cos(a+Math.PI/6),ty-l*Math.sin(a+Math.PI/6));ctx.closePath();ctx.fillStyle=R;ctx.fill();}break;
+      case 'קיבוע':for(const fix of fixHist){const cx=safeX(fix.x*W),cy=safeY(fix.y*H);const r=Math.min(6+fix.duration/130,H*0.3-M);ctx.beginPath();ctx.arc(cx,cy,r,0,Math.PI*2);ctx.strokeStyle=R;ctx.lineWidth=LW;ctx.stroke();ctx.beginPath();ctx.arc(cx,cy,2,0,Math.PI*2);ctx.fillStyle=R;ctx.fill();}break;
+      case 'סקאדה':for(const sac of sacHist){const fx=safeX(sac.fromX*W),fy=safeY(sac.fromY*H),tx=safeX(sac.toX*W),ty=safeY(sac.toY*H);ctx.beginPath();ctx.moveTo(fx,fy);ctx.lineTo(tx,ty);ctx.strokeStyle=R;ctx.lineWidth=LW;ctx.stroke();const a=Math.atan2(ty-fy,tx-fx),l=7;ctx.beginPath();ctx.moveTo(tx,ty);ctx.lineTo(tx-l*Math.cos(a-Math.PI/6),ty-l*Math.sin(a-Math.PI/6));ctx.lineTo(tx-l*Math.cos(a+Math.PI/6),ty-l*Math.sin(a+Math.PI/6));ctx.closePath();ctx.fillStyle=R;ctx.fill();}break;
       case 'SCANPATH':{const PR=9;if(fixHist.length>=2){ctx.save();ctx.setLineDash([3,6]);ctx.strokeStyle=R;ctx.lineWidth=LW;ctx.beginPath();for(let j=0;j<fixHist.length-1;j++){const ax=safeX(fixHist[j].x*W),ay=safeY(fixHist[j].y*H),bx=safeX(fixHist[j+1].x*W),by=safeY(fixHist[j+1].y*H);const dx=bx-ax,dy=by-ay,dist=Math.hypot(dx,dy);if(dist<1)continue;const ux=dx/dist,uy=dy/dist;ctx.moveTo(ax+ux*PR,ay+uy*PR);ctx.lineTo(bx-ux*PR,by-uy*PR);}ctx.stroke();ctx.setLineDash([]);ctx.restore();}for(let j=0;j<fixHist.length;j++){const cx=safeX(fixHist[j].x*W),cy=safeY(fixHist[j].y*H);ctx.beginPath();ctx.arc(cx,cy,PR,0,Math.PI*2);ctx.strokeStyle=R;ctx.lineWidth=LW;ctx.stroke();ctx.fillStyle=R;ctx.font='700 8px HaimClassic';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText(j+1,cx,cy);}break;}
-      case 'HEATMAP':{const hmW=50,hmH=20,hm=new Float32Array(hmW*hmH);const sigma=0.13*Math.max(hmW,hmH),hr=Math.ceil(3*sigma),inv2s2=1/(2*sigma*sigma);for(const p of gazeLog){const gx=p.x*hmW,gy=p.y*hmH,x0=Math.max(0,Math.floor(gx-hr)),x1=Math.min(hmW-1,Math.ceil(gx+hr)),y0=Math.max(0,Math.floor(gy-hr)),y1=Math.min(hmH-1,Math.ceil(gy+hr));for(let y=y0;y<=y1;y++)for(let x=x0;x<=x1;x++)hm[y*hmW+x]+=0.22*Math.exp(-((x-gx)**2+(y-gy)**2)*inv2s2);}let maxVal=0;for(let i=0;i<hm.length;i++)if(hm[i]>maxVal)maxVal=hm[i];if(maxVal>0.01){const levels=[0.2,0.4,0.6,0.8];const getMSS=(idx,T,R,B,L)=>{switch(idx){case 1:return[[L,B]];case 2:return[[R,B]];case 3:return[[L,R]];case 4:return[[T,R]];case 5:return[[T,R],[L,B]];case 6:return[[T,B]];case 7:return[[T,L]];case 8:return[[T,L]];case 9:return[[T,B]];case 10:return[[L,T],[R,B]];case 11:return[[T,R]];case 12:return[[L,R]];case 13:return[[R,B]];case 14:return[[L,B]];default:return[];}};for(const level of levels){ctx.strokeStyle='rgba(255,0,3,'+Math.min(1,(0.35+level*0.65)).toFixed(2)+')';ctx.lineWidth=LW;ctx.beginPath();for(let cy=0;cy<hmH-1;cy++)for(let cx2=0;cx2<hmW-1;cx2++){const vTL=hm[cy*hmW+cx2]/maxVal,vTR=hm[cy*hmW+(cx2+1)]/maxVal,vBR=hm[(cy+1)*hmW+(cx2+1)]/maxVal,vBL=hm[(cy+1)*hmW+cx2]/maxVal;const idx=(vTL>=level?8:0)+(vTR>=level?4:0)+(vBR>=level?2:0)+(vBL>=level?1:0);if(idx===0||idx===15)continue;const sx0=M+cx2*(W-2*M)/hmW,sx1=M+(cx2+1)*(W-2*M)/hmW,sy0=M+cy*(H-2*M)/hmH,sy1=M+(cy+1)*(H-2*M)/hmH;const lp=(v0,v1)=>Math.abs(v1-v0)<1e-10?0.5:Math.max(0,Math.min(1,(level-v0)/(v1-v0)));const T2=[sx0+lp(vTL,vTR)*(sx1-sx0),sy0],R2=[sx1,sy0+lp(vTR,vBR)*(sy1-sy0)],B2=[sx0+lp(vBL,vBR)*(sx1-sx0),sy1],L2=[sx0,sy0+lp(vTL,vBL)*(sy1-sy0)];for(const[p1,p2]of getMSS(idx,T2,R2,B2,L2)){ctx.moveTo(p1[0],p1[1]);ctx.lineTo(p2[0],p2[1]);}}ctx.stroke();}}}break;
+      case 'מפת חום':{const hmW=50,hmH=20,hm=new Float32Array(hmW*hmH);const sigma=0.13*Math.max(hmW,hmH),hr=Math.ceil(3*sigma),inv2s2=1/(2*sigma*sigma);for(const p of gazeLog){const gx=p.x*hmW,gy=p.y*hmH,x0=Math.max(0,Math.floor(gx-hr)),x1=Math.min(hmW-1,Math.ceil(gx+hr)),y0=Math.max(0,Math.floor(gy-hr)),y1=Math.min(hmH-1,Math.ceil(gy+hr));for(let y=y0;y<=y1;y++)for(let x=x0;x<=x1;x++)hm[y*hmW+x]+=0.22*Math.exp(-((x-gx)**2+(y-gy)**2)*inv2s2);}let maxVal=0;for(let i=0;i<hm.length;i++)if(hm[i]>maxVal)maxVal=hm[i];if(maxVal>0.01){const levels=[0.2,0.4,0.6,0.8];const getMSS=(idx,T,R,B,L)=>{switch(idx){case 1:return[[L,B]];case 2:return[[R,B]];case 3:return[[L,R]];case 4:return[[T,R]];case 5:return[[T,R],[L,B]];case 6:return[[T,B]];case 7:return[[T,L]];case 8:return[[T,L]];case 9:return[[T,B]];case 10:return[[L,T],[R,B]];case 11:return[[T,R]];case 12:return[[L,R]];case 13:return[[R,B]];case 14:return[[L,B]];default:return[];}};for(const level of levels){ctx.strokeStyle='rgba(255,0,3,'+Math.min(1,(0.35+level*0.65)).toFixed(2)+')';ctx.lineWidth=LW;ctx.beginPath();for(let cy=0;cy<hmH-1;cy++)for(let cx2=0;cx2<hmW-1;cx2++){const vTL=hm[cy*hmW+cx2]/maxVal,vTR=hm[cy*hmW+(cx2+1)]/maxVal,vBR=hm[(cy+1)*hmW+(cx2+1)]/maxVal,vBL=hm[(cy+1)*hmW+cx2]/maxVal;const idx=(vTL>=level?8:0)+(vTR>=level?4:0)+(vBR>=level?2:0)+(vBL>=level?1:0);if(idx===0||idx===15)continue;const sx0=M+cx2*(W-2*M)/hmW,sx1=M+(cx2+1)*(W-2*M)/hmW,sy0=M+cy*(H-2*M)/hmH,sy1=M+(cy+1)*(H-2*M)/hmH;const lp=(v0,v1)=>Math.abs(v1-v0)<1e-10?0.5:Math.max(0,Math.min(1,(level-v0)/(v1-v0)));const T2=[sx0+lp(vTL,vTR)*(sx1-sx0),sy0],R2=[sx1,sy0+lp(vTR,vBR)*(sy1-sy0)],B2=[sx0+lp(vBL,vBR)*(sx1-sx0),sy1],L2=[sx0,sy0+lp(vTL,vBL)*(sy1-sy0)];for(const[p1,p2]of getMSS(idx,T2,R2,B2,L2)){ctx.moveTo(p1[0],p1[1]);ctx.lineTo(p2[0],p2[1]);}}ctx.stroke();}}}break;
       case 'FIRSTFIX':{const cx=safeX(firstFixPrev.x*W),cy=safeY(firstFixPrev.y*H);[22,14].forEach(r=>{ctx.beginPath();ctx.arc(cx,cy,r,0,Math.PI*2);ctx.strokeStyle=R;ctx.lineWidth=LW;ctx.stroke();});ctx.beginPath();ctx.arc(cx,cy,5,0,Math.PI*2);ctx.fillStyle=R;ctx.fill();}break;
     }
   }
@@ -1229,14 +1229,14 @@ function animateFixation(ctx,W,H,history){let tid=null,rafId=null,cancelled=fals
 function animateSaccade(ctx,W,H,history){let tid=null,rafId=null,cancelled=false;const sacs=history.slice();let i=0;const drawn=[];function drawSacFull(sac){const fx=sac.fromX*W,fy=sac.fromY*H,tx=sac.toX*W,ty=sac.toY*H;ctx.beginPath();ctx.moveTo(fx,fy);ctx.lineTo(tx,ty);ctx.strokeStyle='rgba(255,0,3,1)';ctx.lineWidth=2.5;ctx.stroke();const a=Math.atan2(ty-fy,tx-fx),l=9;ctx.beginPath();ctx.moveTo(tx,ty);ctx.lineTo(tx-l*Math.cos(a-Math.PI/6),ty-l*Math.sin(a-Math.PI/6));ctx.lineTo(tx-l*Math.cos(a+Math.PI/6),ty-l*Math.sin(a+Math.PI/6));ctx.closePath();ctx.fillStyle='rgba(255,0,3,1)';ctx.fill();}function redrawAll(){for(const s of drawn)drawSacFull(s);}function next(){if(cancelled||i>=sacs.length)return;const sac=sacs[i++];const fx=sac.fromX*W,fy=sac.fromY*H,tx=sac.toX*W,ty=sac.toY*H;const start=performance.now();function anim(now){if(cancelled)return;const t=Math.min(1,(now-start)/200);ctx.clearRect(0,0,W,H);redrawAll();const ex=fx+(tx-fx)*t,ey=fy+(ty-fy)*t;ctx.beginPath();ctx.moveTo(fx,fy);ctx.lineTo(ex,ey);ctx.strokeStyle='rgba(255,0,3,1)';ctx.lineWidth=2.5;ctx.stroke();if(t<1){rafId=requestAnimationFrame(anim);}else{drawSacFull(sac);drawn.push(sac);tid=setTimeout(next,500);}}rafId=requestAnimationFrame(anim);}next();return{cancel:()=>{cancelled=true;clearTimeout(tid);cancelAnimationFrame(rafId);}};}
 function animateScanPath(ctx,W,H,history){let tid=null,cancelled=false;const pts=history.slice();let shown=0;const R=11;function drawAll(n){ctx.clearRect(0,0,W,H);if(n<1)return;if(n>=2){ctx.save();ctx.setLineDash([4,6]);ctx.strokeStyle='rgba(255,0,3,1)';ctx.lineWidth=2.5;ctx.beginPath();for(let j=0;j<n-1;j++){const ax=pts[j].x*W,ay=pts[j].y*H,bx=pts[j+1].x*W,by=pts[j+1].y*H;const dx=bx-ax,dy=by-ay,dist=Math.hypot(dx,dy);if(dist<1)continue;const ux=dx/dist,uy=dy/dist;ctx.moveTo(ax+ux*R,ay+uy*R);ctx.lineTo(bx-ux*R,by-uy*R);}ctx.stroke();ctx.setLineDash([]);ctx.restore();}for(let j=0;j<n;j++){const{x,y}=pts[j],cx=x*W,cy=y*H;ctx.beginPath();ctx.arc(cx,cy,R,0,Math.PI*2);ctx.strokeStyle='rgba(255,0,3,1)';ctx.lineWidth=3;ctx.stroke();ctx.fillStyle='rgba(255,0,3,1)';ctx.font='700 10px HaimClassic';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText(j+1,cx,cy);ctx.textBaseline='alphabetic';}}function next(){if(cancelled||shown>=pts.length)return;shown++;drawAll(shown);tid=setTimeout(next,700);}next();return{cancel:()=>{cancelled=true;clearTimeout(tid);}};}
 function animateHeatmap(ctx,W,H,log){let tid=null,cancelled=false;const hmW=200,hmH=112,hm=new Float32Array(hmW*hmH),sigma=0.07*Math.max(hmW,hmH),r=Math.ceil(3*sigma),inv2s2=1/(2*sigma*sigma);const pts=log.slice();let i=0;function addPt(p){const gx=p.x*hmW,gy=p.y*hmH,x0=Math.max(0,Math.floor(gx-r)),x1=Math.min(hmW-1,Math.ceil(gx+r)),y0=Math.max(0,Math.floor(gy-r)),y1=Math.min(hmH-1,Math.ceil(gy+r));for(let y=y0;y<=y1;y++)for(let x=x0;x<=x1;x++)hm[y*hmW+x]+=0.18*Math.exp(-((x-gx)**2+(y-gy)**2)*inv2s2);}function render(){ctx.clearRect(0,0,W,H);drawMarchingSquares(ctx,W,H,hm,hmW,hmH);}const perStep=Math.max(1,Math.ceil(pts.length/60));function step(){if(cancelled)return;let c=0;while(i<pts.length&&c<perStep){addPt(pts[i++]);c++;}render();if(i<pts.length)tid=setTimeout(step,50);}step();return{cancel:()=>{cancelled=true;clearTimeout(tid);}};}
-function animateFirstFix(ctx,W,H,fix,modeTs){let tid=null,rafId=null,cancelled=false;if(!fix){ctx.fillStyle='rgba(150,150,150,0.7)';ctx.font='300 11px HaimClassic';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText('NO FIRST FIXATION DETECTED',W/2,H/2);return{cancel:()=>{}};}const cx=fix.x*W,cy=fix.y*H,offset=(fix.startTs-modeTs)/1000;tid=setTimeout(()=>{if(cancelled)return;const startPhase=performance.now();function phase2(now){if(cancelled)return;const t=Math.min(1,(now-startPhase)/600);ctx.clearRect(0,0,W,H);const ringR=20+t*40;ctx.beginPath();ctx.arc(cx,cy,ringR,0,Math.PI*2);ctx.strokeStyle='rgba(255,0,3,'+(1-t)*0.9+')';ctx.lineWidth=2.5;ctx.stroke();ctx.globalAlpha=t;ctx.beginPath();ctx.arc(cx,cy,14,0,Math.PI*2);ctx.fillStyle='rgba(255,0,3,1)';ctx.fill();ctx.globalAlpha=1;if(t>0.5){ctx.globalAlpha=(t-0.5)*2;ctx.textAlign='center';ctx.textBaseline='alphabetic';ctx.fillStyle='rgba(255,0,3,1)';ctx.font='700 11px HaimClassic';ctx.fillText('FIRST FIXATION',cx,cy-46);ctx.font='300 9px HaimClassic';ctx.fillText('+'+offset.toFixed(2)+'s',cx,cy-32);ctx.globalAlpha=1;}if(t<1){rafId=requestAnimationFrame(phase2);}else{const startPulse=performance.now();function pulse(now){if(cancelled)return;const pt=(now-startPulse)/1000,pr=20+Math.sin(pt*Math.PI*2)*5;ctx.clearRect(0,0,W,H);ctx.beginPath();ctx.arc(cx,cy,pr,0,Math.PI*2);ctx.strokeStyle='rgba(255,0,3,0.7)';ctx.lineWidth=2.5;ctx.stroke();ctx.beginPath();ctx.arc(cx,cy,14,0,Math.PI*2);ctx.fillStyle='rgba(255,0,3,1)';ctx.fill();ctx.textAlign='center';ctx.textBaseline='alphabetic';ctx.fillStyle='rgba(255,0,3,1)';ctx.font='700 11px HaimClassic';ctx.fillText('FIRST FIXATION',cx,cy-46);ctx.font='300 9px HaimClassic';ctx.fillText('+'+offset.toFixed(2)+'s',cx,cy-32);rafId=requestAnimationFrame(pulse);}rafId=requestAnimationFrame(pulse);}}rafId=requestAnimationFrame(phase2);},1000);return{cancel:()=>{cancelled=true;clearTimeout(tid);cancelAnimationFrame(rafId);}};}
+function animateFirstFix(ctx,W,H,fix,modeTs){let tid=null,rafId=null,cancelled=false;if(!fix){ctx.fillStyle='rgba(150,150,150,0.7)';ctx.font='300 11px HaimClassic';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText('לא זוהה קיבוע ראשון',W/2,H/2);return{cancel:()=>{}};}const cx=fix.x*W,cy=fix.y*H,offset=(fix.startTs-modeTs)/1000;tid=setTimeout(()=>{if(cancelled)return;const startPhase=performance.now();function phase2(now){if(cancelled)return;const t=Math.min(1,(now-startPhase)/600);ctx.clearRect(0,0,W,H);const ringR=20+t*40;ctx.beginPath();ctx.arc(cx,cy,ringR,0,Math.PI*2);ctx.strokeStyle='rgba(255,0,3,'+(1-t)*0.9+')';ctx.lineWidth=2.5;ctx.stroke();ctx.globalAlpha=t;ctx.beginPath();ctx.arc(cx,cy,14,0,Math.PI*2);ctx.fillStyle='rgba(255,0,3,1)';ctx.fill();ctx.globalAlpha=1;if(t>0.5){ctx.globalAlpha=(t-0.5)*2;ctx.textAlign='center';ctx.textBaseline='alphabetic';ctx.fillStyle='rgba(255,0,3,1)';ctx.font='700 11px HaimClassic';ctx.fillText('קיבוע ראשון',cx,cy-46);ctx.font='300 9px HaimClassic';ctx.fillText('+'+offset.toFixed(2)+'s',cx,cy-32);ctx.globalAlpha=1;}if(t<1){rafId=requestAnimationFrame(phase2);}else{const startPulse=performance.now();function pulse(now){if(cancelled)return;const pt=(now-startPulse)/1000,pr=20+Math.sin(pt*Math.PI*2)*5;ctx.clearRect(0,0,W,H);ctx.beginPath();ctx.arc(cx,cy,pr,0,Math.PI*2);ctx.strokeStyle='rgba(255,0,3,0.7)';ctx.lineWidth=2.5;ctx.stroke();ctx.beginPath();ctx.arc(cx,cy,14,0,Math.PI*2);ctx.fillStyle='rgba(255,0,3,1)';ctx.fill();ctx.textAlign='center';ctx.textBaseline='alphabetic';ctx.fillStyle='rgba(255,0,3,1)';ctx.font='700 11px HaimClassic';ctx.fillText('קיבוע ראשון',cx,cy-46);ctx.font='300 9px HaimClassic';ctx.fillText('+'+offset.toFixed(2)+'s',cx,cy-32);rafId=requestAnimationFrame(pulse);}rafId=requestAnimationFrame(pulse);}}rafId=requestAnimationFrame(phase2);},1000);return{cancel:()=>{cancelled=true;clearTimeout(tid);cancelAnimationFrame(rafId);}};}
 
-function playLayer(layer){cancelAnimation();const dc=getDataCanvas();const ctx=dc.getContext('2d');ctx.clearRect(0,0,dc.width,dc.height);const W=dc.width,H=dc.height;const sess=viewSession||{gazeLog,fixationHistory,saccadeHistory,scanPathHistory,firstFix,firstFixModeTs};renderAnalysisBadge(layer,sess);if(playMode==='STATIC'){switch(layer){case 'GAZE':staticGaze(ctx,W,H,sess.gazeLog);break;case 'FIXATION':staticFixation(ctx,W,H,sess.fixationHistory);break;case 'SACCADE':staticSaccade(ctx,W,H,sess.saccadeHistory);break;case 'SCANPATH':staticScanPath(ctx,W,H,sess.scanPathHistory);break;case 'HEATMAP':staticHeatmap(ctx,W,H,sess.gazeLog);break;case 'FIRSTFIX':staticFirstFix(ctx,W,H,sess.firstFix,sess.firstFixModeTs);break;}}else{switch(layer){case 'GAZE':currentAnimation=animateGaze(ctx,W,H,sess.gazeLog);break;case 'FIXATION':currentAnimation=animateFixation(ctx,W,H,sess.fixationHistory);break;case 'SACCADE':currentAnimation=animateSaccade(ctx,W,H,sess.saccadeHistory);break;case 'SCANPATH':currentAnimation=animateScanPath(ctx,W,H,sess.scanPathHistory);break;case 'HEATMAP':currentAnimation=animateHeatmap(ctx,W,H,sess.gazeLog);break;case 'FIRSTFIX':currentAnimation=animateFirstFix(ctx,W,H,sess.firstFix,sess.firstFixModeTs);break;}}}
+function playLayer(layer){cancelAnimation();const dc=getDataCanvas();const ctx=dc.getContext('2d');ctx.clearRect(0,0,dc.width,dc.height);const W=dc.width,H=dc.height;const sess=viewSession||{gazeLog,fixationHistory,saccadeHistory,scanPathHistory,firstFix,firstFixModeTs};renderAnalysisBadge(layer,sess);if(playMode==='STATIC'){switch(layer){case 'GAZE':staticGaze(ctx,W,H,sess.gazeLog);break;case 'קיבוע':staticFixation(ctx,W,H,sess.fixationHistory);break;case 'סקאדה':staticSaccade(ctx,W,H,sess.saccadeHistory);break;case 'SCANPATH':staticScanPath(ctx,W,H,sess.scanPathHistory);break;case 'מפת חום':staticHeatmap(ctx,W,H,sess.gazeLog);break;case 'FIRSTFIX':staticFirstFix(ctx,W,H,sess.firstFix,sess.firstFixModeTs);break;}}else{switch(layer){case 'GAZE':currentAnimation=animateGaze(ctx,W,H,sess.gazeLog);break;case 'קיבוע':currentAnimation=animateFixation(ctx,W,H,sess.fixationHistory);break;case 'סקאדה':currentAnimation=animateSaccade(ctx,W,H,sess.saccadeHistory);break;case 'SCANPATH':currentAnimation=animateScanPath(ctx,W,H,sess.scanPathHistory);break;case 'מפת חום':currentAnimation=animateHeatmap(ctx,W,H,sess.gazeLog);break;case 'FIRSTFIX':currentAnimation=animateFirstFix(ctx,W,H,sess.firstFix,sess.firstFixModeTs);break;}}}
 
-function populateCompareFilters(){const users=[...new Set(allSessions.map(s=>s.user))];const genders=[...new Set(allSessions.map(s=>s.gender).filter(Boolean))];const locations=[...new Set(allSessions.map(s=>s.location).filter(Boolean))];const cfUser=document.getElementById('cf-user');cfUser.innerHTML='<option value="">All Users</option>'+users.map(u=>'<option value="'+u+'">'+u+'</option>').join('');const cfGender=document.getElementById('cf-gender');cfGender.innerHTML='<option value="">All Genders</option>'+genders.map(g=>'<option value="'+g+'">'+g+'</option>').join('');const cfLoc=document.getElementById('cf-location');cfLoc.innerHTML='<option value="">All Locations</option>'+locations.map(l=>'<option value="'+l+'">'+l+'</option>').join('');}
+function populateCompareFilters(){const users=[...new Set(allSessions.map(s=>s.user))];const genders=[...new Set(allSessions.map(s=>s.gender).filter(Boolean))];const locations=[...new Set(allSessions.map(s=>s.location).filter(Boolean))];const cfUser=document.getElementById('cf-user');cfUser.innerHTML='<option value="">כל המשתמשים</option>'+users.map(u=>'<option value="'+u+'">'+u+'</option>').join('');const cfGender=document.getElementById('cf-gender');cfGender.innerHTML='<option value="">כל המגדרים</option>'+genders.map(g=>'<option value="'+g+'">'+g+'</option>').join('');const cfLoc=document.getElementById('cf-location');cfLoc.innerHTML='<option value="">כל המיקומים</option>'+locations.map(l=>'<option value="'+l+'">'+l+'</option>').join('');}
 function getFilteredSessions(){const user=document.getElementById('cf-user').value,gender=document.getElementById('cf-gender').value,location=document.getElementById('cf-location').value,sort=document.getElementById('cf-sort').value;let list=allSessions.filter(s=>(!user||s.user===user)&&(!gender||s.gender===gender)&&(!location||s.location===location));if(sort){const[key,dir]=sort.split('_');const asc=dir==='asc';const getVal=(s)=>{switch(key){case 'fixations':return s.fixationHistory?.length||0;case 'saccades':return s.saccadeHistory?.length||0;case 'duration':return s.sessionDuration||0;case 'samples':return s.gazeLog?.length||0;case 'ttff':return s.firstFix?(s.firstFix.startTs-s.firstFixModeTs):Infinity;case 'sacAmp':{const sh=s.saccadeHistory||[];return sh.length?sh.reduce((a,f)=>a+Math.hypot(f.toX-f.fromX,f.toY-f.fromY),0)/sh.length:0;}case 'age':return parseInt(s.age)||0;default:return 0;}};list.sort((a,b)=>asc?getVal(a)-getVal(b):getVal(b)-getVal(a));}return list;}
 
-function renderCompareView(){populateCompareFilters();const grid=document.getElementById('compareGrid');grid.innerHTML='';const layer=document.getElementById('cf-layer').value||dataActiveLayer||'GAZE';const filteredSessions=getFilteredSessions();if(sessions.length===0){grid.innerHTML='<div style="color:#555;font-size:11px;letter-spacing:0.2em;text-align:center;padding:40px 0;grid-column:1/-1;">NO SESSIONS TO COMPARE YET</div>';return;}for(const sess of filteredSessions){const cell=document.createElement('div');cell.className='compare-panel';const ts=new Date(sess.timestamp).toLocaleTimeString();const dur=sess.sessionDuration?(sess.sessionDuration/1000).toFixed(1)+'s':'--';cell.innerHTML='<div class="compare-panel-header"><div><div class="cp-user">'+sess.user+'</div><div class="cp-meta">'+(sess.age?sess.age+' yrs':'')+((sess.age&&sess.gender)?' . ':'')+( sess.gender||'')+(sess.location?' . '+sess.location:'')+'</div></div><div style="text-align:right"><div class="cp-time">'+sess.imageName+'</div><div class="cp-time">'+ts+' . '+dur+'</div></div></div><div class="compare-canvas-wrap"><img class="cp-img" src="'+sess.imageSrc+'"><canvas class="cp-canvas"></canvas></div><div class="cp-stats">'+sess.fixationHistory.length+' fix . '+sess.saccadeHistory.length+' sac . '+sess.gazeLog.length+' samples</div>';grid.appendChild(cell);const wrap=cell.querySelector('.compare-canvas-wrap'),canvas=cell.querySelector('.cp-canvas');setTimeout(()=>{canvas.width=wrap.offsetWidth;canvas.height=wrap.offsetHeight;const ctx=canvas.getContext('2d');const W=canvas.width,H=canvas.height;const RC='255,0,3';switch(layer){case 'GAZE':staticGaze(ctx,W,H,sess.gazeLog,RC);break;case 'FIXATION':staticFixation(ctx,W,H,sess.fixationHistory,RC);break;case 'SACCADE':staticSaccade(ctx,W,H,sess.saccadeHistory,RC);break;case 'SCANPATH':staticScanPath(ctx,W,H,sess.scanPathHistory,RC);break;case 'HEATMAP':staticHeatmap(ctx,W,H,sess.gazeLog,RC);break;case 'FIRSTFIX':staticFirstFix(ctx,W,H,sess.firstFix,sess.firstFixModeTs,RC);break;}},60);}}
+function renderCompareView(){populateCompareFilters();const grid=document.getElementById('compareGrid');grid.innerHTML='';const layer=document.getElementById('cf-layer').value||dataActiveLayer||'GAZE';const filteredSessions=getFilteredSessions();if(sessions.length===0){grid.innerHTML='<div style="color:#555;font-size:11px;letter-spacing:0.2em;text-align:center;padding:40px 0;grid-column:1/-1;">NO SESSIONS TO COMPARE YET</div>';return;}for(const sess of filteredSessions){const cell=document.createElement('div');cell.className='compare-panel';const ts=new Date(sess.timestamp).toLocaleTimeString();const dur=sess.sessionDuration?(sess.sessionDuration/1000).toFixed(1)+'s':'--';cell.innerHTML='<div class="compare-panel-header"><div><div class="cp-user">'+sess.user+'</div><div class="cp-meta">'+(sess.age?sess.age+' yrs':'')+((sess.age&&sess.gender)?' . ':'')+( sess.gender||'')+(sess.location?' . '+sess.location:'')+'</div></div><div style="text-align:right"><div class="cp-time">'+sess.imageName+'</div><div class="cp-time">'+ts+' . '+dur+'</div></div></div><div class="compare-canvas-wrap"><img class="cp-img" src="'+sess.imageSrc+'"><canvas class="cp-canvas"></canvas></div><div class="cp-stats">'+sess.fixationHistory.length+' fix . '+sess.saccadeHistory.length+' sac . '+sess.gazeLog.length+' samples</div>';grid.appendChild(cell);const wrap=cell.querySelector('.compare-canvas-wrap'),canvas=cell.querySelector('.cp-canvas');setTimeout(()=>{canvas.width=wrap.offsetWidth;canvas.height=wrap.offsetHeight;const ctx=canvas.getContext('2d');const W=canvas.width,H=canvas.height;const RC='255,0,3';switch(layer){case 'GAZE':staticGaze(ctx,W,H,sess.gazeLog,RC);break;case 'קיבוע':staticFixation(ctx,W,H,sess.fixationHistory,RC);break;case 'סקאדה':staticSaccade(ctx,W,H,sess.saccadeHistory,RC);break;case 'SCANPATH':staticScanPath(ctx,W,H,sess.scanPathHistory,RC);break;case 'מפת חום':staticHeatmap(ctx,W,H,sess.gazeLog,RC);break;case 'FIRSTFIX':staticFirstFix(ctx,W,H,sess.firstFix,sess.firstFixModeTs,RC);break;}},60);}}
 
 document.getElementById('cf-apply').addEventListener('click',renderCompareView);
 document.getElementById('cf-layer').addEventListener('change',renderCompareView);
@@ -1257,7 +1257,7 @@ function openGallery(){
   navGalleryLink.classList.add('active');
   document.getElementById('galleryScreen').style.display='flex';
   if(allSessions.length===0){
-    showEmptyState('galleryScreen','Start your first session to see your gallery.');
+    showEmptyState('galleryScreen','התחל את הסשן הראשון שלך כדי לראות את הגלריה.');
   } else {
     renderGalleryScreen();
   }
@@ -1393,6 +1393,9 @@ function runImageSession(imgData){
 
     // set image
     imgWrapper.style.display='block';
+    document.getElementById('aboutSkyVideo').style.display='none';
+    document.getElementById('aboutSkyColorOverlay').style.display='none';
+    document.getElementById('aboutBlurOverlay').style.display='none';
     mainImg.src=imgData.src;
     sessionStartTs=Date.now();
     firstFixModeTs=performance.now();
@@ -1989,10 +1992,10 @@ async function renderProfile(){
       <!-- KPIs -->
       <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:28px;">
         ${[
-          ['SESSIONS',sessions.length,'total'],
-          ['FIXATIONS',totalFix,'all time'],
-          ['SACCADES',totalSac,'all time'],
-          ['AVG DURATION',avgDur+'s','per session'],
+          ['סשנים',sessions.length,'סה"כ'],
+          ['קיבועים',totalFix,'עד כה'],
+          ['סקאדות',totalSac,'עד כה'],
+          ['משך ממוצע',avgDur+'s','לסשן'],
         ].map(([label,val,sub])=>`
           <div style="background:#fff;border:1px solid #eee;border-radius:8px;padding:16px;box-shadow:0 1px 4px rgba(0,0,0,0.04);">
             <div style="font-size:7px;font-weight:700;letter-spacing:0.35em;color:#bbb;margin-bottom:8px;font-family:HaimClassic,Heebo,sans-serif;">${label}</div>
@@ -2067,7 +2070,7 @@ function showEmptyState(screenId,msg){
   overlay.innerHTML=`
     <div style="font-size:9px;font-weight:700;letter-spacing:0.45em;color:#aaa;font-family:HaimClassic,Heebo,sans-serif;margin-bottom:4px;">NO SESSIONS YET</div>
     <div style="font-size:13px;font-weight:300;color:#999;font-family:HaimClassic,Heebo,sans-serif;margin-bottom:16px;">${msg}</div>
-    <button class="empty-state-btn" style="background:rgba(255,255,255,0.35);color:#111;border:1px solid rgba(255,255,255,0.6);font-family:HaimClassic,Heebo,sans-serif;font-size:12px;font-weight:400;letter-spacing:0.2em;padding:12px 36px;cursor:pointer;border-radius:100px;backdrop-filter:blur(12px);">START SESSION</button>
+    <button class="empty-state-btn" style="background:rgba(255,255,255,0.35);color:#111;border:1px solid rgba(255,255,255,0.6);font-family:HaimClassic,Heebo,sans-serif;font-size:12px;font-weight:400;letter-spacing:0.2em;padding:12px 36px;cursor:pointer;border-radius:100px;backdrop-filter:blur(12px);">התחל סשן</button>
   `;
   overlay.querySelector('.empty-state-btn').addEventListener('click',()=>{
     overlay.remove();
@@ -2084,7 +2087,7 @@ function openDashboard(){
   const scr=document.getElementById('dashboardScreen');
   scr.style.display='flex';
   if(allSessions.length===0){
-    showEmptyState('dashboardScreen','Start your first session to see your dashboard.');
+    showEmptyState('dashboardScreen','התחל את הסשן הראשון שלך כדי לראות את לוח הבקרה.');
   } else {
     renderDashboard();
   }
@@ -2108,9 +2111,9 @@ function renderDashboard(){
   kpiSection.appendChild(kpiRow);container.appendChild(kpiSection);
   const sparkSection=document.createElement('div');sparkSection.className='dash-section';
   sparkSection.innerHTML='<div class="dash-section-title">MY SESSION OVERVIEW</div>';
-  sparkSection.appendChild(makeRingChart([{label:'Fixations',val:totalFix,max:Math.max(totalFix,50)},{label:'Saccades',val:totalSac,max:Math.max(totalSac,40)},{label:'Samples',val:latest.gazeLog.length,max:Math.max(latest.gazeLog.length,200)},]));
+  sparkSection.appendChild(makeRingChart([{label:'קיבועים',val:totalFix,max:Math.max(totalFix,50)},{label:'סקאדות',val:totalSac,max:Math.max(totalSac,40)},{label:'דגימות',val:latest.gazeLog.length,max:Math.max(latest.gazeLog.length,200)},]));
   container.appendChild(sparkSection);
-  if(allSessions.length>1){const compSection=document.createElement('div');compSection.className='dash-section';compSection.innerHTML='<div class="dash-section-title">SESSIONS COMPARISON</div>';compSection.appendChild(makeBarChart('FIXATION COUNT',allSessions.map(s=>({label:s.user,val:s.fixationHistory.length}))));compSection.appendChild(makeBarChart('SACCADE COUNT',allSessions.map(s=>({label:s.user,val:s.saccadeHistory.length}))));compSection.appendChild(makeBarChart('SESSION DURATION (s)',allSessions.map(s=>({label:s.user,val:+(s.sessionDuration/1000).toFixed(1)}))));compSection.appendChild(makeBarChart('AVG FIXATION DURATION (ms)',allSessions.map(s=>{const f=s.fixationHistory;return{label:s.user,val:f.length?Math.round(f.reduce((a,x)=>a+x.duration,0)/f.length):0};})));container.appendChild(compSection);}
+  if(allSessions.length>1){const compSection=document.createElement('div');compSection.className='dash-section';compSection.innerHTML='<div class="dash-section-title">SESSIONS COMPARISON</div>';compSection.appendChild(makeBarChart('ספירת קיבועים',allSessions.map(s=>({label:s.user,val:s.fixationHistory.length}))));compSection.appendChild(makeBarChart('ספירת סקאדות',allSessions.map(s=>({label:s.user,val:s.saccadeHistory.length}))));compSection.appendChild(makeBarChart('משך סשן (שניות)',allSessions.map(s=>({label:s.user,val:+(s.sessionDuration/1000).toFixed(1)}))));compSection.appendChild(makeBarChart('משך קיבוע ממוצע (ms)',allSessions.map(s=>{const f=s.fixationHistory;return{label:s.user,val:f.length?Math.round(f.reduce((a,x)=>a+x.duration,0)/f.length):0};})));container.appendChild(compSection);}
   const byUser=new Map();for(const sess of allSessions){if(!byUser.has(sess.user))byUser.set(sess.user,[]);byUser.get(sess.user).push(sess);}
   if(byUser.size>1){const userSection=document.createElement('div');userSection.className='dash-section';userSection.innerHTML='<div class="dash-section-title">USER COMPARISON</div>';const grid=document.createElement('div');grid.className='dash-compare-grid';for(const[user,userSessions]of byUser){const card=document.createElement('div');card.className='dash-user-card';const allFix=userSessions.flatMap(ss=>ss.fixationHistory);const totFix=allFix.length;const totSac=sessions.reduce((s,ss)=>s+ss.saccadeHistory.length,0);const totDur=sessions.reduce((s,ss)=>s+ss.sessionDuration,0);const avgF=totFix?Math.round(allFix.reduce((s,f)=>s+f.duration,0)/totFix):0;const meta=userSessions[0];card.innerHTML=`<div class="dash-user-card-name">${user}</div><div class="dash-user-card-meta">${meta.age?meta.age+'y · ':''}${meta.gender||''} · ${sessions.length} session${sessions.length>1?'s':''}</div><div class="dash-user-stats"><div class="dash-user-stat"><div class="dash-user-stat-label">FIXATIONS</div><div class="dash-user-stat-val">${totFix}</div></div><div class="dash-user-stat"><div class="dash-user-stat-label">AVG DUR</div><div class="dash-user-stat-val">${avgF}ms</div></div><div class="dash-user-stat"><div class="dash-user-stat-label">SACCADES</div><div class="dash-user-stat-val">${totSac}</div></div><div class="dash-user-stat"><div class="dash-user-stat-label">TOTAL TIME</div><div class="dash-user-stat-val">${(totDur/1000).toFixed(1)}s</div></div></div>`;grid.appendChild(card);}userSection.appendChild(grid);container.appendChild(userSection);}
 }
@@ -2125,7 +2128,7 @@ function makeBarChart(title,data,unit=''){const wrap=document.createElement('div
 const TRANSLATIONS = {
   en: {
     navData:'DATA', navGallery:'GALLERY', navDashboard:'DASHBOARD',
-    navProfile:'PROFILE', navAbout:'ABOUT', navLogin:'LOG IN', navSignup:'SIGN UP',
+    navProfile:'פרופיל', navAbout:'ABOUT', navLogin:'LOG IN', navSignup:'SIGN UP',
     eyebrow:'VISUAL ANALYSIS SYSTEM', heading:'YOU SEE, WE MEASURE.',
     startBtn:'START', scrollHint:'SCROLL TO LEARN MORE',
     howItWorks:'HOW IT WORKS', analysisModes:'ANALYSIS MODES',
@@ -2159,7 +2162,7 @@ const TRANSLATIONS = {
     male:'Male', female:'Female', other:'Other',
     continueBtn:'CONTINUE',
     participantCode:'YOUR PARTICIPANT CODE',
-    saveCode:'Save this code if you wish to return. It identifies your session anonymously.',
+    saveCode:'שמור את הקוד אם תרצה לחזור. הוא מזהה את הסשן שלך באופן אנונימי.',
     beginBtn:'BEGIN',
     calTitle:'EYE TRACKING CALIBRATION',
     calInstr1:'Keep your head still - move only your eyes to each dot',
@@ -2170,20 +2173,20 @@ const TRANSLATIONS = {
     calBegin:'BEGIN CALIBRATION',
     calReady:'READY',
     calDone:'Calibration complete - the session is about to begin.',
-    noSessions:'NO SESSIONS YET',
-    noSessionsData:'Start your first session to see your data.',
-    noSessionsGallery:'Start your first session to see your gallery.',
-    noSessionsDash:'Start your first session to see your dashboard.',
-    startSessionBtn:'START SESSION',
+    noSessions:'אין סשנים עדיין',
+    noSessionsData:'התחל את הסשן הראשון שלך כדי לראות את הנתונים.',
+    noSessionsGallery:'התחל את הסשן הראשון שלך כדי לראות את הגלריה.',
+    noSessionsDash:'התחל את הסשן הראשון שלך כדי לראות את לוח הבקרה.',
+    startSessionBtn:'התחל סשן',
     aboutTitle:'ABOUT', theSystem:'THE SYSTEM', researchFocus:'RESEARCH FOCUS',
     whatWeMeasure:'WHAT WE MEASURE', builtBy:'BUILT BY',
     imageCredits:'IMAGE CREDITS',
     imageCreditsDesc:'All images courtesy of the Government Press Office of Israel.',
     memberSince:'MEMBER SINCE',
-    noSessionsYet:'NO SESSIONS YET',
-    sessionHistory:'SESSION HISTORY',
-    profileTitle:'PROFILE',
-    loading:'LOADING...',
+    noSessionsYet:'אין סשנים עדיין',
+    sessionHistory:'היסטוריית סשנים',
+    profileTitle:'פרופיל',
+    loading:'טוען...',
   },
   he: {
     navData:'נתונים', navGallery:'גלריה', navDashboard:'לוח בקרה',
@@ -2372,8 +2375,8 @@ function applyLang(lang){
 
   // Profile loading text (if visible)
   const profileBody = document.getElementById('profileBody');
-  if(profileBody && profileBody.textContent.trim() === 'LOADING...') {
-    profileBody.innerHTML = `<div style="font-size:11px;letter-spacing:0.2em;color:#bbb;text-align:center;padding:40px 0;">${t.loading||'LOADING...'}</div>`;
+  if(profileBody && profileBody.textContent.trim() === 'טוען...') {
+    profileBody.innerHTML = `<div style="font-size:11px;letter-spacing:0.2em;color:#bbb;text-align:center;padding:40px 0;">${t.loading||'טוען...'}</div>`;
   }
 
   // Calibration canvas text is drawn dynamically - store lang for drawCalIntro/drawCalDone
