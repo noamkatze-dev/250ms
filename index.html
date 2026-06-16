@@ -1081,17 +1081,14 @@ async function showNameScreen(initialTab='signup'){
       currentUser=generateCode();
       currentAge=age;
       currentGender=gender;
-      btn.textContent='...';
-      try{
-        await sbFetch('profiles?on_conflict=name',{
-          method:'POST',
-          headers:{'Prefer':'resolution=merge-duplicates,return=minimal'},
-          body:JSON.stringify({name:currentUser,age:currentAge,gender:currentGender,location:userLocation})
-        });
-      }catch(e){ console.warn('[profile:create] FAILED',e); }
       scr.style.display='none';
-      btn.textContent='התחלה';
       resolve();
+      // Save to server in background (non-blocking)
+      sbFetch('profiles?on_conflict=name',{
+        method:'POST',
+        headers:{'Prefer':'resolution=merge-duplicates,return=minimal'},
+        body:JSON.stringify({name:currentUser,age:currentAge,gender:currentGender,location:userLocation})
+      }).catch(e=>console.warn('[profile:create] FAILED',e));
     };
   });
 }function startSessionInfoOverlay(){}
