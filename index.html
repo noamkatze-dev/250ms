@@ -185,20 +185,14 @@ canvas.va-preview{width:100%;aspect-ratio:5/3;display:block;border-radius:6px;ba
 #nameScreen,
 #libraryScreen,
 #calOverlay,
+#nameScreen,
+#libraryScreen,
+#calOverlay,
 #dataScreen,
 #galleryScreen,
 #dashboardScreen,
 #profileScreen{
-  background-color:#edf7fd;
-  background-image:
-    radial-gradient(ellipse 70% 40% at 15% 8%,  rgba(178,224,243,0.7) 0%, transparent 70%),
-    radial-gradient(ellipse 55% 30% at 85% 18%, rgba(190,230,247,0.6) 0%, transparent 65%),
-    radial-gradient(ellipse 60% 25% at 30% 35%, rgba(205,237,250,0.5) 0%, transparent 60%),
-    radial-gradient(ellipse 70% 30% at 70% 52%, rgba(178,224,243,0.55) 0%, transparent 65%),
-    radial-gradient(ellipse 60% 25% at 20% 68%, rgba(190,230,247,0.5) 0%, transparent 65%),
-    radial-gradient(ellipse 55% 30% at 80% 82%, rgba(170,220,242,0.5) 0%, transparent 65%),
-    radial-gradient(ellipse 65% 20% at 45% 92%, rgba(205,237,250,0.45) 0%, transparent 60%);
-  background-attachment:fixed;
+  background:transparent !important;
 }
 
 /* glass cards for dashboard, gallery, profile, data */
@@ -466,9 +460,9 @@ canvas.va-preview{width:100%;aspect-ratio:5/3;display:block;border-radius:6px;ba
 
 <!-- About screen: same sky video + blur overlay -->
 <video id="aboutSkyVideo" src="sky.mp4" muted playsinline preload="auto"
-  style="display:none;position:fixed;inset:0;width:100%;height:100%;object-fit:cover;z-index:1595;opacity:0.7;pointer-events:none;filter:brightness(1.12) contrast(0.92) saturate(1.25);"></video>
-<div id="aboutSkyColorOverlay" style="display:none;position:fixed;inset:0;z-index:1596;pointer-events:none;background:rgba(80,130,200,0.05);mix-blend-mode:screen;"></div>
-<div id="aboutBlurOverlay" style="display:none;position:fixed;inset:0;z-index:1597;pointer-events:none;backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);background:rgba(160,200,240,0.35);"></div>
+  style="display:none;position:fixed;inset:0;width:100%;height:100%;object-fit:cover;z-index:1090;opacity:0.7;pointer-events:none;filter:brightness(1.12) contrast(0.92) saturate(1.25);"></video>
+<div id="aboutSkyColorOverlay" style="display:none;position:fixed;inset:0;z-index:1091;pointer-events:none;background:rgba(80,130,200,0.05);mix-blend-mode:screen;"></div>
+<div id="aboutBlurOverlay" style="display:none;position:fixed;inset:0;z-index:1092;pointer-events:none;backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);background:rgba(160,200,240,0.35);"></div>
 
 <div id="homeScreen">
 
@@ -901,6 +895,7 @@ document.getElementById('homeStartBtn2') && document.getElementById('homeStartBt
 navSessionLink.addEventListener('click',()=>{
   if(userLoggedIn){
     hideAllScreens();
+    showSharedBg();
     navSessionLink.classList.add('active');
     document.getElementById('dataScreen').style.display='flex';
     if(allSessions.length===0){
@@ -1034,6 +1029,7 @@ function awaitDot(px,py,index){return new Promise(resolve=>{let progress=0,prevT
   calCtx.textAlign='right';calCtx.fillStyle='#bbb';calCtx.font='400 14px HaimClassic';calCtx.fillText((index+1)+'  /  '+CAL_PTS.length,W-28,36);calCtx.beginPath();calCtx.arc(px,py,22,0,Math.PI*2);calCtx.strokeStyle='rgba(178,224,243,0.5)';calCtx.lineWidth=1.5;calCtx.stroke();if(progress>0){calCtx.beginPath();calCtx.arc(px,py,22,-Math.PI/2,-Math.PI/2+progress*Math.PI*2);calCtx.strokeStyle='rgba(255,0,3,'+(0.35+s*0.65)+')';calCtx.lineWidth=2;calCtx.stroke();}const r=3.5+s*2.5;calCtx.beginPath();calCtx.arc(px,py,r,0,Math.PI*2);calCtx.fillStyle='rgba(255,0,3,'+(0.2+s*0.8)+')';calCtx.fill();if(progress>=1){calCtx.beginPath();calCtx.arc(px,py,22,0,Math.PI*2);calCtx.strokeStyle='rgba(255,0,3,0.9)';calCtx.lineWidth=2;calCtx.stroke();const n=samples.length||1;setTimeout(()=>resolve({ox:samples.reduce((a,v)=>a+v.ox,0)/n,oy:samples.reduce((a,v)=>a+v.oy,0)/n}),280);}else requestAnimationFrame(frame);}requestAnimationFrame(frame);});}
 
 async function runCalibration(){
+  showSharedBg();
   const nav=document.getElementById('mainNav');
   nav.style.display='none';
   nav.style.background='transparent';
@@ -1090,6 +1086,7 @@ async function showNameScreen(initialTab='signup'){return new Promise(resolve=>{
   tabSignup.onclick=showSignup;
   tabLogin.onclick=showLogin;
   if(initialTab==='login') showLogin(); else showSignup();
+  showSharedBg();
   scr.style.display='flex';
 
   // SIGN UP
@@ -1259,8 +1256,18 @@ function renderCompareView(){populateCompareFilters();const grid=document.getEle
 document.getElementById('cf-apply').addEventListener('click',renderCompareView);
 document.getElementById('cf-layer').addEventListener('change',renderCompareView);
 
+function showSharedBg(){
+  const abVid=document.getElementById('aboutSkyVideo');
+  document.getElementById('aboutSkyVideo').style.display='block';
+  document.getElementById('aboutSkyColorOverlay').style.display='block';
+  document.getElementById('aboutBlurOverlay').style.display='block';
+  abVid.pause();
+  abVid.currentTime=1.5;
+}
+
 function openGallery(){
   hideAllScreens();
+  showSharedBg();
   setNavTheme('light');
   navGalleryLink.classList.add('active');
   document.getElementById('galleryScreen').style.display='flex';
@@ -1346,7 +1353,7 @@ async function saveProfile(session) {
   } catch (e) { console.warn('[profile:save]', e); }
 }
 
-function openData(pushNew=true){if(pushNew){const snap=captureSession();allSessions.push(snap);viewSession=snap;}const dataScreen=document.getElementById('dataScreen');const dataBody=document.getElementById('dataBody');const compareView=document.getElementById('compareView');dataScreen.style.display='flex';dataBody.style.display='flex';compareView.style.display='none';setNavTheme('light');document.getElementById('sessionViewBtn').classList.add('active');document.getElementById('compareViewBtn').classList.remove('active');document.getElementById('galleryScreen').style.display='none';document.getElementById('dataImg').src=viewSession.imageSrc;document.getElementById('dataImg').style.opacity=showImg?'1':'0';renderDataSessionBadge(viewSession);const activeBtn=document.querySelector('.layer-btn.active');const layer=activeBtn?activeBtn.dataset.layer:'GAZE';dataActiveLayer=layer;playLayer(layer);}
+function openData(pushNew=true){if(pushNew){const snap=captureSession();allSessions.push(snap);viewSession=snap;}const dataScreen=document.getElementById('dataScreen');const dataBody=document.getElementById('dataBody');const compareView=document.getElementById('compareView');dataScreen.style.display='flex';dataBody.style.display='flex';compareView.style.display='none';showSharedBg();setNavTheme('light');document.getElementById('sessionViewBtn').classList.add('active');document.getElementById('compareViewBtn').classList.remove('active');document.getElementById('galleryScreen').style.display='none';document.getElementById('dataImg').src=viewSession.imageSrc;document.getElementById('dataImg').style.opacity=showImg?'1':'0';renderDataSessionBadge(viewSession);const activeBtn=document.querySelector('.layer-btn.active');const layer=activeBtn?activeBtn.dataset.layer:'GAZE';dataActiveLayer=layer;playLayer(layer);}
 
 /* ══════════════════════════════════════════════════════════════════════
    POLITICAL IMAGES SEQUENCE
@@ -1488,6 +1495,7 @@ function hideAllScreens(){
   if(skyVid) skyVid.style.display='none';
   const skyOverlay=document.getElementById('skyColorOverlay');
   if(skyOverlay) skyOverlay.style.display='none';
+  // shared bg for all non-home screens
   document.getElementById('aboutSkyVideo').style.display='none';
   document.getElementById('aboutSkyColorOverlay').style.display='none';
   document.getElementById('aboutBlurOverlay').style.display='none';
@@ -1936,6 +1944,7 @@ function bootHome(){
    ══════════════════════════════════════════════════════════════════════ */
 function openProfile(){
   hideAllScreens();
+  showSharedBg();
   setNavTheme('light');
   navProfileLink.classList.add('active');
   document.getElementById('profileScreen').style.display='flex';
@@ -2053,16 +2062,10 @@ navAboutLink.addEventListener('click',()=>openAbout());
 
 function openAbout(){
   hideAllScreens();
+  showSharedBg();
   setNavTheme('dark');
   navAboutLink.classList.add('active');
   document.getElementById('aboutScreen').style.display='flex';
-  document.getElementById('aboutSkyVideo').style.display='block';
-  document.getElementById('aboutSkyColorOverlay').style.display='block';
-  document.getElementById('aboutBlurOverlay').style.display='block';
-  // Static - do not play, stay on first frame
-  const abVid = document.getElementById('aboutSkyVideo');
-  abVid.pause();
-  abVid.currentTime = 1.5;
 }
 
 function showEmptyState(screenId,msg){
@@ -2088,6 +2091,7 @@ function showEmptyState(screenId,msg){
 
 function openDashboard(){
   hideAllScreens();
+  showSharedBg();
   setNavTheme('light');
   navDashboardLink.classList.add('active');
   const scr=document.getElementById('dashboardScreen');
