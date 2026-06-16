@@ -851,12 +851,7 @@ const navAboutLink=document.getElementById('navAboutLink');
 const navLoginBtn=document.getElementById('navLoginBtn');
 const navSignupBtn=document.getElementById('navSignupBtn');
 navAboutLink.addEventListener('click',()=>openAbout());
-navSignupBtn.addEventListener('click',async()=>{
-  if(!appStarted){
-    appStarted=true;
-    startApp();
-  }
-});
+navSignupBtn.addEventListener('click',()=>startSession());
 document.getElementById('navBrand').addEventListener('click',()=>showHome());
 let appStarted=false;
 let userLoggedIn=false;
@@ -902,9 +897,20 @@ function hideHome(){
   navHomeLink.classList.remove('active');
 }
 
-function goToSession(){hideHome();if(!appStarted){appStarted=true;startApp();}}
+function goToSession(){startSession();}
 
-document.getElementById('homeStartBtn') && document.getElementById('homeStartBtn').addEventListener('click',goToSession);
+async function startSession(){
+  if(appStarted) return;
+  appStarted=true;
+  await showNameScreen();
+  showAuthNav();
+  userLoggedIn=true;
+  await boot();
+}
+
+async function startApp(){
+  await startSession();
+}document.getElementById('homeStartBtn') && document.getElementById('homeStartBtn').addEventListener('click',goToSession);
 document.getElementById('homeStartBtn2') && document.getElementById('homeStartBtn2').addEventListener('click',goToSession);
 navSessionLink.addEventListener('click',()=>{
   if(userLoggedIn){
@@ -1057,38 +1063,34 @@ function generateCode(){
   return code;
 }
 
-async function showNameScreen(initialTab='signup'){
+async function showNameScreen(){
   const scr=document.getElementById('nameScreen');
-  const step1=document.getElementById('nsFormStep1');
   const ageInp=document.getElementById('ageInput');
   const genderInp=document.getElementById('genderInput');
   const btn=document.getElementById('nameContinue');
 
-  // Hide home first so nameScreen isn't covered
   document.getElementById('homeScreen').style.display='none';
   document.getElementById('homeSkyVideo').style.display='none';
   document.getElementById('skyColorOverlay').style.display='none';
-
-  step1.style.display='flex';
+  document.getElementById('nsFormStep1').style.display='flex';
   showSharedBg();
   scr.style.display='flex';
 
   return new Promise(resolve=>{
-    btn.onclick=async()=>{
+    btn.onclick=()=>{
       const age=ageInp.value.trim();
       const gender=genderInp.value;
-      if(!age||!gender){return;}
+      if(!age||!gender) return;
       currentUser=generateCode();
       currentAge=age;
       currentGender=gender;
       scr.style.display='none';
-      resolve();
-      // Save to server in background (non-blocking)
       sbFetch('profiles?on_conflict=name',{
         method:'POST',
         headers:{'Prefer':'resolution=merge-duplicates,return=minimal'},
         body:JSON.stringify({name:currentUser,age:currentAge,gender:currentGender,location:userLocation})
-      }).catch(e=>console.warn('[profile:create] FAILED',e));
+      }).catch(()=>{});
+      resolve();
     };
   });
 }function startSessionInfoOverlay(){}
@@ -1447,14 +1449,7 @@ function showAuthNav(){
 }
 
 
-async function startApp(){
-  hideHome();
-  await showNameScreen();
-  showAuthNav();
-  userLoggedIn=true;
-  hideHome();
-  await boot();
-}
+
 /* ══════════════════════════════════════════════════════════════════════
    MODE SLIDER
    ══════════════════════════════════════════════════════════════════════ */
