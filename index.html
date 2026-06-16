@@ -48,19 +48,33 @@ body{
 #eyeContainer{display:none;}
 #eyeBall{display:none;}
 .home-content{position:relative;z-index:1;}
-#mainNav{position:fixed;top:0;left:0;right:0;height:52px;background:transparent;backdrop-filter:none;-webkit-backdrop-filter:none;border-bottom:1px solid transparent;display:flex;align-items:center;justify-content:space-between;padding:0 60px;z-index:9000;cursor:default;transition:background 0.3s,border-color 0.3s,backdrop-filter 0.3s;}
+#mainNav{position:fixed;top:0;left:0;right:0;height:64px;background:transparent;backdrop-filter:none;-webkit-backdrop-filter:none;border-bottom:1px solid transparent;display:flex;align-items:center;justify-content:space-between;padding:12px 60px 0;z-index:9000;cursor:default;transition:background 0.3s,border-color 0.3s,backdrop-filter 0.3s;}
 #navBrand{display:flex;align-items:center;gap:10px;}
 .nav-va{font-size:20px;font-weight:400;font-family:HaimClassic,Heebo,sans-serif;color:#FF0003;letter-spacing:0.06em;}
 .nav-title{font-size:10px;font-weight:700;letter-spacing:0.28em;color:#FF0003;font-variant:small-caps;}
 #navLinks{display:flex;gap:28px;align-items:center;}
-.nav-link{font-size:10px;font-weight:400;letter-spacing:0.22em;color:#FF0003;cursor:pointer;user-select:none;transition:color 0.15s;}
+.nav-link{font-size:13px;font-weight:400;letter-spacing:0.22em;color:#FF0003;cursor:pointer;user-select:none;transition:color 0.15s;}
 .nav-link:hover,.nav-link.active{color:#FF0003;}
-.nav-login{font-size:10px;font-weight:400;letter-spacing:0.22em;cursor:pointer;user-select:none;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.25);color:#FF0003;padding:6px 18px;border-radius:100px;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);transition:background 0.15s,color 0.15s,border-color 0.15s;}
-.nav-login:hover{background:rgba(255,255,255,0.55);}
+.nav-login{font-size:13px;font-weight:400;letter-spacing:0.22em;cursor:pointer;user-select:none;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.25);color:#FF0003;padding:8px 22px;border-radius:100px;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);transition:transform 0.15s;}
+.nav-login:hover{transform:scale(1.06);}
 .nav-login-outline{background:transparent;border-color:rgba(255,255,255,0.4);}
-.nav-login-outline:hover{background:rgba(255,255,255,0.2);}
-/* ↓ FIXED: unified single hover rule, matching .nav-login:hover exactly */
-#homeStartBtn:hover{background:rgba(255,255,255,0.55);border-color:rgba(255,255,255,0.8);}
+.nav-login-outline:hover{transform:scale(1.06);}
+/* unified hover - all buttons grow slightly */
+#homeStartBtn:hover,
+#homeStartBtn2:hover,
+.va-btn:hover,
+.va-btn-primary:hover,
+.va-btn-secondary:hover,
+.layer-btn:hover,
+.toggle-btn:hover,
+.view-tab:hover,
+#playBtn:hover,
+#calStartBtn:hover,
+#libBeginBtn:hover,
+#nameContinue:hover,
+#nsCodeContinue:hover,
+#nsLoginBtn:hover,
+.empty-state-btn:hover{transform:scale(1.06) !important;background:inherit;}
 .nav-login.hidden{display:none;}
 
 /* HOME SCREEN */
@@ -162,9 +176,9 @@ canvas.va-preview{width:100%;aspect-ratio:5/3;display:block;border-radius:6px;ba
 .mode-preview{display:block;width:100%;height:100%;}
 .va-btn{font-family:HaimClassic,Heebo,sans-serif;letter-spacing:0.18em;cursor:pointer;transition:background 0.18s,color 0.18s,border-color 0.18s;border-radius:100px;}
 .va-btn-primary{background:rgba(255,255,255,0.35);color:#333;border:1px solid rgba(255,255,255,0.6);font-size:13px;font-weight:400;padding:14px 48px;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:0 2px 16px rgba(178,224,243,0.25);}
-.va-btn-primary:hover{background:rgba(255,255,255,0.55);border-color:rgba(255,255,255,0.8);}
+.va-btn-primary:hover{}
 .va-btn-secondary{background:#fff;color:#111;border:2px solid #111;font-size:12px;font-weight:400;padding:9px 24px;}
-.va-btn-secondary:hover{background:#111;color:#fff;}
+.va-btn-secondary:hover{}
 /* ══════════════════════════════════════════════════════════════════════
    GLOBAL BACKGROUND - gradient on all screens
    ══════════════════════════════════════════════════════════════════════ */
@@ -272,19 +286,19 @@ canvas.va-preview{width:100%;aspect-ratio:5/3;display:block;border-radius:6px;ba
 #dataToolbar.collapsed .toolbar-inner-content{display:none;}
 .toolbar-sep{width:1px;height:16px;background:rgba(255,255,255,0.22);flex-shrink:0;margin:0 8px;}
 .layer-btn{font-family:HaimClassic,Heebo,sans-serif;font-size:7.5px;font-weight:400;letter-spacing:0.06em;color:#555;background:transparent;border:1.5px solid transparent;padding:5px 9px;cursor:pointer;transition:color 0.15s,border-color 0.15s;white-space:nowrap;border-radius:100px;position:relative;}
-.layer-btn:hover{color:#fff;}
+.layer-btn:hover{}
 .layer-btn.active{color:#fff;border-color:rgba(255,255,255,0.35);background:rgba(255,255,255,0.07);}
 .layer-btn[data-tooltip]::after{content:attr(data-tooltip);position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);background:rgba(0,0,0,0.88);color:#ccc;font-size:9px;font-weight:300;letter-spacing:0.04em;white-space:nowrap;padding:5px 10px;border-radius:6px;pointer-events:none;opacity:0;transition:opacity 0.15s;border:1px solid rgba(255,255,255,0.08);z-index:100;}
 .layer-btn[data-tooltip]:hover::after{opacity:1;}
 .toggle-group{display:flex;gap:2px;}
-.toggle-btn{font-family:HaimClassic,Heebo,sans-serif;font-size:7.5px;font-weight:400;letter-spacing:0.05em;padding:5px 8px;border:1.5px solid transparent;background:transparent;color:#555;cursor:pointer;transition:all 0.15s;white-space:nowrap;border-radius:100px;}
-.toggle-btn:hover{color:#fff;}
+.toggle-btn{font-family:HaimClassic,Heebo,sans-serif;font-size:7.5px;font-weight:400;letter-spacing:0.05em;padding:5px 8px;border:1.5px solid transparent;background:transparent;color:#555;cursor:pointer;transition:all 0.15s,transform 0.15s;white-space:nowrap;border-radius:100px;}
+.toggle-btn:hover{}
 .toggle-btn.active{color:#fff;border-color:rgba(255,255,255,0.35);background:rgba(255,255,255,0.07);}
 #playBtn{font-family:HaimClassic,Heebo,sans-serif;font-size:7.5px;font-weight:400;letter-spacing:0.06em;color:#fff;background:#222;border:1.5px solid #3a3a3a;padding:5px 10px;cursor:pointer;transition:background 0.15s;flex-shrink:0;border-radius:100px;}
-#playBtn:hover{background:#333;}
+#playBtn:hover{}
 .view-tab{font-family:HaimClassic,Heebo,sans-serif;font-size:7.5px;font-weight:400;letter-spacing:0.06em;padding:5px 9px;border:1.5px solid transparent;background:transparent;color:#555;cursor:pointer;transition:all 0.15s;border-radius:100px;}
 .view-tab.active{background:rgba(255,255,255,0.07);color:#fff;border-color:rgba(255,255,255,0.35);}
-.view-tab:hover{color:#fff;border-color:rgba(255,255,255,0.2);}
+.view-tab:hover{}
 #galleryScreen{display:none;position:fixed;inset:0;z-index:1500;;flex-direction:column;overflow:hidden;padding-top:52px;}
 #galleryHeader{display:flex;align-items:center;justify-content:space-between;padding:10px 60px;border-bottom:1px solid rgba(255,255,255,0.4);flex-shrink:0;background:rgba(255,255,255,0.45);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);}
 #galleryHeader .gallery-title{font-size:11px;font-weight:700;letter-spacing:0.45em;color:#111;}
@@ -382,7 +396,7 @@ canvas.va-preview{width:100%;aspect-ratio:5/3;display:block;border-radius:6px;ba
   background:transparent !important;
 }
 #homeScreen #homeStartBtn:hover,#homeScreen #homeStartBtn2:hover{
-  background:rgba(255,0,3,0.08) !important;
+  background:transparent !important;
 }
 #homeScreen #modePrev,#homeScreen #modeNext{
   color:#FF0003 !important;
