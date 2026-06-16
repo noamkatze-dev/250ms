@@ -19,6 +19,13 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'HaimClassic';
+  src: url('haim-classic-bold-fm.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+}
+
 [lang="he"] body,[lang="he"] button,[lang="he"] input,[lang="he"] select,[lang="he"] label,[lang="he"] span,[lang="he"] p,[lang="he"] h1,[lang="he"] h2,[lang="he"] div{font-family:'HaimClassic',Heebo,sans-serif;font-weight:300;}
 [lang="he"] #modesSection{direction:rtl;}
 [lang="he"] #modesSection .hi-label,[lang="he"] #modesSection .hi-title,[lang="he"] #modesSection .hi-sub,[lang="he"] #modesSection #modeDesc{text-align:right;}
@@ -106,7 +113,7 @@ body{
 }
 .home-content{text-align:center;pointer-events:all;display:flex;flex-direction:column;align-items:center;}
 .home-eyebrow{font-size:9px;font-weight:700;letter-spacing:0.5em;color:rgba(255,255,255,0.7);margin-bottom:16px;text-transform:uppercase;}
-.home-heading{font-size:24px;font-weight:600;color:#fff;line-height:1.1;margin-bottom:32px;text-transform:uppercase;white-space:nowrap;}
+.home-heading{font-size:36px;font-weight:700;font-family:'HaimClassic',Heebo,sans-serif;color:#fff;line-height:1.1;margin-bottom:32px;white-space:nowrap;}
 #homeStartBtn{background:rgba(255,255,255,0.08);color:#fff;border:1px solid rgba(255,255,255,0.6);font-family:Urbanist,sans-serif;font-size:13px;font-weight:700;letter-spacing:0.22em;padding:14px 48px;cursor:pointer;transition:all 0.18s;margin-top:24px;margin-bottom:36px;border-radius:100px;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);}
 .home-badges{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-bottom:40px;}
 .home-badge{font-size:10px;color:#555;border:1px solid #ddd;padding:5px 14px;border-radius:100px;letter-spacing:0.05em;}
@@ -377,7 +384,7 @@ canvas.va-preview{width:100%;aspect-ratio:5/3;display:block;border-radius:6px;ba
 #homeScreen .mode-dot[style*="111"]{background:#FF0003 !important;}
 
 /* Nav red on home */
-#navSignupBtn, #navLoginBtn, #navAboutLink, .nav-va, #langToggle,
+#navSignupBtn, #navLoginBtn, #navAboutLink, .nav-va,
 .nav-link { transition: color 0.15s; }
 
 #heroEyeSvg{
@@ -414,7 +421,7 @@ canvas.va-preview{width:100%;aspect-ratio:5/3;display:block;border-radius:6px;ba
     <span class="nav-link" id="navAboutLink">ABOUT</span>
     <span class="nav-login" id="navSignupBtn">SIGN UP</span>
     <span class="nav-login nav-login-outline" id="navLoginBtn">LOG IN</span>
-    <button id="langToggle" style="background:none;border:none;font-family:Urbanist,sans-serif;font-size:10px;font-weight:700;letter-spacing:0.2em;color:rgba(255,255,255,0.7);cursor:pointer;padding:4px 8px;transition:color 0.15s;">EN</button>
+
   </div>
 </nav>
 
@@ -849,8 +856,6 @@ function setNavTheme(theme){
   });
   const va = document.querySelector('.nav-va');
   if(va) va.style.color = isLight ? '#111' : '#FF0003';
-  const lang = document.getElementById('langToggle');
-  if(lang) lang.style.color = isLight ? '#111' : '#FF0003';
   const login = document.getElementById('navLoginBtn');
   if(login){
     login.style.color = isLight ? '#111' : '#FF0003';
@@ -1861,8 +1866,6 @@ function bootHome(){
       });
       const va = document.querySelector('.nav-va');
       if(va) va.style.color = dark ? '#FF0003' : '#111';
-      const lang = document.getElementById('langToggle');
-      if(lang) lang.style.color = dark ? '#FF0003' : '#111';
       const login = document.getElementById('navLoginBtn');
       if(login){
         login.style.color = dark ? '#FF0003' : '#111';
@@ -2227,10 +2230,31 @@ const TRANSLATIONS = {
     profileTitle:'פרופיל',
     loading:'טוען...',
     readyTitle:'התחל את הסשן שלך עכשיו.',
+    // About page full content
+    aboutH1:'0.25 שניות',
+    aboutSubtitle:'השם מתייחס ל-250 המילישניות הראשונות של תשומת הלב החזותית — החלון שלפני שהעיבוד המודע מתחיל. במחקר מעקב עיניים, קיבועים נמדדים בטווח של 200–300 מילישניות, מה שהופך את 0.25 שניות לסף פיוטי ומדעי כאחד.',
+    aboutSystemText1:'0.25 שניות היא מערכת מעקב עיניים מבוססת דפדפן לניתוח תשומת לב חזותית על תמונות פוליטיות. היא מודדת לאן מסתכלים הצופים, מה הם מבחינים בו ראשון, וכיצד המבט שלהם נע על פני תמונה — ללא חומרה כלשהי מלבד מצלמת רשת רגילה.',
+    aboutSystemText2:'המערכת משתמשת ב-MediaPipe לזיהוי 478 נקודות ציון פנים בכל פריים, תוך בידוד מיקום האיריס בזמן אמת. כיול אפיני של 9 נקודות ממפה את תנועת העין לקואורדינטות המסך, ודגימות המבט מסווגות לקיבועים, סקאדות, מסלולי סריקה ומפות חום באמצעות אלגוריתמי I-DT ו-I-VT.',
+    aboutResearchText1:'המערכת תוכננה לחקור דפוסי תשומת לב חזותית על תמונות פוליטיות — בוחנת אילו אזורים מושכים את העין ראשונים, כמה זמן שוהה המבט באזורים שונים, ואם צצים דפוסי צפייה שונים בקרב משקיפים שונים.',
+    aboutResearchText2:'כל סשן מקושר לפרופיל בעל שם הכולל גיל, מגדר ומיקום מזוהה. ההשתתפות היא וולונטרית והנתונים משמשים למטרות מחקר בלבד.',
+    aboutBuiltDesc:'פרויקט גמר — תואר ראשון בתקשורת חזותית, אוניברסיטת חיפה.\nבהנחיית רונית ישראלי.\nתוכנן, עוצב ופותח מאפס — כולל מסגרת מחקר, עיצוב UX ופיתוח צד לקוח וצד שרת.',
+    // Measure cards
+    fixationLabel:'קיבוע',
+    fixationDesc:'מבט ממושך על אזור יחיד. מעיד על עניין או עיבוד קוגניטיבי.',
+    saccadeLabel:'סקאדה',
+    saccadeDesc:'תנועת עין מהירה בין אזורים. חושפת כיצד העין סורקת סצנה.',
+    scanpathLabel:'מסלול סריקה',
+    scanpathDesc:'הרצף הממוין של הקיבועים. ממפה את המסע החזותי על פני התמונה.',
+    heatmapLabel:'מפת חום',
+    heatmapDesc:'מפת צפיפות של תשומת הלב החזותית. מראה היכן מתקבצים רוב הקיבועים.',
+    ttffLabel:'TTFF',
+    ttffDesc:'זמן עד לקיבוע הראשון. מודד עד כמה מהר אזור מושך תשומת לב.',
+    firstfixLabel:'קיבוע ראשון',
+    firstfixDesc:'האזור הראשון שנוצד. נקודת הכניסה הטרום-מודעת של תשומת הלב החזותית.',
   }
 };
 
-let currentLang = localStorage.getItem('lang') || 'en';
+let currentLang = 'he';
 
 function fixTimelineLines(isRtl){
   const items = document.querySelectorAll('.howto-list li');
@@ -2253,12 +2277,11 @@ function fixTimelineLines(isRtl){
 
 function applyLang(lang){
   currentLang = lang;
-  localStorage.setItem('lang', lang);
+  localStorage.removeItem('lang');
   const t = TRANSLATIONS[lang];
   const isHe = lang === 'he';
   
   document.documentElement.setAttribute('lang', lang);
-  document.getElementById('langToggle').textContent = isHe ? 'EN' : 'HE';
   document.body.style.direction = isHe ? 'rtl' : 'ltr';
   document.body.setAttribute('dir', isHe ? 'rtl' : 'ltr');
 
@@ -2378,7 +2401,7 @@ function applyLang(lang){
   const startBtn2 = document.getElementById('homeStartBtn2');
   if(startBtn2) startBtn2.textContent=t.startSession;
 
-  // About screen labels
+  // About screen — section labels
   const aboutMap = {
     'about-label-title': 'aboutTitle',
     'about-label-system': 'theSystem',
@@ -2391,9 +2414,51 @@ function applyLang(lang){
     const el = document.getElementById(id);
     if(el && t[key]) el.textContent = t[key];
   });
-  const creditsDesc = document.querySelector('#aboutBody p[style*="max-width:480px"]') || 
-    [...document.querySelectorAll('#aboutBody p')].find(p=>p.textContent.includes('courtesy of'));
+
+  // About — H1 title
+  const aboutH1 = document.querySelector('#aboutBody h1');
+  if(aboutH1 && t.aboutH1) aboutH1.textContent = t.aboutH1;
+
+  // About — main subtitle paragraph (first p after h1)
+  const aboutSubtitleEl = document.querySelector('#aboutBody > div > div > p[style*="margin:0 0 48px"]');
+  if(aboutSubtitleEl && t.aboutSubtitle) aboutSubtitleEl.textContent = t.aboutSubtitle;
+
+  // About — THE SYSTEM paragraphs
+  const systemParas = document.querySelectorAll('#aboutBody p[style*="color:#666"]');
+  if(systemParas[0] && t.aboutSystemText1) systemParas[0].textContent = t.aboutSystemText1;
+  if(systemParas[1] && t.aboutSystemText2) systemParas[1].textContent = t.aboutSystemText2;
+  if(systemParas[2] && t.aboutResearchText1) systemParas[2].textContent = t.aboutResearchText1;
+  if(systemParas[3] && t.aboutResearchText2) systemParas[3].textContent = t.aboutResearchText2;
+
+  // About — BUILT BY description (the multi-line p)
+  const builtDescEl = document.querySelector('#aboutBody p[style*="font-size:13px"][style*="color:#888"]');
+  if(builtDescEl && t.aboutBuiltDesc) builtDescEl.innerHTML = t.aboutBuiltDesc.replace(/\n/g,'<br>');
+
+  // About — IMAGE CREDITS description
+  const creditsDesc = [...document.querySelectorAll('#aboutBody p')].find(p=>
+    p.textContent.includes('courtesy of') || p.textContent.includes('באדיבות')
+  );
   if(creditsDesc && t.imageCreditsDesc) creditsDesc.textContent = t.imageCreditsDesc;
+
+  // About — WHAT WE MEASURE cards (6 cards, each has label p + desc p)
+  const measureCardData = [
+    {label:'fixationLabel', desc:'fixationDesc'},
+    {label:'saccadeLabel',  desc:'saccadeDesc'},
+    {label:'scanpathLabel', desc:'scanpathDesc'},
+    {label:'heatmapLabel',  desc:'heatmapDesc'},
+    {label:'ttffLabel',     desc:'ttffDesc'},
+    {label:'firstfixLabel', desc:'firstfixDesc'},
+  ];
+  const measureGrid = document.querySelector('#aboutBody div[style*="grid-template-columns:repeat(3,1fr)"]');
+  if(measureGrid){
+    const cards = measureGrid.querySelectorAll(':scope > div');
+    cards.forEach((card, i)=>{
+      if(!measureCardData[i]) return;
+      const ps = card.querySelectorAll('p');
+      if(ps[0] && t[measureCardData[i].label]) ps[0].textContent = t[measureCardData[i].label];
+      if(ps[1] && t[measureCardData[i].desc])  ps[1].textContent = t[measureCardData[i].desc];
+    });
+  }
 
   fixTimelineLines(isHe);
 
@@ -2406,14 +2471,8 @@ function applyLang(lang){
   }
 }
 
-function toggleLang(){
-  applyLang(currentLang === 'en' ? 'he' : 'en');
-}
-window.toggleLang = toggleLang;
-document.getElementById('langToggle').addEventListener('click', toggleLang);
-
-// Apply on load
-applyLang(currentLang);
+// Apply Hebrew on load
+applyLang('he');
 
 </script>
 </body>
