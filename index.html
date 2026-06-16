@@ -842,29 +842,27 @@ let userLoggedIn=false;
 
 function setNavTheme(theme){
   // theme: 'light' (dark text, for white screens) or 'dark' (white text, for home hero)
-  const isLight = theme === 'light';
   const nav = document.getElementById('mainNav');
   if(nav){
-    nav.style.background = isLight ? 'rgba(255,255,255,0.85)' : 'transparent';
-    nav.style.backdropFilter = isLight ? 'blur(16px)' : 'none';
-    nav.style.webkitBackdropFilter = isLight ? 'blur(16px)' : 'none';
-    nav.style.borderBottomColor = isLight ? 'rgba(0,0,0,0.06)' : 'transparent';
+    nav.style.background = 'transparent';
+    nav.style.backdropFilter = 'none';
+    nav.style.webkitBackdropFilter = 'none';
+    nav.style.borderBottomColor = 'transparent';
   }
   document.querySelectorAll('.nav-link').forEach(el=>{
-    el.style.color = isLight ? '#111' : '#FF0003';
+    el.style.color = '#FF0003';
   });
   const va = document.querySelector('.nav-va');
-  if(va) va.style.color = isLight ? '#111' : '#FF0003';
+  if(va) va.style.color = '#FF0003';
   const login = document.getElementById('navLoginBtn');
   if(login){
-    login.style.color = isLight ? '#111' : '#FF0003';
-    login.style.borderColor = isLight ? 'rgba(0,0,0,0.25)' : 'rgba(255,0,3,0.5)';
+    login.style.color = '#FF0003';
+    login.style.borderColor = 'rgba(255,0,3,0.5)';
   }
   const signup = document.getElementById('navSignupBtn');
   if(signup){
-    signup.style.color = isLight ? '#111' : '#FF0003';
-    signup.style.borderColor = isLight ? 'rgba(0,0,0,0.25)' : 'rgba(255,0,3,0.5)';
-    signup.style.background = isLight ? 'transparent' : 'transparent';
+    signup.style.color = '#FF0003';
+    signup.style.borderColor = 'rgba(255,0,3,0.5)';
   }
 }
 
@@ -1253,7 +1251,7 @@ function showSharedBg(){
 function openGallery(){
   hideAllScreens();
   showSharedBg();
-  setNavTheme('light');
+  setNavTheme('dark');
   navGalleryLink.classList.add('active');
   document.getElementById('galleryScreen').style.display='flex';
   if(allSessions.length===0){
@@ -1338,7 +1336,7 @@ async function saveProfile(session) {
   } catch (e) { console.warn('[profile:save]', e); }
 }
 
-function openData(pushNew=true){if(pushNew){const snap=captureSession();allSessions.push(snap);viewSession=snap;}const dataScreen=document.getElementById('dataScreen');const dataBody=document.getElementById('dataBody');const compareView=document.getElementById('compareView');dataScreen.style.display='flex';dataBody.style.display='flex';compareView.style.display='none';showSharedBg();setNavTheme('light');document.getElementById('sessionViewBtn').classList.add('active');document.getElementById('compareViewBtn').classList.remove('active');document.getElementById('galleryScreen').style.display='none';document.getElementById('dataImg').src=viewSession.imageSrc;document.getElementById('dataImg').style.opacity=showImg?'1':'0';renderDataSessionBadge(viewSession);const activeBtn=document.querySelector('.layer-btn.active');const layer=activeBtn?activeBtn.dataset.layer:'GAZE';dataActiveLayer=layer;playLayer(layer);}
+function openData(pushNew=true){if(pushNew){const snap=captureSession();allSessions.push(snap);viewSession=snap;}const dataScreen=document.getElementById('dataScreen');const dataBody=document.getElementById('dataBody');const compareView=document.getElementById('compareView');dataScreen.style.display='flex';dataBody.style.display='flex';compareView.style.display='none';showSharedBg();setNavTheme('dark');document.getElementById('sessionViewBtn').classList.add('active');document.getElementById('compareViewBtn').classList.remove('active');document.getElementById('galleryScreen').style.display='none';document.getElementById('dataImg').src=viewSession.imageSrc;document.getElementById('dataImg').style.opacity=showImg?'1':'0';renderDataSessionBadge(viewSession);const activeBtn=document.querySelector('.layer-btn.active');const layer=activeBtn?activeBtn.dataset.layer:'GAZE';dataActiveLayer=layer;playLayer(layer);}
 
 /* ══════════════════════════════════════════════════════════════════════
    POLITICAL IMAGES SEQUENCE
@@ -1866,32 +1864,7 @@ function bootHome(){
   const hs=document.getElementById('homeScreen');
   if(hint&&hs){
     hs.addEventListener('scroll',()=>{
-      hint.style.opacity=hs.scrollTop>10?'0':'1';
-      const heroH = document.getElementById('homeHeroSection').offsetHeight;
-      const dark = hs.scrollTop < heroH - 10;
-      const nav = document.getElementById('mainNav');
-      if(nav){
-        nav.style.background = dark ? 'transparent' : 'rgba(255,255,255,0.35)';
-        nav.style.backdropFilter = dark ? 'none' : 'blur(16px)';
-        nav.style.webkitBackdropFilter = dark ? 'none' : 'blur(16px)';
-        nav.style.borderBottomColor = dark ? 'transparent' : 'rgba(0,0,0,0.06)';
-      }
-      document.querySelectorAll('.nav-link').forEach(el=>{
-        el.style.color = dark ? '#FF0003' : '#111';
-      });
-      const va = document.querySelector('.nav-va');
-      if(va) va.style.color = dark ? '#FF0003' : '#111';
-      const login = document.getElementById('navLoginBtn');
-      if(login){
-        login.style.color = dark ? '#FF0003' : '#111';
-        login.style.borderColor = dark ? 'rgba(255,0,3,0.5)' : 'rgba(0,0,0,0.25)';
-      }
-      const signup = document.getElementById('navSignupBtn');
-      if(signup){
-        signup.style.color = dark ? '#FF0003' : '#111';
-        signup.style.borderColor = dark ? 'rgba(255,0,3,0.5)' : 'rgba(0,0,0,0.25)';
-        signup.style.background = dark ? 'transparent' : 'transparent';
-      }
+      if(hint) hint.style.opacity=hs.scrollTop>10?'0':'1';
     },{passive:true});
   }
 
@@ -1935,7 +1908,7 @@ function bootHome(){
 function openProfile(){
   hideAllScreens();
   showSharedBg();
-  setNavTheme('light');
+  setNavTheme('dark');
   navProfileLink.classList.add('active');
   document.getElementById('profileScreen').style.display='flex';
   renderProfile();
@@ -2082,7 +2055,7 @@ function showEmptyState(screenId,msg){
 function openDashboard(){
   hideAllScreens();
   showSharedBg();
-  setNavTheme('light');
+  setNavTheme('dark');
   navDashboardLink.classList.add('active');
   const scr=document.getElementById('dashboardScreen');
   scr.style.display='flex';
