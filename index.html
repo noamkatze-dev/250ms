@@ -488,17 +488,6 @@ canvas.va-preview{width:100%;aspect-ratio:5/3;display:block;border-radius:6px;ba
   </div>
 
   <div id="homeInfo">
-    <div class="hi-section">
-      <div class="hi-label">HOW IT WORKS</div>
-      <h2 class="hi-title">From eyes to insights in three steps.</h2>
-      <p class="hi-sub">The system uses your webcam to detect iris position in real-time, maps gaze to screen coordinates via affine calibration, then classifies movements into research-grade metrics.</p>
-      <div class="steps-row">
-        <div class="step-item"><div class="step-num">01</div><div class="step-title">EYE TRACKING</div><div class="step-desc">MediaPipe detects 478 facial landmarks per frame, isolating the iris center in both eyes for sub-pixel gaze estimation.</div></div>
-        <div class="step-item"><div class="step-num">02</div><div class="step-title">CALIBRATION</div><div class="step-desc">A 9-point affine calibration maps your unique eye movement range to screen coordinates. Keep your head still.</div></div>
-        <div class="step-item"><div class="step-num">03</div><div class="step-title">GAZE ANALYSIS</div><div class="step-desc">Gaze samples are classified in real-time into fixations, saccades, scan paths, and heatmaps using I-DT and I-VT algorithms.</div></div>
-      </div>
-    </div>
-
 
     <div class="hi-section" id="modesSection" style="padding:0;overflow:hidden;">
       <div style="display:grid;grid-template-columns:1fr 1fr;align-items:stretch;">
@@ -531,24 +520,6 @@ canvas.va-preview{width:100%;aspect-ratio:5/3;display:block;border-radius:6px;ba
       </div>
     </div>
 
-    <div class="hi-section">
-      <div class="hi-label">QUICK START</div>
-      <h2 class="hi-title" style="margin-bottom:36px;">Up and running in under a minute.</h2>
-      <ol class="howto-list">
-        <li><span class="howto-n">01</span><span class="howto-dot"></span><span class="howto-line"></span><span class="howto-text"><strong>Allow camera access</strong> when the browser prompts.</span></li>
-        <li><span class="howto-n">02</span><span class="howto-dot"></span><span class="howto-line"></span><span class="howto-text"><strong>Enter your details</strong> for group comparison.</span></li>
-        <li><span class="howto-n">03</span><span class="howto-dot"></span><span class="howto-line"></span><span class="howto-text"><strong>Complete the 9-point calibration.</strong> Eyes only.</span></li>
-        <li><span class="howto-n">04</span><span class="howto-dot"></span><span class="howto-line"></span><span class="howto-text"><strong>The images appear</strong> automatically, one at a time.</span></li>
-        <li><span class="howto-n">05</span><span class="howto-dot"></span><span class="howto-line"></span><span class="howto-text"><strong>View naturally.</strong> Each image lasts 5 seconds.</span></li>
-        <li><span class="howto-n">06</span><span class="howto-dot"></span><span class="howto-line"></span><span class="howto-text"><strong>Explore your data</strong> and compare with others.</span></li>
-      </ol>
-    </div>
-
-    <div class="hi-section hi-section-dark" style="text-align:center;padding:80px 60px;">
-      <div class="hi-label hi-label-light">READY?</div>
-      <h2 class="hi-title hi-title-light" style="margin-bottom:32px;">Start your session now.</h2>
-      <button id="homeStartBtn2" style="background:transparent;color:#111;border:1.5px solid #111;font-family:HaimClassic,Heebo,sans-serif;font-size:13px;font-weight:400;letter-spacing:0.22em;padding:16px 48px;cursor:pointer;border-radius:100px;transition:background 0.18s,color 0.18s;" onmouseover="this.style.background='#111';this.style.color='#fff'" onmouseout="this.style.background='transparent';this.style.color='#111'">START</button>
-    </div>
   </div>
 </div>
 
@@ -773,6 +744,33 @@ canvas.va-preview{width:100%;aspect-ratio:5/3;display:block;border-radius:6px;ba
     </div>
 
     <div style="border-top:1px solid rgba(178,224,243,0.4);padding-top:36px;margin-bottom:36px;">
+      <p style="font-size:9px;font-weight:700;letter-spacing:0.4em;color:#aaa;margin:0 0 16px;font-family:HaimClassic,Heebo,sans-serif;">מצבי ניתוח</p>
+      <h2 style="font-size:22px;font-weight:400;color:#111;margin:0 0 12px;line-height:1.2;font-family:HaimClassic,Heebo,sans-serif;">שש דרכים לקרוא תשומת לב חזותית.</h2>
+      <p style="font-size:15px;color:#666;line-height:1.8;margin:0 0 32px;font-family:HaimClassic,Heebo,sans-serif;">עברו בין מצבים בזמן אמת כדי לחקור ממדים שונים של האופן שבו צופה סורק תמונה.</p>
+      <div style="direction:rtl;">
+        <div style="display:grid;grid-template-columns:1fr 1fr;align-items:stretch;background:rgba(255,255,255,0.10);border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,0.3);">
+          <div style="padding:36px;display:flex;flex-direction:column;justify-content:space-between;">
+            <div>
+              <div id="aboutModeNum" style="font-size:9px;font-weight:700;letter-spacing:0.4em;color:#aaa;margin-bottom:12px;font-family:HaimClassic,Heebo,sans-serif;">01 / 06</div>
+              <div id="aboutModeName" style="font-size:24px;font-weight:400;color:#FF0003;margin-bottom:12px;line-height:1.1;font-family:HaimClassic,Heebo,sans-serif;"></div>
+              <div id="aboutModeDesc" style="font-size:14px;font-weight:300;color:#666;line-height:1.7;font-family:HaimClassic,Heebo,sans-serif;"></div>
+            </div>
+            <div style="display:flex;gap:12px;margin-top:28px;align-items:center;">
+              <button id="aboutModePrev" style="width:40px;height:40px;border-radius:50%;border:1.5px solid #FF0003;background:transparent;cursor:pointer;font-size:20px;display:flex;align-items:center;justify-content:center;color:#FF0003;transition:transform 0.15s;">‹</button>
+              <button id="aboutModeNext" style="width:40px;height:40px;border-radius:50%;border:1.5px solid #FF0003;background:transparent;cursor:pointer;font-size:20px;display:flex;align-items:center;justify-content:center;color:#FF0003;transition:transform 0.15s;">›</button>
+              <div id="aboutModeDots" style="display:flex;gap:6px;margin-right:16px;"></div>
+            </div>
+          </div>
+          <div style="position:relative;min-height:220px;overflow:hidden;">
+            <video src="statue.mp4" muted playsinline style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:1;filter:saturate(0.7) brightness(1.1);"></video>
+            <div style="position:absolute;inset:0;background:rgba(180,210,240,0.25);mix-blend-mode:color;pointer-events:none;z-index:1;"></div>
+            <canvas id="aboutModeCanvas" style="position:absolute;inset:0;width:100%;height:100%;display:block;background:transparent;z-index:2;"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="border-top:1px solid rgba(178,224,243,0.4);padding-top:36px;margin-bottom:36px;">
       <p id="about-label-measure" style="font-size:9px;font-weight:700;letter-spacing:0.4em;color:#aaa;margin:0 0 24px;font-family:HaimClassic,Heebo,sans-serif;">מה אנחנו מודדים</p>
       <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;">
         <div style="background:rgba(255,255,255,0.15);border-radius:10px;padding:16px;border:1px solid rgba(255,255,255,0.3);backdrop-filter:blur(12px);">
@@ -924,8 +922,8 @@ function hideHome(){
 
 function goToSession(){hideHome();if(!appStarted){appStarted=true;startApp();}}
 
-document.getElementById('homeStartBtn').addEventListener('click',goToSession);
-document.getElementById('homeStartBtn2').addEventListener('click',goToSession);
+document.getElementById('homeStartBtn') && document.getElementById('homeStartBtn').addEventListener('click',goToSession);
+document.getElementById('homeStartBtn2') && document.getElementById('homeStartBtn2').addEventListener('click',goToSession);
 navSessionLink.addEventListener('click',()=>{
   if(userLoggedIn){
     hideAllScreens();
@@ -1855,6 +1853,49 @@ async function startApp(){
   }
 
   document.fonts.ready.then(function(){setTimeout(init,150);});
+
+  // ── About page mode slider ──
+  var aboutCur=0;
+  function initAboutSlider(){
+    var dotsEl=document.getElementById('aboutModeDots');
+    if(!dotsEl) return;
+    dotsEl.innerHTML='';
+    for(var i=0;i<6;i++){
+      var d=document.createElement('div');
+      d.style.cssText='width:6px;height:6px;border-radius:50%;background:#ddd;cursor:pointer;transition:all 0.2s;flex-shrink:0;';
+      (function(idx){d.onclick=function(){goToAbout(idx);};})(i);
+      dotsEl.appendChild(d);
+    }
+    document.getElementById('aboutModePrev').onclick=function(){goToAbout(aboutCur-1);};
+    document.getElementById('aboutModeNext').onclick=function(){goToAbout(aboutCur+1);};
+    goToAbout(0);
+  }
+
+  function goToAbout(n){
+    aboutCur=(n+6)%6;
+    document.getElementById('aboutModeNum').textContent=MODES[aboutCur].num;
+    document.getElementById('aboutModeName').textContent=MODES[aboutCur].name;
+    document.getElementById('aboutModeDesc').textContent=MODES[aboutCur].desc;
+    document.querySelectorAll('#aboutModeDots div').forEach(function(d,i){
+      d.style.background=i===aboutCur?'#FF0003':'#ddd';
+      d.style.transform=i===aboutCur?'scale(1.3)':'scale(1)';
+    });
+    // Re-use startAnim but swap the canvas target
+    var origEl=document.getElementById('modeCanvas');
+    var aboutEl=document.getElementById('aboutModeCanvas');
+    if(!aboutEl) return;
+    var dpr=window.devicePixelRatio||1;
+    var rect=aboutEl.getBoundingClientRect();
+    aboutEl.width=rect.width*dpr; aboutEl.height=rect.height*dpr;
+    // Temporarily point el/ctx/W/H to about canvas, run anim, restore
+    el=aboutEl; W=rect.width; H=rect.height;
+    ctx=aboutEl.getContext('2d',{alpha:true}); ctx.scale(dpr,dpr);
+    startAnim(aboutCur);
+    // Restore to home canvas
+    setTimeout(function(){ el=origEl; },0);
+  }
+
+  document.fonts.ready.then(function(){setTimeout(initAboutSlider,250);});
 })();
 
  bootHome();
