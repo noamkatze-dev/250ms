@@ -1914,7 +1914,6 @@ function bootHome(){
     if(ts - lastSkyUpdate > 80 && skyVideo.duration && !isNaN(currentSkyTime)){
       const t = Math.max(0, Math.min(skyVideo.duration - 0.01, currentSkyTime));
       skyVideo.currentTime = t;
-      if(aboutSkyVideo && aboutSkyVideo.duration) aboutSkyVideo.currentTime = Math.max(0, Math.min(aboutSkyVideo.duration - 0.01, currentSkyTime));
       lastSkyUpdate = ts;
     }
     requestAnimationFrame(updateSkyVideo);
