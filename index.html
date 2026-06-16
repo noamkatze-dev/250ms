@@ -1070,29 +1070,44 @@ async function showNameScreen(){
   const ageInp=document.getElementById('ageInput');
   const genderInp=document.getElementById('genderInput');
   const btn=document.getElementById('nameContinue');
+  const step1=document.getElementById('nsFormStep1');
+  const step2=document.getElementById('nsFormStep2');
+  const codeEl=document.getElementById('nsCode');
+  const codeBtn=document.getElementById('nsCodeContinue');
 
   document.getElementById('homeScreen').style.display='none';
   document.getElementById('homeSkyVideo').style.display='none';
   document.getElementById('skyColorOverlay').style.display='none';
-  document.getElementById('nsFormStep1').style.display='flex';
+  step1.style.display='flex';
+  step2.style.display='none';
   showSharedBg();
   scr.style.display='flex';
 
   return new Promise(resolve=>{
-    btn.onclick=()=>{
+    btn.onclick=async()=>{
       const age=ageInp.value.trim();
       const gender=genderInp.value;
       if(!age||!gender) return;
       currentUser=generateCode();
       currentAge=age;
       currentGender=gender;
-      scr.style.display='none';
+
+      // Show code screen
+      codeEl.textContent=currentUser;
+      step1.style.display='none';
+      step2.style.display='flex';
+
+      // Save to server
       sbFetch('profiles?on_conflict=name',{
         method:'POST',
         headers:{'Prefer':'resolution=merge-duplicates,return=minimal'},
         body:JSON.stringify({name:currentUser,age:currentAge,gender:currentGender,location:userLocation})
       }).catch(()=>{});
-      resolve();
+
+      codeBtn.onclick=()=>{
+        scr.style.display='none';
+        resolve();
+      };
     };
   });
 }function startSessionInfoOverlay(){}
