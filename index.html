@@ -993,7 +993,13 @@ function resizeCal(){
 
 /* ── Canvas font: all HaimClassic ── */
 function drawCalIntro(){const W=window.innerWidth,H=window.innerHeight;
-  calCtx.clearRect(0,0,W,H);
+  const grad=calCtx.createRadialGradient(W*0.15,H*0.08,0,W*0.15,H*0.08,W*0.7);
+  grad.addColorStop(0,'rgba(178,224,243,0.7)');
+  grad.addColorStop(1,'rgba(237,247,253,1)');
+  calCtx.fillStyle='#edf7fd';
+  calCtx.fillRect(0,0,W,H);
+  calCtx.fillStyle=grad;
+  calCtx.fillRect(0,0,W,H);
   calCtx.textAlign='center';
   calCtx.fillStyle='#aaa';
   calCtx.font='700 11px HaimClassic';
@@ -1025,7 +1031,10 @@ function drawCalIntro(){const W=window.innerWidth,H=window.innerHeight;
   calCtx.fillText('כל תמונה תופיע למשך 5 שניות.',W/2,H/2+70);
 }
 function drawCalDone(){const W=window.innerWidth,H=window.innerHeight;
-  calCtx.clearRect(0,0,W,H);
+  const grad=calCtx.createRadialGradient(W*0.15,H*0.08,0,W*0.15,H*0.08,W*0.7);
+  grad.addColorStop(0,"rgba(178,224,243,0.7)");grad.addColorStop(1,"rgba(237,247,253,1)");
+  calCtx.fillStyle="#edf7fd";calCtx.fillRect(0,0,W,H);
+  calCtx.fillStyle=grad;calCtx.fillRect(0,0,W,H);
   calCtx.textAlign="center";
   calCtx.fillStyle="#111";calCtx.font="700 28px HaimClassic";
   calCtx.fillText("מוכן",W/2,H/2-8);
@@ -1035,7 +1044,8 @@ function drawCalDone(){const W=window.innerWidth,H=window.innerHeight;
 function awaitDot(px,py,index){return new Promise(resolve=>{let progress=0,prevTs=null;const samples=[];function frame(ts){const dt=prevTs?Math.min((ts-prevTs)/1000,0.05):0;prevTs=ts;const s=eyeStab();progress+=s*CAL_FILL_RATE*dt;progress-=(1-s)*CAL_DRAIN_RATE*dt;progress=Math.max(0,Math.min(1,progress));if(s>0.45&&eyeValid)samples.push({ox:curEyeOffX,oy:curEyeOffY});const W=window.innerWidth,H=window.innerHeight;
   const grad=calCtx.createRadialGradient(W*0.15,H*0.08,0,W*0.15,H*0.08,W*0.7);
   grad.addColorStop(0,'rgba(178,224,243,0.7)');grad.addColorStop(1,'rgba(237,247,253,1)');
-  calCtx.clearRect(0,0,W,H);
+  calCtx.fillStyle='#edf7fd';calCtx.fillRect(0,0,W,H);
+  calCtx.fillStyle=grad;calCtx.fillRect(0,0,W,H);
   calCtx.textAlign='right';calCtx.fillStyle='#bbb';calCtx.font='400 14px HaimClassic';calCtx.fillText((index+1)+'  /  '+CAL_PTS.length,W-28,36);calCtx.beginPath();calCtx.arc(px,py,22,0,Math.PI*2);calCtx.strokeStyle='rgba(178,224,243,0.5)';calCtx.lineWidth=1.5;calCtx.stroke();if(progress>0){calCtx.beginPath();calCtx.arc(px,py,22,-Math.PI/2,-Math.PI/2+progress*Math.PI*2);calCtx.strokeStyle='rgba(255,0,3,'+(0.35+s*0.65)+')';calCtx.lineWidth=2;calCtx.stroke();}const r=3.5+s*2.5;calCtx.beginPath();calCtx.arc(px,py,r,0,Math.PI*2);calCtx.fillStyle='rgba(255,0,3,'+(0.2+s*0.8)+')';calCtx.fill();if(progress>=1){calCtx.beginPath();calCtx.arc(px,py,22,0,Math.PI*2);calCtx.strokeStyle='rgba(255,0,3,0.9)';calCtx.lineWidth=2;calCtx.stroke();const n=samples.length||1;setTimeout(()=>resolve({ox:samples.reduce((a,v)=>a+v.ox,0)/n,oy:samples.reduce((a,v)=>a+v.oy,0)/n}),280);}else requestAnimationFrame(frame);}requestAnimationFrame(frame);});}
 
 async function runCalibration(){
