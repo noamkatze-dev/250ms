@@ -852,10 +852,10 @@ const navLoginBtn=document.getElementById('navLoginBtn');
 const navSignupBtn=document.getElementById('navSignupBtn');
 navAboutLink.addEventListener('click',()=>openAbout());
 navSignupBtn.addEventListener('click',async()=>{
-  await showNameScreen('signup');
-  showAuthNav();
-  userLoggedIn=true;
-  showHome();
+  if(!appStarted){
+    appStarted=true;
+    startApp();
+  }
 });
 document.getElementById('navBrand').addEventListener('click',()=>showHome());
 let appStarted=false;
