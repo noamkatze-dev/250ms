@@ -26,14 +26,14 @@
   font-style: normal;
 }
 
-[lang="he"] body,[lang="he"] button,[lang="he"] input,[lang="he"] select,[lang="he"] label,[lang="he"] span,[lang="he"] p,[lang="he"] h1,[lang="he"] h2,[lang="he"] div{font-family:'HaimClassic',Heebo,sans-serif;font-weight:300;}
-[lang="he"] .home-heading{font-family:'HaimClassic',Heebo,sans-serif;font-weight:700;}
+[lang="he"] body,[lang="he"] button,[lang="he"] input,[lang="he"] select,[lang="he"] label,[lang="he"] span,[lang="he"] p,[lang="he"] h1,[lang="he"] h2,[lang="he"] div{font-family:HaimClassic,Heebo,sans-serif;font-weight:300;}
+[lang="he"] .home-heading{font-family:HaimClassic,Heebo,sans-serif;font-weight:700;}
 [lang="he"] #modesSection{direction:rtl;}
 [lang="he"] #modesSection .hi-label,[lang="he"] #modesSection .hi-title,[lang="he"] #modesSection .hi-sub,[lang="he"] #modesSection #modeDesc{text-align:right;}
 body{
   background-color:#000;
   background-image:none;
-  overflow:hidden;width:100vw;height:100vh;font-family:Urbanist,sans-serif;
+  overflow:hidden;width:100vw;height:100vh;font-family:HaimClassic,Heebo,sans-serif;
 }
 #imgWrapper{cursor:none;}
 #heroEyeSvg{display:none;}
@@ -114,8 +114,8 @@ body{
 }
 .home-content{text-align:center;pointer-events:all;display:flex;flex-direction:column;align-items:center;}
 .home-eyebrow{font-size:9px;font-weight:700;letter-spacing:0.5em;color:rgba(255,255,255,0.7);margin-bottom:16px;text-transform:uppercase;}
-.home-heading{font-size:36px;font-weight:700;font-family:'HaimClassic',Heebo,sans-serif;color:#fff;line-height:1.1;margin-bottom:32px;white-space:nowrap;}
-#homeStartBtn{background:rgba(255,255,255,0.08);color:#fff;border:1px solid rgba(255,255,255,0.6);font-family:Urbanist,sans-serif;font-size:13px;font-weight:700;letter-spacing:0.22em;padding:14px 48px;cursor:pointer;transition:all 0.18s;margin-top:24px;margin-bottom:36px;border-radius:100px;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);}
+.home-heading{font-size:36px;font-weight:700;font-family:HaimClassic,Heebo,sans-serif;color:#fff;line-height:1.1;margin-bottom:32px;white-space:nowrap;}
+#homeStartBtn{background:rgba(255,255,255,0.08);color:#fff;border:1px solid rgba(255,255,255,0.6);font-family:HaimClassic,Heebo,sans-serif;font-size:13px;font-weight:700;letter-spacing:0.22em;padding:14px 48px;cursor:pointer;transition:all 0.18s;margin-top:24px;margin-bottom:36px;border-radius:100px;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);}
 .home-badges{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-bottom:40px;}
 .home-badge{font-size:10px;color:#555;border:1px solid #ddd;padding:5px 14px;border-radius:100px;letter-spacing:0.05em;}
 .home-scroll-hint{font-size:9px;font-weight:600;letter-spacing:0.4em;color:#FF0003;display:flex;flex-direction:column;align-items:center;gap:11px;position:absolute;bottom:28px;left:50%;transform:translateX(-50%);z-index:4;pointer-events:none;transition:opacity 0.4s ease;}
@@ -153,7 +153,7 @@ body{
 canvas.va-preview{width:100%;aspect-ratio:5/3;display:block;border-radius:6px;background:transparent;}
 .mode-preview-wrap{width:100%;aspect-ratio:5/2;overflow:hidden;display:flex;align-items:center;justify-content:center;background:transparent;border-radius:2px;}
 .mode-preview{display:block;width:100%;height:100%;}
-.va-btn{font-family:Urbanist,sans-serif;letter-spacing:0.18em;cursor:pointer;transition:background 0.18s,color 0.18s,border-color 0.18s;border-radius:100px;}
+.va-btn{font-family:HaimClassic,Heebo,sans-serif;letter-spacing:0.18em;cursor:pointer;transition:background 0.18s,color 0.18s,border-color 0.18s;border-radius:100px;}
 .va-btn-primary{background:rgba(255,255,255,0.35);color:#333;border:1px solid rgba(255,255,255,0.6);font-size:13px;font-weight:700;padding:14px 48px;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:0 2px 16px rgba(178,224,243,0.25);}
 .va-btn-primary:hover{background:rgba(255,255,255,0.55);border-color:rgba(255,255,255,0.8);}
 .va-btn-secondary{background:#fff;color:#111;border:2px solid #111;font-size:12px;font-weight:700;padding:9px 24px;}
@@ -228,9 +228,9 @@ canvas.va-preview{width:100%;aspect-ratio:5/3;display:block;border-radius:6px;ba
 #dotCanvas{position:absolute;inset:0;pointer-events:none;z-index:5;}
 #annLayer{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:6;opacity:0;}
 #gazeDot{position:fixed;width:22px;height:22px;border-radius:50%;border:2px solid rgba(255,255,255,0.85);background:rgba(255,255,255,0.12);transform:translate(-50%,-50%);pointer-events:none;z-index:50;}
-#info{position:fixed;bottom:14px;left:50%;transform:translateX(-50%);font-family:Urbanist,sans-serif;font-size:10px;font-weight:300;letter-spacing:0.22em;color:rgba(255,255,255,0.6);pointer-events:none;transition:opacity 2s ease;white-space:nowrap;z-index:50;}
+#info{position:fixed;bottom:14px;left:50%;transform:translateX(-50%);font-family:HaimClassic,Heebo,sans-serif;font-size:10px;font-weight:300;letter-spacing:0.22em;color:rgba(255,255,255,0.6);pointer-events:none;transition:opacity 2s ease;white-space:nowrap;z-index:50;}
 #sessionInfoOverlay{display:none !important;}
-#finishBtn{position:fixed;bottom:28px;left:50%;transform:translateX(-50%);font-family:Urbanist,sans-serif;font-size:11px;font-weight:700;letter-spacing:0.2em;color:#fff;background:rgba(0,0,0,0.55);border:1.5px solid rgba(255,255,255,0.5);padding:11px 32px;cursor:pointer;z-index:60;display:none;transition:background 0.15s,color 0.15s,border-color 0.15s;border-radius:100px;backdrop-filter:blur(8px);}
+#finishBtn{position:fixed;bottom:28px;left:50%;transform:translateX(-50%);font-family:HaimClassic,Heebo,sans-serif;font-size:11px;font-weight:700;letter-spacing:0.2em;color:#fff;background:rgba(0,0,0,0.55);border:1.5px solid rgba(255,255,255,0.5);padding:11px 32px;cursor:pointer;z-index:60;display:none;transition:background 0.15s,color 0.15s,border-color 0.15s;border-radius:100px;backdrop-filter:blur(8px);}
 #finishBtn:hover{background:rgba(255,255,255,0.95);color:#111;border-color:#fff;}
 #dataScreen{display:none;position:fixed;inset:0;z-index:1500;flex-direction:column;overflow:hidden;padding-top:52px;}
 #dataHeader{display:none;}
@@ -264,18 +264,18 @@ canvas.va-preview{width:100%;aspect-ratio:5/3;display:block;border-radius:6px;ba
 #dataToolbar{position:absolute;top:14px;left:50%;transform:translateX(-50%);display:flex;flex-wrap:nowrap;align-items:center;gap:2px;background:rgba(0,0,0,0.72);backdrop-filter:blur(14px);padding:5px 10px;border:1px solid rgba(255,255,255,0.08);border-radius:100px;z-index:10;transition:opacity 0.2s;}
 #dataToolbar.collapsed .toolbar-inner-content{display:none;}
 .toolbar-sep{width:1px;height:16px;background:rgba(255,255,255,0.22);flex-shrink:0;margin:0 8px;}
-.layer-btn{font-family:Urbanist,sans-serif;font-size:7.5px;font-weight:700;letter-spacing:0.06em;color:#555;background:transparent;border:1.5px solid transparent;padding:5px 9px;cursor:pointer;transition:color 0.15s,border-color 0.15s;white-space:nowrap;border-radius:100px;position:relative;}
+.layer-btn{font-family:HaimClassic,Heebo,sans-serif;font-size:7.5px;font-weight:700;letter-spacing:0.06em;color:#555;background:transparent;border:1.5px solid transparent;padding:5px 9px;cursor:pointer;transition:color 0.15s,border-color 0.15s;white-space:nowrap;border-radius:100px;position:relative;}
 .layer-btn:hover{color:#fff;}
 .layer-btn.active{color:#fff;border-color:rgba(255,255,255,0.35);background:rgba(255,255,255,0.07);}
 .layer-btn[data-tooltip]::after{content:attr(data-tooltip);position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);background:rgba(0,0,0,0.88);color:#ccc;font-size:9px;font-weight:300;letter-spacing:0.04em;white-space:nowrap;padding:5px 10px;border-radius:6px;pointer-events:none;opacity:0;transition:opacity 0.15s;border:1px solid rgba(255,255,255,0.08);z-index:100;}
 .layer-btn[data-tooltip]:hover::after{opacity:1;}
 .toggle-group{display:flex;gap:2px;}
-.toggle-btn{font-family:Urbanist,sans-serif;font-size:7.5px;font-weight:700;letter-spacing:0.05em;padding:5px 8px;border:1.5px solid transparent;background:transparent;color:#555;cursor:pointer;transition:all 0.15s;white-space:nowrap;border-radius:100px;}
+.toggle-btn{font-family:HaimClassic,Heebo,sans-serif;font-size:7.5px;font-weight:700;letter-spacing:0.05em;padding:5px 8px;border:1.5px solid transparent;background:transparent;color:#555;cursor:pointer;transition:all 0.15s;white-space:nowrap;border-radius:100px;}
 .toggle-btn:hover{color:#fff;}
 .toggle-btn.active{color:#fff;border-color:rgba(255,255,255,0.35);background:rgba(255,255,255,0.07);}
-#playBtn{font-family:Urbanist,sans-serif;font-size:7.5px;font-weight:700;letter-spacing:0.06em;color:#fff;background:#222;border:1.5px solid #3a3a3a;padding:5px 10px;cursor:pointer;transition:background 0.15s;flex-shrink:0;border-radius:100px;}
+#playBtn{font-family:HaimClassic,Heebo,sans-serif;font-size:7.5px;font-weight:700;letter-spacing:0.06em;color:#fff;background:#222;border:1.5px solid #3a3a3a;padding:5px 10px;cursor:pointer;transition:background 0.15s;flex-shrink:0;border-radius:100px;}
 #playBtn:hover{background:#333;}
-.view-tab{font-family:Urbanist,sans-serif;font-size:7.5px;font-weight:700;letter-spacing:0.06em;padding:5px 9px;border:1.5px solid transparent;background:transparent;color:#555;cursor:pointer;transition:all 0.15s;border-radius:100px;}
+.view-tab{font-family:HaimClassic,Heebo,sans-serif;font-size:7.5px;font-weight:700;letter-spacing:0.06em;padding:5px 9px;border:1.5px solid transparent;background:transparent;color:#555;cursor:pointer;transition:all 0.15s;border-radius:100px;}
 .view-tab.active{background:rgba(255,255,255,0.07);color:#fff;border-color:rgba(255,255,255,0.35);}
 .view-tab:hover{color:#fff;border-color:rgba(255,255,255,0.2);}
 #galleryScreen{display:none;position:fixed;inset:0;z-index:1500;;flex-direction:column;overflow:hidden;padding-top:52px;}
@@ -297,7 +297,7 @@ canvas.va-preview{width:100%;aspect-ratio:5/3;display:block;border-radius:6px;ba
 #compareView{display:none;flex:1;overflow:hidden;flex-direction:column;}
 #compareFilters{background:rgba(255,255,255,0.45);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,0.4);padding:10px 60px;display:flex;flex-wrap:wrap;gap:8px;align-items:center;flex-shrink:0;}
 .cf-label{font-size:8px;font-weight:700;letter-spacing:0.3em;color:#999;text-transform:uppercase;}
-.cf-select{font-family:Urbanist,sans-serif;font-size:10px;background:#fff;color:#333;border:1.5px solid #ddd;padding:5px 10px;cursor:pointer;border-radius:100px;outline:none;-webkit-appearance:none;}
+.cf-select{font-family:HaimClassic,Heebo,sans-serif;font-size:10px;background:#fff;color:#333;border:1.5px solid #ddd;padding:5px 10px;cursor:pointer;border-radius:100px;outline:none;-webkit-appearance:none;}
 .cf-select:focus{border-color:#555;}
 .cf-sep{width:1px;height:16px;background:#ddd;align-self:center;}
 #compareGrid-wrap{flex:1;overflow:auto;padding:16px 60px;}
@@ -316,7 +316,7 @@ canvas.va-preview{width:100%;aspect-ratio:5/3;display:block;border-radius:6px;ba
 .ns-form{display:flex;flex-direction:column;align-items:center;width:100%;max-width:320px;}
 .ns-field{width:100%;margin-bottom:30px;}
 .ns-field label{display:block;font-size:9px;font-weight:700;letter-spacing:0.3em;color:#111;margin-bottom:12px;text-transform:uppercase;}
-.ns-field input,.ns-field select{background:#fff;border:1px solid rgba(255,255,255,0.7);color:#111;font-family:Urbanist,sans-serif;font-size:16px;letter-spacing:0.08em;padding:12px 16px;width:100%;caret-color:#111;transition:border-color 0.15s;-webkit-appearance:none;border-radius:6px;outline:none;}
+.ns-field input,.ns-field select{background:#fff;border:1px solid rgba(255,255,255,0.7);color:#111;font-family:HaimClassic,Heebo,sans-serif;font-size:16px;letter-spacing:0.08em;padding:12px 16px;width:100%;caret-color:#111;transition:border-color 0.15s;-webkit-appearance:none;border-radius:6px;outline:none;}
 .ns-field input:focus,.ns-field select:focus{border-color:rgba(178,224,243,0.8);outline:none;}
 .ns-field input::placeholder{color:#bbb;font-size:14px;}
 .ns-field select{background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23aaa' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat right 14px center;}
@@ -509,7 +509,7 @@ canvas.va-preview{width:100%;aspect-ratio:5/3;display:block;border-radius:6px;ba
     <div class="hi-section hi-section-dark" style="text-align:center;padding:80px 60px;">
       <div class="hi-label hi-label-light">READY?</div>
       <h2 class="hi-title hi-title-light" style="margin-bottom:32px;">Start your session now.</h2>
-      <button id="homeStartBtn2" style="background:transparent;color:#111;border:1.5px solid #111;font-family:Urbanist,sans-serif;font-size:13px;font-weight:700;letter-spacing:0.22em;padding:16px 48px;cursor:pointer;border-radius:100px;transition:background 0.18s,color 0.18s;" onmouseover="this.style.background='#111';this.style.color='#fff'" onmouseout="this.style.background='transparent';this.style.color='#111'">START</button>
+      <button id="homeStartBtn2" style="background:transparent;color:#111;border:1.5px solid #111;font-family:HaimClassic,Heebo,sans-serif;font-size:13px;font-weight:700;letter-spacing:0.22em;padding:16px 48px;cursor:pointer;border-radius:100px;transition:background 0.18s,color 0.18s;" onmouseover="this.style.background='#111';this.style.color='#fff'" onmouseout="this.style.background='transparent';this.style.color='#111'">START</button>
     </div>
   </div>
 </div>
@@ -653,8 +653,8 @@ canvas.va-preview{width:100%;aspect-ratio:5/3;display:block;border-radius:6px;ba
 
   <!-- Tabs -->
   <div id="nsTabRow" style="display:flex;gap:0;margin-bottom:36px;border-bottom:1px solid #eee;">
-    <button id="nsTabSignup" style="font-family:Urbanist,sans-serif;font-size:10px;font-weight:700;letter-spacing:0.3em;color:#111;background:none;border:none;border-bottom:2px solid #111;padding:10px 24px 10px 0;cursor:pointer;transition:all 0.15s;">SIGN UP</button>
-    <button id="nsTabLogin" style="font-family:Urbanist,sans-serif;font-size:10px;font-weight:700;letter-spacing:0.3em;color:#bbb;background:none;border:none;border-bottom:2px solid transparent;padding:10px 24px;cursor:pointer;transition:all 0.15s;">LOG IN</button>
+    <button id="nsTabSignup" style="font-family:HaimClassic,Heebo,sans-serif;font-size:10px;font-weight:700;letter-spacing:0.3em;color:#111;background:none;border:none;border-bottom:2px solid #111;padding:10px 24px 10px 0;cursor:pointer;transition:all 0.15s;">SIGN UP</button>
+    <button id="nsTabLogin" style="font-family:HaimClassic,Heebo,sans-serif;font-size:10px;font-weight:700;letter-spacing:0.3em;color:#bbb;background:none;border:none;border-bottom:2px solid transparent;padding:10px 24px;cursor:pointer;transition:all 0.15s;">LOG IN</button>
   </div>
 
   <!-- SIGN UP: step 1 — age + gender -->
@@ -679,10 +679,10 @@ canvas.va-preview{width:100%;aspect-ratio:5/3;display:block;border-radius:6px;ba
 
   <!-- SIGN UP: step 2 — show code -->
   <div id="nsFormStep2" style="display:none;flex-direction:column;align-items:center;gap:24px;">
-    <div style="font-size:9px;font-weight:700;letter-spacing:0.45em;color:#bbb;font-family:Urbanist,sans-serif;">YOUR PARTICIPANT CODE</div>
-    <div id="nsCode" style="font-size:48px;font-weight:700;color:#111;letter-spacing:0.15em;font-family:Urbanist,sans-serif;"></div>
-    <div style="font-size:12px;font-weight:300;color:#999;text-align:center;max-width:280px;line-height:1.7;font-family:Urbanist,sans-serif;">Save this code if you wish to return. It identifies your session anonymously.</div>
-    <div id="nsCodeWarning" style="display:none;font-size:11px;color:#FF0003;text-align:center;max-width:280px;line-height:1.6;font-family:Urbanist,sans-serif;">⚠️ Could not save to server. Your code works for this session only.</div>
+    <div style="font-size:9px;font-weight:700;letter-spacing:0.45em;color:#bbb;font-family:HaimClassic,Heebo,sans-serif;">YOUR PARTICIPANT CODE</div>
+    <div id="nsCode" style="font-size:48px;font-weight:700;color:#111;letter-spacing:0.15em;font-family:HaimClassic,Heebo,sans-serif;"></div>
+    <div style="font-size:12px;font-weight:300;color:#999;text-align:center;max-width:280px;line-height:1.7;font-family:HaimClassic,Heebo,sans-serif;">Save this code if you wish to return. It identifies your session anonymously.</div>
+    <div id="nsCodeWarning" style="display:none;font-size:11px;color:#FF0003;text-align:center;max-width:280px;line-height:1.6;font-family:HaimClassic,Heebo,sans-serif;">⚠️ Could not save to server. Your code works for this session only.</div>
     <button id="nsCodeContinue" class="va-btn va-btn-primary">BEGIN</button>
   </div>
 
@@ -692,7 +692,7 @@ canvas.va-preview{width:100%;aspect-ratio:5/3;display:block;border-radius:6px;ba
       <label for="loginCodeInput">YOUR CODE</label>
       <input id="loginCodeInput" type="text" autocomplete="off" spellcheck="false" placeholder="e.g. P-4F7K" style="text-transform:uppercase;letter-spacing:0.2em;"/>
     </div>
-    <div id="nsLoginError" style="font-size:11px;color:#FF0003;margin-top:-16px;margin-bottom:8px;display:none;font-family:Urbanist,sans-serif;">Code not found. Please check and try again.</div>
+    <div id="nsLoginError" style="font-size:11px;color:#FF0003;margin-top:-16px;margin-bottom:8px;display:none;font-family:HaimClassic,Heebo,sans-serif;">Code not found. Please check and try again.</div>
     <button id="nsLoginBtn" class="va-btn va-btn-primary">LOG IN</button>
   </div>
 </div>
@@ -709,68 +709,68 @@ canvas.va-preview{width:100%;aspect-ratio:5/3;display:block;border-radius:6px;ba
   <div id="aboutBody" style="flex:1;overflow-y:auto;padding:48px 60px;">
     <div style="max-width:720px;margin:0 auto;padding:0;">
 
-    <p id="about-label-title" style="font-size:9px;font-weight:700;letter-spacing:0.45em;color:#aaa;margin:0 0 20px;font-family:Urbanist,sans-serif;">ABOUT</p>
+    <p id="about-label-title" style="font-size:9px;font-weight:700;letter-spacing:0.45em;color:#aaa;margin:0 0 20px;font-family:HaimClassic,Heebo,sans-serif;">ABOUT</p>
 
-    <h1 style="font-size:36px;font-weight:900;color:#111;margin:0 0 12px;line-height:1.1;font-family:Urbanist,sans-serif;">0.25 SECONDS</h1>
+    <h1 style="font-size:36px;font-weight:900;color:#111;margin:0 0 12px;line-height:1.1;font-family:HaimClassic,Heebo,sans-serif;">0.25 SECONDS</h1>
 
-    <p style="font-size:15px;color:#666;margin:0 0 48px;line-height:1.8;font-family:Urbanist,sans-serif;">
+    <p style="font-size:15px;color:#666;margin:0 0 48px;line-height:1.8;font-family:HaimClassic,Heebo,sans-serif;">
       The name refers to the first 250 milliseconds of visual attention - the window before conscious processing begins. In eye tracking research, fixations are measured in the range of 200-300 milliseconds, making 0.25 seconds both a poetic and scientifically grounded threshold.
     </p>
 
     <div style="border-top:1px solid rgba(178,224,243,0.4);padding-top:36px;margin-bottom:36px;">
-      <p id="about-label-system" style="font-size:9px;font-weight:700;letter-spacing:0.4em;color:#aaa;margin:0 0 16px;font-family:Urbanist,sans-serif;">THE SYSTEM</p>
-      <p style="font-size:15px;color:#666;line-height:1.8;margin:0 0 14px;font-family:Urbanist,sans-serif;">
+      <p id="about-label-system" style="font-size:9px;font-weight:700;letter-spacing:0.4em;color:#aaa;margin:0 0 16px;font-family:HaimClassic,Heebo,sans-serif;">THE SYSTEM</p>
+      <p style="font-size:15px;color:#666;line-height:1.8;margin:0 0 14px;font-family:HaimClassic,Heebo,sans-serif;">
         0.25 Seconds is a browser-based eye tracking system for analyzing visual attention on political imagery. It measures where viewers look, what they notice first, and how their gaze moves across an image - without any hardware beyond a standard webcam.
       </p>
-      <p style="font-size:15px;color:#666;line-height:1.8;margin:0;font-family:Urbanist,sans-serif;">
+      <p style="font-size:15px;color:#666;line-height:1.8;margin:0;font-family:HaimClassic,Heebo,sans-serif;">
         The system uses MediaPipe to detect 478 facial landmarks per frame, isolating iris position in real time. A 9-point affine calibration maps eye movement to screen coordinates, and gaze samples are classified into fixations, saccades, scan paths, and heatmaps using I-DT and I-VT algorithms.
       </p>
     </div>
 
     <div style="border-top:1px solid rgba(178,224,243,0.4);padding-top:36px;margin-bottom:36px;">
-      <p id="about-label-research" style="font-size:9px;font-weight:700;letter-spacing:0.4em;color:#aaa;margin:0 0 16px;font-family:Urbanist,sans-serif;">RESEARCH FOCUS</p>
-      <p style="font-size:15px;color:#666;line-height:1.8;margin:0 0 14px;font-family:Urbanist,sans-serif;">
+      <p id="about-label-research" style="font-size:9px;font-weight:700;letter-spacing:0.4em;color:#aaa;margin:0 0 16px;font-family:HaimClassic,Heebo,sans-serif;">RESEARCH FOCUS</p>
+      <p style="font-size:15px;color:#666;line-height:1.8;margin:0 0 14px;font-family:HaimClassic,Heebo,sans-serif;">
         The system was designed to study visual attention patterns on political images - examining which regions attract the eye first, how long the gaze dwells on different areas, and whether distinct viewing patterns emerge across different observers.
       </p>
-      <p style="font-size:15px;color:#666;line-height:1.8;margin:0;font-family:Urbanist,sans-serif;">
+      <p style="font-size:15px;color:#666;line-height:1.8;margin:0;font-family:HaimClassic,Heebo,sans-serif;">
         Each session is linked to a named profile including age, gender, and detected location. Participation is voluntary and data is used solely for research purposes.
       </p>
     </div>
 
     <div style="border-top:1px solid rgba(178,224,243,0.4);padding-top:36px;margin-bottom:36px;">
-      <p id="about-label-measure" style="font-size:9px;font-weight:700;letter-spacing:0.4em;color:#aaa;margin:0 0 24px;font-family:Urbanist,sans-serif;">WHAT WE MEASURE</p>
+      <p id="about-label-measure" style="font-size:9px;font-weight:700;letter-spacing:0.4em;color:#aaa;margin:0 0 24px;font-family:HaimClassic,Heebo,sans-serif;">WHAT WE MEASURE</p>
       <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;">
         <div style="background:rgba(255,255,255,0.7);border-radius:10px;padding:16px;border:1px solid rgba(255,255,255,0.6);backdrop-filter:blur(12px);">
-          <p style="font-size:9px;font-weight:700;letter-spacing:0.25em;color:#aaa;margin:0 0 6px;font-family:Urbanist,sans-serif;">FIXATION</p>
-          <p style="font-size:12px;color:#888;margin:0;line-height:1.6;font-family:Urbanist,sans-serif;">Sustained gaze on a single region. Indicates interest or cognitive processing.</p>
+          <p style="font-size:9px;font-weight:700;letter-spacing:0.25em;color:#aaa;margin:0 0 6px;font-family:HaimClassic,Heebo,sans-serif;">FIXATION</p>
+          <p style="font-size:12px;color:#888;margin:0;line-height:1.6;font-family:HaimClassic,Heebo,sans-serif;">Sustained gaze on a single region. Indicates interest or cognitive processing.</p>
         </div>
         <div style="background:rgba(255,255,255,0.7);border-radius:10px;padding:16px;border:1px solid rgba(255,255,255,0.6);backdrop-filter:blur(12px);">
-          <p style="font-size:9px;font-weight:700;letter-spacing:0.25em;color:#aaa;margin:0 0 6px;font-family:Urbanist,sans-serif;">SACCADE</p>
-          <p style="font-size:12px;color:#888;margin:0;line-height:1.6;font-family:Urbanist,sans-serif;">Rapid eye movement between regions. Reveals how the eye scans a scene.</p>
+          <p style="font-size:9px;font-weight:700;letter-spacing:0.25em;color:#aaa;margin:0 0 6px;font-family:HaimClassic,Heebo,sans-serif;">SACCADE</p>
+          <p style="font-size:12px;color:#888;margin:0;line-height:1.6;font-family:HaimClassic,Heebo,sans-serif;">Rapid eye movement between regions. Reveals how the eye scans a scene.</p>
         </div>
         <div style="background:rgba(255,255,255,0.7);border-radius:10px;padding:16px;border:1px solid rgba(255,255,255,0.6);backdrop-filter:blur(12px);">
-          <p style="font-size:9px;font-weight:700;letter-spacing:0.25em;color:#aaa;margin:0 0 6px;font-family:Urbanist,sans-serif;">SCAN PATH</p>
-          <p style="font-size:12px;color:#888;margin:0;line-height:1.6;font-family:Urbanist,sans-serif;">The ordered sequence of fixations. Maps the visual journey across the image.</p>
+          <p style="font-size:9px;font-weight:700;letter-spacing:0.25em;color:#aaa;margin:0 0 6px;font-family:HaimClassic,Heebo,sans-serif;">SCAN PATH</p>
+          <p style="font-size:12px;color:#888;margin:0;line-height:1.6;font-family:HaimClassic,Heebo,sans-serif;">The ordered sequence of fixations. Maps the visual journey across the image.</p>
         </div>
         <div style="background:rgba(255,255,255,0.7);border-radius:10px;padding:16px;border:1px solid rgba(255,255,255,0.6);backdrop-filter:blur(12px);">
-          <p style="font-size:9px;font-weight:700;letter-spacing:0.25em;color:#aaa;margin:0 0 6px;font-family:Urbanist,sans-serif;">HEATMAP</p>
-          <p style="font-size:12px;color:#888;margin:0;line-height:1.6;font-family:Urbanist,sans-serif;">Density map of visual attention. Shows where most fixations cluster.</p>
+          <p style="font-size:9px;font-weight:700;letter-spacing:0.25em;color:#aaa;margin:0 0 6px;font-family:HaimClassic,Heebo,sans-serif;">HEATMAP</p>
+          <p style="font-size:12px;color:#888;margin:0;line-height:1.6;font-family:HaimClassic,Heebo,sans-serif;">Density map of visual attention. Shows where most fixations cluster.</p>
         </div>
         <div style="background:rgba(255,255,255,0.7);border-radius:10px;padding:16px;border:1px solid rgba(255,255,255,0.6);backdrop-filter:blur(12px);">
-          <p style="font-size:9px;font-weight:700;letter-spacing:0.25em;color:#aaa;margin:0 0 6px;font-family:Urbanist,sans-serif;">TTFF</p>
-          <p style="font-size:12px;color:#888;margin:0;line-height:1.6;font-family:Urbanist,sans-serif;">Time to first fixation. Measures how quickly a region captures attention.</p>
+          <p style="font-size:9px;font-weight:700;letter-spacing:0.25em;color:#aaa;margin:0 0 6px;font-family:HaimClassic,Heebo,sans-serif;">TTFF</p>
+          <p style="font-size:12px;color:#888;margin:0;line-height:1.6;font-family:HaimClassic,Heebo,sans-serif;">Time to first fixation. Measures how quickly a region captures attention.</p>
         </div>
         <div style="background:rgba(255,255,255,0.7);border-radius:10px;padding:16px;border:1px solid rgba(255,255,255,0.6);backdrop-filter:blur(12px);">
-          <p style="font-size:9px;font-weight:700;letter-spacing:0.25em;color:#aaa;margin:0 0 6px;font-family:Urbanist,sans-serif;">FIRST FIX</p>
-          <p style="font-size:12px;color:#888;margin:0;line-height:1.6;font-family:Urbanist,sans-serif;">The very first area noticed. The pre-conscious entry point of visual attention.</p>
+          <p style="font-size:9px;font-weight:700;letter-spacing:0.25em;color:#aaa;margin:0 0 6px;font-family:HaimClassic,Heebo,sans-serif;">FIRST FIX</p>
+          <p style="font-size:12px;color:#888;margin:0;line-height:1.6;font-family:HaimClassic,Heebo,sans-serif;">The very first area noticed. The pre-conscious entry point of visual attention.</p>
         </div>
       </div>
     </div>
 
     <div style="border-top:1px solid rgba(178,224,243,0.4);padding-top:36px;padding-bottom:60px;">
-      <p id="about-label-built" style="font-size:9px;font-weight:700;letter-spacing:0.4em;color:#aaa;margin:0 0 16px;font-family:Urbanist,sans-serif;">BUILT BY</p>
-      <p style="font-size:17px;font-weight:700;color:#111;margin:0 0 6px;font-family:Urbanist,sans-serif;">Noam Katzenelbogen</p>
-      <p style="font-size:13px;color:#888;line-height:1.8;margin:0;font-family:Urbanist,sans-serif;">
+      <p id="about-label-built" style="font-size:9px;font-weight:700;letter-spacing:0.4em;color:#aaa;margin:0 0 16px;font-family:HaimClassic,Heebo,sans-serif;">BUILT BY</p>
+      <p style="font-size:17px;font-weight:700;color:#111;margin:0 0 6px;font-family:HaimClassic,Heebo,sans-serif;">Noam Katzenelbogen</p>
+      <p style="font-size:13px;color:#888;line-height:1.8;margin:0;font-family:HaimClassic,Heebo,sans-serif;">
         Final project - Bachelor of Visual Communication, University of Haifa.<br>
         Supervised by Ronit Izraeli.<br>
         Conceived, designed, and developed from scratch - including research framework, UX design, and full front-end and back-end development.
@@ -778,12 +778,12 @@ canvas.va-preview{width:100%;aspect-ratio:5/3;display:block;border-radius:6px;ba
     </div>
 
     <div style="border-top:1px solid rgba(178,224,243,0.4);padding-top:36px;padding-bottom:60px;">
-      <p id="about-label-credits" style="font-size:9px;font-weight:700;letter-spacing:0.4em;color:#aaa;margin:0 0 20px;font-family:Urbanist,sans-serif;">IMAGE CREDITS</p>
-      <p style="font-size:12px;font-weight:300;color:#aaa;line-height:1.8;margin:0 0 20px;font-family:Urbanist,sans-serif;">
+      <p id="about-label-credits" style="font-size:9px;font-weight:700;letter-spacing:0.4em;color:#aaa;margin:0 0 20px;font-family:HaimClassic,Heebo,sans-serif;">IMAGE CREDITS</p>
+      <p style="font-size:12px;font-weight:300;color:#aaa;line-height:1.8;margin:0 0 20px;font-family:HaimClassic,Heebo,sans-serif;">
         All images courtesy of the Government Press Office of Israel (לשכת העיתונות הממשלתית).
       </p>
       <div style="display:flex;flex-direction:column;gap:8px;">
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px 32px;font-family:Urbanist,sans-serif;">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px 32px;font-family:HaimClassic,Heebo,sans-serif;">
           <div style="font-size:8px;font-weight:700;letter-spacing:0.3em;color:#bbb;padding-bottom:8px;border-bottom:1px solid #f0f0f0;">IMAGE</div>
           <div style="font-size:8px;font-weight:700;letter-spacing:0.3em;color:#bbb;padding-bottom:8px;border-bottom:1px solid #f0f0f0;">PHOTOGRAPHER</div>
           <div style="font-size:12px;font-weight:300;color:#888;">Politics 4</div>
@@ -969,7 +969,7 @@ function resizeCal(){
   calCtx.scale(dpr,dpr);
 }
 
-/* ── Canvas font: all Urbanist ── */
+/* ── Canvas font: all HaimClassic ── */
 function drawCalIntro(){const W=window.innerWidth,H=window.innerHeight;
   const grad=calCtx.createRadialGradient(W*0.15,H*0.08,0,W*0.15,H*0.08,W*0.7);
   grad.addColorStop(0,'rgba(178,224,243,0.7)');
@@ -980,10 +980,10 @@ function drawCalIntro(){const W=window.innerWidth,H=window.innerHeight;
   calCtx.fillRect(0,0,W,H);
   calCtx.textAlign='center';
   calCtx.fillStyle='#aaa';
-  calCtx.font='700 11px Urbanist';
+  calCtx.font='700 11px HaimClassic';
   calCtx.fillText('VISUAL ANALYSIS SYSTEM',W/2,H/2-130);
   calCtx.fillStyle='#111';
-  calCtx.font='700 28px Urbanist';
+  calCtx.font='700 28px HaimClassic';
   calCtx.fillText('EYE TRACKING CALIBRATION',W/2,H/2-90);
   calCtx.strokeStyle='rgba(178,224,243,0.5)';
   calCtx.lineWidth=1;
@@ -992,7 +992,7 @@ function drawCalIntro(){const W=window.innerWidth,H=window.innerHeight;
   calCtx.lineTo(W/2+200,H/2-68);
   calCtx.stroke();
   calCtx.fillStyle='#111';
-  calCtx.font='300 14px Urbanist';
+  calCtx.font='300 14px HaimClassic';
   calCtx.fillText('Keep your head still - move only your eyes to each dot',W/2,H/2-42);
   calCtx.fillText('Hold your gaze until the ring fills completely',W/2,H/2-18);
   calCtx.strokeStyle='rgba(178,224,243,0.3)';
@@ -1001,11 +1001,11 @@ function drawCalIntro(){const W=window.innerWidth,H=window.innerHeight;
   calCtx.lineTo(W/2+200,H/2+4);
   calCtx.stroke();
   calCtx.fillStyle='#111';
-  calCtx.font='300 13px Urbanist';
+  calCtx.font='300 13px HaimClassic';
   calCtx.fillText('After calibration, you will see 5 political images, one at a time.',W/2,H/2+26);
   calCtx.fillText('Look naturally - there are no right or wrong answers.',W/2,H/2+48);
   calCtx.fillStyle='#555';
-  calCtx.font='300 11px Urbanist';
+  calCtx.font='300 11px HaimClassic';
   calCtx.fillText('Each image will appear for 12 seconds.',W/2,H/2+70);
 }
 function drawCalDone(){const W=window.innerWidth,H=window.innerHeight;
@@ -1014,9 +1014,9 @@ function drawCalDone(){const W=window.innerWidth,H=window.innerHeight;
   calCtx.fillStyle="#edf7fd";calCtx.fillRect(0,0,W,H);
   calCtx.fillStyle=grad;calCtx.fillRect(0,0,W,H);
   calCtx.textAlign="center";
-  calCtx.fillStyle="#111";calCtx.font="700 28px Urbanist";
+  calCtx.fillStyle="#111";calCtx.font="700 28px HaimClassic";
   calCtx.fillText("READY",W/2,H/2-8);
-  calCtx.fillStyle="#aaa";calCtx.font="300 13px Urbanist";
+  calCtx.fillStyle="#aaa";calCtx.font="300 13px HaimClassic";
   calCtx.fillText('Calibration complete - the session is about to begin.',W/2,H/2+20);
 }
 function awaitDot(px,py,index){return new Promise(resolve=>{let progress=0,prevTs=null;const samples=[];function frame(ts){const dt=prevTs?Math.min((ts-prevTs)/1000,0.05):0;prevTs=ts;const s=eyeStab();progress+=s*CAL_FILL_RATE*dt;progress-=(1-s)*CAL_DRAIN_RATE*dt;progress=Math.max(0,Math.min(1,progress));if(s>0.45&&eyeValid)samples.push({ox:curEyeOffX,oy:curEyeOffY});const W=window.innerWidth,H=window.innerHeight;
@@ -1024,7 +1024,7 @@ function awaitDot(px,py,index){return new Promise(resolve=>{let progress=0,prevT
   grad.addColorStop(0,'rgba(178,224,243,0.7)');grad.addColorStop(1,'rgba(237,247,253,1)');
   calCtx.fillStyle='#edf7fd';calCtx.fillRect(0,0,W,H);
   calCtx.fillStyle=grad;calCtx.fillRect(0,0,W,H);
-  calCtx.textAlign='right';calCtx.fillStyle='#bbb';calCtx.font='400 14px Urbanist';calCtx.fillText((index+1)+'  /  '+CAL_PTS.length,W-28,36);calCtx.beginPath();calCtx.arc(px,py,22,0,Math.PI*2);calCtx.strokeStyle='rgba(178,224,243,0.5)';calCtx.lineWidth=1.5;calCtx.stroke();if(progress>0){calCtx.beginPath();calCtx.arc(px,py,22,-Math.PI/2,-Math.PI/2+progress*Math.PI*2);calCtx.strokeStyle='rgba(255,0,3,'+(0.35+s*0.65)+')';calCtx.lineWidth=2;calCtx.stroke();}const r=3.5+s*2.5;calCtx.beginPath();calCtx.arc(px,py,r,0,Math.PI*2);calCtx.fillStyle='rgba(255,0,3,'+(0.2+s*0.8)+')';calCtx.fill();if(progress>=1){calCtx.beginPath();calCtx.arc(px,py,22,0,Math.PI*2);calCtx.strokeStyle='rgba(255,0,3,0.9)';calCtx.lineWidth=2;calCtx.stroke();const n=samples.length||1;setTimeout(()=>resolve({ox:samples.reduce((a,v)=>a+v.ox,0)/n,oy:samples.reduce((a,v)=>a+v.oy,0)/n}),280);}else requestAnimationFrame(frame);}requestAnimationFrame(frame);});}
+  calCtx.textAlign='right';calCtx.fillStyle='#bbb';calCtx.font='400 14px HaimClassic';calCtx.fillText((index+1)+'  /  '+CAL_PTS.length,W-28,36);calCtx.beginPath();calCtx.arc(px,py,22,0,Math.PI*2);calCtx.strokeStyle='rgba(178,224,243,0.5)';calCtx.lineWidth=1.5;calCtx.stroke();if(progress>0){calCtx.beginPath();calCtx.arc(px,py,22,-Math.PI/2,-Math.PI/2+progress*Math.PI*2);calCtx.strokeStyle='rgba(255,0,3,'+(0.35+s*0.65)+')';calCtx.lineWidth=2;calCtx.stroke();}const r=3.5+s*2.5;calCtx.beginPath();calCtx.arc(px,py,r,0,Math.PI*2);calCtx.fillStyle='rgba(255,0,3,'+(0.2+s*0.8)+')';calCtx.fill();if(progress>=1){calCtx.beginPath();calCtx.arc(px,py,22,0,Math.PI*2);calCtx.strokeStyle='rgba(255,0,3,0.9)';calCtx.lineWidth=2;calCtx.stroke();const n=samples.length||1;setTimeout(()=>resolve({ox:samples.reduce((a,v)=>a+v.ox,0)/n,oy:samples.reduce((a,v)=>a+v.oy,0)/n}),280);}else requestAnimationFrame(frame);}requestAnimationFrame(frame);});}
 
 async function runCalibration(){
   const nav=document.getElementById('mainNav');
@@ -1191,11 +1191,11 @@ function getMSSegs(idx,T,R,B,L){switch(idx){case 1:return[[L,B]];case 2:return[[
 function drawMarchingSquares(ctx,W,H,hm,hmW,hmH,col='255,0,3'){let maxVal=0;for(let i=0;i<hm.length;i++)if(hm[i]>maxVal)maxVal=hm[i];if(maxVal<0.01)return;const levels=[0.15,0.3,0.45,0.6,0.75,0.9];for(const level of levels){ctx.strokeStyle='rgba('+col+','+Math.min(1,(0.55+level*0.5)).toFixed(2)+')';ctx.lineWidth=3.5;ctx.beginPath();for(let cy=0;cy<hmH-1;cy++)for(let cx=0;cx<hmW-1;cx++){const vTL=hm[cy*hmW+cx]/maxVal,vTR=hm[cy*hmW+(cx+1)]/maxVal,vBR=hm[(cy+1)*hmW+(cx+1)]/maxVal,vBL=hm[(cy+1)*hmW+cx]/maxVal;const idx=(vTL>=level?8:0)+(vTR>=level?4:0)+(vBR>=level?2:0)+(vBL>=level?1:0);if(idx===0||idx===15)continue;const sx0=cx*W/hmW,sx1=(cx+1)*W/hmW,sy0=cy*H/hmH,sy1=(cy+1)*H/hmH;function lerp(v0,v1){return Math.abs(v1-v0)<1e-10?0.5:Math.max(0,Math.min(1,(level-v0)/(v1-v0)));}const T=[sx0+lerp(vTL,vTR)*(sx1-sx0),sy0],R=[sx1,sy0+lerp(vTR,vBR)*(sy1-sy0)],B=[sx0+lerp(vBL,vBR)*(sx1-sx0),sy1],L=[sx0,sy0+lerp(vTL,vBL)*(sy1-sy0)];for(const[p1,p2]of getMSSegs(idx,T,R,B,L)){ctx.moveTo(p1[0],p1[1]);ctx.lineTo(p2[0],p2[1]);}}ctx.stroke();}}
 
 function staticGaze(ctx,W,H,log,col='255,0,3'){ctx.clearRect(0,0,W,H);ctx.fillStyle='rgba('+col+',0.9)';for(const p of log){ctx.beginPath();ctx.arc(p.x*W,p.y*H,5,0,Math.PI*2);ctx.fill();}}
-function staticFixation(ctx,W,H,history,col='255,0,3'){ctx.clearRect(0,0,W,H);for(const fix of history){const cx=fix.x*W,cy=fix.y*H,r=Math.min(8+fix.duration/80,44);ctx.beginPath();ctx.arc(cx,cy,r,0,Math.PI*2);ctx.fillStyle='rgba('+col+',0.3)';ctx.fill();ctx.beginPath();ctx.arc(cx,cy,r,0,Math.PI*2);ctx.strokeStyle='rgba('+col+',1)';ctx.lineWidth=2.5;ctx.stroke();if(fix.duration>300){ctx.fillStyle='rgba('+col+',1)';ctx.font='700 10px Urbanist';ctx.textAlign='center';ctx.textBaseline='alphabetic';ctx.fillText(Math.round(fix.duration)+'ms',cx,cy+r+13);}}}
+function staticFixation(ctx,W,H,history,col='255,0,3'){ctx.clearRect(0,0,W,H);for(const fix of history){const cx=fix.x*W,cy=fix.y*H,r=Math.min(8+fix.duration/80,44);ctx.beginPath();ctx.arc(cx,cy,r,0,Math.PI*2);ctx.fillStyle='rgba('+col+',0.3)';ctx.fill();ctx.beginPath();ctx.arc(cx,cy,r,0,Math.PI*2);ctx.strokeStyle='rgba('+col+',1)';ctx.lineWidth=2.5;ctx.stroke();if(fix.duration>300){ctx.fillStyle='rgba('+col+',1)';ctx.font='700 10px HaimClassic';ctx.textAlign='center';ctx.textBaseline='alphabetic';ctx.fillText(Math.round(fix.duration)+'ms',cx,cy+r+13);}}}
 function staticSaccade(ctx,W,H,history,col='255,0,3'){ctx.clearRect(0,0,W,H);for(const sac of history){const fx=sac.fromX*W,fy=sac.fromY*H,tx=sac.toX*W,ty=sac.toY*H;ctx.beginPath();ctx.moveTo(fx,fy);ctx.lineTo(tx,ty);ctx.strokeStyle='rgba('+col+',1)';ctx.lineWidth=2.5;ctx.stroke();const a=Math.atan2(ty-fy,tx-fx),l=11;ctx.beginPath();ctx.moveTo(tx,ty);ctx.lineTo(tx-l*Math.cos(a-Math.PI/6),ty-l*Math.sin(a-Math.PI/6));ctx.lineTo(tx-l*Math.cos(a+Math.PI/6),ty-l*Math.sin(a+Math.PI/6));ctx.closePath();ctx.fillStyle='rgba('+col+',1)';ctx.fill();}}
-function staticScanPath(ctx,W,H,history,col='255,0,3'){ctx.clearRect(0,0,W,H);if(!history.length)return;const R=12;if(history.length>=2){ctx.save();ctx.setLineDash([4,6]);ctx.strokeStyle='rgba('+col+',1)';ctx.lineWidth=2.5;ctx.beginPath();for(let j=0;j<history.length-1;j++){const ax=history[j].x*W,ay=history[j].y*H,bx=history[j+1].x*W,by=history[j+1].y*H;const dx=bx-ax,dy=by-ay,dist=Math.hypot(dx,dy);if(dist<1)continue;const ux=dx/dist,uy=dy/dist;ctx.moveTo(ax+ux*R,ay+uy*R);ctx.lineTo(bx-ux*R,by-uy*R);}ctx.stroke();ctx.setLineDash([]);ctx.restore();}for(let j=0;j<history.length;j++){const cx=history[j].x*W,cy=history[j].y*H;ctx.beginPath();ctx.arc(cx,cy,R,0,Math.PI*2);ctx.strokeStyle='rgba('+col+',1)';ctx.lineWidth=3;ctx.stroke();ctx.fillStyle='rgba('+col+',1)';ctx.font='700 10px Urbanist';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText(j+1,cx,cy);ctx.textBaseline='alphabetic';}}
+function staticScanPath(ctx,W,H,history,col='255,0,3'){ctx.clearRect(0,0,W,H);if(!history.length)return;const R=12;if(history.length>=2){ctx.save();ctx.setLineDash([4,6]);ctx.strokeStyle='rgba('+col+',1)';ctx.lineWidth=2.5;ctx.beginPath();for(let j=0;j<history.length-1;j++){const ax=history[j].x*W,ay=history[j].y*H,bx=history[j+1].x*W,by=history[j+1].y*H;const dx=bx-ax,dy=by-ay,dist=Math.hypot(dx,dy);if(dist<1)continue;const ux=dx/dist,uy=dy/dist;ctx.moveTo(ax+ux*R,ay+uy*R);ctx.lineTo(bx-ux*R,by-uy*R);}ctx.stroke();ctx.setLineDash([]);ctx.restore();}for(let j=0;j<history.length;j++){const cx=history[j].x*W,cy=history[j].y*H;ctx.beginPath();ctx.arc(cx,cy,R,0,Math.PI*2);ctx.strokeStyle='rgba('+col+',1)';ctx.lineWidth=3;ctx.stroke();ctx.fillStyle='rgba('+col+',1)';ctx.font='700 10px HaimClassic';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText(j+1,cx,cy);ctx.textBaseline='alphabetic';}}
 function staticHeatmap(ctx,W,H,log,col='255,0,3'){ctx.clearRect(0,0,W,H);const hmW=200,hmH=112;drawMarchingSquares(ctx,W,H,buildHeatmapFromLog(log,hmW,hmH),hmW,hmH,col);}
-function staticFirstFix(ctx,W,H,fix,modeTs,col='255,0,3'){ctx.clearRect(0,0,W,H);if(!fix){ctx.fillStyle='rgba(150,150,150,0.7)';ctx.font='300 11px Urbanist';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText('NO FIRST FIXATION DETECTED',W/2,H/2);return;}const cx=fix.x*W,cy=fix.y*H,offset=modeTs?((fix.startTs-modeTs)/1000):0;ctx.beginPath();ctx.arc(cx,cy,14,0,Math.PI*2);ctx.fillStyle='rgba('+col+',1)';ctx.fill();ctx.textAlign='center';ctx.textBaseline='alphabetic';ctx.fillStyle='rgba('+col+',1)';ctx.font='700 11px Urbanist';ctx.fillText('FIRST FIXATION',cx,cy-46);ctx.font='300 9px Urbanist';ctx.fillText('+'+offset.toFixed(2)+'s',cx,cy-32);}
+function staticFirstFix(ctx,W,H,fix,modeTs,col='255,0,3'){ctx.clearRect(0,0,W,H);if(!fix){ctx.fillStyle='rgba(150,150,150,0.7)';ctx.font='300 11px HaimClassic';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText('NO FIRST FIXATION DETECTED',W/2,H/2);return;}const cx=fix.x*W,cy=fix.y*H,offset=modeTs?((fix.startTs-modeTs)/1000):0;ctx.beginPath();ctx.arc(cx,cy,14,0,Math.PI*2);ctx.fillStyle='rgba('+col+',1)';ctx.fill();ctx.textAlign='center';ctx.textBaseline='alphabetic';ctx.fillStyle='rgba('+col+',1)';ctx.font='700 11px HaimClassic';ctx.fillText('FIRST FIXATION',cx,cy-46);ctx.font='300 9px HaimClassic';ctx.fillText('+'+offset.toFixed(2)+'s',cx,cy-32);}
 
 function buildModePreviews(){
   const modes=[{key:'GAZE',name:'GAZE',desc:'Sample-by-sample gaze positions.'},{key:'FIXATION',name:'FIXATION',desc:'Circles proportional to dwell time.'},{key:'SACCADE',name:'SACCADE',desc:'Rapid eye jumps between regions.'},{key:'SCANPATH',name:'SCAN PATH',desc:'Ordered sequence of fixated areas.'},{key:'HEATMAP',name:'HEATMAP',desc:'Contour density map of attention.'},{key:'FIRSTFIX',name:'FIRST FIXATION',desc:'First area captured after onset.'},];
@@ -1226,7 +1226,7 @@ function buildModePreviews(){
       case 'GAZE':for(const p of gazeLog){ctx.beginPath();ctx.arc(safeX(p.x*W),safeY(p.y*H),2,0,Math.PI*2);ctx.fillStyle=R;ctx.fill();}break;
       case 'FIXATION':for(const fix of fixHist){const cx=safeX(fix.x*W),cy=safeY(fix.y*H);const r=Math.min(6+fix.duration/130,H*0.3-M);ctx.beginPath();ctx.arc(cx,cy,r,0,Math.PI*2);ctx.strokeStyle=R;ctx.lineWidth=LW;ctx.stroke();ctx.beginPath();ctx.arc(cx,cy,2,0,Math.PI*2);ctx.fillStyle=R;ctx.fill();}break;
       case 'SACCADE':for(const sac of sacHist){const fx=safeX(sac.fromX*W),fy=safeY(sac.fromY*H),tx=safeX(sac.toX*W),ty=safeY(sac.toY*H);ctx.beginPath();ctx.moveTo(fx,fy);ctx.lineTo(tx,ty);ctx.strokeStyle=R;ctx.lineWidth=LW;ctx.stroke();const a=Math.atan2(ty-fy,tx-fx),l=7;ctx.beginPath();ctx.moveTo(tx,ty);ctx.lineTo(tx-l*Math.cos(a-Math.PI/6),ty-l*Math.sin(a-Math.PI/6));ctx.lineTo(tx-l*Math.cos(a+Math.PI/6),ty-l*Math.sin(a+Math.PI/6));ctx.closePath();ctx.fillStyle=R;ctx.fill();}break;
-      case 'SCANPATH':{const PR=9;if(fixHist.length>=2){ctx.save();ctx.setLineDash([3,6]);ctx.strokeStyle=R;ctx.lineWidth=LW;ctx.beginPath();for(let j=0;j<fixHist.length-1;j++){const ax=safeX(fixHist[j].x*W),ay=safeY(fixHist[j].y*H),bx=safeX(fixHist[j+1].x*W),by=safeY(fixHist[j+1].y*H);const dx=bx-ax,dy=by-ay,dist=Math.hypot(dx,dy);if(dist<1)continue;const ux=dx/dist,uy=dy/dist;ctx.moveTo(ax+ux*PR,ay+uy*PR);ctx.lineTo(bx-ux*PR,by-uy*PR);}ctx.stroke();ctx.setLineDash([]);ctx.restore();}for(let j=0;j<fixHist.length;j++){const cx=safeX(fixHist[j].x*W),cy=safeY(fixHist[j].y*H);ctx.beginPath();ctx.arc(cx,cy,PR,0,Math.PI*2);ctx.strokeStyle=R;ctx.lineWidth=LW;ctx.stroke();ctx.fillStyle=R;ctx.font='700 8px Urbanist';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText(j+1,cx,cy);}break;}
+      case 'SCANPATH':{const PR=9;if(fixHist.length>=2){ctx.save();ctx.setLineDash([3,6]);ctx.strokeStyle=R;ctx.lineWidth=LW;ctx.beginPath();for(let j=0;j<fixHist.length-1;j++){const ax=safeX(fixHist[j].x*W),ay=safeY(fixHist[j].y*H),bx=safeX(fixHist[j+1].x*W),by=safeY(fixHist[j+1].y*H);const dx=bx-ax,dy=by-ay,dist=Math.hypot(dx,dy);if(dist<1)continue;const ux=dx/dist,uy=dy/dist;ctx.moveTo(ax+ux*PR,ay+uy*PR);ctx.lineTo(bx-ux*PR,by-uy*PR);}ctx.stroke();ctx.setLineDash([]);ctx.restore();}for(let j=0;j<fixHist.length;j++){const cx=safeX(fixHist[j].x*W),cy=safeY(fixHist[j].y*H);ctx.beginPath();ctx.arc(cx,cy,PR,0,Math.PI*2);ctx.strokeStyle=R;ctx.lineWidth=LW;ctx.stroke();ctx.fillStyle=R;ctx.font='700 8px HaimClassic';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText(j+1,cx,cy);}break;}
       case 'HEATMAP':{const hmW=50,hmH=20,hm=new Float32Array(hmW*hmH);const sigma=0.13*Math.max(hmW,hmH),hr=Math.ceil(3*sigma),inv2s2=1/(2*sigma*sigma);for(const p of gazeLog){const gx=p.x*hmW,gy=p.y*hmH,x0=Math.max(0,Math.floor(gx-hr)),x1=Math.min(hmW-1,Math.ceil(gx+hr)),y0=Math.max(0,Math.floor(gy-hr)),y1=Math.min(hmH-1,Math.ceil(gy+hr));for(let y=y0;y<=y1;y++)for(let x=x0;x<=x1;x++)hm[y*hmW+x]+=0.22*Math.exp(-((x-gx)**2+(y-gy)**2)*inv2s2);}let maxVal=0;for(let i=0;i<hm.length;i++)if(hm[i]>maxVal)maxVal=hm[i];if(maxVal>0.01){const levels=[0.2,0.4,0.6,0.8];const getMSS=(idx,T,R,B,L)=>{switch(idx){case 1:return[[L,B]];case 2:return[[R,B]];case 3:return[[L,R]];case 4:return[[T,R]];case 5:return[[T,R],[L,B]];case 6:return[[T,B]];case 7:return[[T,L]];case 8:return[[T,L]];case 9:return[[T,B]];case 10:return[[L,T],[R,B]];case 11:return[[T,R]];case 12:return[[L,R]];case 13:return[[R,B]];case 14:return[[L,B]];default:return[];}};for(const level of levels){ctx.strokeStyle='rgba(255,0,3,'+Math.min(1,(0.35+level*0.65)).toFixed(2)+')';ctx.lineWidth=LW;ctx.beginPath();for(let cy=0;cy<hmH-1;cy++)for(let cx2=0;cx2<hmW-1;cx2++){const vTL=hm[cy*hmW+cx2]/maxVal,vTR=hm[cy*hmW+(cx2+1)]/maxVal,vBR=hm[(cy+1)*hmW+(cx2+1)]/maxVal,vBL=hm[(cy+1)*hmW+cx2]/maxVal;const idx=(vTL>=level?8:0)+(vTR>=level?4:0)+(vBR>=level?2:0)+(vBL>=level?1:0);if(idx===0||idx===15)continue;const sx0=M+cx2*(W-2*M)/hmW,sx1=M+(cx2+1)*(W-2*M)/hmW,sy0=M+cy*(H-2*M)/hmH,sy1=M+(cy+1)*(H-2*M)/hmH;const lp=(v0,v1)=>Math.abs(v1-v0)<1e-10?0.5:Math.max(0,Math.min(1,(level-v0)/(v1-v0)));const T2=[sx0+lp(vTL,vTR)*(sx1-sx0),sy0],R2=[sx1,sy0+lp(vTR,vBR)*(sy1-sy0)],B2=[sx0+lp(vBL,vBR)*(sx1-sx0),sy1],L2=[sx0,sy0+lp(vTL,vBL)*(sy1-sy0)];for(const[p1,p2]of getMSS(idx,T2,R2,B2,L2)){ctx.moveTo(p1[0],p1[1]);ctx.lineTo(p2[0],p2[1]);}}ctx.stroke();}}}break;
       case 'FIRSTFIX':{const cx=safeX(firstFixPrev.x*W),cy=safeY(firstFixPrev.y*H);[22,14].forEach(r=>{ctx.beginPath();ctx.arc(cx,cy,r,0,Math.PI*2);ctx.strokeStyle=R;ctx.lineWidth=LW;ctx.stroke();});ctx.beginPath();ctx.arc(cx,cy,5,0,Math.PI*2);ctx.fillStyle=R;ctx.fill();}break;
     }
@@ -1236,11 +1236,11 @@ function buildModePreviews(){
 function cancelAnimation(){if(currentAnimation){currentAnimation.cancel();currentAnimation=null;}}
 function getDataCanvas(){const dc=document.getElementById('dataCanvas'),area=document.getElementById('dataImgArea');dc.width=area.offsetWidth;dc.height=area.offsetHeight;return dc;}
 function animateGaze(ctx,W,H,log){let tid=null,cancelled=false;const pts=log.slice();let i=0;function step(){if(cancelled||i>=pts.length)return;const p=pts[i++];ctx.beginPath();ctx.arc(p.x*W,p.y*H,5,0,Math.PI*2);ctx.fillStyle='rgba(255,0,3,0.9)';ctx.fill();tid=setTimeout(step,50);}step();return{cancel:()=>{cancelled=true;clearTimeout(tid);}};}
-function animateFixation(ctx,W,H,history){let tid=null,rafId=null,cancelled=false;const fixes=history.slice();let i=0;const drawn=[];function redrawAll(){for(const fix of drawn){const cx=fix.x*W,cy=fix.y*H,r=Math.min(8+fix.duration/80,44);ctx.beginPath();ctx.arc(cx,cy,r,0,Math.PI*2);ctx.fillStyle='rgba(255,0,3,0.3)';ctx.fill();ctx.beginPath();ctx.arc(cx,cy,r,0,Math.PI*2);ctx.strokeStyle='rgba(255,0,3,1)';ctx.lineWidth=2.5;ctx.stroke();if(fix.duration>300){ctx.fillStyle='rgba(255,0,3,1)';ctx.font='700 10px Urbanist';ctx.textAlign='center';ctx.textBaseline='alphabetic';ctx.fillText(Math.round(fix.duration)+'ms',cx,cy+r+13);}}}function next(){if(cancelled||i>=fixes.length)return;const fix=fixes[i++];const cx=fix.x*W,cy=fix.y*H,rFinal=Math.min(8+fix.duration/80,44);const start=performance.now();function grow(now){if(cancelled)return;const t=Math.min(1,(now-start)/300);ctx.clearRect(0,0,W,H);redrawAll();const r=rFinal*t;ctx.beginPath();ctx.arc(cx,cy,r,0,Math.PI*2);ctx.fillStyle='rgba(255,0,3,0.3)';ctx.fill();ctx.beginPath();ctx.arc(cx,cy,r,0,Math.PI*2);ctx.strokeStyle='rgba(255,0,3,1)';ctx.lineWidth=2.5;ctx.stroke();if(t<1){rafId=requestAnimationFrame(grow);}else{if(fix.duration>300){ctx.fillStyle='rgba(255,0,3,1)';ctx.font='700 10px Urbanist';ctx.textAlign='center';ctx.textBaseline='alphabetic';ctx.fillText(Math.round(fix.duration)+'ms',cx,cy+rFinal+13);}drawn.push(fix);tid=setTimeout(next,600);}}rafId=requestAnimationFrame(grow);}next();return{cancel:()=>{cancelled=true;clearTimeout(tid);cancelAnimationFrame(rafId);}};}
+function animateFixation(ctx,W,H,history){let tid=null,rafId=null,cancelled=false;const fixes=history.slice();let i=0;const drawn=[];function redrawAll(){for(const fix of drawn){const cx=fix.x*W,cy=fix.y*H,r=Math.min(8+fix.duration/80,44);ctx.beginPath();ctx.arc(cx,cy,r,0,Math.PI*2);ctx.fillStyle='rgba(255,0,3,0.3)';ctx.fill();ctx.beginPath();ctx.arc(cx,cy,r,0,Math.PI*2);ctx.strokeStyle='rgba(255,0,3,1)';ctx.lineWidth=2.5;ctx.stroke();if(fix.duration>300){ctx.fillStyle='rgba(255,0,3,1)';ctx.font='700 10px HaimClassic';ctx.textAlign='center';ctx.textBaseline='alphabetic';ctx.fillText(Math.round(fix.duration)+'ms',cx,cy+r+13);}}}function next(){if(cancelled||i>=fixes.length)return;const fix=fixes[i++];const cx=fix.x*W,cy=fix.y*H,rFinal=Math.min(8+fix.duration/80,44);const start=performance.now();function grow(now){if(cancelled)return;const t=Math.min(1,(now-start)/300);ctx.clearRect(0,0,W,H);redrawAll();const r=rFinal*t;ctx.beginPath();ctx.arc(cx,cy,r,0,Math.PI*2);ctx.fillStyle='rgba(255,0,3,0.3)';ctx.fill();ctx.beginPath();ctx.arc(cx,cy,r,0,Math.PI*2);ctx.strokeStyle='rgba(255,0,3,1)';ctx.lineWidth=2.5;ctx.stroke();if(t<1){rafId=requestAnimationFrame(grow);}else{if(fix.duration>300){ctx.fillStyle='rgba(255,0,3,1)';ctx.font='700 10px HaimClassic';ctx.textAlign='center';ctx.textBaseline='alphabetic';ctx.fillText(Math.round(fix.duration)+'ms',cx,cy+rFinal+13);}drawn.push(fix);tid=setTimeout(next,600);}}rafId=requestAnimationFrame(grow);}next();return{cancel:()=>{cancelled=true;clearTimeout(tid);cancelAnimationFrame(rafId);}};}
 function animateSaccade(ctx,W,H,history){let tid=null,rafId=null,cancelled=false;const sacs=history.slice();let i=0;const drawn=[];function drawSacFull(sac){const fx=sac.fromX*W,fy=sac.fromY*H,tx=sac.toX*W,ty=sac.toY*H;ctx.beginPath();ctx.moveTo(fx,fy);ctx.lineTo(tx,ty);ctx.strokeStyle='rgba(255,0,3,1)';ctx.lineWidth=2.5;ctx.stroke();const a=Math.atan2(ty-fy,tx-fx),l=9;ctx.beginPath();ctx.moveTo(tx,ty);ctx.lineTo(tx-l*Math.cos(a-Math.PI/6),ty-l*Math.sin(a-Math.PI/6));ctx.lineTo(tx-l*Math.cos(a+Math.PI/6),ty-l*Math.sin(a+Math.PI/6));ctx.closePath();ctx.fillStyle='rgba(255,0,3,1)';ctx.fill();}function redrawAll(){for(const s of drawn)drawSacFull(s);}function next(){if(cancelled||i>=sacs.length)return;const sac=sacs[i++];const fx=sac.fromX*W,fy=sac.fromY*H,tx=sac.toX*W,ty=sac.toY*H;const start=performance.now();function anim(now){if(cancelled)return;const t=Math.min(1,(now-start)/200);ctx.clearRect(0,0,W,H);redrawAll();const ex=fx+(tx-fx)*t,ey=fy+(ty-fy)*t;ctx.beginPath();ctx.moveTo(fx,fy);ctx.lineTo(ex,ey);ctx.strokeStyle='rgba(255,0,3,1)';ctx.lineWidth=2.5;ctx.stroke();if(t<1){rafId=requestAnimationFrame(anim);}else{drawSacFull(sac);drawn.push(sac);tid=setTimeout(next,500);}}rafId=requestAnimationFrame(anim);}next();return{cancel:()=>{cancelled=true;clearTimeout(tid);cancelAnimationFrame(rafId);}};}
-function animateScanPath(ctx,W,H,history){let tid=null,cancelled=false;const pts=history.slice();let shown=0;const R=11;function drawAll(n){ctx.clearRect(0,0,W,H);if(n<1)return;if(n>=2){ctx.save();ctx.setLineDash([4,6]);ctx.strokeStyle='rgba(255,0,3,1)';ctx.lineWidth=2.5;ctx.beginPath();for(let j=0;j<n-1;j++){const ax=pts[j].x*W,ay=pts[j].y*H,bx=pts[j+1].x*W,by=pts[j+1].y*H;const dx=bx-ax,dy=by-ay,dist=Math.hypot(dx,dy);if(dist<1)continue;const ux=dx/dist,uy=dy/dist;ctx.moveTo(ax+ux*R,ay+uy*R);ctx.lineTo(bx-ux*R,by-uy*R);}ctx.stroke();ctx.setLineDash([]);ctx.restore();}for(let j=0;j<n;j++){const{x,y}=pts[j],cx=x*W,cy=y*H;ctx.beginPath();ctx.arc(cx,cy,R,0,Math.PI*2);ctx.strokeStyle='rgba(255,0,3,1)';ctx.lineWidth=3;ctx.stroke();ctx.fillStyle='rgba(255,0,3,1)';ctx.font='700 10px Urbanist';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText(j+1,cx,cy);ctx.textBaseline='alphabetic';}}function next(){if(cancelled||shown>=pts.length)return;shown++;drawAll(shown);tid=setTimeout(next,700);}next();return{cancel:()=>{cancelled=true;clearTimeout(tid);}};}
+function animateScanPath(ctx,W,H,history){let tid=null,cancelled=false;const pts=history.slice();let shown=0;const R=11;function drawAll(n){ctx.clearRect(0,0,W,H);if(n<1)return;if(n>=2){ctx.save();ctx.setLineDash([4,6]);ctx.strokeStyle='rgba(255,0,3,1)';ctx.lineWidth=2.5;ctx.beginPath();for(let j=0;j<n-1;j++){const ax=pts[j].x*W,ay=pts[j].y*H,bx=pts[j+1].x*W,by=pts[j+1].y*H;const dx=bx-ax,dy=by-ay,dist=Math.hypot(dx,dy);if(dist<1)continue;const ux=dx/dist,uy=dy/dist;ctx.moveTo(ax+ux*R,ay+uy*R);ctx.lineTo(bx-ux*R,by-uy*R);}ctx.stroke();ctx.setLineDash([]);ctx.restore();}for(let j=0;j<n;j++){const{x,y}=pts[j],cx=x*W,cy=y*H;ctx.beginPath();ctx.arc(cx,cy,R,0,Math.PI*2);ctx.strokeStyle='rgba(255,0,3,1)';ctx.lineWidth=3;ctx.stroke();ctx.fillStyle='rgba(255,0,3,1)';ctx.font='700 10px HaimClassic';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText(j+1,cx,cy);ctx.textBaseline='alphabetic';}}function next(){if(cancelled||shown>=pts.length)return;shown++;drawAll(shown);tid=setTimeout(next,700);}next();return{cancel:()=>{cancelled=true;clearTimeout(tid);}};}
 function animateHeatmap(ctx,W,H,log){let tid=null,cancelled=false;const hmW=200,hmH=112,hm=new Float32Array(hmW*hmH),sigma=0.07*Math.max(hmW,hmH),r=Math.ceil(3*sigma),inv2s2=1/(2*sigma*sigma);const pts=log.slice();let i=0;function addPt(p){const gx=p.x*hmW,gy=p.y*hmH,x0=Math.max(0,Math.floor(gx-r)),x1=Math.min(hmW-1,Math.ceil(gx+r)),y0=Math.max(0,Math.floor(gy-r)),y1=Math.min(hmH-1,Math.ceil(gy+r));for(let y=y0;y<=y1;y++)for(let x=x0;x<=x1;x++)hm[y*hmW+x]+=0.18*Math.exp(-((x-gx)**2+(y-gy)**2)*inv2s2);}function render(){ctx.clearRect(0,0,W,H);drawMarchingSquares(ctx,W,H,hm,hmW,hmH);}const perStep=Math.max(1,Math.ceil(pts.length/60));function step(){if(cancelled)return;let c=0;while(i<pts.length&&c<perStep){addPt(pts[i++]);c++;}render();if(i<pts.length)tid=setTimeout(step,50);}step();return{cancel:()=>{cancelled=true;clearTimeout(tid);}};}
-function animateFirstFix(ctx,W,H,fix,modeTs){let tid=null,rafId=null,cancelled=false;if(!fix){ctx.fillStyle='rgba(150,150,150,0.7)';ctx.font='300 11px Urbanist';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText('NO FIRST FIXATION DETECTED',W/2,H/2);return{cancel:()=>{}};}const cx=fix.x*W,cy=fix.y*H,offset=(fix.startTs-modeTs)/1000;tid=setTimeout(()=>{if(cancelled)return;const startPhase=performance.now();function phase2(now){if(cancelled)return;const t=Math.min(1,(now-startPhase)/600);ctx.clearRect(0,0,W,H);const ringR=20+t*40;ctx.beginPath();ctx.arc(cx,cy,ringR,0,Math.PI*2);ctx.strokeStyle='rgba(255,0,3,'+(1-t)*0.9+')';ctx.lineWidth=2.5;ctx.stroke();ctx.globalAlpha=t;ctx.beginPath();ctx.arc(cx,cy,14,0,Math.PI*2);ctx.fillStyle='rgba(255,0,3,1)';ctx.fill();ctx.globalAlpha=1;if(t>0.5){ctx.globalAlpha=(t-0.5)*2;ctx.textAlign='center';ctx.textBaseline='alphabetic';ctx.fillStyle='rgba(255,0,3,1)';ctx.font='700 11px Urbanist';ctx.fillText('FIRST FIXATION',cx,cy-46);ctx.font='300 9px Urbanist';ctx.fillText('+'+offset.toFixed(2)+'s',cx,cy-32);ctx.globalAlpha=1;}if(t<1){rafId=requestAnimationFrame(phase2);}else{const startPulse=performance.now();function pulse(now){if(cancelled)return;const pt=(now-startPulse)/1000,pr=20+Math.sin(pt*Math.PI*2)*5;ctx.clearRect(0,0,W,H);ctx.beginPath();ctx.arc(cx,cy,pr,0,Math.PI*2);ctx.strokeStyle='rgba(255,0,3,0.7)';ctx.lineWidth=2.5;ctx.stroke();ctx.beginPath();ctx.arc(cx,cy,14,0,Math.PI*2);ctx.fillStyle='rgba(255,0,3,1)';ctx.fill();ctx.textAlign='center';ctx.textBaseline='alphabetic';ctx.fillStyle='rgba(255,0,3,1)';ctx.font='700 11px Urbanist';ctx.fillText('FIRST FIXATION',cx,cy-46);ctx.font='300 9px Urbanist';ctx.fillText('+'+offset.toFixed(2)+'s',cx,cy-32);rafId=requestAnimationFrame(pulse);}rafId=requestAnimationFrame(pulse);}}rafId=requestAnimationFrame(phase2);},1000);return{cancel:()=>{cancelled=true;clearTimeout(tid);cancelAnimationFrame(rafId);}};}
+function animateFirstFix(ctx,W,H,fix,modeTs){let tid=null,rafId=null,cancelled=false;if(!fix){ctx.fillStyle='rgba(150,150,150,0.7)';ctx.font='300 11px HaimClassic';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText('NO FIRST FIXATION DETECTED',W/2,H/2);return{cancel:()=>{}};}const cx=fix.x*W,cy=fix.y*H,offset=(fix.startTs-modeTs)/1000;tid=setTimeout(()=>{if(cancelled)return;const startPhase=performance.now();function phase2(now){if(cancelled)return;const t=Math.min(1,(now-startPhase)/600);ctx.clearRect(0,0,W,H);const ringR=20+t*40;ctx.beginPath();ctx.arc(cx,cy,ringR,0,Math.PI*2);ctx.strokeStyle='rgba(255,0,3,'+(1-t)*0.9+')';ctx.lineWidth=2.5;ctx.stroke();ctx.globalAlpha=t;ctx.beginPath();ctx.arc(cx,cy,14,0,Math.PI*2);ctx.fillStyle='rgba(255,0,3,1)';ctx.fill();ctx.globalAlpha=1;if(t>0.5){ctx.globalAlpha=(t-0.5)*2;ctx.textAlign='center';ctx.textBaseline='alphabetic';ctx.fillStyle='rgba(255,0,3,1)';ctx.font='700 11px HaimClassic';ctx.fillText('FIRST FIXATION',cx,cy-46);ctx.font='300 9px HaimClassic';ctx.fillText('+'+offset.toFixed(2)+'s',cx,cy-32);ctx.globalAlpha=1;}if(t<1){rafId=requestAnimationFrame(phase2);}else{const startPulse=performance.now();function pulse(now){if(cancelled)return;const pt=(now-startPulse)/1000,pr=20+Math.sin(pt*Math.PI*2)*5;ctx.clearRect(0,0,W,H);ctx.beginPath();ctx.arc(cx,cy,pr,0,Math.PI*2);ctx.strokeStyle='rgba(255,0,3,0.7)';ctx.lineWidth=2.5;ctx.stroke();ctx.beginPath();ctx.arc(cx,cy,14,0,Math.PI*2);ctx.fillStyle='rgba(255,0,3,1)';ctx.fill();ctx.textAlign='center';ctx.textBaseline='alphabetic';ctx.fillStyle='rgba(255,0,3,1)';ctx.font='700 11px HaimClassic';ctx.fillText('FIRST FIXATION',cx,cy-46);ctx.font='300 9px HaimClassic';ctx.fillText('+'+offset.toFixed(2)+'s',cx,cy-32);rafId=requestAnimationFrame(pulse);}rafId=requestAnimationFrame(pulse);}}rafId=requestAnimationFrame(phase2);},1000);return{cancel:()=>{cancelled=true;clearTimeout(tid);cancelAnimationFrame(rafId);}};}
 
 function playLayer(layer){cancelAnimation();const dc=getDataCanvas();const ctx=dc.getContext('2d');ctx.clearRect(0,0,dc.width,dc.height);const W=dc.width,H=dc.height;const sess=viewSession||{gazeLog,fixationHistory,saccadeHistory,scanPathHistory,firstFix,firstFixModeTs};renderAnalysisBadge(layer,sess);if(playMode==='STATIC'){switch(layer){case 'GAZE':staticGaze(ctx,W,H,sess.gazeLog);break;case 'FIXATION':staticFixation(ctx,W,H,sess.fixationHistory);break;case 'SACCADE':staticSaccade(ctx,W,H,sess.saccadeHistory);break;case 'SCANPATH':staticScanPath(ctx,W,H,sess.scanPathHistory);break;case 'HEATMAP':staticHeatmap(ctx,W,H,sess.gazeLog);break;case 'FIRSTFIX':staticFirstFix(ctx,W,H,sess.firstFix,sess.firstFixModeTs);break;}}else{switch(layer){case 'GAZE':currentAnimation=animateGaze(ctx,W,H,sess.gazeLog);break;case 'FIXATION':currentAnimation=animateFixation(ctx,W,H,sess.fixationHistory);break;case 'SACCADE':currentAnimation=animateSaccade(ctx,W,H,sess.saccadeHistory);break;case 'SCANPATH':currentAnimation=animateScanPath(ctx,W,H,sess.scanPathHistory);break;case 'HEATMAP':currentAnimation=animateHeatmap(ctx,W,H,sess.gazeLog);break;case 'FIRSTFIX':currentAnimation=animateFirstFix(ctx,W,H,sess.firstFix,sess.firstFixModeTs);break;}}}
 
@@ -1970,11 +1970,11 @@ async function renderProfile(){
       <!-- header -->
       <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:32px;padding-bottom:20px;border-bottom:1px solid #e0e0e0;">
         <div>
-          <div style="font-size:9px;font-weight:700;letter-spacing:0.45em;color:#bbb;margin-bottom:8px;font-family:Urbanist,sans-serif;">PROFILE</div>
-          <div style="font-size:28px;font-weight:700;color:#111;font-family:Urbanist,sans-serif;">${profile.name}</div>
-          <div style="font-size:11px;font-weight:300;color:#999;margin-top:4px;font-family:Urbanist,sans-serif;">${[profile.age?profile.age+'y':'',profile.gender||'',profile.location||''].filter(Boolean).join(' · ')}</div>
+          <div style="font-size:9px;font-weight:700;letter-spacing:0.45em;color:#bbb;margin-bottom:8px;font-family:HaimClassic,Heebo,sans-serif;">PROFILE</div>
+          <div style="font-size:28px;font-weight:700;color:#111;font-family:HaimClassic,Heebo,sans-serif;">${profile.name}</div>
+          <div style="font-size:11px;font-weight:300;color:#999;margin-top:4px;font-family:HaimClassic,Heebo,sans-serif;">${[profile.age?profile.age+'y':'',profile.gender||'',profile.location||''].filter(Boolean).join(' · ')}</div>
         </div>
-        <div style="font-size:9px;font-weight:300;color:#bbb;letter-spacing:0.1em;font-family:Urbanist,sans-serif;">MEMBER SINCE ${new Date(profile.created_at).toLocaleDateString()}</div>
+        <div style="font-size:9px;font-weight:300;color:#bbb;letter-spacing:0.1em;font-family:HaimClassic,Heebo,sans-serif;">MEMBER SINCE ${new Date(profile.created_at).toLocaleDateString()}</div>
       </div>
 
       <!-- KPIs -->
@@ -1986,18 +1986,18 @@ async function renderProfile(){
           ['AVG DURATION',avgDur+'s','per session'],
         ].map(([label,val,sub])=>`
           <div style="background:#fff;border:1px solid #eee;border-radius:8px;padding:16px;box-shadow:0 1px 4px rgba(0,0,0,0.04);">
-            <div style="font-size:7px;font-weight:700;letter-spacing:0.35em;color:#bbb;margin-bottom:8px;font-family:Urbanist,sans-serif;">${label}</div>
-            <div style="font-size:22px;font-weight:700;color:#FF0003;font-family:Urbanist,sans-serif;">${val}</div>
-            <div style="font-size:8px;color:#bbb;margin-top:3px;font-family:Urbanist,sans-serif;">${sub}</div>
+            <div style="font-size:7px;font-weight:700;letter-spacing:0.35em;color:#bbb;margin-bottom:8px;font-family:HaimClassic,Heebo,sans-serif;">${label}</div>
+            <div style="font-size:22px;font-weight:700;color:#FF0003;font-family:HaimClassic,Heebo,sans-serif;">${val}</div>
+            <div style="font-size:8px;color:#bbb;margin-top:3px;font-family:HaimClassic,Heebo,sans-serif;">${sub}</div>
           </div>`).join('')}
       </div>
 
       <!-- session history -->
-      <div style="font-size:8px;font-weight:700;letter-spacing:0.45em;color:#999;margin-bottom:14px;padding-bottom:8px;border-bottom:1px solid #e0e0e0;font-family:Urbanist,sans-serif;">SESSION HISTORY</div>
+      <div style="font-size:8px;font-weight:700;letter-spacing:0.45em;color:#999;margin-bottom:14px;padding-bottom:8px;border-bottom:1px solid #e0e0e0;font-family:HaimClassic,Heebo,sans-serif;">SESSION HISTORY</div>
       ${sessions.length===0
-        ? '<div style="color:#ccc;font-size:11px;text-align:center;padding:40px 0;font-family:Urbanist,sans-serif;">NO SESSIONS YET</div>'
+        ? '<div style="color:#ccc;font-size:11px;text-align:center;padding:40px 0;font-family:HaimClassic,Heebo,sans-serif;">NO SESSIONS YET</div>'
         : sessions.slice().reverse().map((s,i)=>`
-          <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 16px;background:#fff;border:1px solid #eee;border-radius:8px;margin-bottom:8px;font-family:Urbanist,sans-serif;">
+          <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 16px;background:#fff;border:1px solid #eee;border-radius:8px;margin-bottom:8px;font-family:HaimClassic,Heebo,sans-serif;">
             <div>
               <div style="font-size:11px;font-weight:700;color:#111;">${s.image_name||s.imageName||'—'}</div>
               <div style="font-size:9px;color:#bbb;margin-top:2px;">${new Date(s.timestamp||s.created_at).toLocaleString()}</div>
@@ -2055,9 +2055,9 @@ function showEmptyState(screenId,msg){
   overlay.className='empty-state-overlay';
   overlay.style.cssText='position:fixed;inset:0;top:52px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;z-index:8990;pointer-events:all;';
   overlay.innerHTML=`
-    <div style="font-size:9px;font-weight:700;letter-spacing:0.45em;color:#aaa;font-family:Urbanist,sans-serif;margin-bottom:4px;">NO SESSIONS YET</div>
-    <div style="font-size:13px;font-weight:300;color:#999;font-family:Urbanist,sans-serif;margin-bottom:16px;">${msg}</div>
-    <button class="empty-state-btn" style="background:rgba(255,255,255,0.35);color:#111;border:1px solid rgba(255,255,255,0.6);font-family:Urbanist,sans-serif;font-size:12px;font-weight:700;letter-spacing:0.2em;padding:12px 36px;cursor:pointer;border-radius:100px;backdrop-filter:blur(12px);">START SESSION</button>
+    <div style="font-size:9px;font-weight:700;letter-spacing:0.45em;color:#aaa;font-family:HaimClassic,Heebo,sans-serif;margin-bottom:4px;">NO SESSIONS YET</div>
+    <div style="font-size:13px;font-weight:300;color:#999;font-family:HaimClassic,Heebo,sans-serif;margin-bottom:16px;">${msg}</div>
+    <button class="empty-state-btn" style="background:rgba(255,255,255,0.35);color:#111;border:1px solid rgba(255,255,255,0.6);font-family:HaimClassic,Heebo,sans-serif;font-size:12px;font-weight:700;letter-spacing:0.2em;padding:12px 36px;cursor:pointer;border-radius:100px;backdrop-filter:blur(12px);">START SESSION</button>
   `;
   overlay.querySelector('.empty-state-btn').addEventListener('click',()=>{
     overlay.remove();
@@ -2082,7 +2082,7 @@ function openDashboard(){
 function renderDashboard(){
   const container=document.getElementById('dashboardContent');
   container.innerHTML='';
-  if(allSessions.length===0){container.innerHTML='<div style="padding:60px 0;text-align:center;font-size:11px;letter-spacing:0.25em;color:#ccc;font-family:Urbanist,sans-serif;">NO SESSIONS YET</div>';return;}
+  if(allSessions.length===0){container.innerHTML='<div style="padding:60px 0;text-align:center;font-size:11px;letter-spacing:0.25em;color:#ccc;font-family:HaimClassic,Heebo,sans-serif;">NO SESSIONS YET</div>';return;}
   const latest=allSessions[allSessions.length-1];
   const totalFix=latest.fixationHistory.length;
   const totalSac=latest.saccadeHistory.length;
@@ -2104,9 +2104,9 @@ function renderDashboard(){
   if(byUser.size>1){const userSection=document.createElement('div');userSection.className='dash-section';userSection.innerHTML='<div class="dash-section-title">USER COMPARISON</div>';const grid=document.createElement('div');grid.className='dash-compare-grid';for(const[user,userSessions]of byUser){const card=document.createElement('div');card.className='dash-user-card';const allFix=userSessions.flatMap(ss=>ss.fixationHistory);const totFix=allFix.length;const totSac=sessions.reduce((s,ss)=>s+ss.saccadeHistory.length,0);const totDur=sessions.reduce((s,ss)=>s+ss.sessionDuration,0);const avgF=totFix?Math.round(allFix.reduce((s,f)=>s+f.duration,0)/totFix):0;const meta=userSessions[0];card.innerHTML=`<div class="dash-user-card-name">${user}</div><div class="dash-user-card-meta">${meta.age?meta.age+'y · ':''}${meta.gender||''} · ${sessions.length} session${sessions.length>1?'s':''}</div><div class="dash-user-stats"><div class="dash-user-stat"><div class="dash-user-stat-label">FIXATIONS</div><div class="dash-user-stat-val">${totFix}</div></div><div class="dash-user-stat"><div class="dash-user-stat-label">AVG DUR</div><div class="dash-user-stat-val">${avgF}ms</div></div><div class="dash-user-stat"><div class="dash-user-stat-label">SACCADES</div><div class="dash-user-stat-val">${totSac}</div></div><div class="dash-user-stat"><div class="dash-user-stat-label">TOTAL TIME</div><div class="dash-user-stat-val">${(totDur/1000).toFixed(1)}s</div></div></div>`;grid.appendChild(card);}userSection.appendChild(grid);container.appendChild(userSection);}
 }
 
-function makeRingChart(metrics){const wrap=document.createElement('div');wrap.style.cssText='display:flex;gap:16px;flex-wrap:wrap;';const dpr=window.devicePixelRatio||1;const SIZE=120;metrics.forEach(m=>{const cell=document.createElement('div');cell.style.cssText='display:flex;flex-direction:column;align-items:center;gap:6px;background:#fff;border:1px solid #eee;border-radius:8px;padding:14px 18px;box-shadow:0 1px 4px rgba(0,0,0,0.04);';const canvas=document.createElement('canvas');canvas.width=SIZE*dpr;canvas.height=SIZE*dpr;canvas.style.width=SIZE+'px';canvas.style.height=SIZE+'px';const label=document.createElement('div');label.style.cssText='font-size:8px;font-weight:700;letter-spacing:0.3em;color:#bbb;font-family:Urbanist,sans-serif;text-transform:uppercase;';label.textContent=m.label;cell.appendChild(canvas);cell.appendChild(label);wrap.appendChild(cell);setTimeout(()=>{const ctx=canvas.getContext('2d');ctx.scale(dpr,dpr);const cx=SIZE/2,cy=SIZE/2,outerR=SIZE/2-8;const pct=Math.min(1,m.val/m.max);const startA=-Math.PI/2;ctx.beginPath();ctx.arc(cx,cy,outerR,0,Math.PI*2);ctx.strokeStyle='#f0f0f0';ctx.lineWidth=14;ctx.stroke();if(pct>0){ctx.beginPath();ctx.arc(cx,cy,outerR,startA,startA+pct*Math.PI*2);ctx.strokeStyle='#FF0003';ctx.lineWidth=14;ctx.lineCap='round';ctx.stroke();}ctx.fillStyle='#111';ctx.font='700 22px Urbanist';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText(m.val,cx,cy-6);ctx.fillStyle='#ccc';ctx.font='300 9px Urbanist';ctx.fillText('/ '+m.max,cx,cy+12);},60);});return wrap;}
+function makeRingChart(metrics){const wrap=document.createElement('div');wrap.style.cssText='display:flex;gap:16px;flex-wrap:wrap;';const dpr=window.devicePixelRatio||1;const SIZE=120;metrics.forEach(m=>{const cell=document.createElement('div');cell.style.cssText='display:flex;flex-direction:column;align-items:center;gap:6px;background:#fff;border:1px solid #eee;border-radius:8px;padding:14px 18px;box-shadow:0 1px 4px rgba(0,0,0,0.04);';const canvas=document.createElement('canvas');canvas.width=SIZE*dpr;canvas.height=SIZE*dpr;canvas.style.width=SIZE+'px';canvas.style.height=SIZE+'px';const label=document.createElement('div');label.style.cssText='font-size:8px;font-weight:700;letter-spacing:0.3em;color:#bbb;font-family:HaimClassic,Heebo,sans-serif;text-transform:uppercase;';label.textContent=m.label;cell.appendChild(canvas);cell.appendChild(label);wrap.appendChild(cell);setTimeout(()=>{const ctx=canvas.getContext('2d');ctx.scale(dpr,dpr);const cx=SIZE/2,cy=SIZE/2,outerR=SIZE/2-8;const pct=Math.min(1,m.val/m.max);const startA=-Math.PI/2;ctx.beginPath();ctx.arc(cx,cy,outerR,0,Math.PI*2);ctx.strokeStyle='#f0f0f0';ctx.lineWidth=14;ctx.stroke();if(pct>0){ctx.beginPath();ctx.arc(cx,cy,outerR,startA,startA+pct*Math.PI*2);ctx.strokeStyle='#FF0003';ctx.lineWidth=14;ctx.lineCap='round';ctx.stroke();}ctx.fillStyle='#111';ctx.font='700 22px HaimClassic';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText(m.val,cx,cy-6);ctx.fillStyle='#ccc';ctx.font='300 9px HaimClassic';ctx.fillText('/ '+m.max,cx,cy+12);},60);});return wrap;}
 
-function makeBarChart(title,data,unit=''){const wrap=document.createElement('div');wrap.className='dash-chart-area';const dpr=window.devicePixelRatio||1;const PAD_L=100,PAD_R=60,PAD_T=28,PAD_B=8;const rowH=28,barH=12;const H_canvas=PAD_T+data.length*rowH+PAD_B;const canvas=document.createElement('canvas');canvas.style.width='100%';canvas.style.height=H_canvas+'px';canvas.style.display='block';wrap.appendChild(canvas);setTimeout(()=>{const W2=canvas.offsetWidth||600;canvas.width=W2*dpr;canvas.height=H_canvas*dpr;const ctx=canvas.getContext('2d');ctx.scale(dpr,dpr);const maxVal=Math.max(...data.map(d=>d.val),1);const barZone=W2-PAD_L-PAD_R;ctx.font='700 8px Urbanist';ctx.fillStyle='rgba(0,0,0,0.25)';ctx.textAlign='left';ctx.fillText(title.toUpperCase(),PAD_L,14);for(let g=0;g<=4;g++){const x=PAD_L+barZone*g/4;ctx.strokeStyle='rgba(0,0,0,0.06)';ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(x,PAD_T);ctx.lineTo(x,H_canvas-PAD_B);ctx.stroke();}data.forEach((d,i)=>{const y=PAD_T+i*rowH;const barW=barZone*d.val/maxVal;ctx.font='300 9px Urbanist';ctx.fillStyle='rgba(0,0,0,0.45)';ctx.textAlign='right';ctx.textBaseline='middle';ctx.fillText(d.label,PAD_L-10,y+barH/2);ctx.fillStyle='#f0f0f0';ctx.beginPath();const r=barH/2;ctx.roundRect(PAD_L,y,barZone,barH,r);ctx.fill();if(barW>0){ctx.fillStyle='#FF0003';ctx.beginPath();ctx.roundRect(PAD_L,y,barW,barH,r);ctx.fill();}ctx.font='700 9px Urbanist';ctx.fillStyle='rgba(0,0,0,0.4)';ctx.textAlign='left';ctx.textBaseline='middle';ctx.fillText(d.val+(unit?' '+unit:''),PAD_L+barW+8,y+barH/2);});},60);return wrap;}
+function makeBarChart(title,data,unit=''){const wrap=document.createElement('div');wrap.className='dash-chart-area';const dpr=window.devicePixelRatio||1;const PAD_L=100,PAD_R=60,PAD_T=28,PAD_B=8;const rowH=28,barH=12;const H_canvas=PAD_T+data.length*rowH+PAD_B;const canvas=document.createElement('canvas');canvas.style.width='100%';canvas.style.height=H_canvas+'px';canvas.style.display='block';wrap.appendChild(canvas);setTimeout(()=>{const W2=canvas.offsetWidth||600;canvas.width=W2*dpr;canvas.height=H_canvas*dpr;const ctx=canvas.getContext('2d');ctx.scale(dpr,dpr);const maxVal=Math.max(...data.map(d=>d.val),1);const barZone=W2-PAD_L-PAD_R;ctx.font='700 8px HaimClassic';ctx.fillStyle='rgba(0,0,0,0.25)';ctx.textAlign='left';ctx.fillText(title.toUpperCase(),PAD_L,14);for(let g=0;g<=4;g++){const x=PAD_L+barZone*g/4;ctx.strokeStyle='rgba(0,0,0,0.06)';ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(x,PAD_T);ctx.lineTo(x,H_canvas-PAD_B);ctx.stroke();}data.forEach((d,i)=>{const y=PAD_T+i*rowH;const barW=barZone*d.val/maxVal;ctx.font='300 9px HaimClassic';ctx.fillStyle='rgba(0,0,0,0.45)';ctx.textAlign='right';ctx.textBaseline='middle';ctx.fillText(d.label,PAD_L-10,y+barH/2);ctx.fillStyle='#f0f0f0';ctx.beginPath();const r=barH/2;ctx.roundRect(PAD_L,y,barZone,barH,r);ctx.fill();if(barW>0){ctx.fillStyle='#FF0003';ctx.beginPath();ctx.roundRect(PAD_L,y,barW,barH,r);ctx.fill();}ctx.font='700 9px HaimClassic';ctx.fillStyle='rgba(0,0,0,0.4)';ctx.textAlign='left';ctx.textBaseline='middle';ctx.fillText(d.val+(unit?' '+unit:''),PAD_L+barW+8,y+barH/2);});},60);return wrap;}
 
 /* ══════════════════════════════════════════════════════════════════════
    i18n - Language Toggle
