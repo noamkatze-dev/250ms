@@ -13,9 +13,15 @@
 @font-face {
   font-family: 'HaimClassic';
   src: url('haim-classic-light-fm.otf') format('opentype'),
-       url('haim-classic-light-fm.ttf') format('truetype'),
-       url('haim-classic-light-fm') format('opentype');
+       url('haim-classic-light-fm.ttf') format('truetype');
   font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'HaimClassic';
+  src: url('haim-classic-regular-fm.otf') format('opentype');
+  font-weight: 400;
   font-style: normal;
 }
 
@@ -27,7 +33,7 @@
 }
 
 [lang="he"] body,[lang="he"] button,[lang="he"] input,[lang="he"] select,[lang="he"] label,[lang="he"] span,[lang="he"] p,[lang="he"] h1,[lang="he"] h2,[lang="he"] div{font-family:HaimClassic,Heebo,sans-serif;font-weight:300;}
-[lang="he"] .home-heading{font-family:HaimClassic,Heebo,sans-serif;font-weight:700;}
+[lang="he"] .home-heading{font-family:HaimClassic,Heebo,sans-serif;font-weight:400;}
 [lang="he"] #modesSection{direction:rtl;}
 [lang="he"] #modesSection .hi-label,[lang="he"] #modesSection .hi-title,[lang="he"] #modesSection .hi-sub,[lang="he"] #modesSection #modeDesc{text-align:right;}
 body{
@@ -114,7 +120,7 @@ body{
 }
 .home-content{text-align:center;pointer-events:all;display:flex;flex-direction:column;align-items:center;}
 .home-eyebrow{font-size:9px;font-weight:700;letter-spacing:0.5em;color:rgba(255,255,255,0.7);margin-bottom:16px;text-transform:uppercase;}
-.home-heading{font-size:36px;font-weight:700;font-family:HaimClassic,Heebo,sans-serif;color:#fff;line-height:1.1;margin-bottom:32px;white-space:nowrap;}
+.home-heading{font-size:36px;font-weight:400;font-family:HaimClassic,Heebo,sans-serif;color:#fff;line-height:1.1;margin-bottom:32px;white-space:nowrap;}
 #homeStartBtn{background:rgba(255,255,255,0.08);color:#fff;border:1px solid rgba(255,255,255,0.6);font-family:HaimClassic,Heebo,sans-serif;font-size:13px;font-weight:700;letter-spacing:0.22em;padding:14px 48px;cursor:pointer;transition:all 0.18s;margin-top:24px;margin-bottom:36px;border-radius:100px;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);}
 .home-badges{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-bottom:40px;}
 .home-badge{font-size:10px;color:#555;border:1px solid #ddd;padding:5px 14px;border-radius:100px;letter-spacing:0.05em;}
