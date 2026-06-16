@@ -52,9 +52,9 @@ body{
 .nav-va{font-size:14px;font-weight:700;color:#FF0003;letter-spacing:0.06em;}
 .nav-title{font-size:10px;font-weight:700;letter-spacing:0.28em;color:#FF0003;font-variant:small-caps;}
 #navLinks{display:flex;gap:28px;align-items:center;}
-.nav-link{font-size:10px;font-weight:700;letter-spacing:0.22em;color:#FF0003;cursor:pointer;user-select:none;transition:color 0.15s;}
+.nav-link{font-size:10px;font-weight:400;letter-spacing:0.22em;color:#FF0003;cursor:pointer;user-select:none;transition:color 0.15s;}
 .nav-link:hover,.nav-link.active{color:#FF0003;}
-.nav-login{font-size:10px;font-weight:700;letter-spacing:0.22em;cursor:pointer;user-select:none;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.25);color:#FF0003;padding:6px 18px;border-radius:100px;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);transition:background 0.15s,color 0.15s,border-color 0.15s;}
+.nav-login{font-size:10px;font-weight:400;letter-spacing:0.22em;cursor:pointer;user-select:none;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.25);color:#FF0003;padding:6px 18px;border-radius:100px;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);transition:background 0.15s,color 0.15s,border-color 0.15s;}
 .nav-login:hover{background:rgba(255,255,255,0.55);}
 .nav-login-outline{background:transparent;border-color:rgba(255,255,255,0.4);}
 .nav-login-outline:hover{background:rgba(255,255,255,0.2);}
@@ -121,7 +121,7 @@ body{
 .home-content{text-align:center;pointer-events:all;display:flex;flex-direction:column;align-items:center;}
 .home-eyebrow{font-size:9px;font-weight:700;letter-spacing:0.5em;color:rgba(255,255,255,0.7);margin-bottom:16px;text-transform:uppercase;}
 .home-heading{font-size:36px;font-weight:400;font-family:HaimClassic,Heebo,sans-serif;color:#fff;line-height:1.1;margin-bottom:32px;white-space:nowrap;}
-#homeStartBtn{background:rgba(255,255,255,0.08);color:#fff;border:1px solid rgba(255,255,255,0.6);font-family:HaimClassic,Heebo,sans-serif;font-size:13px;font-weight:700;letter-spacing:0.22em;padding:14px 48px;cursor:pointer;transition:all 0.18s;margin-top:24px;margin-bottom:36px;border-radius:100px;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);}
+#homeStartBtn{background:rgba(255,255,255,0.08);color:#fff;border:1px solid rgba(255,255,255,0.6);font-family:HaimClassic,Heebo,sans-serif;font-size:13px;font-weight:400;letter-spacing:0.22em;padding:14px 48px;cursor:pointer;transition:all 0.18s;margin-top:24px;margin-bottom:36px;border-radius:100px;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);}
 .home-badges{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-bottom:40px;}
 .home-badge{font-size:10px;color:#555;border:1px solid #ddd;padding:5px 14px;border-radius:100px;letter-spacing:0.05em;}
 .home-scroll-hint{font-size:9px;font-weight:600;letter-spacing:0.4em;color:#FF0003;display:flex;flex-direction:column;align-items:center;gap:11px;position:absolute;bottom:28px;left:50%;transform:translateX(-50%);z-index:4;pointer-events:none;transition:opacity 0.4s ease;}
@@ -160,9 +160,9 @@ canvas.va-preview{width:100%;aspect-ratio:5/3;display:block;border-radius:6px;ba
 .mode-preview-wrap{width:100%;aspect-ratio:5/2;overflow:hidden;display:flex;align-items:center;justify-content:center;background:transparent;border-radius:2px;}
 .mode-preview{display:block;width:100%;height:100%;}
 .va-btn{font-family:HaimClassic,Heebo,sans-serif;letter-spacing:0.18em;cursor:pointer;transition:background 0.18s,color 0.18s,border-color 0.18s;border-radius:100px;}
-.va-btn-primary{background:rgba(255,255,255,0.35);color:#333;border:1px solid rgba(255,255,255,0.6);font-size:13px;font-weight:700;padding:14px 48px;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:0 2px 16px rgba(178,224,243,0.25);}
+.va-btn-primary{background:rgba(255,255,255,0.35);color:#333;border:1px solid rgba(255,255,255,0.6);font-size:13px;font-weight:400;padding:14px 48px;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:0 2px 16px rgba(178,224,243,0.25);}
 .va-btn-primary:hover{background:rgba(255,255,255,0.55);border-color:rgba(255,255,255,0.8);}
-.va-btn-secondary{background:#fff;color:#111;border:2px solid #111;font-size:12px;font-weight:700;padding:9px 24px;}
+.va-btn-secondary{background:#fff;color:#111;border:2px solid #111;font-size:12px;font-weight:400;padding:9px 24px;}
 .va-btn-secondary:hover{background:#111;color:#fff;}
 /* ══════════════════════════════════════════════════════════════════════
    GLOBAL BACKGROUND - gradient on all screens
@@ -270,18 +270,18 @@ canvas.va-preview{width:100%;aspect-ratio:5/3;display:block;border-radius:6px;ba
 #dataToolbar{position:absolute;top:14px;left:50%;transform:translateX(-50%);display:flex;flex-wrap:nowrap;align-items:center;gap:2px;background:rgba(0,0,0,0.72);backdrop-filter:blur(14px);padding:5px 10px;border:1px solid rgba(255,255,255,0.08);border-radius:100px;z-index:10;transition:opacity 0.2s;}
 #dataToolbar.collapsed .toolbar-inner-content{display:none;}
 .toolbar-sep{width:1px;height:16px;background:rgba(255,255,255,0.22);flex-shrink:0;margin:0 8px;}
-.layer-btn{font-family:HaimClassic,Heebo,sans-serif;font-size:7.5px;font-weight:700;letter-spacing:0.06em;color:#555;background:transparent;border:1.5px solid transparent;padding:5px 9px;cursor:pointer;transition:color 0.15s,border-color 0.15s;white-space:nowrap;border-radius:100px;position:relative;}
+.layer-btn{font-family:HaimClassic,Heebo,sans-serif;font-size:7.5px;font-weight:400;letter-spacing:0.06em;color:#555;background:transparent;border:1.5px solid transparent;padding:5px 9px;cursor:pointer;transition:color 0.15s,border-color 0.15s;white-space:nowrap;border-radius:100px;position:relative;}
 .layer-btn:hover{color:#fff;}
 .layer-btn.active{color:#fff;border-color:rgba(255,255,255,0.35);background:rgba(255,255,255,0.07);}
 .layer-btn[data-tooltip]::after{content:attr(data-tooltip);position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);background:rgba(0,0,0,0.88);color:#ccc;font-size:9px;font-weight:300;letter-spacing:0.04em;white-space:nowrap;padding:5px 10px;border-radius:6px;pointer-events:none;opacity:0;transition:opacity 0.15s;border:1px solid rgba(255,255,255,0.08);z-index:100;}
 .layer-btn[data-tooltip]:hover::after{opacity:1;}
 .toggle-group{display:flex;gap:2px;}
-.toggle-btn{font-family:HaimClassic,Heebo,sans-serif;font-size:7.5px;font-weight:700;letter-spacing:0.05em;padding:5px 8px;border:1.5px solid transparent;background:transparent;color:#555;cursor:pointer;transition:all 0.15s;white-space:nowrap;border-radius:100px;}
+.toggle-btn{font-family:HaimClassic,Heebo,sans-serif;font-size:7.5px;font-weight:400;letter-spacing:0.05em;padding:5px 8px;border:1.5px solid transparent;background:transparent;color:#555;cursor:pointer;transition:all 0.15s;white-space:nowrap;border-radius:100px;}
 .toggle-btn:hover{color:#fff;}
 .toggle-btn.active{color:#fff;border-color:rgba(255,255,255,0.35);background:rgba(255,255,255,0.07);}
-#playBtn{font-family:HaimClassic,Heebo,sans-serif;font-size:7.5px;font-weight:700;letter-spacing:0.06em;color:#fff;background:#222;border:1.5px solid #3a3a3a;padding:5px 10px;cursor:pointer;transition:background 0.15s;flex-shrink:0;border-radius:100px;}
+#playBtn{font-family:HaimClassic,Heebo,sans-serif;font-size:7.5px;font-weight:400;letter-spacing:0.06em;color:#fff;background:#222;border:1.5px solid #3a3a3a;padding:5px 10px;cursor:pointer;transition:background 0.15s;flex-shrink:0;border-radius:100px;}
 #playBtn:hover{background:#333;}
-.view-tab{font-family:HaimClassic,Heebo,sans-serif;font-size:7.5px;font-weight:700;letter-spacing:0.06em;padding:5px 9px;border:1.5px solid transparent;background:transparent;color:#555;cursor:pointer;transition:all 0.15s;border-radius:100px;}
+.view-tab{font-family:HaimClassic,Heebo,sans-serif;font-size:7.5px;font-weight:400;letter-spacing:0.06em;padding:5px 9px;border:1.5px solid transparent;background:transparent;color:#555;cursor:pointer;transition:all 0.15s;border-radius:100px;}
 .view-tab.active{background:rgba(255,255,255,0.07);color:#fff;border-color:rgba(255,255,255,0.35);}
 .view-tab:hover{color:#fff;border-color:rgba(255,255,255,0.2);}
 #galleryScreen{display:none;position:fixed;inset:0;z-index:1500;;flex-direction:column;overflow:hidden;padding-top:52px;}
@@ -515,7 +515,7 @@ canvas.va-preview{width:100%;aspect-ratio:5/3;display:block;border-radius:6px;ba
     <div class="hi-section hi-section-dark" style="text-align:center;padding:80px 60px;">
       <div class="hi-label hi-label-light">READY?</div>
       <h2 class="hi-title hi-title-light" style="margin-bottom:32px;">Start your session now.</h2>
-      <button id="homeStartBtn2" style="background:transparent;color:#111;border:1.5px solid #111;font-family:HaimClassic,Heebo,sans-serif;font-size:13px;font-weight:700;letter-spacing:0.22em;padding:16px 48px;cursor:pointer;border-radius:100px;transition:background 0.18s,color 0.18s;" onmouseover="this.style.background='#111';this.style.color='#fff'" onmouseout="this.style.background='transparent';this.style.color='#111'">START</button>
+      <button id="homeStartBtn2" style="background:transparent;color:#111;border:1.5px solid #111;font-family:HaimClassic,Heebo,sans-serif;font-size:13px;font-weight:400;letter-spacing:0.22em;padding:16px 48px;cursor:pointer;border-radius:100px;transition:background 0.18s,color 0.18s;" onmouseover="this.style.background='#111';this.style.color='#fff'" onmouseout="this.style.background='transparent';this.style.color='#111'">START</button>
     </div>
   </div>
 </div>
@@ -659,8 +659,8 @@ canvas.va-preview{width:100%;aspect-ratio:5/3;display:block;border-radius:6px;ba
 
   <!-- Tabs -->
   <div id="nsTabRow" style="display:flex;gap:0;margin-bottom:36px;border-bottom:1px solid #eee;">
-    <button id="nsTabSignup" style="font-family:HaimClassic,Heebo,sans-serif;font-size:10px;font-weight:700;letter-spacing:0.3em;color:#111;background:none;border:none;border-bottom:2px solid #111;padding:10px 24px 10px 0;cursor:pointer;transition:all 0.15s;">SIGN UP</button>
-    <button id="nsTabLogin" style="font-family:HaimClassic,Heebo,sans-serif;font-size:10px;font-weight:700;letter-spacing:0.3em;color:#bbb;background:none;border:none;border-bottom:2px solid transparent;padding:10px 24px;cursor:pointer;transition:all 0.15s;">LOG IN</button>
+    <button id="nsTabSignup" style="font-family:HaimClassic,Heebo,sans-serif;font-size:10px;font-weight:400;letter-spacing:0.3em;color:#111;background:none;border:none;border-bottom:2px solid #111;padding:10px 24px 10px 0;cursor:pointer;transition:all 0.15s;">SIGN UP</button>
+    <button id="nsTabLogin" style="font-family:HaimClassic,Heebo,sans-serif;font-size:10px;font-weight:400;letter-spacing:0.3em;color:#bbb;background:none;border:none;border-bottom:2px solid transparent;padding:10px 24px;cursor:pointer;transition:all 0.15s;">LOG IN</button>
   </div>
 
   <!-- SIGN UP: step 1 — age + gender -->
@@ -2063,7 +2063,7 @@ function showEmptyState(screenId,msg){
   overlay.innerHTML=`
     <div style="font-size:9px;font-weight:700;letter-spacing:0.45em;color:#aaa;font-family:HaimClassic,Heebo,sans-serif;margin-bottom:4px;">NO SESSIONS YET</div>
     <div style="font-size:13px;font-weight:300;color:#999;font-family:HaimClassic,Heebo,sans-serif;margin-bottom:16px;">${msg}</div>
-    <button class="empty-state-btn" style="background:rgba(255,255,255,0.35);color:#111;border:1px solid rgba(255,255,255,0.6);font-family:HaimClassic,Heebo,sans-serif;font-size:12px;font-weight:700;letter-spacing:0.2em;padding:12px 36px;cursor:pointer;border-radius:100px;backdrop-filter:blur(12px);">START SESSION</button>
+    <button class="empty-state-btn" style="background:rgba(255,255,255,0.35);color:#111;border:1px solid rgba(255,255,255,0.6);font-family:HaimClassic,Heebo,sans-serif;font-size:12px;font-weight:400;letter-spacing:0.2em;padding:12px 36px;cursor:pointer;border-radius:100px;backdrop-filter:blur(12px);">START SESSION</button>
   `;
   overlay.querySelector('.empty-state-btn').addEventListener('click',()=>{
     overlay.remove();
