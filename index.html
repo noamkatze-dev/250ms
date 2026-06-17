@@ -126,11 +126,11 @@ body{
   width:48px;height:1px;background:#FF0003;margin:0 auto 28px;
 }
 .briefing-body{
-  font-size:14px;font-weight:300;color:#FF0003;line-height:1.8;
+  font-size:14px;font-weight:300;color:#444;line-height:1.8;
   margin-bottom:14px;font-family:HaimClassic,Heebo,sans-serif;
 }
 .briefing-note{
-  font-size:11px;font-weight:300;color:#FF0003;line-height:1.7;
+  font-size:11px;font-weight:300;color:#666;line-height:1.7;
   margin-bottom:44px;font-family:HaimClassic,Heebo,sans-serif;
 }
 .briefing-steps{
@@ -147,7 +147,7 @@ body{
 }
 .briefing-step-icon{font-size:22px;line-height:1;}
 .briefing-step-text{
-  font-size:11px;font-weight:300;color:#FF0003;line-height:1.5;
+  font-size:11px;font-weight:300;color:#555;line-height:1.5;
   font-family:HaimClassic,Heebo,sans-serif;
 }
 #briefingStartBtn{
@@ -976,7 +976,7 @@ function drawCalIntro(){const W=window.innerWidth,H=window.innerHeight;
   calCtx.moveTo(W/2-200,H/2-68);
   calCtx.lineTo(W/2+200,H/2-68);
   calCtx.stroke();
-  calCtx.fillStyle='#FF0003';
+  calCtx.fillStyle='#444';
   calCtx.font='300 14px HaimClassic';
   calCtx.fillText('שמור על ראשך ללא תנועה — הזז רק את עינייך לכל נקודה',W/2,H/2-42);
   calCtx.fillText('החזק את המבט עד שהטבעת תתמלא לחלוטין',W/2,H/2-18);
@@ -985,11 +985,11 @@ function drawCalIntro(){const W=window.innerWidth,H=window.innerHeight;
   calCtx.moveTo(W/2-200,H/2+4);
   calCtx.lineTo(W/2+200,H/2+4);
   calCtx.stroke();
-  calCtx.fillStyle='#FF0003';
+  calCtx.fillStyle='#444';
   calCtx.font='300 13px HaimClassic';
   calCtx.fillText('לאחר הכיול תגיע לעמוד הבית.',W/2,H/2+26);
   calCtx.fillText('לחץ על "התחלה" כדי להתחיל את סשן הצפייה בתמונות.',W/2,H/2+48);
-  calCtx.fillStyle='rgba(255,0,3,0.6)';
+  calCtx.fillStyle='#777';
   calCtx.font='300 11px HaimClassic';
   calCtx.fillText('הכיול ישמש גם לצפייה בתמונות — אין צורך בכיול נוסף.',W/2,H/2+70);
 }
@@ -999,7 +999,7 @@ function drawCalDone(){const W=window.innerWidth,H=window.innerHeight;
   calCtx.textAlign="center";
   calCtx.fillStyle='#FF0003';calCtx.font="700 28px HaimClassic";
   calCtx.fillText("מוכן!",W/2,H/2-8);
-  calCtx.fillStyle='rgba(255,0,3,0.7)';calCtx.font="300 13px HaimClassic";
+  calCtx.fillStyle='#666';calCtx.font="300 13px HaimClassic";
   calCtx.fillText('הכיול הושלם — עמוד הבית עומד להיפתח.',W/2,H/2+20);
 }
 
