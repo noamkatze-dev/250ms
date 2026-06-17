@@ -202,7 +202,7 @@ canvas.va-preview{width:100%;aspect-ratio:5/3;display:block;border-radius:6px;ba
 }
 
 #calOverlay{
-  background-attachment:fixed;
+  background:transparent;
 }
 #calCanvas{
   background:transparent !important;
@@ -944,60 +944,48 @@ function resizeCal(){
 }
 
 function drawCalIntro(){const W=window.innerWidth,H=window.innerHeight;
-  const grad=calCtx.createRadialGradient(W*0.15,H*0.08,0,W*0.15,H*0.08,W*0.7);
-  grad.addColorStop(0,'rgba(178,224,243,0.7)');
-  grad.addColorStop(1,'rgba(237,247,253,1)');
-  calCtx.fillStyle='#edf7fd';
-  calCtx.fillRect(0,0,W,H);
-  calCtx.fillStyle=grad;
-  calCtx.fillRect(0,0,W,H);
+  calCtx.clearRect(0,0,W,H);
   calCtx.textAlign='center';
-  calCtx.fillStyle='#aaa';
+  calCtx.fillStyle='rgba(255,255,255,0.55)';
   calCtx.font='700 11px HaimClassic';
   calCtx.fillText('מערכת ניתוח חזותי',W/2,H/2-130);
-  calCtx.fillStyle='#111';
+  calCtx.fillStyle='#fff';
   calCtx.font='700 28px HaimClassic';
   calCtx.fillText('כיול מעקב עיניים',W/2,H/2-90);
-  calCtx.strokeStyle='rgba(178,224,243,0.5)';
+  calCtx.strokeStyle='rgba(255,255,255,0.25)';
   calCtx.lineWidth=1;
   calCtx.beginPath();
   calCtx.moveTo(W/2-200,H/2-68);
   calCtx.lineTo(W/2+200,H/2-68);
   calCtx.stroke();
-  calCtx.fillStyle='#111';
+  calCtx.fillStyle='rgba(255,255,255,0.9)';
   calCtx.font='300 14px HaimClassic';
   calCtx.fillText('שמור על ראשך ללא תנועה — הזז רק את עינייך לכל נקודה',W/2,H/2-42);
   calCtx.fillText('החזק את המבט עד שהטבעת תתמלא לחלוטין',W/2,H/2-18);
-  calCtx.strokeStyle='rgba(178,224,243,0.3)';
+  calCtx.strokeStyle='rgba(255,255,255,0.15)';
   calCtx.beginPath();
   calCtx.moveTo(W/2-200,H/2+4);
   calCtx.lineTo(W/2+200,H/2+4);
   calCtx.stroke();
-  calCtx.fillStyle='#111';
+  calCtx.fillStyle='rgba(255,255,255,0.85)';
   calCtx.font='300 13px HaimClassic';
   calCtx.fillText('לאחר הכיול תראה 5 תמונות, אחת בכל פעם.',W/2,H/2+26);
   calCtx.fillText('הסתכל באופן טבעי — אין תשובות נכונות או שגויות.',W/2,H/2+48);
-  calCtx.fillStyle='#555';
+  calCtx.fillStyle='rgba(255,255,255,0.6)';
   calCtx.font='300 11px HaimClassic';
   calCtx.fillText('כל תמונה תופיע למשך 5 שניות.',W/2,H/2+70);
 }
 function drawCalDone(){const W=window.innerWidth,H=window.innerHeight;
-  const grad=calCtx.createRadialGradient(W*0.15,H*0.08,0,W*0.15,H*0.08,W*0.7);
-  grad.addColorStop(0,"rgba(178,224,243,0.7)");grad.addColorStop(1,"rgba(237,247,253,1)");
-  calCtx.fillStyle="#edf7fd";calCtx.fillRect(0,0,W,H);
-  calCtx.fillStyle=grad;calCtx.fillRect(0,0,W,H);
+  calCtx.clearRect(0,0,W,H);
   calCtx.textAlign="center";
-  calCtx.fillStyle="#111";calCtx.font="700 28px HaimClassic";
+  calCtx.fillStyle="#fff";calCtx.font="700 28px HaimClassic";
   calCtx.fillText("מוכן",W/2,H/2-8);
-  calCtx.fillStyle="#aaa";calCtx.font="300 13px HaimClassic";
+  calCtx.fillStyle="rgba(255,255,255,0.7)";calCtx.font="300 13px HaimClassic";
   calCtx.fillText('הכיול הושלם — הסשן עומד להתחיל.',W/2,H/2+20);
 }
 function awaitDot(px,py,index){return new Promise(resolve=>{let progress=0,prevTs=null;const samples=[];function frame(ts){const dt=prevTs?Math.min((ts-prevTs)/1000,0.05):0;prevTs=ts;const s=eyeStab();progress+=s*CAL_FILL_RATE*dt;progress-=(1-s)*CAL_DRAIN_RATE*dt;progress=Math.max(0,Math.min(1,progress));if(s>0.45&&eyeValid)samples.push({ox:curEyeOffX,oy:curEyeOffY});const W=window.innerWidth,H=window.innerHeight;
-  const grad=calCtx.createRadialGradient(W*0.15,H*0.08,0,W*0.15,H*0.08,W*0.7);
-  grad.addColorStop(0,'rgba(178,224,243,0.7)');grad.addColorStop(1,'rgba(237,247,253,1)');
-  calCtx.fillStyle='#edf7fd';calCtx.fillRect(0,0,W,H);
-  calCtx.fillStyle=grad;calCtx.fillRect(0,0,W,H);
-  calCtx.textAlign='right';calCtx.fillStyle='#bbb';calCtx.font='400 14px HaimClassic';calCtx.fillText((index+1)+'  /  '+CAL_PTS.length,W-28,36);calCtx.beginPath();calCtx.arc(px,py,22,0,Math.PI*2);calCtx.strokeStyle='rgba(178,224,243,0.5)';calCtx.lineWidth=1.5;calCtx.stroke();if(progress>0){calCtx.beginPath();calCtx.arc(px,py,22,-Math.PI/2,-Math.PI/2+progress*Math.PI*2);calCtx.strokeStyle='rgba(255,0,3,'+(0.35+s*0.65)+')';calCtx.lineWidth=2;calCtx.stroke();}const r=3.5+s*2.5;calCtx.beginPath();calCtx.arc(px,py,r,0,Math.PI*2);calCtx.fillStyle='rgba(255,0,3,'+(0.2+s*0.8)+')';calCtx.fill();if(progress>=1){calCtx.beginPath();calCtx.arc(px,py,22,0,Math.PI*2);calCtx.strokeStyle='rgba(255,0,3,0.9)';calCtx.lineWidth=2;calCtx.stroke();const n=samples.length||1;setTimeout(()=>resolve({ox:samples.reduce((a,v)=>a+v.ox,0)/n,oy:samples.reduce((a,v)=>a+v.oy,0)/n}),280);}else requestAnimationFrame(frame);}requestAnimationFrame(frame);});}
+  calCtx.clearRect(0,0,W,H);
+  calCtx.textAlign='right';calCtx.fillStyle='rgba(255,255,255,0.5)';calCtx.font='400 14px HaimClassic';calCtx.fillText((index+1)+'  /  '+CAL_PTS.length,W-28,36);calCtx.beginPath();calCtx.arc(px,py,22,0,Math.PI*2);calCtx.strokeStyle='rgba(178,224,243,0.5)';calCtx.lineWidth=1.5;calCtx.stroke();if(progress>0){calCtx.beginPath();calCtx.arc(px,py,22,-Math.PI/2,-Math.PI/2+progress*Math.PI*2);calCtx.strokeStyle='rgba(255,0,3,'+(0.35+s*0.65)+')';calCtx.lineWidth=2;calCtx.stroke();}const r=3.5+s*2.5;calCtx.beginPath();calCtx.arc(px,py,r,0,Math.PI*2);calCtx.fillStyle='rgba(255,0,3,'+(0.2+s*0.8)+')';calCtx.fill();if(progress>=1){calCtx.beginPath();calCtx.arc(px,py,22,0,Math.PI*2);calCtx.strokeStyle='rgba(255,0,3,0.9)';calCtx.lineWidth=2;calCtx.stroke();const n=samples.length||1;setTimeout(()=>resolve({ox:samples.reduce((a,v)=>a+v.ox,0)/n,oy:samples.reduce((a,v)=>a+v.oy,0)/n}),280);}else requestAnimationFrame(frame);}requestAnimationFrame(frame);});}
 
 async function startEyeTracking(){
   let fl;
