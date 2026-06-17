@@ -1124,14 +1124,22 @@ function showNameScreen(){
     document.getElementById('mainNav').style.display='flex';
     scr.style.display='flex';
 
+    // reset any previous styling
+    ageInp.style.borderColor='';
+    genderInp.style.borderColor='';
+
     btn.onclick=()=>{
       const age=ageInp.value.trim();
       const gender=genderInp.value;
-      if(!age||!gender) return;
+      let valid=true;
+      if(!age){ ageInp.style.borderColor='#FF0000'; valid=false; }
+      else { ageInp.style.borderColor=''; }
+      if(!gender){ genderInp.style.borderColor='#FF0000'; valid=false; }
+      else { genderInp.style.borderColor=''; }
+      if(!valid) return;
       currentAge=age;
       currentGender=gender;
       scr.style.display='none';
-      // Now save profiles + sessions with the collected info
       saveAllPendingSessions();
       resolve();
     };
