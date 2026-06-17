@@ -59,7 +59,6 @@ body{
 .nav-login:hover{transform:scale(1.06);}
 .nav-login-outline{background:transparent;border-color:rgba(255,255,255,0.4);}
 .nav-login-outline:hover{transform:scale(1.06);}
-/* unified hover - all buttons grow slightly */
 #homeStartBtn:hover,
 #homeStartBtn2:hover,
 .va-btn:hover,
@@ -77,7 +76,6 @@ body{
 .empty-state-btn:hover{transform:scale(1.06) !important;background:inherit;}
 .nav-login.hidden{display:none;}
 
-/* HOME SCREEN */
 #homeScreen{position:fixed;inset:0;z-index:8999;overflow-y:auto;overflow-x:hidden;color:#FF0003;background:transparent;}
 
 #homeHeroSection{
@@ -176,15 +174,7 @@ canvas.va-preview{width:100%;aspect-ratio:5/3;display:block;border-radius:6px;ba
 .mode-preview{display:block;width:100%;height:100%;}
 .va-btn{font-family:HaimClassic,Heebo,sans-serif;letter-spacing:0.18em;cursor:pointer;transition:background 0.18s,color 0.18s,border-color 0.18s;border-radius:100px;}
 .va-btn-primary{background:rgba(255,255,255,0.35);color:#333;border:1px solid rgba(255,255,255,0.6);font-size:13px;font-weight:400;padding:14px 48px;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:0 2px 16px rgba(178,224,243,0.25);}
-.va-btn-primary:hover{}
 .va-btn-secondary{background:#fff;color:#111;border:2px solid #111;font-size:12px;font-weight:400;padding:9px 24px;}
-.va-btn-secondary:hover{}
-/* ══════════════════════════════════════════════════════════════════════
-   GLOBAL BACKGROUND - gradient on all screens
-   ══════════════════════════════════════════════════════════════════════ */
-#nameScreen,
-#libraryScreen,
-#calOverlay,
 #nameScreen,
 #libraryScreen,
 #calOverlay,
@@ -195,7 +185,6 @@ canvas.va-preview{width:100%;aspect-ratio:5/3;display:block;border-radius:6px;ba
   background:transparent !important;
 }
 
-/* glass cards for dashboard, gallery, profile, data */
 .dash-kpi,
 .dash-user-card,
 .dash-chart-area,
@@ -208,12 +197,10 @@ canvas.va-preview{width:100%;aspect-ratio:5/3;display:block;border-radius:6px;ba
   border-color:rgba(255,255,255,0.6) !important;
 }
 
-/* library screen glass */
 #libraryScreen{
   background-attachment:fixed;
 }
 
-/* calibration overlay */
 #calOverlay{
   background-attachment:fixed;
 }
@@ -230,7 +217,7 @@ canvas.va-preview{width:100%;aspect-ratio:5/3;display:block;border-radius:6px;ba
 .lib-card:hover{border-color:#999;}
 .lib-card.selected{border-color:#111;}
 .lib-card.viewed-once{opacity:0.55;}
-.lib-card.viewed-once::after{content:'VIEWED';position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.35);color:#fff;font-size:9px;font-weight:700;letter-spacing:0.3em;}
+.lib-card.viewed-once::after{content:'נצפה';position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.35);color:#fff;font-size:9px;font-weight:700;letter-spacing:0.3em;}
 .lib-card img{width:100%;height:100%;object-fit:cover;display:block;}
 .lib-num{position:absolute;top:6px;left:8px;font-size:9px;font-weight:700;color:#fff;text-shadow:0 0 4px rgba(0,0,0,0.8);letter-spacing:0.1em;}
 .lib-add{aspect-ratio:4/3;border:1.5px dashed #ddd;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:6px;transition:border-color 0.15s;}
@@ -280,19 +267,15 @@ canvas.va-preview{width:100%;aspect-ratio:5/3;display:block;border-radius:6px;ba
 #dataToolbar.collapsed .toolbar-inner-content{display:none;}
 .toolbar-sep{width:1px;height:16px;background:rgba(255,255,255,0.22);flex-shrink:0;margin:0 8px;}
 .layer-btn{font-family:HaimClassic,Heebo,sans-serif;font-size:7.5px;font-weight:400;letter-spacing:0.06em;color:#555;background:transparent;border:1.5px solid transparent;padding:5px 9px;cursor:pointer;transition:color 0.15s,border-color 0.15s;white-space:nowrap;border-radius:100px;position:relative;}
-.layer-btn:hover{}
 .layer-btn.active{color:#fff;border-color:rgba(255,255,255,0.35);background:rgba(255,255,255,0.07);}
 .layer-btn[data-tooltip]::after{content:attr(data-tooltip);position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);background:rgba(0,0,0,0.88);color:#ccc;font-size:9px;font-weight:300;letter-spacing:0.04em;white-space:nowrap;padding:5px 10px;border-radius:6px;pointer-events:none;opacity:0;transition:opacity 0.15s;border:1px solid rgba(255,255,255,0.08);z-index:100;}
 .layer-btn[data-tooltip]:hover::after{opacity:1;}
 .toggle-group{display:flex;gap:2px;}
 .toggle-btn{font-family:HaimClassic,Heebo,sans-serif;font-size:7.5px;font-weight:400;letter-spacing:0.05em;padding:5px 8px;border:1.5px solid transparent;background:transparent;color:#555;cursor:pointer;transition:all 0.15s,transform 0.15s;white-space:nowrap;border-radius:100px;}
-.toggle-btn:hover{}
 .toggle-btn.active{color:#fff;border-color:rgba(255,255,255,0.35);background:rgba(255,255,255,0.07);}
 #playBtn{font-family:HaimClassic,Heebo,sans-serif;font-size:7.5px;font-weight:400;letter-spacing:0.06em;color:#fff;background:#222;border:1.5px solid #3a3a3a;padding:5px 10px;cursor:pointer;transition:background 0.15s;flex-shrink:0;border-radius:100px;}
-#playBtn:hover{}
 .view-tab{font-family:HaimClassic,Heebo,sans-serif;font-size:7.5px;font-weight:400;letter-spacing:0.06em;padding:5px 9px;border:1.5px solid transparent;background:transparent;color:#555;cursor:pointer;transition:all 0.15s;border-radius:100px;}
 .view-tab.active{background:rgba(255,255,255,0.07);color:#fff;border-color:rgba(255,255,255,0.35);}
-.view-tab:hover{}
 #galleryScreen{display:none;position:fixed;inset:0;z-index:1500;;flex-direction:column;overflow:hidden;padding-top:52px;}
 #galleryHeader{display:flex;align-items:center;justify-content:space-between;padding:10px 60px;border-bottom:1px solid rgba(255,255,255,0.4);flex-shrink:0;background:rgba(255,255,255,0.45);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);}
 #galleryHeader .gallery-title{font-size:11px;font-weight:700;letter-spacing:0.45em;color:#111;}
@@ -375,7 +358,6 @@ canvas.va-preview{width:100%;aspect-ratio:5/3;display:block;border-radius:6px;ba
 #dataToolbarCollapseBtn:hover{color:#fff;background:rgba(255,255,255,0.18);}
 #dataToolbarCollapseBtn .tcb-arrow{font-size:10px;font-weight:900;line-height:1;}
 
-/* Home screen — all text and borders red */
 #homeScreen .hi-label,#homeScreen .hi-title,#homeScreen .hi-sub,
 #homeScreen .step-num,#homeScreen .step-title,#homeScreen .step-desc,
 #homeScreen .howto-n,#homeScreen .howto-text,#homeScreen .howto-text strong,
@@ -399,7 +381,6 @@ canvas.va-preview{width:100%;aspect-ratio:5/3;display:block;border-radius:6px;ba
 #homeScreen .mode-dot{background:#ddd !important;}
 #homeScreen .mode-dot[style*="111"]{background:#FF0003 !important;}
 
-/* Nav red on home */
 #navSignupBtn, #navLoginBtn, #navAboutLink, .nav-va,
 .nav-link { transition: color 0.15s; }
 
@@ -422,7 +403,6 @@ canvas.va-preview{width:100%;aspect-ratio:5/3;display:block;border-radius:6px;ba
   border-radius:50%;
 }
 
-/* ── About screen typography ── */
 #aboutScreen h1,
 #aboutScreen [id^="about-label-"]{color:#FF0003 !important;}
 #aboutScreen p[style*="font-size:15px"],
@@ -433,7 +413,6 @@ canvas.va-preview{width:100%;aspect-ratio:5/3;display:block;border-radius:6px;ba
 #aboutScreen div[style*="font-size:8px"],
 #aboutScreen div[style*="font-size:12px"]{color:#444 !important;}
 
-/* ══ GLOBAL RED — all headings, labels, buttons ══ */
 h1, h2, h3, h4, h5, h6,
 .hi-title, .hi-label, .step-title, .step-num,
 .dash-section-title, .dash-kpi-label, .dash-kpi-val,
@@ -467,7 +446,6 @@ label,
   color: #FF0003 !important;
 }
 
-/* keep white text on active/dark toolbar buttons */
 .layer-btn.active, .toggle-btn.active, .view-tab.active,
 #playBtn { color: #fff !important; }
 .layer-btn.active:hover, .toggle-btn.active:hover, .view-tab.active:hover { color: #FF0003 !important; }
@@ -487,37 +465,29 @@ label,
     <span class="nav-link nav-authenticated" id="navProfileLink" style="display:none;">פרופיל</span>
     <span class="nav-link" id="navAboutLink">אודות</span>
     <span class="nav-login" id="navSignupBtn">הרשמה</span>
-
   </div>
 </nav>
 
-<!-- Sky video - fixed background for entire home page -->
 <video id="homeSkyVideo" src="sky.mp4" muted playsinline loop preload="auto"
   style="display:none;position:fixed;inset:0;width:100%;height:100%;object-fit:cover;z-index:8998;opacity:0.7;pointer-events:none;filter:brightness(1.12) contrast(0.92) saturate(1.25);"></video>
-<!-- Color grading overlay: cool/blue temperature, slight exposure lift -->
 <div id="skyColorOverlay" style="display:none;position:fixed;inset:0;z-index:8999;pointer-events:none;background:rgba(80,130,200,0.05);mix-blend-mode:screen;"></div>
 
-<!-- Shared background for all non-home screens -->
-<img id="aboutSkyVideo" src="sky.png"
-  style="display:none;position:fixed;inset:0;width:100%;height:100%;object-fit:cover;z-index:1090;opacity:0.7;pointer-events:none;filter:brightness(1.12) contrast(0.92) saturate(1.25);">
+<video id="aboutSkyVideo" src="sky.mp4" muted playsinline preload="auto"
+  style="display:none;position:fixed;inset:0;width:100%;height:100%;object-fit:cover;z-index:1090;opacity:0.7;pointer-events:none;filter:brightness(1.12) contrast(0.92) saturate(1.25);"></video>
 <div id="aboutSkyColorOverlay" style="display:none;position:fixed;inset:0;z-index:1091;pointer-events:none;background:rgba(80,130,200,0.05);mix-blend-mode:screen;"></div>
 <div id="aboutBlurOverlay" style="display:none;position:fixed;inset:0;z-index:1092;pointer-events:none;backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);background:rgba(160,200,240,0.35);"></div>
 
 <div id="homeScreen">
-
   <div id="homeHeroSection">
-
     <div id="heroRight" style="position:relative;z-index:2;">
       <div class="home-eyebrow">מערכת ניתוח חזותי</div>
-      <h1 class="home-heading">YOU SEE, WE MEASURE.</h1>
+      <h1 class="home-heading">המבט שלך, המדידה שלנו.</h1>
       <button id="homeStartBtn">התחלה</button>
     </div>
-
-  </div><!-- /homeHeroSection -->
-
+  </div>
   <div id="homeInfo">
   </div>
-</div><!-- /homeScreen -->
+</div>
 
 <div id="imgWrapper" style="display:none;">
   <img id="mainImg" src="" alt="stimulus"/>
@@ -528,13 +498,11 @@ label,
 <div id="sessionInfoOverlay" style="display:none !important;"></div>
 <div id="gazeDot" style="display:none;"></div>
 <div id="info" style="display:none;">ALLOW CAMERA ACCESS</div>
-<!-- SKY VIDEO OVERLAY -->
+
 <div id="skyOverlay" style="display:none;position:fixed;inset:0;z-index:200;background:#000;">
   <video id="skyVideo" src="sky.mp4" muted playsinline style="width:100%;height:100%;object-fit:cover;display:block;"></video>
   <div id="skyProgress" style="position:absolute;bottom:0;left:0;height:3px;background:#fff;width:0%;transition:none;"></div>
 </div>
-
-<!-- finishBtn removed - sessions are automatic -->
 
 <div id="calOverlay">
   <canvas id="calCanvas"></canvas>
@@ -656,7 +624,6 @@ label,
 <div id="nameScreen">
   <div class="ns-title">מערכת ניתוח חזותי</div>
 
-  <!-- SIGN UP: age + gender -->
   <div class="ns-form" id="nsFormStep1">
     <div class="ns-row">
       <div class="ns-field">
@@ -676,7 +643,6 @@ label,
     <button id="nameContinue" class="va-btn va-btn-primary">התחלה</button>
   </div>
 
-  <!-- hidden elements needed by JS -->
   <div id="nsFormStep2" style="display:none;"></div>
   <div id="nsFormLogin" style="display:none;"></div>
   <div id="nsCode" style="display:none;"></div>
@@ -697,7 +663,6 @@ label,
   </div>
 </div>
 
-<!-- ABOUT SCREEN -->
 <div id="aboutScreen" style="display:none;position:fixed;inset:0;z-index:1600;flex-direction:column;overflow:hidden;padding-top:52px;background:transparent;">
   <div id="aboutBody" style="flex:1;overflow-y:auto;padding:48px 60px;">
     <div style="max-width:720px;margin:0 auto;padding:0;">
@@ -727,7 +692,7 @@ label,
       </p>
     </div>
 
-    </div><!-- /max-width:720px -->
+    </div>
 
     <div id="modesSection" style="border-top:1px solid rgba(178,224,243,0.4);padding:0;overflow:hidden;margin:0 -60px;">
       <div style="display:grid;grid-template-columns:1fr 1fr;align-items:stretch;">
@@ -756,7 +721,7 @@ label,
           </div>
         </div>
       </div>
-    </div><!-- /modesSection -->
+    </div>
 
     <div style="max-width:720px;margin:0 auto;padding:0;">
 
@@ -807,7 +772,7 @@ label,
       </p>
       <div style="display:flex;flex-direction:column;gap:8px;">
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px 32px;font-family:HaimClassic,Heebo,sans-serif;">
-          <div style="font-size:8px;font-weight:700;letter-spacing:0.3em;color:#bbb;padding-bottom:8px;border-bottom:1px solid #f0f0f0;">IMAGE</div>
+          <div style="font-size:8px;font-weight:700;letter-spacing:0.3em;color:#bbb;padding-bottom:8px;border-bottom:1px solid #f0f0f0;">תמונה</div>
           <div style="font-size:8px;font-weight:700;letter-spacing:0.3em;color:#bbb;padding-bottom:8px;border-bottom:1px solid #f0f0f0;">PHOTOGRAPHER</div>
           <div style="font-size:12px;font-weight:300;color:#888;">Politics 4</div>
           <div style="font-size:12px;font-weight:300;color:#888;">Government Press Office</div>
@@ -826,6 +791,7 @@ label,
     </div>
   </div>
 </div>
+
 <div id="profileScreen" style="display:none;position:fixed;inset:0;z-index:1600;;flex-direction:column;overflow:hidden;padding-top:52px;">
   <div id="profileBody" style="flex:1;overflow-y:auto;padding:32px 60px;"></div>
 </div>
@@ -834,21 +800,13 @@ label,
 'use strict';
 import { FaceLandmarker, FilesetResolver } from 'https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.14/vision_bundle.mjs';
 
-/* ══════════════════════════════════════════════════════════════════════
-   SCROLL-DRIVEN EYE ANIMATION
-   ══════════════════════════════════════════════════════════════════════ */
-/* ══════════════════════════════════════════════════════════════════════
-   APP
-   ══════════════════════════════════════════════════════════════════════ */
-
 const homeScreen=document.getElementById('homeScreen');
-const navHomeLink={classList:{add:()=>{},remove:()=>{}}};// stub - logo handles home now
+const navHomeLink={classList:{add:()=>{},remove:()=>{}}};
 const navSessionLink=document.getElementById('navSessionLink');
 const navGalleryLink=document.getElementById('navGalleryLink');
 const navDashboardLink=document.getElementById('navDashboardLink');
 const navProfileLink=document.getElementById('navProfileLink');
 const navAboutLink=document.getElementById('navAboutLink');
-const navLoginBtn=document.getElementById('navLoginBtn');
 const navSignupBtn=document.getElementById('navSignupBtn');
 navAboutLink.addEventListener('click',()=>openAbout());
 navSignupBtn.addEventListener('click',()=>startSession());
@@ -857,7 +815,6 @@ let appStarted=false;
 let userLoggedIn=false;
 
 function setNavTheme(theme){
-  // theme: 'light' (dark text, for white screens) or 'dark' (white text, for home hero)
   const nav = document.getElementById('mainNav');
   if(nav){
     nav.style.background = 'transparent';
@@ -870,11 +827,6 @@ function setNavTheme(theme){
   });
   const va = document.querySelector('.nav-va');
   if(va) va.style.color = '#FF0003';
-  const login = document.getElementById('navLoginBtn');
-  if(login){
-    login.style.color = '#FF0003';
-    login.style.borderColor = 'rgba(255,0,3,0.5)';
-  }
   const signup = document.getElementById('navSignupBtn');
   if(signup){
     signup.style.color = '#FF0003';
@@ -910,7 +862,9 @@ async function startSession(){
 
 async function startApp(){
   await startSession();
-}document.getElementById('homeStartBtn') && document.getElementById('homeStartBtn').addEventListener('click',goToSession);
+}
+
+document.getElementById('homeStartBtn') && document.getElementById('homeStartBtn').addEventListener('click',goToSession);
 document.getElementById('homeStartBtn2') && document.getElementById('homeStartBtn2').addEventListener('click',goToSession);
 navSessionLink.addEventListener('click',()=>{
   if(userLoggedIn){
@@ -938,7 +892,7 @@ const dabToggle=document.getElementById('dabToggle');
 dabHeader.addEventListener('click',()=>{const c=dabContent.classList.toggle('collapsed');dabToggle.classList.toggle('collapsed',c);});
 
 let userLocation='';
-async function fetchLocation(){try{const r=await fetch('https://ipapi.co/json/');const d=await r.json();userLocation=[d.city,d.country_name].filter(Boolean).join(', ');}catch(_){userLocation='Unknown';}}
+async function fetchLocation(){try{const r=await fetch('https://ipapi.co/json/');const d=await r.json();userLocation=[d.city,d.country_name].filter(Boolean).join(', ');}catch(err){userLocation='Unknown';}}
 fetchLocation();
 
 const FIX_DISPERSION=0.04,FIX_MIN_DURATION=150,SAC_VELOCITY=0.8,SAC_MIN_AMP=0.03;
@@ -991,7 +945,6 @@ function resizeCal(){
   calCtx.scale(dpr,dpr);
 }
 
-/* ── Canvas font: all HaimClassic ── */
 function drawCalIntro(){const W=window.innerWidth,H=window.innerHeight;
   const grad=calCtx.createRadialGradient(W*0.15,H*0.08,0,W*0.15,H*0.08,W*0.7);
   grad.addColorStop(0,'rgba(178,224,243,0.7)');
@@ -1048,23 +1001,71 @@ function awaitDot(px,py,index){return new Promise(resolve=>{let progress=0,prevT
   calCtx.fillStyle=grad;calCtx.fillRect(0,0,W,H);
   calCtx.textAlign='right';calCtx.fillStyle='#bbb';calCtx.font='400 14px HaimClassic';calCtx.fillText((index+1)+'  /  '+CAL_PTS.length,W-28,36);calCtx.beginPath();calCtx.arc(px,py,22,0,Math.PI*2);calCtx.strokeStyle='rgba(178,224,243,0.5)';calCtx.lineWidth=1.5;calCtx.stroke();if(progress>0){calCtx.beginPath();calCtx.arc(px,py,22,-Math.PI/2,-Math.PI/2+progress*Math.PI*2);calCtx.strokeStyle='rgba(255,0,3,'+(0.35+s*0.65)+')';calCtx.lineWidth=2;calCtx.stroke();}const r=3.5+s*2.5;calCtx.beginPath();calCtx.arc(px,py,r,0,Math.PI*2);calCtx.fillStyle='rgba(255,0,3,'+(0.2+s*0.8)+')';calCtx.fill();if(progress>=1){calCtx.beginPath();calCtx.arc(px,py,22,0,Math.PI*2);calCtx.strokeStyle='rgba(255,0,3,0.9)';calCtx.lineWidth=2;calCtx.stroke();const n=samples.length||1;setTimeout(()=>resolve({ox:samples.reduce((a,v)=>a+v.ox,0)/n,oy:samples.reduce((a,v)=>a+v.oy,0)/n}),280);}else requestAnimationFrame(frame);}requestAnimationFrame(frame);});}
 
-async function runCalibration(){
-  showSharedBg();
-  calOverlay.style.display='block';
-  calOverlay.style.zIndex='2100';
-  const nav=document.getElementById('mainNav');
-  nav.style.display='none';
-  nav.style.background='transparent';
-  resizeCal();window.addEventListener('resize',resizeCal);drawCalIntro();calStartBtn.style.display='block';await new Promise(r=>calStartBtn.addEventListener('click',r,{once:true}));calStartBtn.style.display='none';const calData=[];for(let i=0;i<CAL_PTS.length;i++){const[nx,ny]=CAL_PTS[i],px=nx*window.innerWidth,py=ny*window.innerHeight;if(i>0)await new Promise(r=>setTimeout(r,320));const{ox,oy}=await awaitDot(px,py,i);calData.push({sx:nx,sy:ny,ox,oy});}if(calData.length>=4)eyeCalMap=fitAffine(calData);drawCalDone();await new Promise(r=>setTimeout(r,900));calOverlay.style.display='none';nav.style.display='flex';}
-
-async function startEyeTracking(){let fl;try{const fs=await FilesetResolver.forVisionTasks('https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.14/wasm');fl=await FaceLandmarker.createFromOptions(fs,{baseOptions:{modelAssetPath:'https://storage.googleapis.com/mediapipe-models/face_landmarker/face_landmarker/float16/1/face_landmarker.task',delegate:'GPU'},outputFaceBlendshapes:false,runningMode:'VIDEO',numFaces:1});}catch(e){console.warn('[eye]',e);return false;}try{const webcamEl=document.createElement('video');webcamEl.style.cssText='position:fixed;bottom:8px;right:8px;width:1px;height:1px;opacity:0;';webcamEl.autoplay=true;webcamEl.muted=true;webcamEl.playsInline=true;document.body.appendChild(webcamEl);const stream=await navigator.mediaDevices.getUserMedia({video:{facingMode:'user',width:{ideal:320},height:{ideal:240}}});webcamEl.srcObject=stream;await new Promise(r=>{webcamEl.onloadeddata=r;});let lastCamT=-1;function track(){if(webcamEl.readyState>=2&&webcamEl.currentTime!==lastCamT){lastCamT=webcamEl.currentTime;try{const res=fl.detectForVideo(webcamEl,performance.now());if(res.faceLandmarks?.length>0){const lm=res.faceLandmarks[0];const nose=lm[1],brow=lm[168],chin=lm[152],lChk=lm[234],rChk=lm[454];const hxR=(nose.x*4+brow.x+chin.x+lChk.x+rChk.x)/8,hyR=(nose.y*4+brow.y+chin.y+lChk.y+rChk.y)/8;curOffX=1-hxR;curOffY=hyR;offXBuf.push(curOffX);if(offXBuf.length>BUF_MAX)offXBuf.shift();offYBuf.push(curOffY);if(offYBuf.length>BUF_MAX)offYBuf.shift();const lI=lm[468],rI=lm[473],lIn=lm[33],lO=lm[133],rIn=lm[362],rO=lm[263];if(lI&&rI&&lIn&&lO&&rIn&&rO){const lEW=Math.hypot(lO.x-lIn.x,lO.y-lIn.y),rEW=Math.hypot(rO.x-rIn.x,rO.y-rIn.y);if(lEW>0.01&&rEW>0.01){let eX=((lI.x-lIn.x)/lEW+(rI.x-rIn.x)/rEW)/2,eY=((lI.y-lIn.y)/lEW+(rI.y-rIn.y)/rEW)/2;eX=(eX-0.5)*2.5+0.5;eY=(eY-0.5)*2.5+0.5;eX=1-eX;curEyeOffX=eX;curEyeOffY=eY;eyeOffXBuf.push(eX);if(eyeOffXBuf.length>BUF_MAX)eyeOffXBuf.shift();eyeOffYBuf.push(eY);if(eyeOffYBuf.length>BUF_MAX)eyeOffYBuf.shift();eyeValid=true;if(eyeCalMap){rawGX=eyeCalMap.ax*eX+eyeCalMap.bx*eY+eyeCalMap.cx;rawGY=eyeCalMap.ay*eX+eyeCalMap.by*eY+eyeCalMap.cy;}else{rawGX=eX;rawGY=eY;}rawGX=Math.max(0,Math.min(1,rawGX));rawGY=Math.max(0,Math.min(1,rawGY));if(!gazeOn){gazeOn=true;infoEl.style.opacity='0';}}else eyeValid=false;}else eyeValid=false;}}catch(_){}}requestAnimationFrame(track);}requestAnimationFrame(track);}catch(e){console.warn('[eye] webcam',e);return false;}return true;}
+async function startEyeTracking(){
+  let fl;
+  try{
+    const fs=await FilesetResolver.forVisionTasks('https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.14/wasm');
+    fl=await FaceLandmarker.createFromOptions(fs,{
+      baseOptions:{modelAssetPath:'https://storage.googleapis.com/mediapipe-models/face_landmarker/face_landmarker/float16/1/face_landmarker.task',delegate:'GPU'},
+      outputFaceBlendshapes:false,runningMode:'VIDEO',numFaces:1
+    });
+  }catch(e){console.warn('[eye]',e);return false;}
+  try{
+    const webcamEl=document.createElement('video');
+    webcamEl.style.cssText='position:fixed;bottom:8px;right:8px;width:1px;height:1px;opacity:0;';
+    webcamEl.autoplay=true;webcamEl.muted=true;webcamEl.playsInline=true;
+    document.body.appendChild(webcamEl);
+    const stream=await navigator.mediaDevices.getUserMedia({video:{facingMode:'user',width:{ideal:320},height:{ideal:240}}});
+    webcamEl.srcObject=stream;
+    await new Promise(r=>{webcamEl.onloadeddata=r;});
+    let lastCamT=-1;
+    const track=()=>{
+      if(webcamEl.readyState>=2&&webcamEl.currentTime!==lastCamT){
+        lastCamT=webcamEl.currentTime;
+        try{
+          const res=fl.detectForVideo(webcamEl,performance.now());
+          if(res.faceLandmarks&&res.faceLandmarks.length>0){
+            const lm=res.faceLandmarks[0];
+            const nose=lm[1],brow=lm[168],chin=lm[152],lChk=lm[234],rChk=lm[454];
+            const hxR=(nose.x*4+brow.x+chin.x+lChk.x+rChk.x)/8,hyR=(nose.y*4+brow.y+chin.y+lChk.y+rChk.y)/8;
+            curOffX=1-hxR;curOffY=hyR;
+            offXBuf.push(curOffX);if(offXBuf.length>BUF_MAX)offXBuf.shift();
+            offYBuf.push(curOffY);if(offYBuf.length>BUF_MAX)offYBuf.shift();
+            const lI=lm[468],rI=lm[473],lIn=lm[33],lO=lm[133],rIn=lm[362],rO=lm[263];
+            if(lI&&rI&&lIn&&lO&&rIn&&rO){
+              const lEW=Math.hypot(lO.x-lIn.x,lO.y-lIn.y),rEW=Math.hypot(rO.x-rIn.x,rO.y-rIn.y);
+              if(lEW>0.01&&rEW>0.01){
+                let eX=((lI.x-lIn.x)/lEW+(rI.x-rIn.x)/rEW)/2,eY=((lI.y-lIn.y)/lEW+(rI.y-rIn.y)/rEW)/2;
+                eX=(eX-0.5)*2.5+0.5;eY=(eY-0.5)*2.5+0.5;eX=1-eX;
+                curEyeOffX=eX;curEyeOffY=eY;
+                eyeOffXBuf.push(eX);if(eyeOffXBuf.length>BUF_MAX)eyeOffXBuf.shift();
+                eyeOffYBuf.push(eY);if(eyeOffYBuf.length>BUF_MAX)eyeOffYBuf.shift();
+                eyeValid=true;
+                if(eyeCalMap){
+                  rawGX=eyeCalMap.ax*eX+eyeCalMap.bx*eY+eyeCalMap.cx;
+                  rawGY=eyeCalMap.ay*eX+eyeCalMap.by*eY+eyeCalMap.cy;
+                }else{rawGX=eX;rawGY=eY;}
+                rawGX=Math.max(0,Math.min(1,rawGX));
+                rawGY=Math.max(0,Math.min(1,rawGY));
+                if(!gazeOn){gazeOn=true;infoEl.style.opacity='0';}
+              }else eyeValid=false;
+            }else eyeValid=false;
+          }
+        }catch(err){}
+      }
+      requestAnimationFrame(track);
+    };
+    requestAnimationFrame(track);
+  }catch(e){console.warn('[eye] webcam',e);return false;}
+  return true;
+}
 
 function enablePointerFallback(){infoEl.textContent='הזז את העכבר לחקירה';const onMove=(cx,cy)=>{const rect=imgWrapper.getBoundingClientRect();const nx=(cx-rect.left)/rect.width,ny=(cy-rect.top)/rect.height;if(nx>=0&&nx<=1&&ny>=0&&ny<=1){rawGX=nx;rawGY=ny;if(!gazeOn){gazeOn=true;infoEl.style.opacity='0';}}};document.addEventListener('mousemove',e=>onMove(e.clientX,e.clientY));document.addEventListener('touchmove',e=>{e.preventDefault();onMove(e.touches[0].clientX,e.touches[0].clientY);},{passive:false});}
 
 function isImageViewed(i){return !!viewedImages[currentUser+'::'+i];}
 function markImageViewed(i){viewedImages[currentUser+'::'+i]=true;}
 function showLib(){document.getElementById('libraryScreen').style.display='flex';renderLib();}
-function renderLib(){const grid=document.getElementById('libGrid');grid.innerHTML='';imageLibrary.forEach((img,i)=>{const viewed=isImageViewed(i);const card=document.createElement('div');card.className='lib-card'+(i===currentImageIdx&&!viewed?' selected':'')+(viewed?' viewed-once':'');card.innerHTML='<img src="'+img.src+'" alt="'+img.name+'"/><span class="lib-num">'+String(i+1).padStart(2,'0')+'</span>';if(!viewed){card.onclick=()=>{currentImageIdx=i;document.querySelectorAll('.lib-card').forEach(c=>c.classList.remove('selected'));card.classList.add('selected');updateBeginBtn();};}else{card.style.cursor='default';}grid.appendChild(card);});const add=document.createElement('div');add.className='lib-add';add.innerHTML='<span class="lib-add-plus">+</span><span class="lib-add-label">ADD IMAGE</span>';add.onclick=()=>document.getElementById('libFileInput').click();grid.appendChild(add);updateBeginBtn();}
+function renderLib(){const grid=document.getElementById('libGrid');grid.innerHTML='';imageLibrary.forEach((img,i)=>{const viewed=isImageViewed(i);const card=document.createElement('div');card.className='lib-card'+(i===currentImageIdx&&!viewed?' selected':'')+(viewed?' viewed-once':'');card.innerHTML='<img src="'+img.src+'" alt="'+img.name+'"/><span class="lib-num">'+String(i+1).padStart(2,'0')+'</span>';if(!viewed){card.onclick=()=>{currentImageIdx=i;document.querySelectorAll('.lib-card').forEach(c=>c.classList.remove('selected'));card.classList.add('selected');updateBeginBtn();};}else{card.style.cursor='default';}grid.appendChild(card);});const add=document.createElement('div');add.className='lib-add';add.innerHTML='<span class="lib-add-plus">+</span><span class="lib-add-label">הוסף תמונה</span>';add.onclick=()=>document.getElementById('libFileInput').click();grid.appendChild(add);updateBeginBtn();}
 function updateBeginBtn(){const btn=document.getElementById('libBeginBtn');const ok=imageLibrary.length>0&&!isImageViewed(currentImageIdx);btn.disabled=!ok;btn.style.opacity=ok?'1':'0.4';}
 document.getElementById('libFileInput').addEventListener('change',e=>{Array.from(e.target.files).forEach(file=>{const r=new FileReader();r.onload=ev=>{imageLibrary.push({src:ev.target.result,name:file.name.replace(/\.[^.]+$/,'')});renderLib();};r.readAsDataURL(file);});e.target.value='';});
 
@@ -1106,7 +1107,9 @@ async function showNameScreen(){
       resolve();
     };
   });
-}function startSessionInfoOverlay(){}
+}
+
+function startSessionInfoOverlay(){}
 function stopSessionInfoOverlay(){}
 
 function renderDataSessionBadge(sess){const dur=sess.sessionDuration?(sess.sessionDuration/1000).toFixed(1)+'s':'--';document.getElementById('dsb-samples').textContent=sess.gazeLog?.length||'--';document.getElementById('dsb-duration').textContent=dur;document.getElementById('dsb-location').textContent=sess.location||'--';document.getElementById('dsb-name').textContent=sess.user||'--';document.getElementById('dsb-age').textContent=sess.age||'--';document.getElementById('dsb-gender').textContent=sess.gender||'--';document.getElementById('dsbContent').classList.remove('collapsed');document.getElementById('dsbToggle').classList.remove('collapsed');}
@@ -1139,42 +1142,6 @@ function staticScanPath(ctx,W,H,history,col='255,0,3'){ctx.clearRect(0,0,W,H);if
 function staticHeatmap(ctx,W,H,log,col='255,0,3'){ctx.clearRect(0,0,W,H);const hmW=200,hmH=112;drawMarchingSquares(ctx,W,H,buildHeatmapFromLog(log,hmW,hmH),hmW,hmH,col);}
 function staticFirstFix(ctx,W,H,fix,modeTs,col='255,0,3'){ctx.clearRect(0,0,W,H);if(!fix){ctx.fillStyle='rgba(150,150,150,0.7)';ctx.font='300 11px HaimClassic';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText('לא זוהה קיבוע ראשון',W/2,H/2);return;}const cx=fix.x*W,cy=fix.y*H,offset=modeTs?((fix.startTs-modeTs)/1000):0;ctx.beginPath();ctx.arc(cx,cy,14,0,Math.PI*2);ctx.fillStyle='rgba('+col+',1)';ctx.fill();ctx.textAlign='center';ctx.textBaseline='alphabetic';ctx.fillStyle='rgba('+col+',1)';ctx.font='700 11px HaimClassic';ctx.fillText('קיבוע ראשון',cx,cy-46);ctx.font='300 9px HaimClassic';ctx.fillText('+'+offset.toFixed(2)+'s',cx,cy-32);}
 
-function buildModePreviews(){
-  const modes=[{key:'GAZE',name:'GAZE',desc:'Sample-by-sample gaze positions.'},{key:'קיבוע',name:'קיבוע',desc:'Circles proportional to dwell time.'},{key:'סקאדה',name:'סקאדה',desc:'Rapid eye jumps between regions.'},{key:'SCANPATH',name:'מסלול סריקה',desc:'Ordered sequence of fixated areas.'},{key:'מפת חום',name:'מפת חום',desc:'Contour density map of attention.'},{key:'FIRSTFIX',name:'קיבוע ראשון',desc:'First area captured after onset.'},];
-  const gazeLog=[{x:0.22,y:0.32},{x:0.24,y:0.34},{x:0.52,y:0.25},{x:0.54,y:0.27},{x:0.70,y:0.50},{x:0.72,y:0.52},{x:0.36,y:0.65},{x:0.38,y:0.63},{x:0.50,y:0.42},{x:0.26,y:0.48},{x:0.66,y:0.22},{x:0.56,y:0.70}];
-  const fixHist=[{x:0.22,y:0.32,duration:280},{x:0.52,y:0.25,duration:420},{x:0.70,y:0.50,duration:200},{x:0.36,y:0.65,duration:380}];
-  const sacHist=[{fromX:0.22,fromY:0.32,toX:0.52,toY:0.25},{fromX:0.52,fromY:0.25,toX:0.70,toY:0.50},{fromX:0.70,fromY:0.50,toX:0.36,toY:0.65}];
-  const firstFixPrev={x:0.22,y:0.32,startTs:80};
-  const grid=document.getElementById('modesGrid');grid.innerHTML='';
-  for(const m of modes){
-    const card=document.createElement('div');card.className='mode-card';
-    const wrap=document.createElement('div');wrap.className='mode-preview-wrap';
-    const canvas=document.createElement('canvas');canvas.className='mode-preview';
-    const dpr=window.devicePixelRatio||1;
-    const CW=300,CH=120;
-    canvas.width=CW*dpr;canvas.height=CH*dpr;
-    canvas.style.width=CW+'px';canvas.style.height=CH+'px';
-    wrap.appendChild(canvas);card.innerHTML='<div class="mode-card-name">'+m.name+'</div>';card.appendChild(wrap);
-    const desc=document.createElement('div');desc.className='mode-card-desc';desc.textContent=m.desc;card.appendChild(desc);
-    grid.appendChild(card);
-    const ctx=canvas.getContext('2d');
-    ctx.scale(dpr,dpr);
-    const W=CW,H=CH;ctx.clearRect(0,0,W,H);
-    const M=10;
-    const safeX=x=>Math.max(M,Math.min(W-M,x));
-    const safeY=y=>Math.max(M,Math.min(H-M,y));
-    const R='rgba(255,0,3,1)',LW=1;
-    switch(m.key){
-      case 'GAZE':for(const p of gazeLog){ctx.beginPath();ctx.arc(safeX(p.x*W),safeY(p.y*H),2,0,Math.PI*2);ctx.fillStyle=R;ctx.fill();}break;
-      case 'קיבוע':for(const fix of fixHist){const cx=safeX(fix.x*W),cy=safeY(fix.y*H);const r=Math.min(6+fix.duration/130,H*0.3-M);ctx.beginPath();ctx.arc(cx,cy,r,0,Math.PI*2);ctx.strokeStyle=R;ctx.lineWidth=LW;ctx.stroke();ctx.beginPath();ctx.arc(cx,cy,2,0,Math.PI*2);ctx.fillStyle=R;ctx.fill();}break;
-      case 'סקאדה':for(const sac of sacHist){const fx=safeX(sac.fromX*W),fy=safeY(sac.fromY*H),tx=safeX(sac.toX*W),ty=safeY(sac.toY*H);ctx.beginPath();ctx.moveTo(fx,fy);ctx.lineTo(tx,ty);ctx.strokeStyle=R;ctx.lineWidth=LW;ctx.stroke();const a=Math.atan2(ty-fy,tx-fx),l=7;ctx.beginPath();ctx.moveTo(tx,ty);ctx.lineTo(tx-l*Math.cos(a-Math.PI/6),ty-l*Math.sin(a-Math.PI/6));ctx.lineTo(tx-l*Math.cos(a+Math.PI/6),ty-l*Math.sin(a+Math.PI/6));ctx.closePath();ctx.fillStyle=R;ctx.fill();}break;
-      case 'SCANPATH':{const PR=9;if(fixHist.length>=2){ctx.save();ctx.setLineDash([3,6]);ctx.strokeStyle=R;ctx.lineWidth=LW;ctx.beginPath();for(let j=0;j<fixHist.length-1;j++){const ax=safeX(fixHist[j].x*W),ay=safeY(fixHist[j].y*H),bx=safeX(fixHist[j+1].x*W),by=safeY(fixHist[j+1].y*H);const dx=bx-ax,dy=by-ay,dist=Math.hypot(dx,dy);if(dist<1)continue;const ux=dx/dist,uy=dy/dist;ctx.moveTo(ax+ux*PR,ay+uy*PR);ctx.lineTo(bx-ux*PR,by-uy*PR);}ctx.stroke();ctx.setLineDash([]);ctx.restore();}for(let j=0;j<fixHist.length;j++){const cx=safeX(fixHist[j].x*W),cy=safeY(fixHist[j].y*H);ctx.beginPath();ctx.arc(cx,cy,PR,0,Math.PI*2);ctx.strokeStyle=R;ctx.lineWidth=LW;ctx.stroke();ctx.fillStyle=R;ctx.font='700 8px HaimClassic';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText(j+1,cx,cy);}break;}
-      case 'מפת חום':{const hmW=50,hmH=20,hm=new Float32Array(hmW*hmH);const sigma=0.13*Math.max(hmW,hmH),hr=Math.ceil(3*sigma),inv2s2=1/(2*sigma*sigma);for(const p of gazeLog){const gx=p.x*hmW,gy=p.y*hmH,x0=Math.max(0,Math.floor(gx-hr)),x1=Math.min(hmW-1,Math.ceil(gx+hr)),y0=Math.max(0,Math.floor(gy-hr)),y1=Math.min(hmH-1,Math.ceil(gy+hr));for(let y=y0;y<=y1;y++)for(let x=x0;x<=x1;x++)hm[y*hmW+x]+=0.22*Math.exp(-((x-gx)**2+(y-gy)**2)*inv2s2);}let maxVal=0;for(let i=0;i<hm.length;i++)if(hm[i]>maxVal)maxVal=hm[i];if(maxVal>0.01){const levels=[0.2,0.4,0.6,0.8];const getMSS=(idx,T,R,B,L)=>{switch(idx){case 1:return[[L,B]];case 2:return[[R,B]];case 3:return[[L,R]];case 4:return[[T,R]];case 5:return[[T,R],[L,B]];case 6:return[[T,B]];case 7:return[[T,L]];case 8:return[[T,L]];case 9:return[[T,B]];case 10:return[[L,T],[R,B]];case 11:return[[T,R]];case 12:return[[L,R]];case 13:return[[R,B]];case 14:return[[L,B]];default:return[];}};for(const level of levels){ctx.strokeStyle='rgba(255,0,3,'+Math.min(1,(0.35+level*0.65)).toFixed(2)+')';ctx.lineWidth=LW;ctx.beginPath();for(let cy=0;cy<hmH-1;cy++)for(let cx2=0;cx2<hmW-1;cx2++){const vTL=hm[cy*hmW+cx2]/maxVal,vTR=hm[cy*hmW+(cx2+1)]/maxVal,vBR=hm[(cy+1)*hmW+(cx2+1)]/maxVal,vBL=hm[(cy+1)*hmW+cx2]/maxVal;const idx=(vTL>=level?8:0)+(vTR>=level?4:0)+(vBR>=level?2:0)+(vBL>=level?1:0);if(idx===0||idx===15)continue;const sx0=M+cx2*(W-2*M)/hmW,sx1=M+(cx2+1)*(W-2*M)/hmW,sy0=M+cy*(H-2*M)/hmH,sy1=M+(cy+1)*(H-2*M)/hmH;const lp=(v0,v1)=>Math.abs(v1-v0)<1e-10?0.5:Math.max(0,Math.min(1,(level-v0)/(v1-v0)));const T2=[sx0+lp(vTL,vTR)*(sx1-sx0),sy0],R2=[sx1,sy0+lp(vTR,vBR)*(sy1-sy0)],B2=[sx0+lp(vBL,vBR)*(sx1-sx0),sy1],L2=[sx0,sy0+lp(vTL,vBL)*(sy1-sy0)];for(const[p1,p2]of getMSS(idx,T2,R2,B2,L2)){ctx.moveTo(p1[0],p1[1]);ctx.lineTo(p2[0],p2[1]);}}ctx.stroke();}}}break;
-      case 'FIRSTFIX':{const cx=safeX(firstFixPrev.x*W),cy=safeY(firstFixPrev.y*H);[22,14].forEach(r=>{ctx.beginPath();ctx.arc(cx,cy,r,0,Math.PI*2);ctx.strokeStyle=R;ctx.lineWidth=LW;ctx.stroke();});ctx.beginPath();ctx.arc(cx,cy,5,0,Math.PI*2);ctx.fillStyle=R;ctx.fill();}break;
-    }
-  }
-}
-
 function cancelAnimation(){if(currentAnimation){currentAnimation.cancel();currentAnimation=null;}}
 function getDataCanvas(){const dc=document.getElementById('dataCanvas'),area=document.getElementById('dataImgArea');dc.width=area.offsetWidth;dc.height=area.offsetHeight;return dc;}
 function animateGaze(ctx,W,H,log){let tid=null,cancelled=false;const pts=log.slice();let i=0;function step(){if(cancelled||i>=pts.length)return;const p=pts[i++];ctx.beginPath();ctx.arc(p.x*W,p.y*H,5,0,Math.PI*2);ctx.fillStyle='rgba(255,0,3,0.9)';ctx.fill();tid=setTimeout(step,50);}step();return{cancel:()=>{cancelled=true;clearTimeout(tid);}};}
@@ -1184,20 +1151,24 @@ function animateScanPath(ctx,W,H,history){let tid=null,cancelled=false;const pts
 function animateHeatmap(ctx,W,H,log){let tid=null,cancelled=false;const hmW=200,hmH=112,hm=new Float32Array(hmW*hmH),sigma=0.07*Math.max(hmW,hmH),r=Math.ceil(3*sigma),inv2s2=1/(2*sigma*sigma);const pts=log.slice();let i=0;function addPt(p){const gx=p.x*hmW,gy=p.y*hmH,x0=Math.max(0,Math.floor(gx-r)),x1=Math.min(hmW-1,Math.ceil(gx+r)),y0=Math.max(0,Math.floor(gy-r)),y1=Math.min(hmH-1,Math.ceil(gy+r));for(let y=y0;y<=y1;y++)for(let x=x0;x<=x1;x++)hm[y*hmW+x]+=0.18*Math.exp(-((x-gx)**2+(y-gy)**2)*inv2s2);}function render(){ctx.clearRect(0,0,W,H);drawMarchingSquares(ctx,W,H,hm,hmW,hmH);}const perStep=Math.max(1,Math.ceil(pts.length/60));function step(){if(cancelled)return;let c=0;while(i<pts.length&&c<perStep){addPt(pts[i++]);c++;}render();if(i<pts.length)tid=setTimeout(step,50);}step();return{cancel:()=>{cancelled=true;clearTimeout(tid);}};}
 function animateFirstFix(ctx,W,H,fix,modeTs){let tid=null,rafId=null,cancelled=false;if(!fix){ctx.fillStyle='rgba(150,150,150,0.7)';ctx.font='300 11px HaimClassic';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText('לא זוהה קיבוע ראשון',W/2,H/2);return{cancel:()=>{}};}const cx=fix.x*W,cy=fix.y*H,offset=(fix.startTs-modeTs)/1000;tid=setTimeout(()=>{if(cancelled)return;const startPhase=performance.now();function phase2(now){if(cancelled)return;const t=Math.min(1,(now-startPhase)/600);ctx.clearRect(0,0,W,H);const ringR=20+t*40;ctx.beginPath();ctx.arc(cx,cy,ringR,0,Math.PI*2);ctx.strokeStyle='rgba(255,0,3,'+(1-t)*0.9+')';ctx.lineWidth=2.5;ctx.stroke();ctx.globalAlpha=t;ctx.beginPath();ctx.arc(cx,cy,14,0,Math.PI*2);ctx.fillStyle='rgba(255,0,3,1)';ctx.fill();ctx.globalAlpha=1;if(t>0.5){ctx.globalAlpha=(t-0.5)*2;ctx.textAlign='center';ctx.textBaseline='alphabetic';ctx.fillStyle='rgba(255,0,3,1)';ctx.font='700 11px HaimClassic';ctx.fillText('קיבוע ראשון',cx,cy-46);ctx.font='300 9px HaimClassic';ctx.fillText('+'+offset.toFixed(2)+'s',cx,cy-32);ctx.globalAlpha=1;}if(t<1){rafId=requestAnimationFrame(phase2);}else{const startPulse=performance.now();function pulse(now){if(cancelled)return;const pt=(now-startPulse)/1000,pr=20+Math.sin(pt*Math.PI*2)*5;ctx.clearRect(0,0,W,H);ctx.beginPath();ctx.arc(cx,cy,pr,0,Math.PI*2);ctx.strokeStyle='rgba(255,0,3,0.7)';ctx.lineWidth=2.5;ctx.stroke();ctx.beginPath();ctx.arc(cx,cy,14,0,Math.PI*2);ctx.fillStyle='rgba(255,0,3,1)';ctx.fill();ctx.textAlign='center';ctx.textBaseline='alphabetic';ctx.fillStyle='rgba(255,0,3,1)';ctx.font='700 11px HaimClassic';ctx.fillText('קיבוע ראשון',cx,cy-46);ctx.font='300 9px HaimClassic';ctx.fillText('+'+offset.toFixed(2)+'s',cx,cy-32);rafId=requestAnimationFrame(pulse);}rafId=requestAnimationFrame(pulse);}}rafId=requestAnimationFrame(phase2);},1000);return{cancel:()=>{cancelled=true;clearTimeout(tid);cancelAnimationFrame(rafId);}};}
 
+
 function playLayer(layer){cancelAnimation();const dc=getDataCanvas();const ctx=dc.getContext('2d');ctx.clearRect(0,0,dc.width,dc.height);const W=dc.width,H=dc.height;const sess=viewSession||{gazeLog,fixationHistory,saccadeHistory,scanPathHistory,firstFix,firstFixModeTs};renderAnalysisBadge(layer,sess);if(playMode==='STATIC'){switch(layer){case 'GAZE':staticGaze(ctx,W,H,sess.gazeLog);break;case 'קיבוע':staticFixation(ctx,W,H,sess.fixationHistory);break;case 'סקאדה':staticSaccade(ctx,W,H,sess.saccadeHistory);break;case 'SCANPATH':staticScanPath(ctx,W,H,sess.scanPathHistory);break;case 'מפת חום':staticHeatmap(ctx,W,H,sess.gazeLog);break;case 'FIRSTFIX':staticFirstFix(ctx,W,H,sess.firstFix,sess.firstFixModeTs);break;}}else{switch(layer){case 'GAZE':currentAnimation=animateGaze(ctx,W,H,sess.gazeLog);break;case 'קיבוע':currentAnimation=animateFixation(ctx,W,H,sess.fixationHistory);break;case 'סקאדה':currentAnimation=animateSaccade(ctx,W,H,sess.saccadeHistory);break;case 'SCANPATH':currentAnimation=animateScanPath(ctx,W,H,sess.scanPathHistory);break;case 'מפת חום':currentAnimation=animateHeatmap(ctx,W,H,sess.gazeLog);break;case 'FIRSTFIX':currentAnimation=animateFirstFix(ctx,W,H,sess.firstFix,sess.firstFixModeTs);break;}}}
 
 function populateCompareFilters(){const users=[...new Set(allSessions.map(s=>s.user))];const genders=[...new Set(allSessions.map(s=>s.gender).filter(Boolean))];const locations=[...new Set(allSessions.map(s=>s.location).filter(Boolean))];const cfUser=document.getElementById('cf-user');cfUser.innerHTML='<option value="">כל המשתמשים</option>'+users.map(u=>'<option value="'+u+'">'+u+'</option>').join('');const cfGender=document.getElementById('cf-gender');cfGender.innerHTML='<option value="">כל המגדרים</option>'+genders.map(g=>'<option value="'+g+'">'+g+'</option>').join('');const cfLoc=document.getElementById('cf-location');cfLoc.innerHTML='<option value="">כל המיקומים</option>'+locations.map(l=>'<option value="'+l+'">'+l+'</option>').join('');}
 function getFilteredSessions(){const user=document.getElementById('cf-user').value,gender=document.getElementById('cf-gender').value,location=document.getElementById('cf-location').value,sort=document.getElementById('cf-sort').value;let list=allSessions.filter(s=>(!user||s.user===user)&&(!gender||s.gender===gender)&&(!location||s.location===location));if(sort){const[key,dir]=sort.split('_');const asc=dir==='asc';const getVal=(s)=>{switch(key){case 'fixations':return s.fixationHistory?.length||0;case 'saccades':return s.saccadeHistory?.length||0;case 'duration':return s.sessionDuration||0;case 'samples':return s.gazeLog?.length||0;case 'ttff':return s.firstFix?(s.firstFix.startTs-s.firstFixModeTs):Infinity;case 'sacAmp':{const sh=s.saccadeHistory||[];return sh.length?sh.reduce((a,f)=>a+Math.hypot(f.toX-f.fromX,f.toY-f.fromY),0)/sh.length:0;}case 'age':return parseInt(s.age)||0;default:return 0;}};list.sort((a,b)=>asc?getVal(a)-getVal(b):getVal(b)-getVal(a));}return list;}
 
-function renderCompareView(){populateCompareFilters();const grid=document.getElementById('compareGrid');grid.innerHTML='';const layer=document.getElementById('cf-layer').value||dataActiveLayer||'GAZE';const filteredSessions=getFilteredSessions();if(sessions.length===0){grid.innerHTML='<div style="color:#555;font-size:11px;letter-spacing:0.2em;text-align:center;padding:40px 0;grid-column:1/-1;">NO SESSIONS TO COMPARE YET</div>';return;}for(const sess of filteredSessions){const cell=document.createElement('div');cell.className='compare-panel';const ts=new Date(sess.timestamp).toLocaleTimeString();const dur=sess.sessionDuration?(sess.sessionDuration/1000).toFixed(1)+'s':'--';cell.innerHTML='<div class="compare-panel-header"><div><div class="cp-user">'+sess.user+'</div><div class="cp-meta">'+(sess.age?sess.age+' yrs':'')+((sess.age&&sess.gender)?' . ':'')+( sess.gender||'')+(sess.location?' . '+sess.location:'')+'</div></div><div style="text-align:right"><div class="cp-time">'+sess.imageName+'</div><div class="cp-time">'+ts+' . '+dur+'</div></div></div><div class="compare-canvas-wrap"><img class="cp-img" src="'+sess.imageSrc+'"><canvas class="cp-canvas"></canvas></div><div class="cp-stats">'+sess.fixationHistory.length+' fix . '+sess.saccadeHistory.length+' sac . '+sess.gazeLog.length+' samples</div>';grid.appendChild(cell);const wrap=cell.querySelector('.compare-canvas-wrap'),canvas=cell.querySelector('.cp-canvas');setTimeout(()=>{canvas.width=wrap.offsetWidth;canvas.height=wrap.offsetHeight;const ctx=canvas.getContext('2d');const W=canvas.width,H=canvas.height;const RC='255,0,3';switch(layer){case 'GAZE':staticGaze(ctx,W,H,sess.gazeLog,RC);break;case 'קיבוע':staticFixation(ctx,W,H,sess.fixationHistory,RC);break;case 'סקאדה':staticSaccade(ctx,W,H,sess.saccadeHistory,RC);break;case 'SCANPATH':staticScanPath(ctx,W,H,sess.scanPathHistory,RC);break;case 'מפת חום':staticHeatmap(ctx,W,H,sess.gazeLog,RC);break;case 'FIRSTFIX':staticFirstFix(ctx,W,H,sess.firstFix,sess.firstFixModeTs,RC);break;}},60);}}
+function renderCompareView(){populateCompareFilters();const grid=document.getElementById('compareGrid');grid.innerHTML='';const layer=document.getElementById('cf-layer').value||dataActiveLayer||'GAZE';const filteredSessions=getFilteredSessions();if(allSessions.length===0){grid.innerHTML='<div style="color:#555;font-size:11px;letter-spacing:0.2em;text-align:center;padding:40px 0;grid-column:1/-1;">אין סשנים להשוואה עדיין</div>';return;}for(const sess of filteredSessions){const cell=document.createElement('div');cell.className='compare-panel';const ts=new Date(sess.timestamp).toLocaleTimeString();const dur=sess.sessionDuration?(sess.sessionDuration/1000).toFixed(1)+'s':'--';cell.innerHTML='<div class="compare-panel-header"><div><div class="cp-user">'+sess.user+'</div><div class="cp-meta">'+(sess.age?sess.age+' yrs':'')+((sess.age&&sess.gender)?' . ':'')+( sess.gender||'')+(sess.location?' . '+sess.location:'')+'</div></div><div style="text-align:right"><div class="cp-time">'+sess.imageName+'</div><div class="cp-time">'+ts+' . '+dur+'</div></div></div><div class="compare-canvas-wrap"><img class="cp-img" src="'+sess.imageSrc+'"><canvas class="cp-canvas"></canvas></div><div class="cp-stats">'+sess.fixationHistory.length+' fix . '+sess.saccadeHistory.length+' sac . '+sess.gazeLog.length+' samples</div>';grid.appendChild(cell);const wrap=cell.querySelector('.compare-canvas-wrap'),canvas=cell.querySelector('.cp-canvas');setTimeout(()=>{canvas.width=wrap.offsetWidth;canvas.height=wrap.offsetHeight;const ctx=canvas.getContext('2d');const W=canvas.width,H=canvas.height;const RC='255,0,3';switch(layer){case 'GAZE':staticGaze(ctx,W,H,sess.gazeLog,RC);break;case 'קיבוע':staticFixation(ctx,W,H,sess.fixationHistory,RC);break;case 'סקאדה':staticSaccade(ctx,W,H,sess.saccadeHistory,RC);break;case 'SCANPATH':staticScanPath(ctx,W,H,sess.scanPathHistory,RC);break;case 'מפת חום':staticHeatmap(ctx,W,H,sess.gazeLog,RC);break;case 'FIRSTFIX':staticFirstFix(ctx,W,H,sess.firstFix,sess.firstFixModeTs,RC);break;}},60);}}
 
 document.getElementById('cf-apply').addEventListener('click',renderCompareView);
 document.getElementById('cf-layer').addEventListener('change',renderCompareView);
 
 function showSharedBg(){
+  const abVid=document.getElementById('aboutSkyVideo');
   document.getElementById('aboutSkyVideo').style.display='block';
   document.getElementById('aboutSkyColorOverlay').style.display='block';
   document.getElementById('aboutBlurOverlay').style.display='block';
+  abVid.pause();
+  abVid.currentTime=1.5;
 }
 
 function openGallery(){
@@ -1213,13 +1184,10 @@ function openGallery(){
   }
 }
 function closeGallery(){document.getElementById('galleryScreen').style.display='none';navGalleryLink.classList.remove('active');}
-function renderGalleryScreen(){const body=document.getElementById('galleryBody');body.innerHTML='';const byUser=new Map();for(const sess of allSessions){if(!byUser.has(sess.user))byUser.set(sess.user,[]);byUser.get(sess.user).push(sess);}if(byUser.size===0){body.innerHTML='<div style="color:#555;font-size:11px;letter-spacing:0.2em;text-align:center;margin-top:60px;">NO SESSIONS YET</div>';return;}for(const[userName,userSessions]of byUser){const block=document.createElement('div');block.className='gallery-user-block';const meta=userSessions[0];const metaStr=[meta.age?meta.age+'y':'',meta.gender||'',meta.location||''].filter(Boolean).join(' . ');block.innerHTML='<div class="gallery-user-name">'+userName+'</div><div class="gallery-user-meta">'+metaStr+'</div><div class="gallery-images-row" id="gallery-row-'+userName.replace(/\s/g,'_')+'"></div>';body.appendChild(block);const row=block.querySelector('.gallery-images-row');for(const sess of userSessions){const item=document.createElement('div');item.className='gallery-item'+(sess===viewSession?' active-view':'');const dur=sess.sessionDuration?(sess.sessionDuration/1000).toFixed(1)+'s':'--';item.innerHTML='<img class="gallery-item-img" src="'+sess.imageSrc+'" alt="'+sess.imageName+'"/><div class="gallery-item-info"><span class="gallery-item-name">'+sess.imageName+'</span><span class="gallery-item-stats">'+sess.fixationHistory.length+'F . '+sess.gazeLog.length+'S . '+dur+'</span></div>';item.onclick=()=>{viewSession=sess;document.querySelectorAll('.gallery-item').forEach(el=>el.classList.remove('active-view'));item.classList.add('active-view');openData(false);};row.appendChild(item);}}}
+function renderGalleryScreen(){const body=document.getElementById('galleryBody');body.innerHTML='';const byUser=new Map();for(const sess of allSessions){if(!byUser.has(sess.user))byUser.set(sess.user,[]);byUser.get(sess.user).push(sess);}if(byUser.size===0){body.innerHTML='<div style="color:#555;font-size:11px;letter-spacing:0.2em;text-align:center;margin-top:60px;">אין סשנים עדיין</div>';return;}for(const[userName,userSessions]of byUser){const block=document.createElement('div');block.className='gallery-user-block';const meta=userSessions[0];const metaStr=[meta.age?meta.age+'y':'',meta.gender||'',meta.location||''].filter(Boolean).join(' . ');block.innerHTML='<div class="gallery-user-name">'+userName+'</div><div class="gallery-user-meta">'+metaStr+'</div><div class="gallery-images-row" id="gallery-row-'+userName.replace(/\s/g,'_')+'"></div>';body.appendChild(block);const row=block.querySelector('.gallery-images-row');for(const sess of userSessions){const item=document.createElement('div');item.className='gallery-item'+(sess===viewSession?' active-view':'');const dur=sess.sessionDuration?(sess.sessionDuration/1000).toFixed(1)+'s':'--';item.innerHTML='<img class="gallery-item-img" src="'+sess.imageSrc+'" alt="'+sess.imageName+'"/><div class="gallery-item-info"><span class="gallery-item-name">'+sess.imageName+'</span><span class="gallery-item-stats">'+sess.fixationHistory.length+'F . '+sess.gazeLog.length+'S . '+dur+'</span></div>';item.onclick=()=>{viewSession=sess;document.querySelectorAll('.gallery-item').forEach(el=>el.classList.remove('active-view'));item.classList.add('active-view');openData(false);};row.appendChild(item);}}}
 
 function captureSession(){return{user:currentUser||'Unknown',age:currentAge,gender:currentGender,location:userLocation,imageSrc:mainImg.src,imageName:imageLibrary[currentImageIdx]?.name||'image',timestamp:Date.now(),sessionDuration:sessionStartTs?Date.now()-sessionStartTs:0,gazeLog:gazeLog.slice(),fixationHistory:fixationHistory.slice(),saccadeHistory:saccadeHistory.slice(),scanPathHistory:scanPathHistory.slice(),firstFix,firstFixModeTs,sessionStartTs};}
 
-/* ══════════════════════════════════════════════════════════════════════
-   profile - save & load (Supabase)
-   ══════════════════════════════════════════════════════════════════════ */
 const SUPABASE_URL = 'https://idtghubjdrpcayyarzdr.supabase.co';
 const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlkdGdodWJqZHJwY2F5eWFyemRyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA3OTE4MjIsImV4cCI6MjA5NjM2NzgyMn0.8hIgJUT1aQ3OvgpcRRAEOeHw7uvLUJn-rzw3PjJS9BY';
 
@@ -1245,7 +1213,6 @@ async function loadProfile(name) {
     const rows = await sbFetch(`profiles?name=eq.${encodeURIComponent(name)}&select=*`);
     if (!rows || rows.length === 0) return null;
     const profile = rows[0];
-    // load sessions for this user
     const sessions = await sbFetch(`sessions?user_name=eq.${encodeURIComponent(name)}&select=*&order=created_at.asc`);
     profile.sessions = sessions || [];
     return profile;
@@ -1254,7 +1221,6 @@ async function loadProfile(name) {
 
 async function saveProfile(session) {
   try {
-    // upsert profile
     await sbFetch('profiles?on_conflict=name', {
       method: 'POST',
       headers: { 'Prefer': 'resolution=merge-duplicates,return=minimal' },
@@ -1265,7 +1231,6 @@ async function saveProfile(session) {
         location: userLocation
       })
     });
-    // insert session
     await sbFetch('sessions', {
       method: 'POST',
       headers: { 'Prefer': 'return=minimal' },
@@ -1290,9 +1255,6 @@ async function saveProfile(session) {
 
 function openData(pushNew=true){if(pushNew){const snap=captureSession();allSessions.push(snap);viewSession=snap;}const dataScreen=document.getElementById('dataScreen');const dataBody=document.getElementById('dataBody');const compareView=document.getElementById('compareView');dataScreen.style.display='flex';dataBody.style.display='flex';compareView.style.display='none';showSharedBg();setNavTheme('dark');document.getElementById('sessionViewBtn').classList.add('active');document.getElementById('compareViewBtn').classList.remove('active');document.getElementById('galleryScreen').style.display='none';document.getElementById('dataImg').src=viewSession.imageSrc;document.getElementById('dataImg').style.opacity=showImg?'1':'0';renderDataSessionBadge(viewSession);const activeBtn=document.querySelector('.layer-btn.active');const layer=activeBtn?activeBtn.dataset.layer:'GAZE';dataActiveLayer=layer;playLayer(layer);}
 
-/* ══════════════════════════════════════════════════════════════════════
-   POLITICAL IMAGES SEQUENCE
-   ══════════════════════════════════════════════════════════════════════ */
 const POLITICAL_IMAGES = [
   { src: 'Politics 4.png', name: 'Politics 4' },
   { src: 'Politics 5.png', name: 'Politics 5' },
@@ -1300,7 +1262,7 @@ const POLITICAL_IMAGES = [
   { src: 'Politics 8.png', name: 'Politics 8' },
   { src: 'Politics 9.png', name: 'Politics 9' },
 ];
-const IMAGE_DURATION = 5000; // 5 seconds
+const IMAGE_DURATION = 5000;
 
 function shuffleArray(arr){
   const a=[...arr];
@@ -1308,40 +1270,12 @@ function shuffleArray(arr){
   return a;
 }
 
-function showSkyVideo(){
-  return new Promise(resolve=>{
-    const overlay=document.getElementById('skyOverlay');
-    const video=document.getElementById('skyVideo');
-    const progress=document.getElementById('skyProgress');
-    overlay.style.display='block';
-    progress.style.width='0%';
-    progress.style.transition='none';
-    video.currentTime=0;
-    video.load();
-    video.play().catch(()=>{});
-    // animate progress bar
-    requestAnimationFrame(()=>{
-      progress.style.transition=`width ${SKY_DURATION}ms linear`;
-      progress.style.width='100%';
-    });
-    setTimeout(()=>{
-      video.pause();
-      overlay.style.display='none';
-      progress.style.width='0%';
-      progress.style.transition='none';
-      resolve();
-    }, SKY_DURATION);
-  });
-}
-
 function runImageSession(imgData){
   return new Promise(resolve=>{
-    // reset session data for this image
     fixationHistory=[];currentFixation=null;scanPathHistory=[];saccadeHistory=[];
     saccadeActive=false;saccadeStart=null;gazeLog=[];firstFix=null;firstFixDone=false;
     heatmap=new Float32Array(W_HEAT*H_HEAT);window._gazeHistory=[];
 
-    // set image
     imgWrapper.style.display='block';
     document.getElementById('aboutSkyVideo').style.display='none';
     document.getElementById('aboutSkyColorOverlay').style.display='none';
@@ -1350,19 +1284,16 @@ function runImageSession(imgData){
     sessionStartTs=Date.now();
     firstFixModeTs=performance.now();
 
-    // collect gaze
     const gazeInterval=setInterval(()=>{
       if(!gazeOn)return;
       gazeLog.push({t:Date.now()-sessionStartTs,x:sGX,y:sGY});
       if(gazeLog.length>10000)gazeLog.shift();
     },100);
 
-    // auto-advance after 12s
     setTimeout(()=>{
       clearInterval(gazeInterval);
       imgWrapper.style.display='none';
 
-      // save session
       const snap={
         user:currentUser||'Unknown',age:currentAge,gender:currentGender,
         location:userLocation,imageSrc:mainImg.src,imageName:imgData.name,
@@ -1389,6 +1320,11 @@ async function runFullSequence(){
   openGallery();
 }
 
+/* ══════════════════════════════════════════════════════════════════════
+   BOOT — התיקון המרכזי:
+   מציג את מסך הכיול מיד אחרי מילוי הטופס,
+   וטוען MediaPipe ברקע בזמן שהמשתמש קורא את ההוראות.
+   ══════════════════════════════════════════════════════════════════════ */
 async function boot(){
   infoEl.style.display='block';
   gazeDot.style.display='block';
@@ -1396,14 +1332,47 @@ async function boot(){
   window.addEventListener('resize',()=>{dotCanvas.width=window.innerWidth;dotCanvas.height=window.innerHeight;});
   heatCanvas=document.createElement('canvas');heatCanvas.width=W_HEAT;heatCanvas.height=H_HEAT;
   heatCtx2=heatCanvas.getContext('2d');
-  const ok=await startEyeTracking();
-  if(ok) await runCalibration();
-  else{ enablePointerFallback(); await runCalibration(); }
+
+  // ① הצג את מסך הכיול מיד — לפני שמחכים ל-MediaPipe
+  showSharedBg();
+  calOverlay.style.display='block';
+  calOverlay.style.zIndex='2100';
+  const nav=document.getElementById('mainNav');
+  nav.style.display='none';
+  resizeCal();
+  window.addEventListener('resize',resizeCal);
+  drawCalIntro();
+  calStartBtn.style.display='block';
+
+  // ② התחל לטעון eye tracking ברקע — המשתמש קורא את ההוראות בינתיים
+  const eyePromise=startEyeTracking();
+
+  // ③ חכה ללחיצה על "התחל כיול"
+  await new Promise(r=>calStartBtn.addEventListener('click',r,{once:true}));
+  calStartBtn.style.display='none';
+
+  // ④ ודא שהטעינה הסתיימה לפני שמתחילים בנקודות
+  const ok=await eyePromise;
+  if(!ok) enablePointerFallback();
+
+  // ⑤ הרץ את 9 נקודות הכיול
+  const calData=[];
+  for(let i=0;i<CAL_PTS.length;i++){
+    const[nx,ny]=CAL_PTS[i],px=nx*window.innerWidth,py=ny*window.innerHeight;
+    if(i>0)await new Promise(r=>setTimeout(r,320));
+    const{ox,oy}=await awaitDot(px,py,i);
+    calData.push({sx:nx,sy:ny,ox,oy});
+  }
+  if(calData.length>=4)eyeCalMap=fitAffine(calData);
+  drawCalDone();
+  await new Promise(r=>setTimeout(r,900));
+  calOverlay.style.display='none';
+  nav.style.display='flex';
+
   requestAnimationFrame(mainLoop);
   await runFullSequence();
 }
 
-// finishBtn removed - sessions are automatic
 document.getElementById('sessionViewBtn').addEventListener('click',()=>{
   document.getElementById('sessionViewBtn').classList.add('active');
   document.getElementById('compareViewBtn').classList.remove('active');
@@ -1435,7 +1404,6 @@ function hideAllScreens(){
   if(skyVid) skyVid.style.display='none';
   const skyOverlay=document.getElementById('skyColorOverlay');
   if(skyOverlay) skyOverlay.style.display='none';
-  // shared bg for all non-home screens
   document.getElementById('aboutSkyVideo').style.display='none';
   document.getElementById('aboutSkyColorOverlay').style.display='none';
   document.getElementById('aboutBlurOverlay').style.display='none';
@@ -1453,16 +1421,11 @@ function hideAllScreens(){
 
 function showAuthNav(){
   document.querySelectorAll('.nav-authenticated').forEach(el=>el.style.display='');
-  document.getElementById('navLoginBtn').classList.add('hidden');
+  const _lb=document.getElementById('navLoginBtn');if(_lb)_lb.classList.add('hidden');
   const signup=document.getElementById('navSignupBtn');
   if(signup) signup.classList.add('hidden');
 }
 
-
-
-/* ══════════════════════════════════════════════════════════════════════
-   MODE SLIDER
-   ══════════════════════════════════════════════════════════════════════ */
 (function(){
   var RED='#E91C1C';
   function ra(a){return 'rgba(233,28,28,'+a+')';}
@@ -1470,29 +1433,16 @@ function showAuthNav(){
   var MODES=[
     {name:'Gaze',num:'01 / 06',desc:'Raw gaze positions sampled continuously - every point where the eye looked, frame by frame.'},
     {name:'Fixation',num:'02 / 06',desc:'Sustained gaze on a single region for ≥200ms. Indicates active cognitive processing.'},
-    {name:'Saccade',num:'03 / 06',desc:'Rapid eye jumps between fixations. Reveals how the eye explores and scans a scene.'},
+    {name:'Saccade',num:'03 / 06',desc:'Rapid קפיצות עין between fixations. Reveals how the eye explores and scans a scene.'},
     {name:'Scan path',num:'04 / 06',desc:'The chronological sequence of fixations - the full visual journey across the image.'},
     {name:'Heatmap',num:'05 / 06',desc:'Density map of visual attention. Hotter areas received more and longer fixations.'},
     {name:'First fixation',num:'06 / 06',desc:'The very first region noticed - the pre-conscious entry point of visual attention.'}
   ];
   window._MODES_REF = MODES;
 
-  var gazeLog=[
-    {x:0.18,y:0.30},{x:0.20,y:0.28},{x:0.22,y:0.32},
-    {x:0.50,y:0.22},{x:0.52,y:0.24},{x:0.54,y:0.20},
-    {x:0.74,y:0.50},{x:0.72,y:0.52},{x:0.76,y:0.48},
-    {x:0.34,y:0.68},{x:0.36,y:0.66},{x:0.38,y:0.70},
-    {x:0.60,y:0.78},{x:0.62,y:0.76},{x:0.58,y:0.80},
-    {x:0.28,y:0.48},{x:0.50,y:0.50},{x:0.65,y:0.35}
-  ];
-  var fixHist=[
-    {x:0.20,y:0.30,dur:380},{x:0.52,y:0.22,dur:260},
-    {x:0.74,y:0.50,dur:500},{x:0.36,y:0.68,dur:180},{x:0.61,y:0.78,dur:320}
-  ];
-  var sacHist=[
-    {fx:0.20,fy:0.30,tx:0.52,ty:0.22},{fx:0.52,fy:0.22,tx:0.74,ty:0.50},
-    {fx:0.74,fy:0.50,tx:0.36,ty:0.68},{fx:0.36,fy:0.68,tx:0.61,ty:0.78}
-  ];
+  var gazeLog=[{x:0.18,y:0.30},{x:0.20,y:0.28},{x:0.22,y:0.32},{x:0.50,y:0.22},{x:0.52,y:0.24},{x:0.54,y:0.20},{x:0.74,y:0.50},{x:0.72,y:0.52},{x:0.76,y:0.48},{x:0.34,y:0.68},{x:0.36,y:0.66},{x:0.38,y:0.70},{x:0.60,y:0.78},{x:0.62,y:0.76},{x:0.58,y:0.80},{x:0.28,y:0.48},{x:0.50,y:0.50},{x:0.65,y:0.35}];
+  var fixHist=[{x:0.20,y:0.30,dur:380},{x:0.52,y:0.22,dur:260},{x:0.74,y:0.50,dur:500},{x:0.36,y:0.68,dur:180},{x:0.61,y:0.78,dur:320}];
+  var sacHist=[{fx:0.20,fy:0.30,tx:0.52,ty:0.22},{fx:0.52,fy:0.22,tx:0.74,ty:0.50},{fx:0.74,fy:0.50,tx:0.36,ty:0.68},{fx:0.36,fy:0.68,tx:0.61,ty:0.78}];
 
   var cur=0, raf=null, stopFlag=false;
   var el, ctx, W, H;
@@ -1510,283 +1460,44 @@ function showAuthNav(){
     return true;
   }
 
-  function drawArrow(fx,fy,tx,ty){
-    ctx.beginPath();ctx.moveTo(fx,fy);ctx.lineTo(tx,ty);ctx.stroke();
-    var a=Math.atan2(ty-fy,tx-fx),l=8;
-    ctx.beginPath();
-    ctx.moveTo(tx,ty);
-    ctx.lineTo(tx-l*Math.cos(a-Math.PI/6),ty-l*Math.sin(a-Math.PI/6));
-    ctx.lineTo(tx-l*Math.cos(a+Math.PI/6),ty-l*Math.sin(a+Math.PI/6));
-    ctx.closePath();ctx.fillStyle=RED;ctx.fill();
-  }
+  function drawArrow(fx,fy,tx,ty){ctx.beginPath();ctx.moveTo(fx,fy);ctx.lineTo(tx,ty);ctx.stroke();var a=Math.atan2(ty-fy,tx-fx),l=8;ctx.beginPath();ctx.moveTo(tx,ty);ctx.lineTo(tx-l*Math.cos(a-Math.PI/6),ty-l*Math.sin(a-Math.PI/6));ctx.lineTo(tx-l*Math.cos(a+Math.PI/6),ty-l*Math.sin(a+Math.PI/6));ctx.closePath();ctx.fillStyle=RED;ctx.fill();}
 
-  function startAnim(idx){
-    stopFlag=true;
-    if(raf)cancelAnimationFrame(raf);
-    setTimeout(function(){
-      stopFlag=false;
-      if(!setup())return;
-      ctx.clearRect(0,0,W,H);
-      switch(idx){
-        case 0: runGaze(); break;
-        case 1: runFixation(); break;
-        case 2: runSaccade(); break;
-        case 3: runScanPath(); break;
-        case 4: runHeatmap(); break;
-        case 5: runFirstFix(); break;
-      }
-    },50);
-  }
+  function startAnim(idx){stopFlag=true;if(raf)cancelAnimationFrame(raf);setTimeout(function(){stopFlag=false;if(!setup())return;ctx.clearRect(0,0,W,H);switch(idx){case 0:runGaze();break;case 1:runFixation();break;case 2:runSaccade();break;case 3:runScanPath();break;case 4:runHeatmap();break;case 5:runFirstFix();break;}},50);}
 
-  function runGaze(){
-    var dots=[],dIdx=0,t=0;
-    function addDot(){
-      var p=gazeLog[dIdx%gazeLog.length];
-      var jit=function(){return(Math.random()-0.5)*0.06;};
-      dots.push({x:Math.max(0.05,Math.min(0.95,p.x+jit())),y:Math.max(0.05,Math.min(0.95,p.y+jit())),age:0});
-      if(dots.length>28)dots.shift();dIdx++;
-    }
-    for(var i=0;i<12;i++)addDot();
-    function draw(){
-      if(stopFlag)return;
-      ctx.clearRect(0,0,W,H);
-      for(var i=0;i<dots.length;i++){
-        dots[i].age++;
-        var alpha=Math.max(0,1-dots[i].age/160);
-        ctx.beginPath();ctx.arc(dots[i].x*W,dots[i].y*H,3,0,Math.PI*2);
-        ctx.fillStyle=ra(alpha*0.85);ctx.fill();
-      }
-      t++;if(t%8===0)addDot();
-      raf=requestAnimationFrame(draw);
-    }
-    draw();
-  }
+  function runGaze(){var dots=[],dIdx=0,t=0;function addDot(){var p=gazeLog[dIdx%gazeLog.length];var jit=function(){return(Math.random()-0.5)*0.06;};dots.push({x:Math.max(0.05,Math.min(0.95,p.x+jit())),y:Math.max(0.05,Math.min(0.95,p.y+jit())),age:0});if(dots.length>28)dots.shift();dIdx++;}for(var i=0;i<12;i++)addDot();function draw(){if(stopFlag)return;ctx.clearRect(0,0,W,H);for(var i=0;i<dots.length;i++){dots[i].age++;var alpha=Math.max(0,1-dots[i].age/160);ctx.beginPath();ctx.arc(dots[i].x*W,dots[i].y*H,3,0,Math.PI*2);ctx.fillStyle=ra(alpha*0.85);ctx.fill();}t++;if(t%8===0)addDot();raf=requestAnimationFrame(draw);}draw();}
 
-  function runFixation(){
-    var fIdx=0,shown=[],start=null,phase='grow';
-    function maxR(dur){return Math.min(6+dur/80,Math.min(W,H)*0.22);}
-    function drawAll(){
-      ctx.clearRect(0,0,W,H);
-      for(var i=0;i<shown.length;i++){
-        var f=shown[i],cx=f.x*W,cy=f.y*H,r=maxR(f.dur);
-        ctx.beginPath();ctx.arc(cx,cy,r,0,Math.PI*2);ctx.fillStyle=ra(0.15);ctx.fill();
-        ctx.beginPath();ctx.arc(cx,cy,r,0,Math.PI*2);ctx.strokeStyle=RED;ctx.lineWidth=1.5;ctx.stroke();
-        ctx.beginPath();ctx.arc(cx,cy,3,0,Math.PI*2);ctx.fillStyle=RED;ctx.fill();
-      }
-    }
-    function draw(ts){
-      if(stopFlag)return;
-      if(!start)start=ts;var elapsed=ts-start;
-      if(phase==='grow'){
-        var f=fixHist[fIdx],dur=500,prog=Math.min(1,elapsed/dur);
-        var cx=f.x*W,cy=f.y*H,r=maxR(f.dur)*prog;
-        drawAll();
-        ctx.beginPath();ctx.arc(cx,cy,Math.max(1,r),0,Math.PI*2);ctx.fillStyle=ra(0.15*prog);ctx.fill();
-        ctx.beginPath();ctx.arc(cx,cy,Math.max(1,r),0,Math.PI*2);ctx.strokeStyle=ra(prog);ctx.lineWidth=1.5;ctx.stroke();
-        if(prog>=1){shown.push(f);fIdx=(fIdx+1)%fixHist.length;phase='wait';start=ts;}
-      } else {drawAll();if(elapsed>500){if(fIdx===0)shown=[];phase='grow';start=ts;}}
-      raf=requestAnimationFrame(draw);
-    }
-    raf=requestAnimationFrame(draw);
-  }
+  function runFixation(){var fIdx=0,shown=[],start=null,phase='grow';function maxR(dur){return Math.min(6+dur/80,Math.min(W,H)*0.22);}function drawAll(){ctx.clearRect(0,0,W,H);for(var i=0;i<shown.length;i++){var f=shown[i],cx=f.x*W,cy=f.y*H,r=maxR(f.dur);ctx.beginPath();ctx.arc(cx,cy,r,0,Math.PI*2);ctx.fillStyle=ra(0.15);ctx.fill();ctx.beginPath();ctx.arc(cx,cy,r,0,Math.PI*2);ctx.strokeStyle=RED;ctx.lineWidth=1.5;ctx.stroke();ctx.beginPath();ctx.arc(cx,cy,3,0,Math.PI*2);ctx.fillStyle=RED;ctx.fill();}}function draw(ts){if(stopFlag)return;if(!start)start=ts;var elapsed=ts-start;if(phase==='grow'){var f=fixHist[fIdx],dur=500,prog=Math.min(1,elapsed/dur);var cx=f.x*W,cy=f.y*H,r=maxR(f.dur)*prog;drawAll();ctx.beginPath();ctx.arc(cx,cy,Math.max(1,r),0,Math.PI*2);ctx.fillStyle=ra(0.15*prog);ctx.fill();ctx.beginPath();ctx.arc(cx,cy,Math.max(1,r),0,Math.PI*2);ctx.strokeStyle=ra(prog);ctx.lineWidth=1.5;ctx.stroke();if(prog>=1){shown.push(f);fIdx=(fIdx+1)%fixHist.length;phase='wait';start=ts;}}else{drawAll();if(elapsed>500){if(fIdx===0)shown=[];phase='grow';start=ts;}}raf=requestAnimationFrame(draw);}raf=requestAnimationFrame(draw);}
 
-  function runSaccade(){
-    var sIdx=0,drawn=[],start=null,phase='draw';
-    function drawAll(){
-      ctx.clearRect(0,0,W,H);
-      for(var i=0;i<drawn.length;i++){
-        var sc=drawn[i];ctx.strokeStyle=RED;ctx.lineWidth=1.5;
-        drawArrow(sc.fx*W,sc.fy*H,sc.tx*W,sc.ty*H);
-      }
-    }
-    function draw(ts){
-      if(stopFlag)return;
-      if(!start)start=ts;var elapsed=ts-start;
-      if(phase==='draw'){
-        var sc=sacHist[sIdx],dur=300,prog=Math.min(1,elapsed/dur);
-        var ex=sc.fx*W+(sc.tx*W-sc.fx*W)*prog,ey=sc.fy*H+(sc.ty*H-sc.fy*H)*prog;
-        drawAll();ctx.strokeStyle=RED;ctx.lineWidth=1.5;
-        ctx.beginPath();ctx.moveTo(sc.fx*W,sc.fy*H);ctx.lineTo(ex,ey);ctx.stroke();
-        if(prog>=1){drawn.push(sc);sIdx=(sIdx+1)%sacHist.length;phase='wait';start=ts;}
-      } else {drawAll();if(elapsed>400){if(sIdx===0)drawn.length=0;phase='draw';start=ts;}}
-      raf=requestAnimationFrame(draw);
-    }
-    raf=requestAnimationFrame(draw);
-  }
+  function runSaccade(){var sIdx=0,drawn=[],start=null,phase='draw';function drawAll(){ctx.clearRect(0,0,W,H);for(var i=0;i<drawn.length;i++){var sc=drawn[i];ctx.strokeStyle=RED;ctx.lineWidth=1.5;drawArrow(sc.fx*W,sc.fy*H,sc.tx*W,sc.ty*H);}}function draw(ts){if(stopFlag)return;if(!start)start=ts;var elapsed=ts-start;if(phase==='draw'){var sc=sacHist[sIdx],dur=300,prog=Math.min(1,elapsed/dur);var ex=sc.fx*W+(sc.tx*W-sc.fx*W)*prog,ey=sc.fy*H+(sc.ty*H-sc.fy*H)*prog;drawAll();ctx.strokeStyle=RED;ctx.lineWidth=1.5;ctx.beginPath();ctx.moveTo(sc.fx*W,sc.fy*H);ctx.lineTo(ex,ey);ctx.stroke();if(prog>=1){drawn.push(sc);sIdx=(sIdx+1)%sacHist.length;phase='wait';start=ts;}}else{drawAll();if(elapsed>400){if(sIdx===0)drawn.length=0;phase='draw';start=ts;}}raf=requestAnimationFrame(draw);}raf=requestAnimationFrame(draw);}
 
-  function runScanPath(){
-    var n=0,start=null,phase='add',NODE_R=14;
-    function drawN(count){
-      ctx.clearRect(0,0,W,H);
-      if(count>=2){
-        ctx.save();ctx.setLineDash([4,7]);ctx.strokeStyle=RED;ctx.lineWidth=1.5;
-        for(var j=0;j<count-1;j++){
-          var a=fixHist[j],b=fixHist[j+1];
-          var ax=a.x*W,ay=a.y*H,bx=b.x*W,by=b.y*H;
-          var dx=bx-ax,dy=by-ay,dist=Math.sqrt(dx*dx+dy*dy);if(dist<1)continue;
-          var ux=dx/dist,uy=dy/dist;
-          ctx.beginPath();ctx.moveTo(ax+ux*NODE_R,ay+uy*NODE_R);ctx.lineTo(bx-ux*NODE_R,by-uy*NODE_R);ctx.stroke();
-        }
-        ctx.setLineDash([]);ctx.restore();
-      }
-      for(var j=0;j<count;j++){
-        var p=fixHist[j],cx=p.x*W,cy=p.y*H;
-        ctx.beginPath();ctx.arc(cx,cy,NODE_R,0,Math.PI*2);ctx.fillStyle='rgba(255,255,255,0.15)';ctx.fill();
-        ctx.beginPath();ctx.arc(cx,cy,NODE_R,0,Math.PI*2);ctx.strokeStyle=RED;ctx.lineWidth=1.5;ctx.stroke();
-        ctx.fillStyle=RED;ctx.font='bold 11px Arial';ctx.textAlign='center';ctx.textBaseline='middle';
-        ctx.fillText(j+1,cx,cy);
-      }
-    }
-    function draw(ts){
-      if(stopFlag)return;
-      if(!start)start=ts;var elapsed=ts-start;
-      if(phase==='add'){
-        if(elapsed>650){n++;drawN(n);if(n>=fixHist.length)phase='pause';start=ts;}
-        else drawN(n);
-      } else {drawN(n);if(elapsed>1200){n=0;phase='add';start=ts;}}
-      raf=requestAnimationFrame(draw);
-    }
-    raf=requestAnimationFrame(draw);
-  }
+  function runScanPath(){var n=0,start=null,phase='add',NODE_R=14;function drawN(count){ctx.clearRect(0,0,W,H);if(count>=2){ctx.save();ctx.setLineDash([4,7]);ctx.strokeStyle=RED;ctx.lineWidth=1.5;for(var j=0;j<count-1;j++){var a=fixHist[j],b=fixHist[j+1];var ax=a.x*W,ay=a.y*H,bx=b.x*W,by=b.y*H;var dx=bx-ax,dy=by-ay,dist=Math.sqrt(dx*dx+dy*dy);if(dist<1)continue;var ux=dx/dist,uy=dy/dist;ctx.beginPath();ctx.moveTo(ax+ux*NODE_R,ay+uy*NODE_R);ctx.lineTo(bx-ux*NODE_R,by-uy*NODE_R);ctx.stroke();}ctx.setLineDash([]);ctx.restore();}for(var j=0;j<count;j++){var p=fixHist[j],cx=p.x*W,cy=p.y*H;ctx.beginPath();ctx.arc(cx,cy,NODE_R,0,Math.PI*2);ctx.fillStyle='rgba(255,255,255,0.15)';ctx.fill();ctx.beginPath();ctx.arc(cx,cy,NODE_R,0,Math.PI*2);ctx.strokeStyle=RED;ctx.lineWidth=1.5;ctx.stroke();ctx.fillStyle=RED;ctx.font='bold 11px Arial';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText(j+1,cx,cy);}}function draw(ts){if(stopFlag)return;if(!start)start=ts;var elapsed=ts-start;if(phase==='add'){if(elapsed>650){n++;drawN(n);if(n>=fixHist.length)phase='pause';start=ts;}else drawN(n);}else{drawN(n);if(elapsed>1200){n=0;phase='add';start=ts;}}raf=requestAnimationFrame(draw);}raf=requestAnimationFrame(draw);}
 
-  function runHeatmap(){
-    var hmW=60,hmH=36,hm=new Float32Array(hmW*hmH);
-    var sigma=0.10*Math.max(hmW,hmH),r=Math.ceil(3*sigma),inv2=1/(2*sigma*sigma);
-    var allPts=[];
-    for(var rep=0;rep<3;rep++){
-      for(var i=0;i<gazeLog.length;i++){
-        var jx=(Math.random()-0.5)*0.08,jy=(Math.random()-0.5)*0.08;
-        allPts.push({x:Math.max(0.05,Math.min(0.95,gazeLog[i].x+jx)),y:Math.max(0.05,Math.min(0.95,gazeLog[i].y+jy))});
-      }
-    }
-    function addPoint(p){
-      var gx=p.x*hmW,gy=p.y*hmH;
-      var x0=Math.max(0,Math.floor(gx-r)),x1=Math.min(hmW-1,Math.ceil(gx+r));
-      var y0=Math.max(0,Math.floor(gy-r)),y1=Math.min(hmH-1,Math.ceil(gy+r));
-      for(var y=y0;y<=y1;y++)for(var x=x0;x<=x1;x++)
-        hm[y*hmW+x]+=0.22*Math.exp(-((x-gx)*(x-gx)+(y-gy)*(y-gy))*inv2);
-    }
-    function getMSSegs(idx,T,R,B,L){
-      switch(idx){
-        case 1:return[[L,B]];case 2:return[[R,B]];case 3:return[[L,R]];
-        case 4:return[[T,R]];case 5:return[[T,R],[L,B]];case 6:return[[T,B]];
-        case 7:return[[T,L]];case 8:return[[T,L]];case 9:return[[T,B]];
-        case 10:return[[L,T],[R,B]];case 11:return[[T,R]];case 12:return[[L,R]];
-        case 13:return[[R,B]];case 14:return[[L,B]];default:return[];
-      }
-    }
-    function render(){
-      ctx.clearRect(0,0,W,H);
-      var maxVal=0;for(var i=0;i<hm.length;i++)if(hm[i]>maxVal)maxVal=hm[i];
-      if(maxVal<0.01)return;
-      var levels=[0.15,0.30,0.50,0.70,0.88],M=4;
-      for(var li=0;li<levels.length;li++){
-        var level=levels[li];
-        ctx.strokeStyle=ra(Math.min(1,0.35+level*0.65));ctx.lineWidth=2.5;ctx.beginPath();
-        for(var cy2=0;cy2<hmH-1;cy2++){
-          for(var cx2=0;cx2<hmW-1;cx2++){
-            var vTL=hm[cy2*hmW+cx2]/maxVal,vTR=hm[cy2*hmW+(cx2+1)]/maxVal;
-            var vBR=hm[(cy2+1)*hmW+(cx2+1)]/maxVal,vBL=hm[(cy2+1)*hmW+cx2]/maxVal;
-            var idx2=(vTL>=level?8:0)+(vTR>=level?4:0)+(vBR>=level?2:0)+(vBL>=level?1:0);
-            if(idx2===0||idx2===15)continue;
-            var sx0=M+cx2*(W-2*M)/hmW,sx1=M+(cx2+1)*(W-2*M)/hmW;
-            var sy0=M+cy2*(H-2*M)/hmH,sy1=M+(cy2+1)*(H-2*M)/hmH;
-            var lp=function(v0,v1){return Math.abs(v1-v0)<1e-10?0.5:Math.max(0,Math.min(1,(level-v0)/(v1-v0)));};
-            var T2=[sx0+lp(vTL,vTR)*(sx1-sx0),sy0],R2=[sx1,sy0+lp(vTR,vBR)*(sy1-sy0)];
-            var B2=[sx0+lp(vBL,vBR)*(sx1-sx0),sy1],L2=[sx0,sy0+lp(vTL,vBL)*(sy1-sy0)];
-            var segs=getMSSegs(idx2,T2,R2,B2,L2);
-            for(var si=0;si<segs.length;si++){ctx.moveTo(segs[si][0][0],segs[si][0][1]);ctx.lineTo(segs[si][1][0],segs[si][1][1]);}
-          }
-        }
-        ctx.stroke();
-      }
-    }
-    var ptIdx=0,BATCH=3,INTERVAL=120;
-    function step(){
-      if(stopFlag)return;
-      for(var b=0;b<BATCH&&ptIdx<allPts.length;b++,ptIdx++)addPoint(allPts[ptIdx]);
-      render();
-      if(ptIdx<allPts.length){setTimeout(step,INTERVAL);}
-      else{setTimeout(function(){if(stopFlag)return;for(var i=0;i<hm.length;i++)hm[i]=0;ptIdx=0;setTimeout(step,400);},2500);}
-    }
-    setTimeout(step,200);
-  }
+  function runHeatmap(){var hmW=60,hmH=36,hm=new Float32Array(hmW*hmH);var sigma=0.10*Math.max(hmW,hmH),r=Math.ceil(3*sigma),inv2=1/(2*sigma*sigma);var allPts=[];for(var rep=0;rep<3;rep++){for(var i=0;i<gazeLog.length;i++){var jx=(Math.random()-0.5)*0.08,jy=(Math.random()-0.5)*0.08;allPts.push({x:Math.max(0.05,Math.min(0.95,gazeLog[i].x+jx)),y:Math.max(0.05,Math.min(0.95,gazeLog[i].y+jy))});}}function addPoint(p){var gx=p.x*hmW,gy=p.y*hmH;var x0=Math.max(0,Math.floor(gx-r)),x1=Math.min(hmW-1,Math.ceil(gx+r));var y0=Math.max(0,Math.floor(gy-r)),y1=Math.min(hmH-1,Math.ceil(gy+r));for(var y=y0;y<=y1;y++)for(var x=x0;x<=x1;x++)hm[y*hmW+x]+=0.22*Math.exp(-((x-gx)*(x-gx)+(y-gy)*(y-gy))*inv2);}function getMSSegs(idx,T,R,B,L){switch(idx){case 1:return[[L,B]];case 2:return[[R,B]];case 3:return[[L,R]];case 4:return[[T,R]];case 5:return[[T,R],[L,B]];case 6:return[[T,B]];case 7:return[[T,L]];case 8:return[[T,L]];case 9:return[[T,B]];case 10:return[[L,T],[R,B]];case 11:return[[T,R]];case 12:return[[L,R]];case 13:return[[R,B]];case 14:return[[L,B]];default:return[];}}function render(){ctx.clearRect(0,0,W,H);var maxVal=0;for(var i=0;i<hm.length;i++)if(hm[i]>maxVal)maxVal=hm[i];if(maxVal<0.01)return;var levels=[0.15,0.30,0.50,0.70,0.88],M=4;for(var li=0;li<levels.length;li++){var level=levels[li];ctx.strokeStyle=ra(Math.min(1,0.35+level*0.65));ctx.lineWidth=2.5;ctx.beginPath();for(var cy2=0;cy2<hmH-1;cy2++){for(var cx2=0;cx2<hmW-1;cx2++){var vTL=hm[cy2*hmW+cx2]/maxVal,vTR=hm[cy2*hmW+(cx2+1)]/maxVal;var vBR=hm[(cy2+1)*hmW+(cx2+1)]/maxVal,vBL=hm[(cy2+1)*hmW+cx2]/maxVal;var idx2=(vTL>=level?8:0)+(vTR>=level?4:0)+(vBR>=level?2:0)+(vBL>=level?1:0);if(idx2===0||idx2===15)continue;var sx0=M+cx2*(W-2*M)/hmW,sx1=M+(cx2+1)*(W-2*M)/hmW;var sy0=M+cy2*(H-2*M)/hmH,sy1=M+(cy2+1)*(H-2*M)/hmH;var lp=function(v0,v1){return Math.abs(v1-v0)<1e-10?0.5:Math.max(0,Math.min(1,(level-v0)/(v1-v0)));};var T2=[sx0+lp(vTL,vTR)*(sx1-sx0),sy0],R2=[sx1,sy0+lp(vTR,vBR)*(sy1-sy0)];var B2=[sx0+lp(vBL,vBR)*(sx1-sx0),sy1],L2=[sx0,sy0+lp(vTL,vBL)*(sy1-sy0)];var segs=getMSSegs(idx2,T2,R2,B2,L2);for(var si=0;si<segs.length;si++){ctx.moveTo(segs[si][0][0],segs[si][0][1]);ctx.lineTo(segs[si][1][0],segs[si][1][1]);}}}ctx.stroke();}}var ptIdx=0,BATCH=3,INTERVAL=120;function step(){if(stopFlag)return;for(var b=0;b<BATCH&&ptIdx<allPts.length;b++,ptIdx++)addPoint(allPts[ptIdx]);render();if(ptIdx<allPts.length){setTimeout(step,INTERVAL);}else{setTimeout(function(){if(stopFlag)return;for(var i=0;i<hm.length;i++)hm[i]=0;ptIdx=0;setTimeout(step,400);},2500);}}setTimeout(step,200);}
 
-  function runFirstFix(){
-    var fix={x:0.35,y:0.45},phase='flash',start=null;
-    function draw(ts){
-      if(stopFlag)return;
-      if(!start)start=ts;var elapsed=ts-start;
-      ctx.clearRect(0,0,W,H);
-      var cx=fix.x*W,cy=fix.y*H;
-      if(phase==='flash'){
-        var prog=Math.min(1,elapsed/700);
-        ctx.beginPath();ctx.arc(cx,cy,8+prog*34,0,Math.PI*2);ctx.strokeStyle=ra((1-prog)*0.85);ctx.lineWidth=2;ctx.stroke();
-        ctx.beginPath();ctx.arc(cx,cy,Math.max(2,14*prog),0,Math.PI*2);ctx.fillStyle=ra(prog);ctx.fill();
-        if(prog>=1){phase='pulse';start=ts;}
-      } else {
-        var pt=(elapsed%1400)/1400,pr=14+Math.sin(pt*Math.PI*2)*5;
-        ctx.beginPath();ctx.arc(cx,cy,pr,0,Math.PI*2);ctx.strokeStyle=ra(0.45);ctx.lineWidth=1.5;ctx.stroke();
-        ctx.beginPath();ctx.arc(cx,cy,14,0,Math.PI*2);ctx.fillStyle=RED;ctx.fill();
-        ctx.beginPath();ctx.arc(cx,cy,22,0,Math.PI*2);ctx.strokeStyle=ra(0.25);ctx.lineWidth=1;ctx.stroke();
-        ctx.fillStyle=RED;ctx.font='bold 10px Arial';ctx.textAlign='center';ctx.textBaseline='alphabetic';
-        ctx.fillText('FIRST FIX',cx,cy-34);
-        if(elapsed>2200){phase='flash';start=ts;}
-      }
-      raf=requestAnimationFrame(draw);
-    }
-    raf=requestAnimationFrame(draw);
-  }
+  function runFirstFix(){var fix={x:0.35,y:0.45},phase='flash',start=null;function draw(ts){if(stopFlag)return;if(!start)start=ts;var elapsed=ts-start;ctx.clearRect(0,0,W,H);var cx=fix.x*W,cy=fix.y*H;if(phase==='flash'){var prog=Math.min(1,elapsed/700);ctx.beginPath();ctx.arc(cx,cy,8+prog*34,0,Math.PI*2);ctx.strokeStyle=ra((1-prog)*0.85);ctx.lineWidth=2;ctx.stroke();ctx.beginPath();ctx.arc(cx,cy,Math.max(2,14*prog),0,Math.PI*2);ctx.fillStyle=ra(prog);ctx.fill();if(prog>=1){phase='pulse';start=ts;}}else{var pt=(elapsed%1400)/1400,pr=14+Math.sin(pt*Math.PI*2)*5;ctx.beginPath();ctx.arc(cx,cy,pr,0,Math.PI*2);ctx.strokeStyle=ra(0.45);ctx.lineWidth=1.5;ctx.stroke();ctx.beginPath();ctx.arc(cx,cy,14,0,Math.PI*2);ctx.fillStyle=RED;ctx.fill();ctx.beginPath();ctx.arc(cx,cy,22,0,Math.PI*2);ctx.strokeStyle=ra(0.25);ctx.lineWidth=1;ctx.stroke();ctx.fillStyle=RED;ctx.font='bold 10px Arial';ctx.textAlign='center';ctx.textBaseline='alphabetic';ctx.fillText('קיבוע ראשון',cx,cy-34);if(elapsed>2200){phase='flash';start=ts;}}raf=requestAnimationFrame(draw);}raf=requestAnimationFrame(draw);}
 
-  function goTo(n){
-    cur=(n+6)%6;
-    window._modeCur=cur;
-    document.getElementById('modeNum').textContent=MODES[cur].num;
-    document.getElementById('modeName').textContent=MODES[cur].name;
-    document.getElementById('modeDesc').textContent=MODES[cur].desc;
-    document.querySelectorAll('.mode-dot').forEach(function(d,i){
-      d.style.background=i===cur?'#111':'#ddd';
-      d.style.transform=i===cur?'scale(1.3)':'scale(1)';
-    });
-    startAnim(cur);
-  }
+  function goTo(n){cur=(n+6)%6;window._modeCur=cur;document.getElementById('modeNum').textContent=MODES[cur].num;document.getElementById('modeName').textContent=MODES[cur].name;document.getElementById('modeDesc').textContent=MODES[cur].desc;document.querySelectorAll('.mode-dot').forEach(function(d,i){d.style.background=i===cur?'#111':'#ddd';d.style.transform=i===cur?'scale(1.3)':'scale(1)';});startAnim(cur);}
 
-  function init(){
-    var dotsEl=document.getElementById('modeDots');
-    if(!dotsEl)return;
-    dotsEl.innerHTML='';
-    for(var i=0;i<6;i++){
-      var d=document.createElement('div');
-      d.className='mode-dot';
-      d.style.cssText='width:6px;height:6px;border-radius:50%;background:#ddd;cursor:pointer;transition:all 0.2s;';
-      (function(idx){d.onclick=function(){goTo(idx);};})(i);
-      dotsEl.appendChild(d);
-    }
-    document.getElementById('modePrev').onclick=function(){goTo(cur-1);};
-    document.getElementById('modeNext').onclick=function(){goTo(cur+1);};
-    goTo(0);
-  }
+  function init(){var dotsEl=document.getElementById('modeDots');if(!dotsEl)return;dotsEl.innerHTML='';for(var i=0;i<6;i++){var d=document.createElement('div');d.className='mode-dot';d.style.cssText='width:6px;height:6px;border-radius:50%;background:#ddd;cursor:pointer;transition:all 0.2s;';(function(idx){d.onclick=function(){goTo(idx);};})(i);dotsEl.appendChild(d);}document.getElementById('modePrev').onclick=function(){goTo(cur-1);};document.getElementById('modeNext').onclick=function(){goTo(cur+1);};goTo(0);}
 
   document.fonts.ready.then(function(){setTimeout(init,150);});
 })();
 
- bootHome();
+bootHome();
 document.getElementById('homeSkyVideo').style.display='block';
 document.getElementById('skyColorOverlay').style.display='block';
 setNavTheme('dark');
-// Sync bottom START button width to top START button
+
 document.fonts.ready.then(()=>{
   const btn1 = document.getElementById('homeStartBtn');
   const btn2 = document.getElementById('homeStartBtn2');
   if(btn1 && btn2){
-    const syncWidth = () => {
-      btn2.style.width = btn1.offsetWidth + 'px';
-    };
+    const syncWidth = () => { btn2.style.width = btn1.offsetWidth + 'px'; };
     syncWidth();
     window.addEventListener('resize', syncWidth);
   }
 });
-// Autoplay statue video and freeze on last frame
+
 const statueVid = document.getElementById('statueVideo');
 if(statueVid){
   const seekToEnd = () => {
@@ -1800,333 +1511,75 @@ if(statueVid){
   statueVid.load();
 }
 
-/* ══════════════════════════════════════════════════════════════════════
-   FIBONACCI SPHERE - removed
-   ══════════════════════════════════════════════════════════════════════ */
-
 function bootHome(){
   const hint=document.getElementById('scrollHint');
   const hs=document.getElementById('homeScreen');
-  if(hint&&hs){
-    hs.addEventListener('scroll',()=>{
-      if(hint) hint.style.opacity=hs.scrollTop>10?'0':'1';
-    },{passive:true});
-  }
-
+  if(hint&&hs){hs.addEventListener('scroll',()=>{if(hint) hint.style.opacity=hs.scrollTop>10?'0':'1';},{passive:true});}
   const skyVideo=document.getElementById('homeSkyVideo');
   if(!skyVideo) return;
-
   skyVideo.pause();
-
   let targetTime=0, currentSkyTime=0;
   let lastX=0.5;
   let skyLoopRunning=false;
   let lastSkyUpdate=0;
-
-  function updateSkyVideo(ts){
-    targetTime = lastX * (skyVideo.duration || 5);
-    currentSkyTime += (targetTime - currentSkyTime) * 0.06;
-    if(ts - lastSkyUpdate > 80 && skyVideo.duration && !isNaN(currentSkyTime)){
-      const t = Math.max(0, Math.min(skyVideo.duration - 0.01, currentSkyTime));
-      skyVideo.currentTime = t;
-      lastSkyUpdate = ts;
-    }
-    requestAnimationFrame(updateSkyVideo);
-  }
-
-  function startSkyLoop(){
-    if(!skyLoopRunning){ skyLoopRunning=true; requestAnimationFrame(updateSkyVideo); }
-  }
+  function updateSkyVideo(ts){targetTime = lastX * (skyVideo.duration || 5);currentSkyTime += (targetTime - currentSkyTime) * 0.06;if(ts - lastSkyUpdate > 80 && skyVideo.duration && !isNaN(currentSkyTime)){const t = Math.max(0, Math.min(skyVideo.duration - 0.01, currentSkyTime));skyVideo.currentTime = t;lastSkyUpdate = ts;}requestAnimationFrame(updateSkyVideo);}
+  function startSkyLoop(){if(!skyLoopRunning){ skyLoopRunning=true; requestAnimationFrame(updateSkyVideo); }}
   skyVideo.addEventListener('loadedmetadata', startSkyLoop);
   if(skyVideo.readyState >= 1) startSkyLoop();
   setTimeout(startSkyLoop, 500);
-
-  document.addEventListener('mousemove', e=>{
-    lastX = e.clientX / window.innerWidth;
-  });
+  document.addEventListener('mousemove', e=>{lastX = e.clientX / window.innerWidth;});
 }
 
-/* ══════════════════════════════════════════════════════════════════════
-   PROFILE SCREEN
-   ══════════════════════════════════════════════════════════════════════ */
-function openProfile(){
-  hideAllScreens();
-  showSharedBg();
-  setNavTheme('dark');
-  navProfileLink.classList.add('active');
-  document.getElementById('profileScreen').style.display='flex';
-  renderProfile();
-}
+function openProfile(){hideAllScreens();showSharedBg();setNavTheme('dark');navProfileLink.classList.add('active');document.getElementById('profileScreen').style.display='flex';renderProfile();}
 
 async function renderProfile(){
   const body=document.getElementById('profileBody');
-  body.innerHTML='<div style="font-size:11px;letter-spacing:0.2em;color:#bbb;text-align:center;padding:40px 0;">LOADING...</div>';
-
-  if(!currentUser){
-    body.innerHTML='<div style="font-size:11px;letter-spacing:0.2em;color:#bbb;text-align:center;padding:60px 0;">START YOUR FIRST SESSION</div>';
-    return;
-  }
-
+  body.innerHTML='<div style="font-size:11px;letter-spacing:0.2em;color:#bbb;text-align:center;padding:40px 0;">טוען...</div>';
+  if(!currentUser){body.innerHTML='<div style="font-size:11px;letter-spacing:0.2em;color:#bbb;text-align:center;padding:60px 0;">התחל את הסשן הראשון שלך</div>';return;}
   const remoteProfile = await loadProfile(currentUser);
-
-  // Use remote profile if available, otherwise build from local sessions
   const localSessions = allSessions.filter(s => s.user === currentUser);
-  if(!remoteProfile && localSessions.length === 0){
-    body.innerHTML='<div style="font-size:11px;letter-spacing:0.2em;color:#bbb;text-align:center;padding:60px 0;">NO SESSIONS YET FOR '+currentUser.toUpperCase()+'</div>';
-    return;
-  }
-
+  if(!remoteProfile && localSessions.length === 0){body.innerHTML='<div style="font-size:11px;letter-spacing:0.2em;color:#bbb;text-align:center;padding:60px 0;">אין סשנים עדיין עבור '+currentUser.toUpperCase()+'</div>';return;}
   const profile = remoteProfile || { name: currentUser, age: currentAge, gender: currentGender, created_at: new Date().toISOString() };
-
-  // Sessions: prefer remote, fall back to local
   const remoteSessions = remoteProfile ? (remoteProfile.sessions || []) : [];
-  const sessions = remoteSessions.length > 0 ? remoteSessions : localSessions.map(s=>({
-    image_name: s.imageName,
-    timestamp: s.timestamp,
-    session_duration: s.sessionDuration,
-    fixation_count: s.fixationHistory?.length || 0,
-    saccade_count: s.saccadeHistory?.length || 0,
-  }));
-
+  const sessions = remoteSessions.length > 0 ? remoteSessions : localSessions.map(s=>({image_name: s.imageName,timestamp: s.timestamp,session_duration: s.sessionDuration,fixation_count: s.fixationHistory?.length || 0,saccade_count: s.saccadeHistory?.length || 0,}));
   const totalFix=sessions.reduce((s,ss)=>s+(ss.fixation_count||ss.fixationHistory?.length||0),0);
   const totalSac=sessions.reduce((s,ss)=>s+(ss.saccade_count||ss.saccadeHistory?.length||0),0);
-  const avgFix=0;
   const avgDur=sessions.length?+(sessions.reduce((s,ss)=>s+(ss.session_duration||ss.sessionDuration||0),0)/sessions.length/1000).toFixed(1):0;
-
-  body.innerHTML=`
-    <div style="max-width:800px;margin:0 auto;">
-
-      <!-- header -->
-      <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:32px;padding-bottom:20px;border-bottom:1px solid #e0e0e0;">
-        <div>
-          <div style="font-size:9px;font-weight:700;letter-spacing:0.45em;color:#bbb;margin-bottom:8px;font-family:HaimClassic,Heebo,sans-serif;">PROFILE</div>
-          <div style="font-size:28px;font-weight:700;color:#FF0003;font-family:HaimClassic,Heebo,sans-serif;">${profile.name}</div>
-          <div style="font-size:11px;font-weight:300;color:#999;margin-top:4px;font-family:HaimClassic,Heebo,sans-serif;">${[profile.age?profile.age+'y':'',profile.gender||'',profile.location||''].filter(Boolean).join(' · ')}</div>
-        </div>
-        <div style="font-size:9px;font-weight:300;color:#bbb;letter-spacing:0.1em;font-family:HaimClassic,Heebo,sans-serif;">MEMBER SINCE ${new Date(profile.created_at).toLocaleDateString()}</div>
-      </div>
-
-      <!-- KPIs -->
-      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:28px;">
-        ${[
-          ['סשנים',sessions.length,'סה"כ'],
-          ['קיבועים',totalFix,'עד כה'],
-          ['סקאדות',totalSac,'עד כה'],
-          ['משך ממוצע',avgDur+'s','לסשן'],
-        ].map(([label,val,sub])=>`
-          <div style="background:#fff;border:1px solid #eee;border-radius:8px;padding:16px;box-shadow:0 1px 4px rgba(0,0,0,0.04);">
-            <div style="font-size:7px;font-weight:700;letter-spacing:0.35em;color:#bbb;margin-bottom:8px;font-family:HaimClassic,Heebo,sans-serif;">${label}</div>
-            <div style="font-size:22px;font-weight:700;color:#FF0003;font-family:HaimClassic,Heebo,sans-serif;">${val}</div>
-            <div style="font-size:8px;color:#bbb;margin-top:3px;font-family:HaimClassic,Heebo,sans-serif;">${sub}</div>
-          </div>`).join('')}
-      </div>
-
-      <!-- session history -->
-      <div style="font-size:8px;font-weight:700;letter-spacing:0.45em;color:#999;margin-bottom:14px;padding-bottom:8px;border-bottom:1px solid #e0e0e0;font-family:HaimClassic,Heebo,sans-serif;">SESSION HISTORY</div>
-      ${sessions.length===0
-        ? '<div style="color:#ccc;font-size:11px;text-align:center;padding:40px 0;font-family:HaimClassic,Heebo,sans-serif;">NO SESSIONS YET</div>'
-        : sessions.slice().reverse().map((s,i)=>`
-          <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 16px;background:#fff;border:1px solid #eee;border-radius:8px;margin-bottom:8px;font-family:HaimClassic,Heebo,sans-serif;">
-            <div>
-              <div style="font-size:11px;font-weight:700;color:#111;">${s.image_name||s.imageName||'—'}</div>
-              <div style="font-size:9px;color:#bbb;margin-top:2px;">${new Date(s.timestamp||s.created_at).toLocaleString()}</div>
-            </div>
-            <div style="display:flex;gap:20px;text-align:right;">
-              <div><div style="font-size:9px;color:#bbb;">FIXATIONS</div><div style="font-size:13px;font-weight:700;color:#FF0003;">${s.fixation_count||0}</div></div>
-              <div><div style="font-size:9px;color:#bbb;">SACCADES</div><div style="font-size:13px;font-weight:700;color:#FF0003;">${s.saccade_count||0}</div></div>
-              <div><div style="font-size:9px;color:#bbb;">DURATION</div><div style="font-size:13px;font-weight:700;color:#FF0003;">${((s.session_duration||0)/1000).toFixed(1)}s</div></div>
-              ${s.ttff!==null&&s.ttff!==undefined?`<div><div style="font-size:9px;color:#bbb;">TTFF</div><div style="font-size:13px;font-weight:700;color:#FF0003;">${s.ttff}s</div></div>`:''}
-            </div>
-          </div>`).join('')}
-    </div>
-  `;
+  body.innerHTML=`<div style="max-width:800px;margin:0 auto;"><div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:32px;padding-bottom:20px;border-bottom:1px solid #e0e0e0;"><div><div style="font-size:9px;font-weight:700;letter-spacing:0.45em;color:#bbb;margin-bottom:8px;font-family:HaimClassic,Heebo,sans-serif;">פרופיל</div><div style="font-size:28px;font-weight:700;color:#FF0003;font-family:HaimClassic,Heebo,sans-serif;">${profile.name}</div><div style="font-size:11px;font-weight:300;color:#999;margin-top:4px;font-family:HaimClassic,Heebo,sans-serif;">${[profile.age?profile.age+'y':'',profile.gender||'',profile.location||''].filter(Boolean).join(' · ')}</div></div><div style="font-size:9px;font-weight:300;color:#bbb;letter-spacing:0.1em;font-family:HaimClassic,Heebo,sans-serif;">משתתף מאז ${new Date(profile.created_at).toLocaleDateString()}</div></div><div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:28px;">${[['סשנים',sessions.length,'סה"כ'],['קיבועים',totalFix,'עד כה'],['סקאדות',totalSac,'עד כה'],['משך ממוצע',avgDur+'s','לסשן'],].map(([label,val,sub])=>`<div style="background:#fff;border:1px solid #eee;border-radius:8px;padding:16px;box-shadow:0 1px 4px rgba(0,0,0,0.04);"><div style="font-size:7px;font-weight:700;letter-spacing:0.35em;color:#bbb;margin-bottom:8px;font-family:HaimClassic,Heebo,sans-serif;">${label}</div><div style="font-size:22px;font-weight:700;color:#FF0003;font-family:HaimClassic,Heebo,sans-serif;">${val}</div><div style="font-size:8px;color:#bbb;margin-top:3px;font-family:HaimClassic,Heebo,sans-serif;">${sub}</div></div>`).join('')}</div><div style="font-size:8px;font-weight:700;letter-spacing:0.45em;color:#999;margin-bottom:14px;padding-bottom:8px;border-bottom:1px solid #e0e0e0;font-family:HaimClassic,Heebo,sans-serif;">היסטוריית סשנים</div>${sessions.length===0?'<div style="color:#ccc;font-size:11px;text-align:center;padding:40px 0;font-family:HaimClassic,Heebo,sans-serif;">אין סשנים עדיין</div>':sessions.slice().reverse().map((s,i)=>`<div style="display:flex;align-items:center;justify-content:space-between;padding:12px 16px;background:#fff;border:1px solid #eee;border-radius:8px;margin-bottom:8px;font-family:HaimClassic,Heebo,sans-serif;"><div><div style="font-size:11px;font-weight:700;color:#111;">${s.image_name||s.imageName||'—'}</div><div style="font-size:9px;color:#bbb;margin-top:2px;">${new Date(s.timestamp||s.created_at).toLocaleString()}</div></div><div style="display:flex;gap:20px;text-align:right;"><div><div style="font-size:9px;color:#bbb;">קיבועים</div><div style="font-size:13px;font-weight:700;color:#FF0003;">${s.fixation_count||0}</div></div><div><div style="font-size:9px;color:#bbb;">סקאדות</div><div style="font-size:13px;font-weight:700;color:#FF0003;">${s.saccade_count||0}</div></div><div><div style="font-size:9px;color:#bbb;">משך</div><div style="font-size:13px;font-weight:700;color:#FF0003;">${((s.session_duration||0)/1000).toFixed(1)}s</div></div></div></div>`).join('')}</div>`;
 }
 
-/* ══════════════════════════════════════════════════════════════════════
-   TOOLBAR COLLAPSE
-   ══════════════════════════════════════════════════════════════════════ */
 const dataToolbarCollapseBtn=document.getElementById('dataToolbarCollapseBtn');
 const dataToolbar=document.getElementById('dataToolbar');
 let toolbarCollapsed=false;
 const toolbarInnerEls=()=>Array.from(dataToolbar.children).filter(el=>el!==dataToolbarCollapseBtn);
-dataToolbarCollapseBtn.addEventListener('click',()=>{
-  toolbarCollapsed=!toolbarCollapsed;
-  toolbarInnerEls().forEach(el=>{el.style.display=toolbarCollapsed?'none':'';});
-  const arrow=dataToolbarCollapseBtn.querySelector('.tcb-arrow');
-  arrow.innerHTML=toolbarCollapsed?'&#9654;':'&#9660;';
-  dataToolbarCollapseBtn.title=toolbarCollapsed?'Show toolbar':'Hide toolbar';
-  dataToolbar.style.padding=toolbarCollapsed?'5px':'5px 10px';
-});
+dataToolbarCollapseBtn.addEventListener('click',()=>{toolbarCollapsed=!toolbarCollapsed;toolbarInnerEls().forEach(el=>{el.style.display=toolbarCollapsed?'none':'';});const arrow=dataToolbarCollapseBtn.querySelector('.tcb-arrow');arrow.innerHTML=toolbarCollapsed?'&#9654;':'&#9660;';dataToolbarCollapseBtn.title=toolbarCollapsed?'Show toolbar':'Hide toolbar';dataToolbar.style.padding=toolbarCollapsed?'5px':'5px 10px';});
 
-/* ══════════════════════════════════════════════════════════════════════
-   DASHBOARD
-   ══════════════════════════════════════════════════════════════════════ */
 navDashboardLink.addEventListener('click',()=>openDashboard());
-
 navProfileLink.addEventListener('click',()=>openProfile());
-
 navAboutLink.addEventListener('click',()=>openAbout());
 
-function openAbout(){
-  hideAllScreens();
-  showSharedBg();
-  setNavTheme('dark');
-  navAboutLink.classList.add('active');
-  document.getElementById('aboutScreen').style.display='flex';
-}
+function openAbout(){hideAllScreens();showSharedBg();setNavTheme('dark');navAboutLink.classList.add('active');document.getElementById('aboutScreen').style.display='flex';}
 
-function showEmptyState(screenId,msg){
-  const scr=document.getElementById(screenId);
-  scr.style.display='flex';
-  scr.style.position='relative';
-  const existing=document.querySelector('.empty-state-overlay');
-  if(existing)existing.remove();
-  const overlay=document.createElement('div');
-  overlay.className='empty-state-overlay';
-  overlay.style.cssText='position:fixed;inset:0;top:52px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;z-index:8990;pointer-events:all;';
-  overlay.innerHTML=`
-    <div style="font-size:9px;font-weight:700;letter-spacing:0.45em;color:#aaa;font-family:HaimClassic,Heebo,sans-serif;margin-bottom:4px;">NO SESSIONS YET</div>
-    <div style="font-size:13px;font-weight:300;color:#999;font-family:HaimClassic,Heebo,sans-serif;margin-bottom:16px;">${msg}</div>
-    <button class="empty-state-btn" style="background:rgba(255,255,255,0.35);color:#111;border:1px solid rgba(255,255,255,0.6);font-family:HaimClassic,Heebo,sans-serif;font-size:12px;font-weight:400;letter-spacing:0.2em;padding:12px 36px;cursor:pointer;border-radius:100px;backdrop-filter:blur(12px);">התחל סשן</button>
-  `;
-  overlay.querySelector('.empty-state-btn').addEventListener('click',()=>{
-    overlay.remove();
-    goToSession();
-  });
-  document.body.appendChild(overlay);
-}
+function showEmptyState(screenId,msg){const scr=document.getElementById(screenId);scr.style.display='flex';scr.style.position='relative';const existing=document.querySelector('.empty-state-overlay');if(existing)existing.remove();const overlay=document.createElement('div');overlay.className='empty-state-overlay';overlay.style.cssText='position:fixed;inset:0;top:52px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;z-index:8990;pointer-events:all;';overlay.innerHTML=`<div style="font-size:9px;font-weight:700;letter-spacing:0.45em;color:#aaa;font-family:HaimClassic,Heebo,sans-serif;margin-bottom:4px;">אין סשנים עדיין</div><div style="font-size:13px;font-weight:300;color:#999;font-family:HaimClassic,Heebo,sans-serif;margin-bottom:16px;">${msg}</div><button class="empty-state-btn" style="background:rgba(255,255,255,0.35);color:#111;border:1px solid rgba(255,255,255,0.6);font-family:HaimClassic,Heebo,sans-serif;font-size:12px;font-weight:400;letter-spacing:0.2em;padding:12px 36px;cursor:pointer;border-radius:100px;backdrop-filter:blur(12px);">התחל סשן</button>`;overlay.querySelector('.empty-state-btn').addEventListener('click',()=>{overlay.remove();goToSession();});document.body.appendChild(overlay);}
 
-function openDashboard(){
-  hideAllScreens();
-  showSharedBg();
-  setNavTheme('dark');
-  navDashboardLink.classList.add('active');
-  const scr=document.getElementById('dashboardScreen');
-  scr.style.display='flex';
-  if(allSessions.length===0){
-    showEmptyState('dashboardScreen','התחל את הסשן הראשון שלך כדי לראות את לוח הבקרה.');
-  } else {
-    renderDashboard();
-  }
-}
+function openDashboard(){hideAllScreens();showSharedBg();setNavTheme('dark');navDashboardLink.classList.add('active');const scr=document.getElementById('dashboardScreen');scr.style.display='flex';if(allSessions.length===0){showEmptyState('dashboardScreen','התחל את הסשן הראשון שלך כדי לראות את לוח הבקרה.');}else{renderDashboard();}}
 
-function renderDashboard(){
-  const container=document.getElementById('dashboardContent');
-  container.innerHTML='';
-  if(allSessions.length===0){container.innerHTML='<div style="padding:60px 0;text-align:center;font-size:11px;letter-spacing:0.25em;color:#ccc;font-family:HaimClassic,Heebo,sans-serif;">NO SESSIONS YET</div>';return;}
-  const latest=allSessions[allSessions.length-1];
-  const totalFix=latest.fixationHistory.length;
-  const totalSac=latest.saccadeHistory.length;
-  const avgFixDur=totalFix?Math.round(latest.fixationHistory.reduce((s,f)=>s+f.duration,0)/totalFix):0;
-  const sacAmp=totalSac?+(latest.saccadeHistory.reduce((s,f)=>s+Math.hypot(f.toX-f.fromX,f.toY-f.fromY),0)/totalSac*100).toFixed(1):0;
-  const dur=latest.sessionDuration?(latest.sessionDuration/1000).toFixed(1):0;
-  const ttff=latest.firstFix?((latest.firstFix.startTs-latest.firstFixModeTs)/1000).toFixed(2):null;
-  const kpiSection=document.createElement('div');kpiSection.className='dash-section';
-  kpiSection.innerHTML='<div class="dash-section-title">MY LAST SESSION - '+latest.user+'</div>';
-  const kpiRow=document.createElement('div');kpiRow.className='dash-kpi-row';
-  kpiRow.innerHTML=`<div class="dash-kpi accent"><div class="dash-kpi-label">FIXATIONS</div><div class="dash-kpi-val">${totalFix||'-'}</div><div class="dash-kpi-sub">gaze holds</div></div><div class="dash-kpi accent"><div class="dash-kpi-label">AVG FIXATION</div><div class="dash-kpi-val">${avgFixDur||'-'}<span class="dash-kpi-unit">ms</span></div><div class="dash-kpi-sub">dwell time</div></div><div class="dash-kpi accent"><div class="dash-kpi-label">SACCADES</div><div class="dash-kpi-val">${totalSac||'-'}</div><div class="dash-kpi-sub">eye jumps</div></div><div class="dash-kpi accent"><div class="dash-kpi-label">SAC AMPLITUDE</div><div class="dash-kpi-val">${sacAmp||'-'}<span class="dash-kpi-unit">%</span></div><div class="dash-kpi-sub">avg distance</div></div><div class="dash-kpi accent"><div class="dash-kpi-label">DURATION</div><div class="dash-kpi-val">${dur}<span class="dash-kpi-unit">s</span></div><div class="dash-kpi-sub">viewing time</div></div><div class="dash-kpi accent"><div class="dash-kpi-label">TTFF</div><div class="dash-kpi-val">${ttff||'-'}<span class="dash-kpi-unit">${ttff?'s':''}</span></div><div class="dash-kpi-sub">time to first fix</div></div><div class="dash-kpi"><div class="dash-kpi-label">SAMPLES</div><div class="dash-kpi-val">${latest.gazeLog.length}</div><div class="dash-kpi-sub">gaze points</div></div><div class="dash-kpi"><div class="dash-kpi-label">IMAGE</div><div class="dash-kpi-val" style="font-size:13px">${latest.imageName}</div></div>`;
-  kpiSection.appendChild(kpiRow);container.appendChild(kpiSection);
-  const sparkSection=document.createElement('div');sparkSection.className='dash-section';
-  sparkSection.innerHTML='<div class="dash-section-title">MY SESSION OVERVIEW</div>';
-  sparkSection.appendChild(makeRingChart([{label:'קיבועים',val:totalFix,max:Math.max(totalFix,50)},{label:'סקאדות',val:totalSac,max:Math.max(totalSac,40)},{label:'דגימות',val:latest.gazeLog.length,max:Math.max(latest.gazeLog.length,200)},]));
-  container.appendChild(sparkSection);
-  if(allSessions.length>1){const compSection=document.createElement('div');compSection.className='dash-section';compSection.innerHTML='<div class="dash-section-title">SESSIONS COMPARISON</div>';compSection.appendChild(makeBarChart('ספירת קיבועים',allSessions.map(s=>({label:s.user,val:s.fixationHistory.length}))));compSection.appendChild(makeBarChart('ספירת סקאדות',allSessions.map(s=>({label:s.user,val:s.saccadeHistory.length}))));compSection.appendChild(makeBarChart('משך סשן (שניות)',allSessions.map(s=>({label:s.user,val:+(s.sessionDuration/1000).toFixed(1)}))));compSection.appendChild(makeBarChart('משך קיבוע ממוצע (ms)',allSessions.map(s=>{const f=s.fixationHistory;return{label:s.user,val:f.length?Math.round(f.reduce((a,x)=>a+x.duration,0)/f.length):0};})));container.appendChild(compSection);}
-  const byUser=new Map();for(const sess of allSessions){if(!byUser.has(sess.user))byUser.set(sess.user,[]);byUser.get(sess.user).push(sess);}
-  if(byUser.size>1){const userSection=document.createElement('div');userSection.className='dash-section';userSection.innerHTML='<div class="dash-section-title">USER COMPARISON</div>';const grid=document.createElement('div');grid.className='dash-compare-grid';for(const[user,userSessions]of byUser){const card=document.createElement('div');card.className='dash-user-card';const allFix=userSessions.flatMap(ss=>ss.fixationHistory);const totFix=allFix.length;const totSac=sessions.reduce((s,ss)=>s+ss.saccadeHistory.length,0);const totDur=sessions.reduce((s,ss)=>s+ss.sessionDuration,0);const avgF=totFix?Math.round(allFix.reduce((s,f)=>s+f.duration,0)/totFix):0;const meta=userSessions[0];card.innerHTML=`<div class="dash-user-card-name">${user}</div><div class="dash-user-card-meta">${meta.age?meta.age+'y · ':''}${meta.gender||''} · ${sessions.length} session${sessions.length>1?'s':''}</div><div class="dash-user-stats"><div class="dash-user-stat"><div class="dash-user-stat-label">FIXATIONS</div><div class="dash-user-stat-val">${totFix}</div></div><div class="dash-user-stat"><div class="dash-user-stat-label">AVG DUR</div><div class="dash-user-stat-val">${avgF}ms</div></div><div class="dash-user-stat"><div class="dash-user-stat-label">SACCADES</div><div class="dash-user-stat-val">${totSac}</div></div><div class="dash-user-stat"><div class="dash-user-stat-label">TOTAL TIME</div><div class="dash-user-stat-val">${(totDur/1000).toFixed(1)}s</div></div></div>`;grid.appendChild(card);}userSection.appendChild(grid);container.appendChild(userSection);}
-}
+function renderDashboard(){const container=document.getElementById('dashboardContent');container.innerHTML='';if(allSessions.length===0){container.innerHTML='<div style="padding:60px 0;text-align:center;font-size:11px;letter-spacing:0.25em;color:#ccc;font-family:HaimClassic,Heebo,sans-serif;">אין סשנים עדיין</div>';return;}const latest=allSessions[allSessions.length-1];const totalFix=latest.fixationHistory.length;const totalSac=latest.saccadeHistory.length;const avgFixDur=totalFix?Math.round(latest.fixationHistory.reduce((s,f)=>s+f.duration,0)/totalFix):0;const sacAmp=totalSac?+(latest.saccadeHistory.reduce((s,f)=>s+Math.hypot(f.toX-f.fromX,f.toY-f.fromY),0)/totalSac*100).toFixed(1):0;const dur=latest.sessionDuration?(latest.sessionDuration/1000).toFixed(1):0;const ttff=latest.firstFix?((latest.firstFix.startTs-latest.firstFixModeTs)/1000).toFixed(2):null;const kpiSection=document.createElement('div');kpiSection.className='dash-section';kpiSection.innerHTML='<div class="dash-section-title">הסשן האחרון שלי — '+latest.user+'</div>';const kpiRow=document.createElement('div');kpiRow.className='dash-kpi-row';kpiRow.innerHTML=`<div class="dash-kpi accent"><div class="dash-kpi-label">קיבועים</div><div class="dash-kpi-val">${totalFix||'-'}</div><div class="dash-kpi-sub">נקודות מבט</div></div><div class="dash-kpi accent"><div class="dash-kpi-label">AVG FIXATION</div><div class="dash-kpi-val">${avgFixDur||'-'}<span class="dash-kpi-unit">ms</span></div><div class="dash-kpi-sub">זמן שהייה</div></div><div class="dash-kpi accent"><div class="dash-kpi-label">סקאדות</div><div class="dash-kpi-val">${totalSac||'-'}</div><div class="dash-kpi-sub">קפיצות עין</div></div><div class="dash-kpi accent"><div class="dash-kpi-label">SAC AMPLITUDE</div><div class="dash-kpi-val">${sacAmp||'-'}<span class="dash-kpi-unit">%</span></div><div class="dash-kpi-sub">מרחק ממוצע</div></div><div class="dash-kpi accent"><div class="dash-kpi-label">משך</div><div class="dash-kpi-val">${dur}<span class="dash-kpi-unit">s</span></div><div class="dash-kpi-sub">זמן צפייה</div></div><div class="dash-kpi accent"><div class="dash-kpi-label">TTFF</div><div class="dash-kpi-val">${ttff||'-'}<span class="dash-kpi-unit">${ttff?'s':''}</span></div><div class="dash-kpi-sub">זמן לקיבוע ראשון</div></div><div class="dash-kpi"><div class="dash-kpi-label">דגימות</div><div class="dash-kpi-val">${latest.gazeLog.length}</div><div class="dash-kpi-sub">נקודות מבט</div></div><div class="dash-kpi"><div class="dash-kpi-label">תמונה</div><div class="dash-kpi-val" style="font-size:13px">${latest.imageName}</div></div>`;kpiSection.appendChild(kpiRow);container.appendChild(kpiSection);const sparkSection=document.createElement('div');sparkSection.className='dash-section';sparkSection.innerHTML='<div class="dash-section-title">סקירת הסשן</div>';sparkSection.appendChild(makeRingChart([{label:'קיבועים',val:totalFix,max:Math.max(totalFix,50)},{label:'סקאדות',val:totalSac,max:Math.max(totalSac,40)},{label:'דגימות',val:latest.gazeLog.length,max:Math.max(latest.gazeLog.length,200)},]));container.appendChild(sparkSection);}
 
 function makeRingChart(metrics){const wrap=document.createElement('div');wrap.style.cssText='display:flex;gap:16px;flex-wrap:wrap;';const dpr=window.devicePixelRatio||1;const SIZE=120;metrics.forEach(m=>{const cell=document.createElement('div');cell.style.cssText='display:flex;flex-direction:column;align-items:center;gap:6px;background:#fff;border:1px solid #eee;border-radius:8px;padding:14px 18px;box-shadow:0 1px 4px rgba(0,0,0,0.04);';const canvas=document.createElement('canvas');canvas.width=SIZE*dpr;canvas.height=SIZE*dpr;canvas.style.width=SIZE+'px';canvas.style.height=SIZE+'px';const label=document.createElement('div');label.style.cssText='font-size:8px;font-weight:700;letter-spacing:0.3em;color:#bbb;font-family:HaimClassic,Heebo,sans-serif;text-transform:uppercase;';label.textContent=m.label;cell.appendChild(canvas);cell.appendChild(label);wrap.appendChild(cell);setTimeout(()=>{const ctx=canvas.getContext('2d');ctx.scale(dpr,dpr);const cx=SIZE/2,cy=SIZE/2,outerR=SIZE/2-8;const pct=Math.min(1,m.val/m.max);const startA=-Math.PI/2;ctx.beginPath();ctx.arc(cx,cy,outerR,0,Math.PI*2);ctx.strokeStyle='#f0f0f0';ctx.lineWidth=14;ctx.stroke();if(pct>0){ctx.beginPath();ctx.arc(cx,cy,outerR,startA,startA+pct*Math.PI*2);ctx.strokeStyle='#FF0003';ctx.lineWidth=14;ctx.lineCap='round';ctx.stroke();}ctx.fillStyle='#111';ctx.font='700 22px HaimClassic';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText(m.val,cx,cy-6);ctx.fillStyle='#ccc';ctx.font='300 9px HaimClassic';ctx.fillText('/ '+m.max,cx,cy+12);},60);});return wrap;}
 
 function makeBarChart(title,data,unit=''){const wrap=document.createElement('div');wrap.className='dash-chart-area';const dpr=window.devicePixelRatio||1;const PAD_L=100,PAD_R=60,PAD_T=28,PAD_B=8;const rowH=28,barH=12;const H_canvas=PAD_T+data.length*rowH+PAD_B;const canvas=document.createElement('canvas');canvas.style.width='100%';canvas.style.height=H_canvas+'px';canvas.style.display='block';wrap.appendChild(canvas);setTimeout(()=>{const W2=canvas.offsetWidth||600;canvas.width=W2*dpr;canvas.height=H_canvas*dpr;const ctx=canvas.getContext('2d');ctx.scale(dpr,dpr);const maxVal=Math.max(...data.map(d=>d.val),1);const barZone=W2-PAD_L-PAD_R;ctx.font='700 8px HaimClassic';ctx.fillStyle='rgba(0,0,0,0.25)';ctx.textAlign='left';ctx.fillText(title.toUpperCase(),PAD_L,14);for(let g=0;g<=4;g++){const x=PAD_L+barZone*g/4;ctx.strokeStyle='rgba(0,0,0,0.06)';ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(x,PAD_T);ctx.lineTo(x,H_canvas-PAD_B);ctx.stroke();}data.forEach((d,i)=>{const y=PAD_T+i*rowH;const barW=barZone*d.val/maxVal;ctx.font='300 9px HaimClassic';ctx.fillStyle='rgba(0,0,0,0.45)';ctx.textAlign='right';ctx.textBaseline='middle';ctx.fillText(d.label,PAD_L-10,y+barH/2);ctx.fillStyle='#f0f0f0';ctx.beginPath();const r=barH/2;ctx.roundRect(PAD_L,y,barZone,barH,r);ctx.fill();if(barW>0){ctx.fillStyle='#FF0003';ctx.beginPath();ctx.roundRect(PAD_L,y,barW,barH,r);ctx.fill();}ctx.font='700 9px HaimClassic';ctx.fillStyle='rgba(0,0,0,0.4)';ctx.textAlign='left';ctx.textBaseline='middle';ctx.fillText(d.val+(unit?' '+unit:''),PAD_L+barW+8,y+barH/2);});},60);return wrap;}
 
-/* ══════════════════════════════════════════════════════════════════════
-   i18n - Language Toggle
-   ══════════════════════════════════════════════════════════════════════ */
 const TRANSLATIONS = {
-  en: {
-    navData:'DATA', navGallery:'GALLERY', navDashboard:'DASHBOARD',
-    navProfile:'פרופיל', navAbout:'ABOUT', navLogin:'LOG IN', navSignup:'SIGN UP',
-    eyebrow:'VISUAL ANALYSIS SYSTEM', heading:'YOU SEE, WE MEASURE.',
-    startBtn:'START', scrollHint:'SCROLL TO LEARN MORE',
-    howItWorks:'HOW IT WORKS', analysisModes:'ANALYSIS MODES',
-    quickStart:'QUICK START', ready:'READY?',
-    howTitle:'From eyes to insights in three steps.',
-    howSub:'The system uses your webcam to detect iris position in real-time, maps gaze to screen coordinates via affine calibration, then classifies movements into research-grade metrics.',
-    step1Title:'EYE TRACKING', step1Desc:'MediaPipe detects 478 facial landmarks per frame, isolating the iris center in both eyes for sub-pixel gaze estimation.',
-    step2Title:'CALIBRATION', step2Desc:'A 9-point affine calibration maps your unique eye movement range to screen coordinates. Keep your head still.',
-    step3Title:'GAZE ANALYSIS', step3Desc:'Gaze samples are classified in real-time into fixations, saccades, scan paths, and heatmaps using I-DT and I-VT algorithms.',
-    modesSub:'Switch between modes in real-time to explore different dimensions of how a viewer scans an image.',
-    modesTitle:'Six ways to read visual attention.',
-    startTitle:'Up and running in under a minute.',
-    readyTitle:'Start your session now.',
-    howto1:'<strong>Allow camera access</strong> when the browser prompts.',
-    howto2:'<strong>Enter your details</strong> for group comparison.',
-    howto3:'<strong>Complete the 9-point calibration.</strong> Eyes only.',
-    howto4:'<strong>Select an image</strong> from the library or upload.',
-    howto5:'<strong>View naturally.</strong> Press FINISH when done.',
-    howto6:'<strong>Explore your data</strong> and compare with others.',
-    modeDescs:[
-      'Raw gaze positions sampled continuously - every point where the eye looked, frame by frame.',
-      'Sustained gaze on a single region for ≥200ms. Indicates active cognitive processing.',
-      'Rapid eye jumps between fixations. Reveals how the eye explores and scans a scene.',
-      'The chronological sequence of fixations - the full visual journey across the image.',
-      'Density map of visual attention. Hotter areas received more and longer fixations.',
-      'The very first region noticed - the pre-conscious entry point of visual attention.'
-    ],
-    startSession:'START',
-    nameLabel:'YOUR CODE', namePlaceholder:'e.g. P-4F7K',
-    ageLabel:'AGE', genderLabel:'GENDER',
-    male:'Male', female:'Female', other:'Other',
-    continueBtn:'CONTINUE',
-    participantCode:'YOUR PARTICIPANT CODE',
-    saveCode:'שמור את הקוד אם תרצה לחזור. הוא מזהה את הסשן שלך באופן אנונימי.',
-    beginBtn:'BEGIN',
-    calTitle:'EYE TRACKING CALIBRATION',
-    calInstr1:'Keep your head still - move only your eyes to each dot',
-    calInstr2:'Hold your gaze until the ring fills completely',
-    calAfter1:'After calibration, you will see 5 political images, one at a time.',
-    calAfter2:'Look naturally - there are no right or wrong answers.',
-    calAfter3:'Each image will appear for 5 seconds.',
-    calBegin:'BEGIN CALIBRATION',
-    calReady:'READY',
-    calDone:'Calibration complete - the session is about to begin.',
-    noSessions:'אין סשנים עדיין',
-    noSessionsData:'התחל את הסשן הראשון שלך כדי לראות את הנתונים.',
-    noSessionsGallery:'התחל את הסשן הראשון שלך כדי לראות את הגלריה.',
-    noSessionsDash:'התחל את הסשן הראשון שלך כדי לראות את לוח הבקרה.',
-    startSessionBtn:'התחל סשן',
-    aboutTitle:'ABOUT', theSystem:'THE SYSTEM', researchFocus:'RESEARCH FOCUS',
-    whatWeMeasure:'WHAT WE MEASURE', builtBy:'BUILT BY',
-    imageCredits:'IMAGE CREDITS',
-    imageCreditsDesc:'All images courtesy of the Government Press Office of Israel.',
-    memberSince:'MEMBER SINCE',
-    noSessionsYet:'אין סשנים עדיין',
-    sessionHistory:'היסטוריית סשנים',
-    profileTitle:'פרופיל',
-    loading:'טוען...',
-  },
   he: {
     navData:'נתונים', navGallery:'גלריה', navDashboard:'לוח בקרה',
     navProfile:'פרופיל', navAbout:'אודות', navLogin:'כניסה', navSignup:'הרשמה',
     eyebrow:'מערכת ניתוח חזותי', heading:'המבט שלך, המדידה שלנו.',
-    startBtn:'התחלה', scrollHint:'גלול למידע נוסף',
-    howItWorks:'איך זה עובד', analysisModes:'מצבי ניתוח',
-    quickStart:'התחלה מהירה', ready:'מוכן?',
-    howTitle:'משלושה שלבים לתובנות.',
-    howSub:'המערכת משתמשת במצלמת הרשת לאיתור מיקום האיריס בזמן אמת, ממפה את המבט לקואורדינטות המסך דרך כיול אפיני, ומסווגת תנועות למדדים ברמת מחקר.',
-    step1Title:'EYE TRACKING', step1Desc:'MediaPipe מזהה 478 נקודות ציון פנים בכל פריים, ומבודד את מרכז האיריס בשתי העיניים לאומדן מבט ברזולוציית תת-פיקסל.',
-    step2Title:'CALIBRATION', step2Desc:'כיול אפיני של 9 נקודות ממפה את טווח תנועת העין הייחודי שלך לקואורדינטות המסך. שמור על ראשך ללא תנועה.',
-    step3Title:'GAZE ANALYSIS', step3Desc:'דגימות המבט מסווגות בזמן אמת לקיבועים, סקאדות, מסלולי סריקה ומפות חום באמצעות אלגוריתמי I-DT ו-I-VT.',
-    modesSub:'עברו בין מצבים בזמן אמת כדי לחקור ממדים שונים של האופן שבו צופה סורק תמונה.',
-    modesTitle:'שש דרכים לקרוא תשומת לב חזותית.',
-    startTitle:'פעיל ועובד בפחות מדקה.',
-    readyTitle:'התחל את הסשן שלך עכשיו.',
-    howto1:'<strong>אפשר גישה למצלמה</strong> כשהדפדפן מבקש.',
-    howto2:'<strong>הזן את פרטיך</strong> להשוואה קבוצתית.',
-    howto3:'<strong>השלם את הכיול של 9 הנקודות.</strong> עיניים בלבד.',
-    howto4:'<strong>בחר תמונה</strong> מהספרייה.',
-    howto5:'<strong>צפה באופן טבעי.</strong> הסשן מסתיים אוטומטית.',
-    howto6:'<strong>חקור את הנתונים שלך</strong> והשווה עם אחרים.',
+    startBtn:'התחלה',
+    ageLabel:'גיל', genderLabel:'מגדר',
+    male:'זכר', female:'נקבה', other:'אחר', selectDefault:'בחר',
+    continueBtn:'המשך',
+    startSessionBtn:'התחל סשן',
     modeDescs:[
       'מיקומי מבט גולמיים שנדגמו ברציפות - כל נקודה שהעין הסתכלה עליה, פריים אחר פריים.',
       'מבט ממושך על אזור אחד למשך 200ms לפחות. מעיד על עיבוד קוגניטיבי פעיל.',
@@ -2135,280 +1588,22 @@ const TRANSLATIONS = {
       'מפת צפיפות של תשומת הלב החזותית. אזורים חמים יותר קיבלו קיבועים ארוכים יותר.',
       'האזור הראשון שנוצד - נקודת הכניסה הטרום-מודעת של תשומת הלב החזותית.'
     ],
-    startSession:'התחל',
-    nameLabel:'הקוד שלך', namePlaceholder:'לדוגמה P-4F7K',
-    ageLabel:'גיל', genderLabel:'מגדר',
-    male:'זכר', female:'נקבה', other:'אחר', selectDefault:'בחר',
-    continueBtn:'המשך',
-    participantCode:'קוד המשתתף שלך',
-    saveCode:'שמור את הקוד אם תרצה לחזור. הוא מזהה את הסשן שלך באופן אנונימי.',
-    beginBtn:'התחל',
-    calTitle:'כיול מעקב עיניים',
-    calInstr1:'שמור על ראשך ללא תנועה - הזז רק את עינייך לכל נקודה',
-    calInstr2:'החזק את המבט עד שהטבעת תתמלא לחלוטין',
-    calAfter1:'לאחר הכיול תראה 5 תמונות פוליטיות, אחת בכל פעם.',
-    calAfter2:'הסתכל באופן טבעי - אין תשובות נכונות או שגויות.',
-    calAfter3:'כל תמונה תופיע למשך 5 שניות.',
-    calBegin:'התחל כיול',
-    calReady:'מוכן',
-    calDone:'הכיול הושלם - הסשן עומד להתחיל.',
-    noSessions:'עדיין אין סשנים',
-    noSessionsData:'התחל את הסשן הראשון שלך כדי לראות את הנתונים.',
-    noSessionsGallery:'התחל את הסשן הראשון שלך כדי לראות את הגלריה.',
-    noSessionsDash:'התחל את הסשן הראשון שלך כדי לראות את לוח הבקרה.',
-    startSessionBtn:'התחל סשן',
-    aboutTitle:'אודות', theSystem:'המערכת', researchFocus:'מוקד המחקר',
-    whatWeMeasure:'מה אנחנו מודדים', builtBy:'נבנה על ידי',
-    imageCredits:'קרדיטים לתמונות',
-    imageCreditsDesc:'כל התמונות באדיבות לשכת העיתונות הממשלתית של ישראל.',
-    memberSince:'משתתף מאז',
-    noSessionsYet:'עדיין אין סשנים',
-    sessionHistory:'היסטוריית סשנים',
-    profileTitle:'פרופיל',
-    loading:'טוען...',
-    readyTitle:'התחל את הסשן שלך עכשיו.',
-    // About page full content
-    aboutH1:'0.25 שניות',
-    aboutSubtitle:'השם מתייחס ל-250 המילישניות הראשונות של תשומת הלב החזותית — החלון שלפני שהעיבוד המודע מתחיל. במחקר מעקב עיניים, קיבועים נמדדים בטווח של 200–300 מילישניות, מה שהופך את 0.25 שניות לסף פיוטי ומדעי כאחד.',
-    aboutSystemText1:'0.25 שניות היא מערכת מעקב עיניים מבוססת דפדפן לניתוח תשומת לב חזותית על תמונות פוליטיות. היא מודדת לאן מסתכלים הצופים, מה הם מבחינים בו ראשון, וכיצד המבט שלהם נע על פני תמונה — ללא חומרה כלשהי מלבד מצלמת רשת רגילה.',
-    aboutSystemText2:'המערכת משתמשת ב-MediaPipe לזיהוי 478 נקודות ציון פנים בכל פריים, תוך בידוד מיקום האיריס בזמן אמת. כיול אפיני של 9 נקודות ממפה את תנועת העין לקואורדינטות המסך, ודגימות המבט מסווגות לקיבועים, סקאדות, מסלולי סריקה ומפות חום באמצעות אלגוריתמי I-DT ו-I-VT.',
-    aboutResearchText1:'המערכת תוכננה לחקור דפוסי תשומת לב חזותית על תמונות פוליטיות — בוחנת אילו אזורים מושכים את העין ראשונים, כמה זמן שוהה המבט באזורים שונים, ואם צצים דפוסי צפייה שונים בקרב משקיפים שונים.',
-    aboutResearchText2:'כל סשן מקושר לפרופיל בעל שם הכולל גיל, מגדר ומיקום מזוהה. ההשתתפות היא וולונטרית והנתונים משמשים למטרות מחקר בלבד.',
-    aboutBuiltDesc:'פרויקט גמר — תואר ראשון בתקשורת חזותית, אוניברסיטת חיפה.\nבהנחיית רונית ישראלי.\nתוכנן, עוצב ופותח מאפס — כולל מסגרת מחקר, עיצוב UX ופיתוח צד לקוח וצד שרת.',
-    // Measure cards
-    fixationLabel:'קיבוע',
-    fixationDesc:'מבט ממושך על אזור יחיד. מעיד על עניין או עיבוד קוגניטיבי.',
-    saccadeLabel:'סקאדה',
-    saccadeDesc:'תנועת עין מהירה בין אזורים. חושפת כיצד העין סורקת סצנה.',
-    scanpathLabel:'מסלול סריקה',
-    scanpathDesc:'הרצף הממוין של הקיבועים. ממפה את המסע החזותי על פני התמונה.',
-    heatmapLabel:'מפת חום',
-    heatmapDesc:'מפת צפיפות של תשומת הלב החזותית. מראה היכן מתקבצים רוב הקיבועים.',
-    ttffLabel:'TTFF',
-    ttffDesc:'זמן עד לקיבוע הראשון. מודד עד כמה מהר אזור מושך תשומת לב.',
-    firstfixLabel:'קיבוע ראשון',
-    firstfixDesc:'האזור הראשון שנוצד. נקודת הכניסה הטרום-מודעת של תשומת הלב החזותית.',
   }
 };
 
 let currentLang = 'he';
 
-function fixTimelineLines(isRtl){
-  const items = document.querySelectorAll('.howto-list li');
-  items.forEach((li, i) => {
-    const line = li.querySelector('.howto-line');
-    if(!line) return;
-    if(isRtl){
-      // RTL: flex reverses visually, last item in DOM appears leftmost
-      // hide line on last item (06, leftmost in RTL = no next step)
-      line.style.display = i === items.length - 1 ? 'none' : 'block';
-      line.style.left = 'auto';
-      line.style.right = '50%';
-    } else {
-      line.style.display = i === items.length - 1 ? 'none' : 'block';
-      line.style.left = '50%';
-      line.style.right = 'auto';
-    }
-  });
-}
-
 function applyLang(lang){
   currentLang = lang;
-  localStorage.removeItem('lang');
   const t = TRANSLATIONS[lang];
   const isHe = lang === 'he';
-  
   document.documentElement.setAttribute('lang', lang);
   document.body.style.direction = isHe ? 'rtl' : 'ltr';
   document.body.setAttribute('dir', isHe ? 'rtl' : 'ltr');
-
-  // Nav
-  const navSession = document.getElementById('navSessionLink');
-  if(navSession) navSession.textContent = t.navData;
-  const navGal = document.getElementById('navGalleryLink');
-  if(navGal) navGal.textContent = t.navGallery;
-  const navDash = document.getElementById('navDashboardLink');
-  if(navDash) navDash.textContent = t.navDashboard;
-  const navProf = document.getElementById('navProfileLink');
-  if(navProf) navProf.textContent = t.navProfile;
-  const navAbt = document.getElementById('navAboutLink');
-  if(navAbt) navAbt.textContent = t.navAbout;
-  const navLog = document.getElementById('navLoginBtn');
-  if(navLog) navLog.textContent = t.navLogin;
-  const navSup = document.getElementById('navSignupBtn');
-  if(navSup) navSup.textContent = t.navSignup;
-
-  // Home hero
-  const eyebrow = document.querySelector('.home-eyebrow');
-  if(eyebrow) eyebrow.textContent = t.eyebrow;
-  const heading = document.querySelector('.home-heading');
-  if(heading) heading.textContent = t.heading;
-  const startBtn = document.getElementById('homeStartBtn');
-  if(startBtn) startBtn.textContent = t.startBtn;
-  const scrollHint = document.getElementById('scrollHint');
-  if(scrollHint) scrollHint.childNodes[0].textContent = t.scrollHint + ' ';
-
-  // Name screen - new code flow
-  const ageLabel = document.querySelector('label[for="ageInput"]');
-  if(ageLabel) ageLabel.textContent = t.ageLabel;
-  const genderLabel = document.querySelector('label[for="genderInput"]');
-  if(genderLabel) genderLabel.textContent = t.genderLabel;
-  const continueBtn = document.getElementById('nameContinue');
-  if(continueBtn) continueBtn.textContent = t.continueBtn;
-  const genderSel = document.getElementById('genderInput');
-  if(genderSel && genderSel.options.length >= 3){
-    const defOpt = document.getElementById('genderSelectDefault');
-    if(defOpt) defOpt.text = t.selectDefault || 'Select';
-    genderSel.options[1].text = t.male;
-    genderSel.options[2].text = t.female;
-    genderSel.options[3] && (genderSel.options[3].text = t.other);
-  }
-  // Step 2: code display
-  const participantCodeEl = document.querySelector('#nameScreen [style*="letter-spacing:0.45em"]');
-  if(participantCodeEl && t.participantCode) participantCodeEl.textContent = t.participantCode;
-  const saveCodeEl = document.querySelector('#nameScreen [style*="max-width:280px"]');
-  if(saveCodeEl && t.saveCode) saveCodeEl.textContent = t.saveCode;
-  const beginBtn = document.getElementById('nsCodeContinue');
-  if(beginBtn && t.beginBtn) beginBtn.textContent = t.beginBtn;
-
-  // ns-title
-  const nsTitle = document.querySelector('.ns-title');
-  if(nsTitle) nsTitle.textContent = t.eyebrow;
-
-  // Empty states
-  document.querySelectorAll('.empty-state-overlay').forEach(el=>{
-    const msg = el.querySelector('div:nth-child(2)');
-    const btn = el.querySelector('.empty-state-btn');
-    if(btn) btn.textContent = t.startSessionBtn || t.startBtn;
-  });
-
-  // Gallery screen title
-  const galleryTitle = document.querySelector('#galleryHeader .gallery-title');
-  if(galleryTitle) galleryTitle.textContent = t.navGallery;
-
-  // Dashboard title
-  const dashTitle = document.querySelector('#dashboardHeader .dash-title');
-  if(dashTitle) dashTitle.textContent = t.navDashboard;
-
-  // Profile loading text (if visible)
-  const profileBody = document.getElementById('profileBody');
-  if(profileBody && profileBody.textContent.trim() === 'טוען...') {
-    profileBody.innerHTML = `<div style="font-size:11px;letter-spacing:0.2em;color:#bbb;text-align:center;padding:40px 0;">${t.loading||'טוען...'}</div>`;
-  }
-
-  // Calibration canvas text is drawn dynamically - store lang for drawCalIntro/drawCalDone
-  // Home sections
-  const hiLabels = document.querySelectorAll('.hi-label');
-  const labelKeys = ['howItWorks','analysisModes','quickStart','ready'];
-  hiLabels.forEach((el,i)=>{ if(labelKeys[i]) el.textContent=t[labelKeys[i]]; });
-
-  const hiTitles = document.querySelectorAll('.hi-title');
-  const titleKeys = ['howTitle','modesTitle','startTitle','readyTitle'];
-  hiTitles.forEach((el,i)=>{ if(titleKeys[i]) el.textContent=t[titleKeys[i]]; });
-
-  const hiSubs = document.querySelectorAll('.hi-sub');
-  if(hiSubs[0]) hiSubs[0].textContent=t.howSub;
-  if(hiSubs[1]) hiSubs[1].textContent=t.modesSub;
-
-  // Steps
-  const stepDescs = document.querySelectorAll('.step-desc');
-  if(stepDescs[0]) stepDescs[0].textContent=t.step1Desc;
-  if(stepDescs[1]) stepDescs[1].textContent=t.step2Desc;
-  if(stepDescs[2]) stepDescs[2].textContent=t.step3Desc;
-  const stepTitles = document.querySelectorAll('.step-title');
-  if(stepTitles[0]) stepTitles[0].textContent=t.step1Title;
-  if(stepTitles[1]) stepTitles[1].textContent=t.step2Title;
-  if(stepTitles[2]) stepTitles[2].textContent=t.step3Title;
-
-  // Quick start list
-  const howtoItems = document.querySelectorAll('.howto-text');
-  const howtoKeys = ['howto1','howto2','howto3','howto4','howto5','howto6'];
-  howtoItems.forEach((el,i)=>{ if(t[howtoKeys[i]]) el.innerHTML=t[howtoKeys[i]]; });
-
-  // Mode slider desc
-  if(t.modeDescs) {
-    const MODES_LOCAL = window._MODES_REF;
-    if(MODES_LOCAL) {
-      t.modeDescs.forEach((d,i)=>{ if(MODES_LOCAL[i]) MODES_LOCAL[i].desc=d; });
-    }
-    const modeDescEl = document.getElementById('modeDesc');
-    if(modeDescEl && t.modeDescs[window._modeCur||0]) modeDescEl.textContent=t.modeDescs[window._modeCur||0];
-  }
-
-  const startBtn2 = document.getElementById('homeStartBtn2');
-  if(startBtn2) startBtn2.textContent=t.startSession;
-
-  // About screen — section labels
-  const aboutMap = {
-    'about-label-title': 'aboutTitle',
-    'about-label-system': 'theSystem',
-    'about-label-research': 'researchFocus',
-    'about-label-measure': 'whatWeMeasure',
-    'about-label-built': 'builtBy',
-    'about-label-credits': 'imageCredits',
-  };
-  Object.entries(aboutMap).forEach(([id, key])=>{
-    const el = document.getElementById(id);
-    if(el && t[key]) el.textContent = t[key];
-  });
-
-  // About — H1 title
-  const aboutH1 = document.querySelector('#aboutBody h1');
-  if(aboutH1 && t.aboutH1) aboutH1.textContent = t.aboutH1;
-
-  // About — main subtitle paragraph (first p after h1)
-  const aboutSubtitleEl = document.querySelector('#aboutBody > div > div > p[style*="margin:0 0 48px"]');
-  if(aboutSubtitleEl && t.aboutSubtitle) aboutSubtitleEl.textContent = t.aboutSubtitle;
-
-  // About — THE SYSTEM paragraphs (select only inside the section divs, not the subtitle)
-  const systemParas = document.querySelectorAll('#aboutBody div[style*="border-top"] p[style*="color:#666"]');
-  if(systemParas[0] && t.aboutSystemText1) systemParas[0].textContent = t.aboutSystemText1;
-  if(systemParas[1] && t.aboutSystemText2) systemParas[1].textContent = t.aboutSystemText2;
-  if(systemParas[2] && t.aboutResearchText1) systemParas[2].textContent = t.aboutResearchText1;
-  if(systemParas[3] && t.aboutResearchText2) systemParas[3].textContent = t.aboutResearchText2;
-
-  // About — BUILT BY description (the multi-line p)
-  const builtDescEl = document.querySelector('#aboutBody p[style*="font-size:13px"][style*="color:#888"]');
-  if(builtDescEl && t.aboutBuiltDesc) builtDescEl.innerHTML = t.aboutBuiltDesc.replace(/\n/g,'<br>');
-
-  // About — IMAGE CREDITS description
-  const creditsDesc = [...document.querySelectorAll('#aboutBody p')].find(p=>
-    p.textContent.includes('courtesy of') || p.textContent.includes('באדיבות')
-  );
-  if(creditsDesc && t.imageCreditsDesc) creditsDesc.textContent = t.imageCreditsDesc;
-
-  // About — WHAT WE MEASURE cards (6 cards, each has label p + desc p)
-  const measureCardData = [
-    {label:'fixationLabel', desc:'fixationDesc'},
-    {label:'saccadeLabel',  desc:'saccadeDesc'},
-    {label:'scanpathLabel', desc:'scanpathDesc'},
-    {label:'heatmapLabel',  desc:'heatmapDesc'},
-    {label:'ttffLabel',     desc:'ttffDesc'},
-    {label:'firstfixLabel', desc:'firstfixDesc'},
-  ];
-  const measureGrid = document.querySelector('#aboutBody div[style*="grid-template-columns:repeat(3,1fr)"]');
-  if(measureGrid){
-    const cards = measureGrid.querySelectorAll(':scope > div');
-    cards.forEach((card, i)=>{
-      if(!measureCardData[i]) return;
-      const ps = card.querySelectorAll('p');
-      if(ps[0] && t[measureCardData[i].label]) ps[0].textContent = t[measureCardData[i].label];
-      if(ps[1] && t[measureCardData[i].desc])  ps[1].textContent = t[measureCardData[i].desc];
-    });
-  }
-
-  fixTimelineLines(isHe);
-
-  // Fix video column padding for RTL/LTR
   const modeVideoCol = document.getElementById('modeVideoCol');
-  if(modeVideoCol){
-    modeVideoCol.style.padding = isHe
-      ? '72px 0 72px 60px'   // RTL: gap on right side
-      : '72px 60px 72px 0';  // LTR: gap on left side
-  }
+  if(modeVideoCol){modeVideoCol.style.padding = isHe ? '72px 0 72px 60px' : '72px 60px 72px 0';}
 }
 
-// Apply Hebrew on load
 applyLang('he');
 
 </script>
