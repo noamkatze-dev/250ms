@@ -472,10 +472,8 @@ label,
   style="display:none;position:fixed;inset:0;width:100%;height:100%;object-fit:cover;z-index:8998;opacity:0.7;pointer-events:none;filter:brightness(1.12) contrast(0.92) saturate(1.25);"></video>
 <div id="skyColorOverlay" style="display:none;position:fixed;inset:0;z-index:8999;pointer-events:none;background:rgba(80,130,200,0.05);mix-blend-mode:screen;"></div>
 
-<video id="aboutSkyVideo" src="sky.mp4" muted playsinline preload="auto"
-  style="display:none;position:fixed;inset:0;width:100%;height:100%;object-fit:cover;z-index:1090;opacity:0.7;pointer-events:none;filter:brightness(1.12) contrast(0.92) saturate(1.25);"></video>
-<div id="aboutSkyColorOverlay" style="display:none;position:fixed;inset:0;z-index:1091;pointer-events:none;background:rgba(80,130,200,0.05);mix-blend-mode:screen;"></div>
-<div id="aboutBlurOverlay" style="display:none;position:fixed;inset:0;z-index:1092;pointer-events:none;backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);background:rgba(160,200,240,0.35);"></div>
+<div id="sharedBg" style="display:none;position:fixed;inset:0;z-index:1090;pointer-events:none;background:url('bg.jpg') center/cover no-repeat;filter:blur(22px) brightness(1.12) saturate(1.25);transform:scale(1.05);"></div>
+<div id="sharedBgOverlay" style="display:none;position:fixed;inset:0;z-index:1091;pointer-events:none;background:rgba(160,200,240,0.35);"></div>
 
 <div id="homeScreen">
   <div id="homeHeroSection">
@@ -1163,12 +1161,8 @@ document.getElementById('cf-apply').addEventListener('click',renderCompareView);
 document.getElementById('cf-layer').addEventListener('change',renderCompareView);
 
 function showSharedBg(){
-  const abVid=document.getElementById('aboutSkyVideo');
-  document.getElementById('aboutSkyVideo').style.display='block';
-  document.getElementById('aboutSkyColorOverlay').style.display='block';
-  document.getElementById('aboutBlurOverlay').style.display='block';
-  abVid.pause();
-  abVid.currentTime=1.5;
+  document.getElementById('sharedBg').style.display='block';
+  document.getElementById('sharedBgOverlay').style.display='block';
 }
 
 function openGallery(){
@@ -1277,9 +1271,8 @@ function runImageSession(imgData){
     heatmap=new Float32Array(W_HEAT*H_HEAT);window._gazeHistory=[];
 
     imgWrapper.style.display='block';
-    document.getElementById('aboutSkyVideo').style.display='none';
-    document.getElementById('aboutSkyColorOverlay').style.display='none';
-    document.getElementById('aboutBlurOverlay').style.display='none';
+    document.getElementById('sharedBg').style.display='none';
+    document.getElementById('sharedBgOverlay').style.display='none';
     mainImg.src=imgData.src;
     sessionStartTs=Date.now();
     firstFixModeTs=performance.now();
@@ -1404,9 +1397,8 @@ function hideAllScreens(){
   if(skyVid) skyVid.style.display='none';
   const skyOverlay=document.getElementById('skyColorOverlay');
   if(skyOverlay) skyOverlay.style.display='none';
-  document.getElementById('aboutSkyVideo').style.display='none';
-  document.getElementById('aboutSkyColorOverlay').style.display='none';
-  document.getElementById('aboutBlurOverlay').style.display='none';
+  document.getElementById('sharedBg').style.display='none';
+  document.getElementById('sharedBgOverlay').style.display='none';
   document.getElementById('dataScreen').style.display='none';
   document.getElementById('galleryScreen').style.display='none';
   document.getElementById('dashboardScreen').style.display='none';
