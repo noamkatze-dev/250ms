@@ -115,48 +115,47 @@ body{
   position:relative;z-index:2;
 }
 .briefing-label{
-  font-size:9px;font-weight:700;letter-spacing:0.55em;color:rgba(255,0,3,0.7);
+  font-size:9px;font-weight:700;letter-spacing:0.55em;color:#FF0003;
   text-transform:uppercase;margin-bottom:24px;font-family:HaimClassic,Heebo,sans-serif;
 }
 .briefing-title{
-  font-size:32px;font-weight:700;color:#fff;line-height:1.15;margin-bottom:20px;
+  font-size:32px;font-weight:700;color:#FF0003;line-height:1.15;margin-bottom:20px;
   font-family:HaimClassic,Heebo,sans-serif;
 }
 .briefing-divider{
-  width:48px;height:1px;background:rgba(255,0,3,0.5);margin:0 auto 28px;
+  width:48px;height:1px;background:#FF0003;margin:0 auto 28px;
 }
 .briefing-body{
-  font-size:14px;font-weight:300;color:rgba(255,255,255,0.75);line-height:1.8;
+  font-size:14px;font-weight:300;color:#FF0003;line-height:1.8;
   margin-bottom:14px;font-family:HaimClassic,Heebo,sans-serif;
 }
 .briefing-note{
-  font-size:11px;font-weight:300;color:rgba(255,255,255,0.4);line-height:1.7;
+  font-size:11px;font-weight:300;color:#FF0003;line-height:1.7;
   margin-bottom:44px;font-family:HaimClassic,Heebo,sans-serif;
 }
 .briefing-steps{
   display:flex;gap:0;width:100%;margin-bottom:44px;
 }
 .briefing-step{
-  flex:1;padding:18px 14px;border-left:1px solid rgba(255,255,255,0.1);
+  flex:1;padding:18px 14px;border-left:1px solid rgba(255,0,3,0.25);
   display:flex;flex-direction:column;align-items:center;gap:8px;
 }
 .briefing-step:first-child{border-left:none;}
 .briefing-step-n{
-  font-size:8px;font-weight:700;letter-spacing:0.35em;color:rgba(255,0,3,0.7);
+  font-size:8px;font-weight:700;letter-spacing:0.35em;color:#FF0003;
   font-family:HaimClassic,Heebo,sans-serif;
 }
 .briefing-step-icon{font-size:22px;line-height:1;}
 .briefing-step-text{
-  font-size:11px;font-weight:300;color:rgba(255,255,255,0.6);line-height:1.5;
+  font-size:11px;font-weight:300;color:#FF0003;line-height:1.5;
   font-family:HaimClassic,Heebo,sans-serif;
 }
 #briefingStartBtn{
-  background:rgba(255,255,255,0.1);color:#fff;
-  border:1px solid rgba(255,255,255,0.5);
+  background:transparent;color:#FF0003;
+  border:1.5px solid #FF0003;
   font-family:HaimClassic,Heebo,sans-serif;font-size:13px;font-weight:400;
   letter-spacing:0.22em;padding:14px 52px;cursor:pointer;
   transition:all 0.18s;border-radius:100px;
-  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
 }
 #briefingStartBtn:hover{transform:scale(1.06);}
 
@@ -215,7 +214,7 @@ body{
 #calOverlay{position:fixed;inset:0;z-index:9800;background:transparent;}
 #calOverlay::before{content:'';position:absolute;inset:-40px;background:url('sky.png') center/cover no-repeat;filter:blur(22px) saturate(1.2);z-index:0;pointer-events:none;}
 #calCanvas{position:absolute;inset:0;width:100%;height:100%;background:transparent;z-index:2;}
-#calStartBtn{position:absolute;z-index:10 !important;pointer-events:all;}
+#calStartBtn{position:absolute;z-index:10 !important;pointer-events:all;background:transparent !important;color:#FF0003 !important;border:1.5px solid #FF0003 !important;box-shadow:none !important;backdrop-filter:none !important;}
 #calStartBtn{position:absolute;top:63%;left:50%;transform:translateX(-50%);display:none;z-index:9801;}
 
 .screen{display:none;position:fixed;inset:0;z-index:1100;flex-direction:column;align-items:center;justify-content:center;}
@@ -965,32 +964,32 @@ function resizeCal(){
 function drawCalIntro(){const W=window.innerWidth,H=window.innerHeight;
   calCtx.clearRect(0,0,W,H);
   calCtx.textAlign='center';
-  calCtx.fillStyle='rgba(255,255,255,0.55)';
+  calCtx.fillStyle='rgba(255,0,3,0.7)';
   calCtx.font='700 11px HaimClassic';
   calCtx.fillText('מערכת ניתוח חזותי',W/2,H/2-130);
-  calCtx.fillStyle='#fff';
+  calCtx.fillStyle='#FF0003';
   calCtx.font='700 28px HaimClassic';
   calCtx.fillText('כיול מעקב עיניים',W/2,H/2-90);
-  calCtx.strokeStyle='rgba(255,255,255,0.25)';
+  calCtx.strokeStyle='rgba(255,0,3,0.25)';
   calCtx.lineWidth=1;
   calCtx.beginPath();
   calCtx.moveTo(W/2-200,H/2-68);
   calCtx.lineTo(W/2+200,H/2-68);
   calCtx.stroke();
-  calCtx.fillStyle='rgba(255,255,255,0.9)';
+  calCtx.fillStyle='#FF0003';
   calCtx.font='300 14px HaimClassic';
   calCtx.fillText('שמור על ראשך ללא תנועה — הזז רק את עינייך לכל נקודה',W/2,H/2-42);
   calCtx.fillText('החזק את המבט עד שהטבעת תתמלא לחלוטין',W/2,H/2-18);
-  calCtx.strokeStyle='rgba(255,255,255,0.15)';
+  calCtx.strokeStyle='rgba(255,0,3,0.15)';
   calCtx.beginPath();
   calCtx.moveTo(W/2-200,H/2+4);
   calCtx.lineTo(W/2+200,H/2+4);
   calCtx.stroke();
-  calCtx.fillStyle='rgba(255,255,255,0.85)';
+  calCtx.fillStyle='#FF0003';
   calCtx.font='300 13px HaimClassic';
   calCtx.fillText('לאחר הכיול תגיע לעמוד הבית.',W/2,H/2+26);
   calCtx.fillText('לחץ על "התחלה" כדי להתחיל את סשן הצפייה בתמונות.',W/2,H/2+48);
-  calCtx.fillStyle='rgba(255,255,255,0.6)';
+  calCtx.fillStyle='rgba(255,0,3,0.6)';
   calCtx.font='300 11px HaimClassic';
   calCtx.fillText('הכיול ישמש גם לצפייה בתמונות — אין צורך בכיול נוסף.',W/2,H/2+70);
 }
@@ -998,9 +997,9 @@ function drawCalIntro(){const W=window.innerWidth,H=window.innerHeight;
 function drawCalDone(){const W=window.innerWidth,H=window.innerHeight;
   calCtx.clearRect(0,0,W,H);
   calCtx.textAlign="center";
-  calCtx.fillStyle="#fff";calCtx.font="700 28px HaimClassic";
+  calCtx.fillStyle='#FF0003';calCtx.font="700 28px HaimClassic";
   calCtx.fillText("מוכן!",W/2,H/2-8);
-  calCtx.fillStyle="rgba(255,255,255,0.7)";calCtx.font="300 13px HaimClassic";
+  calCtx.fillStyle='rgba(255,0,3,0.7)';calCtx.font="300 13px HaimClassic";
   calCtx.fillText('הכיול הושלם — עמוד הבית עומד להיפתח.',W/2,H/2+20);
 }
 
