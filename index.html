@@ -6,7 +6,7 @@
 <title>0.25 Seconds</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@200;300;400;500;600;700;800;900&family=Heebo:wght@200;300;400;500;600;700;800;900&family=Chakra+Petch:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@200;300;400;500;600;700;800;900&family=Heebo:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
 
@@ -30,29 +30,26 @@
   font-style: normal;
 }
 
-/* Chakra Petch for Latin characters via unicode-range override */
+/* Chakra Petch — local files, Latin only */
 @font-face {
-  font-family: 'ChakraPetch';
-  src: url('https://fonts.gstatic.com/s/chakrapetch/v11/cIf6MapbsEk7wa9JlAo6cKBzAhMd.woff2') format('woff2');
+  font-family: ChakraPetch;
+  src: url('ChakraPetch-Light.ttf') format('truetype');
   font-weight: 300;
+  font-style: normal;
   unicode-range: U+0020-007E;
 }
 @font-face {
-  font-family: 'ChakraPetch';
-  src: url('https://fonts.gstatic.com/s/chakrapetch/v11/cIf4MapbsEk7wa9JlAo6zppZInOd.woff2') format('woff2');
+  font-family: ChakraPetch;
+  src: url('ChakraPetch-Regular.ttf') format('truetype');
   font-weight: 400;
+  font-style: normal;
   unicode-range: U+0020-007E;
 }
 @font-face {
-  font-family: 'ChakraPetch';
-  src: url('https://fonts.gstatic.com/s/chakrapetch/v11/cIf4MapbsEk7wa9JlAo6zipRInOd.woff2') format('woff2');
-  font-weight: 600;
-  unicode-range: U+0020-007E;
-}
-@font-face {
-  font-family: 'ChakraPetch';
-  src: url('https://fonts.gstatic.com/s/chakrapetch/v11/cIf4MapbsEk7wa9JlAo6zi5QInOd.woff2') format('woff2');
+  font-family: ChakraPetch;
+  src: url('ChakraPetch-Bold.ttf') format('truetype');
   font-weight: 700;
+  font-style: normal;
   unicode-range: U+0020-007E;
 }
 
