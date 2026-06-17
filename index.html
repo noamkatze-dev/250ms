@@ -944,9 +944,16 @@ function applyGaze(ts){
   if(homeScreen.style.display!=='none' && skyVideoReady){
     const skyV=document.getElementById('homeSkyVideo');
     if(skyV && skyV.duration && isFinite(skyV.duration)){
-      skyTargetT = sGX * skyV.duration;
-      skyCurrentT += (skyTargetT - skyCurrentT) * SKY_LERP;
-      skyV.currentTime = Math.max(0, Math.min(skyV.duration - 0.01, skyCurrentT));
+      // double lerp: first smooth the eye X, then smooth the time
+      skySmoothedX += (sGX - skySmoothedX) * SKY_LERP_X;
+      skyTargetT = skySmoothedX * skyV.duration;
+      skyCurrentT += (skyTargetT - skyCurrentT) * SKY_LERP_T;
+      // only write to video every ~80ms to avoid jank
+      const now = performance.now();
+      if(now - lastSkyWrite > 80){
+        skyV.currentTime = Math.max(0, Math.min(skyV.duration - 0.01, skyCurrentT));
+        lastSkyWrite = now;
+      }
     }
   }
 }
@@ -954,7 +961,10 @@ function applyGaze(ts){
 let skyVideoReady = false;
 let skyCurrentT = 0;
 let skyTargetT = 0;
-const SKY_LERP = 0.04; // lower = smoother/slower
+let skySmoothedX = 0.5; // extra-smoothed eye X just for sky
+const SKY_LERP_X = 0.015;  // very slow eye smoothing for sky
+const SKY_LERP_T = 0.06;   // time lerp per frame
+let lastSkyWrite = 0;
 
 function mainLoop(ts){applyGaze(ts);updateFixations(ts);updateSaccades(ts);updateHeatmap();updateFirstFix();drawFrame();requestAnimationFrame(mainLoop);}
 
