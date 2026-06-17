@@ -538,6 +538,14 @@ label,
   <div id="skyProgress" style="position:absolute;bottom:0;left:0;height:3px;background:#fff;width:0%;transition:none;"></div>
 </div>
 
+
+<!-- SPLASH SCREEN -->
+<div id="splashScreen" style="position:fixed;inset:0;z-index:9900;background:#c8e8f5;overflow:hidden;display:flex;align-items:center;justify-content:center;">
+  <div style="position:absolute;inset:0;background:url('sky.png') center/cover no-repeat;filter:blur(0px) brightness(1.12) contrast(0.92) saturate(1.25);transform:scale(1.08);opacity:0.7;"></div>
+  <div style="position:absolute;inset:0;background:rgba(80,130,200,0.05);mix-blend-mode:screen;pointer-events:none;"></div>
+  <div id="splashText" style="position:relative;z-index:2;font-family:HaimClassic,Heebo,sans-serif;font-size:clamp(80px,14vw,200px);font-weight:700;color:#FF0000;letter-spacing:0.04em;line-height:1;opacity:0;transition:opacity 0.6s ease;">250ms</div>
+</div>
+
 <div id="calOverlay">
   <canvas id="calCanvas"></canvas>
   <button id="calStartBtn" class="va-btn va-btn-primary">התחל כיול</button>
@@ -1397,6 +1405,18 @@ document.getElementById('homeStartBtn').addEventListener('click', async ()=>{
 
 // ── BOOT — calibration happens immediately on page load ───────────────
 async function boot(){
+  // Show splash first
+  const splash = document.getElementById('splashScreen');
+  const splashText = document.getElementById('splashText');
+  // fade in text
+  await new Promise(r=>setTimeout(r,100));
+  splashText.style.opacity='1';
+  // hold for 1.8s then fade out whole splash
+  await new Promise(r=>setTimeout(r,1900));
+  splash.style.transition='opacity 0.7s ease';
+  splash.style.opacity='0';
+  await new Promise(r=>setTimeout(r,700));
+  splash.style.display='none';
   // Set up canvases
   dotCanvas.width=window.innerWidth; dotCanvas.height=window.innerHeight;
   window.addEventListener('resize',()=>{dotCanvas.width=window.innerWidth;dotCanvas.height=window.innerHeight;});
