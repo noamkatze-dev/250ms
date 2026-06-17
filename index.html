@@ -944,13 +944,17 @@ function applyGaze(ts){
   if(homeScreen.style.display!=='none' && skyVideoReady){
     const skyV=document.getElementById('homeSkyVideo');
     if(skyV && skyV.duration && isFinite(skyV.duration)){
-      const targetT = sGX * skyV.duration;
-      skyV.currentTime = Math.max(0, Math.min(skyV.duration - 0.01, targetT));
+      skyTargetT = sGX * skyV.duration;
+      skyCurrentT += (skyTargetT - skyCurrentT) * SKY_LERP;
+      skyV.currentTime = Math.max(0, Math.min(skyV.duration - 0.01, skyCurrentT));
     }
   }
 }
 
 let skyVideoReady = false;
+let skyCurrentT = 0;
+let skyTargetT = 0;
+const SKY_LERP = 0.04; // lower = smoother/slower
 
 function mainLoop(ts){applyGaze(ts);updateFixations(ts);updateSaccades(ts);updateHeatmap();updateFirstFix();drawFrame();requestAnimationFrame(mainLoop);}
 
