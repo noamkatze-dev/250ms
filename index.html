@@ -102,13 +102,14 @@ body{
 #briefingScreen{
   display:none;position:fixed;inset:0;z-index:9100;
   flex-direction:column;align-items:center;justify-content:center;
-  background:transparent;
+  background:transparent;overflow:hidden;
 }
 #briefingScreen::before{
-  content:'';position:absolute;inset:-40px;
+  content:'';position:absolute;inset:0;
   background:url('sky.png') center/cover no-repeat;
   filter:blur(22px) brightness(1.12) contrast(0.92) saturate(1.25);
-  z-index:0;
+  transform:scale(1.08);
+  z-index:0;pointer-events:none;
 }
 .briefing-inner{
   max-width:560px;width:90vw;display:flex;flex-direction:column;align-items:center;text-align:center;gap:0;
@@ -211,11 +212,10 @@ body{
 
 #libraryScreen{background-attachment:fixed;}
 
-#calOverlay{position:fixed;inset:0;z-index:9800;background:transparent;}
-#calOverlay::before{content:'';position:absolute;inset:-40px;background:url('sky.png') center/cover no-repeat;filter:blur(22px) brightness(1.12) contrast(0.92) saturate(1.25);z-index:0;pointer-events:none;}
-#calCanvas{position:absolute;inset:0;width:100%;height:100%;background:transparent;z-index:2;}
-#calStartBtn{position:absolute;z-index:10 !important;pointer-events:all;background:transparent !important;color:#FF0000 !important;border:1.5px solid #FF0000 !important;box-shadow:none !important;backdrop-filter:none !important;}
-#calStartBtn{position:absolute;top:63%;left:50%;transform:translateX(-50%);display:none;z-index:9801;}
+#calOverlay{position:fixed;inset:0;z-index:9800;background:transparent;overflow:hidden;}
+#calOverlay::before{content:'';position:absolute;inset:0;background:url('sky.png') center/cover no-repeat;filter:blur(22px) brightness(1.12) contrast(0.92) saturate(1.25);transform:scale(1.08);z-index:0;pointer-events:none;}
+#calCanvas{position:absolute;inset:0;width:100%;height:100%;background:transparent;z-index:2;pointer-events:none;}
+#calStartBtn{position:absolute;top:63%;left:50%;transform:translateX(-50%);display:none;z-index:10;pointer-events:all;background:transparent !important;color:#FF0000 !important;border:1.5px solid #FF0000 !important;box-shadow:none !important;backdrop-filter:none !important;}
 
 .screen{display:none;position:fixed;inset:0;z-index:1100;flex-direction:column;align-items:center;justify-content:center;}
 .screen-title{font-size:9px;font-weight:300;letter-spacing:0.6em;color:#FF0000;margin-bottom:36px;}
@@ -958,7 +958,7 @@ function resizeCal(){
   calCanvas.height=window.innerHeight*dpr;
   calCanvas.style.width=window.innerWidth+'px';
   calCanvas.style.height=window.innerHeight+'px';
-  calCtx.scale(dpr,dpr);
+  calCtx.setTransform(dpr,0,0,dpr,0,0);
 }
 
 function drawCalIntro(){const W=window.innerWidth,H=window.innerHeight;
