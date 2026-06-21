@@ -11,57 +11,23 @@
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
 
 @font-face {
-  font-family: 'HaimClassic';
-  src: url('haim-classic-light-fm.otf') format('opentype'),
-       url('haim-classic-light-fm.ttf') format('truetype');
-  font-weight: 300;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'HaimClassic';
-  src: url('haim-classic-regular-fm.otf') format('opentype');
-  font-weight: 400;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'HaimClassic';
-  src: url('haim-classic-bold-fm.otf') format('opentype');
-  font-weight: 700;
+  font-family: 'HaimVariable';
+  src: url('HaimVariable-VF-TRIAL.ttf') format('truetype-variations'),
+       url('HaimVariable-VF-TRIAL.ttf') format('truetype');
+  font-weight: 100 900;
+  font-stretch: 50% 150%;
   font-style: normal;
 }
 
-/* Chakra Petch — local files, Latin only */
-@font-face {
-  font-family: ChakraPetch;
-  src: url('ChakraPetch-Light.ttf') format('truetype');
-  font-weight: 300;
-  font-style: normal;
-  unicode-range: U+0041-005A, U+0061-007A, U+0020-002F, U+003A-0040, U+005B-0060, U+007B-007E;
-}
-@font-face {
-  font-family: ChakraPetch;
-  src: url('ChakraPetch-Regular.ttf') format('truetype');
-  font-weight: 400;
-  font-style: normal;
-  unicode-range: U+0041-005A, U+0061-007A, U+0020-002F, U+003A-0040, U+005B-0060, U+007B-007E;
-}
-@font-face {
-  font-family: ChakraPetch;
-  src: url('ChakraPetch-Bold.ttf') format('truetype');
-  font-weight: 700;
-  font-style: normal;
-  unicode-range: U+0041-005A, U+0061-007A, U+0020-002F, U+003A-0040, U+005B-0060, U+007B-007E;
-}
-
-[lang="he"] body,[lang="he"] button,[lang="he"] input,[lang="he"] select,[lang="he"] label,[lang="he"] span,[lang="he"] p,[lang="he"] h1,[lang="he"] h2,[lang="he"] div{font-family:ChakraPetch,HaimClassic,Heebo,sans-serif;font-weight:300;}
+[lang="he"] body,[lang="he"] button,[lang="he"] input,[lang="he"] select,[lang="he"] label,[lang="he"] span,[lang="he"] p,[lang="he"] h1,[lang="he"] h2,[lang="he"] div{font-family:HaimVariable,Heebo,sans-serif;font-weight:300;}
 [lang="he"] button,[lang="he"] .nav-link,[lang="he"] .nav-login,[lang="he"] .va-btn,[lang="he"] .layer-btn,[lang="he"] .toggle-btn,[lang="he"] .view-tab,[lang="he"] #playBtn,[lang="he"] #homeStartBtn,[lang="he"] #homeStartBtn2,[lang="he"] #nameContinue,[lang="he"] #nsCodeContinue,[lang="he"] #nsLoginBtn,[lang="he"] #libBeginBtn,[lang="he"] #calStartBtn,[lang="he"] .nav-va{font-weight:400;}
-[lang="he"] .home-heading{font-family:ChakraPetch,HaimClassic,Heebo,sans-serif;font-weight:400;}
+[lang="he"] .home-heading{font-family:HaimVariable,Heebo,sans-serif;font-weight:400;}
 [lang="he"] #modesSection{direction:rtl;}
 [lang="he"] #modesSection .hi-label,[lang="he"] #modesSection .hi-title,[lang="he"] #modesSection .hi-sub,[lang="he"] #modesSection #modeDesc{text-align:right;}
 body{
   background-color:#c8e8f5;
   background-image:none;
-  overflow:hidden;width:100vw;height:100vh;font-family:ChakraPetch,HaimClassic,Heebo,sans-serif;
+  overflow:hidden;width:100vw;height:100vh;font-family:HaimVariable,Heebo,sans-serif;
 }
 #imgWrapper{cursor:none;}
 #heroEyeSvg{display:none;}
@@ -71,7 +37,7 @@ body{
 .home-content{position:relative;z-index:1;}
 #mainNav{position:fixed;top:0;left:0;right:0;height:64px;background:transparent;backdrop-filter:none;-webkit-backdrop-filter:none;border-bottom:1px solid transparent;display:flex;align-items:center;justify-content:space-between;padding:12px 60px 0;z-index:9000;cursor:default;transition:background 0.3s,border-color 0.3s,backdrop-filter 0.3s;}
 #navBrand{display:flex;align-items:center;gap:10px;}
-.nav-va{font-size:20px;font-weight:400;font-family:ChakraPetch,HaimClassic,Heebo,sans-serif;color:#FF0000;letter-spacing:0.06em;}
+.nav-va{font-size:20px;font-weight:400;font-family:HaimVariable,Heebo,sans-serif;color:#FF0000;letter-spacing:0.06em;}
 .nav-title{font-size:10px;font-weight:700;letter-spacing:0.28em;color:#FF0000;font-variant:small-caps;}
 #navLinks{display:flex;gap:28px;align-items:center;}
 .nav-link{font-size:13px;font-weight:400;letter-spacing:0.22em;color:#FF0000;cursor:pointer;user-select:none;transition:color 0.15s;}
@@ -119,8 +85,8 @@ body{
 }
 .home-content{text-align:center;pointer-events:all;display:flex;flex-direction:column;align-items:center;}
 .home-eyebrow{font-size:9px;font-weight:700;letter-spacing:0.5em;color:rgba(255,255,255,0.7);margin-bottom:16px;text-transform:uppercase;}
-.home-heading{font-size:36px;font-weight:400;font-family:ChakraPetch,HaimClassic,Heebo,sans-serif;color:#fff;line-height:1.1;margin-bottom:32px;white-space:nowrap;}
-#homeStartBtn{background:rgba(255,255,255,0.08);color:#fff;border:1px solid rgba(255,255,255,0.6);font-family:ChakraPetch,HaimClassic,Heebo,sans-serif;font-size:13px;font-weight:400;letter-spacing:0.22em;padding:14px 48px;cursor:pointer;transition:all 0.18s;margin-top:24px;margin-bottom:36px;border-radius:100px;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);}
+.home-heading{font-size:36px;font-weight:400;font-family:HaimVariable,Heebo,sans-serif;color:#fff;line-height:1.1;margin-bottom:32px;white-space:nowrap;}
+#homeStartBtn{background:rgba(255,255,255,0.08);color:#fff;border:1px solid rgba(255,255,255,0.6);font-family:HaimVariable,Heebo,sans-serif;font-size:13px;font-weight:400;letter-spacing:0.22em;padding:14px 48px;cursor:pointer;transition:all 0.18s;margin-top:24px;margin-bottom:36px;border-radius:100px;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);}
 
 /* ── BRIEFING SCREEN ── */
 #briefingScreen{
@@ -146,22 +112,22 @@ body{
 }
 .briefing-label{
   font-size:9px;font-weight:700;letter-spacing:0.55em;color:#FF0000;
-  text-transform:uppercase;margin-bottom:24px;font-family:ChakraPetch,HaimClassic,Heebo,sans-serif;
+  text-transform:uppercase;margin-bottom:24px;font-family:HaimVariable,Heebo,sans-serif;
 }
 .briefing-title{
   font-size:32px;font-weight:700;color:#FF0000;line-height:1.15;margin-bottom:20px;
-  font-family:ChakraPetch,HaimClassic,Heebo,sans-serif;
+  font-family:HaimVariable,Heebo,sans-serif;
 }
 .briefing-divider{
   width:48px;height:1px;background:#FF0000;margin:0 auto 28px;
 }
 .briefing-body{
   font-size:14px;font-weight:300;color:#444;line-height:1.8;
-  margin-bottom:14px;font-family:ChakraPetch,HaimClassic,Heebo,sans-serif;
+  margin-bottom:14px;font-family:HaimVariable,Heebo,sans-serif;
 }
 .briefing-note{
   font-size:11px;font-weight:300;color:#666;line-height:1.7;
-  margin-bottom:44px;font-family:ChakraPetch,HaimClassic,Heebo,sans-serif;
+  margin-bottom:44px;font-family:HaimVariable,Heebo,sans-serif;
 }
 .briefing-steps{
   display:flex;gap:0;width:100%;margin-bottom:44px;
@@ -173,17 +139,17 @@ body{
 .briefing-step:first-child{border-left:none;}
 .briefing-step-n{
   font-size:8px;font-weight:700;letter-spacing:0.35em;color:#FF0000;
-  font-family:ChakraPetch,HaimClassic,Heebo,sans-serif;
+  font-family:HaimVariable,Heebo,sans-serif;
 }
 .briefing-step-icon{font-size:22px;line-height:1;}
 .briefing-step-text{
   font-size:11px;font-weight:300;color:#555;line-height:1.5;
-  font-family:ChakraPetch,HaimClassic,Heebo,sans-serif;
+  font-family:HaimVariable,Heebo,sans-serif;
 }
 #briefingStartBtn{
   background:transparent;color:#FF0000;
   border:1.5px solid #FF0000;
-  font-family:ChakraPetch,HaimClassic,Heebo,sans-serif;font-size:13px;font-weight:400;
+  font-family:HaimVariable,Heebo,sans-serif;font-size:13px;font-weight:400;
   letter-spacing:0.22em;padding:14px 52px;cursor:pointer;
   transition:all 0.18s;border-radius:100px;
 }
@@ -194,7 +160,7 @@ body{
   display:none;position:fixed;top:50%;left:50%;
   transform:translate(-50%,-50%);
   font-size:80px;font-weight:700;color:rgba(255,255,255,0.18);
-  font-family:ChakraPetch,HaimClassic,Heebo,sans-serif;
+  font-family:HaimVariable,Heebo,sans-serif;
   pointer-events:none;z-index:300;letter-spacing:0;
 }
 
@@ -213,7 +179,7 @@ body{
 .hi-title-light{color:#111;}
 .hi-sub{font-size:13px;font-weight:300;color:#888;max-width:480px;line-height:1.7;margin-bottom:40px;}
 
-.va-btn{font-family:ChakraPetch,HaimClassic,Heebo,sans-serif;letter-spacing:0.18em;cursor:pointer;transition:background 0.18s,color 0.18s,border-color 0.18s;border-radius:100px;}
+.va-btn{font-family:HaimVariable,Heebo,sans-serif;letter-spacing:0.18em;cursor:pointer;transition:background 0.18s,color 0.18s,border-color 0.18s;border-radius:100px;}
 .va-btn-primary{background:rgba(255,255,255,0.35);color:#333;border:1px solid rgba(255,255,255,0.6);font-size:13px;font-weight:400;padding:14px 48px;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:0 2px 16px rgba(178,224,243,0.25);}
 .va-btn-secondary{background:#fff;color:#111;border:2px solid #111;font-size:12px;font-weight:400;padding:9px 24px;}
 
@@ -267,9 +233,9 @@ body{
 #dotCanvas{position:absolute;inset:0;pointer-events:none;z-index:5;}
 #annLayer{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:6;opacity:0;}
 #gazeDot{position:fixed;width:22px;height:22px;border-radius:50%;border:2px solid rgba(255,255,255,0.85);background:rgba(255,255,255,0.12);transform:translate(-50%,-50%);pointer-events:none;z-index:50;display:none;}
-#info{position:fixed;bottom:14px;left:50%;transform:translateX(-50%);font-family:ChakraPetch,HaimClassic,Heebo,sans-serif;font-size:10px;font-weight:300;letter-spacing:0.22em;color:rgba(255,255,255,0.6);pointer-events:none;transition:opacity 2s ease;white-space:nowrap;z-index:50;display:none;}
+#info{position:fixed;bottom:14px;left:50%;transform:translateX(-50%);font-family:HaimVariable,Heebo,sans-serif;font-size:10px;font-weight:300;letter-spacing:0.22em;color:rgba(255,255,255,0.6);pointer-events:none;transition:opacity 2s ease;white-space:nowrap;z-index:50;display:none;}
 #sessionInfoOverlay{display:none !important;}
-#finishBtn{position:fixed;bottom:28px;left:50%;transform:translateX(-50%);font-family:ChakraPetch,HaimClassic,Heebo,sans-serif;font-size:11px;font-weight:700;letter-spacing:0.2em;color:#fff;background:rgba(0,0,0,0.55);border:1.5px solid rgba(255,255,255,0.5);padding:11px 32px;cursor:pointer;z-index:60;display:none;transition:background 0.15s,color 0.15s,border-color 0.15s;border-radius:100px;backdrop-filter:blur(8px);}
+#finishBtn{position:fixed;bottom:28px;left:50%;transform:translateX(-50%);font-family:HaimVariable,Heebo,sans-serif;font-size:11px;font-weight:700;letter-spacing:0.2em;color:#fff;background:rgba(0,0,0,0.55);border:1.5px solid rgba(255,255,255,0.5);padding:11px 32px;cursor:pointer;z-index:60;display:none;transition:background 0.15s,color 0.15s,border-color 0.15s;border-radius:100px;backdrop-filter:blur(8px);}
 #finishBtn:hover{background:rgba(255,255,255,0.95);color:#111;border-color:#fff;}
 #dataScreen{display:none;position:fixed;inset:0;z-index:1500;flex-direction:column;overflow:hidden;padding-top:52px;}
 #dataHeader{display:none;}
@@ -303,15 +269,15 @@ body{
 #dataToolbar{position:absolute;top:14px;left:50%;transform:translateX(-50%);display:flex;flex-wrap:nowrap;align-items:center;gap:2px;background:rgba(0,0,0,0.72);backdrop-filter:blur(14px);padding:5px 10px;border:1px solid rgba(255,255,255,0.08);border-radius:100px;z-index:10;transition:opacity 0.2s;}
 #dataToolbar.collapsed .toolbar-inner-content{display:none;}
 .toolbar-sep{width:1px;height:16px;background:rgba(255,255,255,0.22);flex-shrink:0;margin:0 8px;}
-.layer-btn{font-family:ChakraPetch,HaimClassic,Heebo,sans-serif;font-size:7.5px;font-weight:400;letter-spacing:0.06em;color:#555;background:transparent;border:1.5px solid transparent;padding:5px 9px;cursor:pointer;transition:color 0.15s,border-color 0.15s;white-space:nowrap;border-radius:100px;position:relative;}
+.layer-btn{font-family:HaimVariable,Heebo,sans-serif;font-size:7.5px;font-weight:400;letter-spacing:0.06em;color:#555;background:transparent;border:1.5px solid transparent;padding:5px 9px;cursor:pointer;transition:color 0.15s,border-color 0.15s;white-space:nowrap;border-radius:100px;position:relative;}
 .layer-btn.active{color:#fff;border-color:rgba(255,255,255,0.35);background:rgba(255,255,255,0.07);}
 .layer-btn[data-tooltip]::after{content:attr(data-tooltip);position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);background:rgba(0,0,0,0.88);color:#ccc;font-size:9px;font-weight:300;letter-spacing:0.04em;white-space:nowrap;padding:5px 10px;border-radius:6px;pointer-events:none;opacity:0;transition:opacity 0.15s;border:1px solid rgba(255,255,255,0.08);z-index:100;}
 .layer-btn[data-tooltip]:hover::after{opacity:1;}
 .toggle-group{display:flex;gap:2px;}
-.toggle-btn{font-family:ChakraPetch,HaimClassic,Heebo,sans-serif;font-size:7.5px;font-weight:400;letter-spacing:0.05em;padding:5px 8px;border:1.5px solid transparent;background:transparent;color:#555;cursor:pointer;transition:all 0.15s,transform 0.15s;white-space:nowrap;border-radius:100px;}
+.toggle-btn{font-family:HaimVariable,Heebo,sans-serif;font-size:7.5px;font-weight:400;letter-spacing:0.05em;padding:5px 8px;border:1.5px solid transparent;background:transparent;color:#555;cursor:pointer;transition:all 0.15s,transform 0.15s;white-space:nowrap;border-radius:100px;}
 .toggle-btn.active{color:#fff;border-color:rgba(255,255,255,0.35);background:rgba(255,255,255,0.07);}
-#playBtn{font-family:ChakraPetch,HaimClassic,Heebo,sans-serif;font-size:7.5px;font-weight:400;letter-spacing:0.06em;color:#fff;background:#222;border:1.5px solid #3a3a3a;padding:5px 10px;cursor:pointer;transition:background 0.15s;flex-shrink:0;border-radius:100px;}
-.view-tab{font-family:ChakraPetch,HaimClassic,Heebo,sans-serif;font-size:7.5px;font-weight:400;letter-spacing:0.06em;padding:5px 9px;border:1.5px solid transparent;background:transparent;color:#555;cursor:pointer;transition:all 0.15s;border-radius:100px;}
+#playBtn{font-family:HaimVariable,Heebo,sans-serif;font-size:7.5px;font-weight:400;letter-spacing:0.06em;color:#fff;background:#222;border:1.5px solid #3a3a3a;padding:5px 10px;cursor:pointer;transition:background 0.15s;flex-shrink:0;border-radius:100px;}
+.view-tab{font-family:HaimVariable,Heebo,sans-serif;font-size:7.5px;font-weight:400;letter-spacing:0.06em;padding:5px 9px;border:1.5px solid transparent;background:transparent;color:#555;cursor:pointer;transition:all 0.15s;border-radius:100px;}
 .view-tab.active{background:rgba(255,255,255,0.07);color:#fff;border-color:rgba(255,255,255,0.35);}
 #galleryScreen{display:none;position:fixed;inset:0;z-index:1500;flex-direction:column;overflow:hidden;padding-top:52px;}
 #galleryHeader{display:flex;align-items:center;justify-content:space-between;padding:10px 60px;border-bottom:1px solid rgba(255,255,255,0.4);flex-shrink:0;background:rgba(255,255,255,0.45);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);}
@@ -332,7 +298,7 @@ body{
 #compareView{display:none;flex:1;overflow:hidden;flex-direction:column;}
 #compareFilters{background:rgba(255,255,255,0.45);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,0.4);padding:10px 60px;display:flex;flex-wrap:wrap;gap:8px;align-items:center;flex-shrink:0;}
 .cf-label{font-size:8px;font-weight:700;letter-spacing:0.3em;color:#999;text-transform:uppercase;}
-.cf-select{font-family:ChakraPetch,HaimClassic,Heebo,sans-serif;font-size:10px;background:#fff;color:#333;border:1.5px solid #ddd;padding:5px 10px;cursor:pointer;border-radius:100px;outline:none;-webkit-appearance:none;}
+.cf-select{font-family:HaimVariable,Heebo,sans-serif;font-size:10px;background:#fff;color:#333;border:1.5px solid #ddd;padding:5px 10px;cursor:pointer;border-radius:100px;outline:none;-webkit-appearance:none;}
 .cf-select:focus{border-color:#555;}
 .cf-sep{width:1px;height:16px;background:#ddd;align-self:center;}
 #compareGrid-wrap{flex:1;overflow:auto;padding:16px 60px;}
@@ -351,7 +317,7 @@ body{
 .ns-form{display:flex;flex-direction:column;align-items:center;width:100%;max-width:320px;}
 .ns-field{width:100%;margin-bottom:30px;}
 .ns-field label{display:block;font-size:9px;font-weight:700;letter-spacing:0.3em;color:#111;margin-bottom:12px;text-transform:uppercase;}
-.ns-field input,.ns-field select{background:#fff;border:1px solid rgba(255,255,255,0.7);color:#FF0000;font-family:ChakraPetch,HaimClassic,Heebo,sans-serif;font-size:16px;letter-spacing:0.08em;padding:12px 16px;width:100%;caret-color:#111;transition:border-color 0.15s;-webkit-appearance:none;border-radius:6px;outline:none;}
+.ns-field input,.ns-field select{background:#fff;border:1px solid rgba(255,255,255,0.7);color:#FF0000;font-family:HaimVariable,Heebo,sans-serif;font-size:16px;letter-spacing:0.08em;padding:12px 16px;width:100%;caret-color:#111;transition:border-color 0.15s;-webkit-appearance:none;border-radius:6px;outline:none;}
 .ns-field input:focus,.ns-field select:focus{border-color:rgba(178,224,243,0.8);outline:none;}
 .ns-field input::placeholder{color:#bbb;font-size:14px;}
 .ns-field select{background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23aaa' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat right 14px center;}
@@ -566,7 +532,7 @@ label,
 <div id="splashScreen" style="position:fixed;inset:0;z-index:9900;background:#c8e8f5;overflow:hidden;display:flex;align-items:center;justify-content:center;">
   <div style="position:absolute;inset:0;background:url('sky.png') center/cover no-repeat;filter:blur(0px) brightness(1.12) contrast(0.92) saturate(1.25);transform:scale(1.08);opacity:0.7;"></div>
   <div style="position:absolute;inset:0;background:rgba(80,130,200,0.05);mix-blend-mode:screen;pointer-events:none;"></div>
-  <div id="splashText" style="position:relative;z-index:2;font-size:23vw;font-weight:700;color:#FF0000;letter-spacing:0.04em;line-height:1;opacity:0;transition:opacity 0.6s ease;white-space:nowrap;"><span style="font-family:HaimClassic,Heebo,sans-serif;font-weight:700;">250</span><span style="font-family:ChakraPetch,HaimClassic,sans-serif;font-weight:700;">ms</span></div>
+  <div id="splashText" style="position:relative;z-index:2;font-size:23vw;font-weight:700;color:#FF0000;letter-spacing:0.04em;line-height:1;opacity:0;transition:opacity 0.6s ease;white-space:nowrap;"><span style="font-family:HaimVariable,Heebo,sans-serif;font-weight:700;">250</span><span style="font-family:HaimVariable,sans-serif;font-weight:700;">ms</span></div>
 </div>
 
 <div id="calOverlay">
@@ -733,27 +699,27 @@ label,
   <div id="aboutBody" style="flex:1;overflow-y:auto;padding:48px 60px;">
     <div style="max-width:720px;margin:0 auto;padding:0;">
 
-    <p id="about-label-title" style="font-size:9px;font-weight:700;letter-spacing:0.45em;color:#aaa;margin:0 0 20px;font-family:ChakraPetch,HaimClassic,Heebo,sans-serif;">אודות</p>
+    <p id="about-label-title" style="font-size:9px;font-weight:700;letter-spacing:0.45em;color:#aaa;margin:0 0 20px;font-family:HaimVariable,Heebo,sans-serif;">אודות</p>
 
-    <h1 style="font-size:36px;font-weight:900;color:#FF0000;margin:0 0 12px;line-height:1.1;font-family:ChakraPetch,HaimClassic,Heebo,sans-serif;">0.25 שניות</h1>
+    <h1 style="font-size:36px;font-weight:900;color:#FF0000;margin:0 0 12px;line-height:1.1;font-family:HaimVariable,Heebo,sans-serif;">0.25 שניות</h1>
 
-    <p style="font-size:15px;color:#666;margin:0 0 48px;line-height:1.8;font-family:ChakraPetch,HaimClassic,Heebo,sans-serif;">
+    <p style="font-size:15px;color:#666;margin:0 0 48px;line-height:1.8;font-family:HaimVariable,Heebo,sans-serif;">
       0.25 שניות היא מערכת מעקב עיניים מבוססת דפדפן לניתוח תשומת לב חזותית על תמונות פוליטיות. היא מודדת לאן מסתכלים הצופים, מה הם מבחינים בו ראשון, וכיצד המבט שלהם נע על פני תמונה — ללא חומרה כלשהי מלבד מצלמת רשת רגילה.
     </p>
 
     <div style="border-top:1px solid rgba(178,224,243,0.4);padding-top:36px;margin-bottom:36px;">
-      <p id="about-label-system" style="font-size:9px;font-weight:700;letter-spacing:0.4em;color:#aaa;margin:0 0 16px;font-family:ChakraPetch,HaimClassic,Heebo,sans-serif;">המערכת</p>
-      <p style="font-size:15px;color:#666;line-height:1.8;margin:0 0 14px;font-family:ChakraPetch,HaimClassic,Heebo,sans-serif;">
+      <p id="about-label-system" style="font-size:9px;font-weight:700;letter-spacing:0.4em;color:#aaa;margin:0 0 16px;font-family:HaimVariable,Heebo,sans-serif;">המערכת</p>
+      <p style="font-size:15px;color:#666;line-height:1.8;margin:0 0 14px;font-family:HaimVariable,Heebo,sans-serif;">
         המערכת משתמשת ב-MediaPipe לזיהוי 478 נקודות ציון פנים בכל פריים, תוך בידוד מיקום האיריס בזמן אמת. כיול אפיני של 9 נקודות ממפה את תנועת העין לקואורדינטות המסך, ודגימות המבט מסווגות לקיבועים, סקאדות, מסלולי סריקה ומפות חום באמצעות אלגוריתמי I-DT ו-I-VT.
       </p>
-      <p style="font-size:15px;color:#666;line-height:1.8;margin:0;font-family:ChakraPetch,HaimClassic,Heebo,sans-serif;">
+      <p style="font-size:15px;color:#666;line-height:1.8;margin:0;font-family:HaimVariable,Heebo,sans-serif;">
         המערכת תוכננה לחקור דפוסי תשומת לב חזותית על תמונות פוליטיות — בוחנת אילו אזורים מושכים את העין ראשונים, כמה זמן שוהה המבט באזורים שונים, ואם צצים דפוסי צפייה שונים בקרב משקיפים שונים.
       </p>
     </div>
 
     <div style="border-top:1px solid rgba(178,224,243,0.4);padding-top:36px;margin-bottom:36px;">
-      <p id="about-label-research" style="font-size:9px;font-weight:700;letter-spacing:0.4em;color:#aaa;margin:0 0 16px;font-family:ChakraPetch,HaimClassic,Heebo,sans-serif;">מוקד המחקר</p>
-      <p style="font-size:15px;color:#666;line-height:1.8;margin:0;font-family:ChakraPetch,HaimClassic,Heebo,sans-serif;">
+      <p id="about-label-research" style="font-size:9px;font-weight:700;letter-spacing:0.4em;color:#aaa;margin:0 0 16px;font-family:HaimVariable,Heebo,sans-serif;">מוקד המחקר</p>
+      <p style="font-size:15px;color:#666;line-height:1.8;margin:0;font-family:HaimVariable,Heebo,sans-serif;">
         כל סשן מקושר לפרופיל בעל שם הכולל גיל, מגדר ומיקום מזוהה. ההשתתפות היא וולונטרית והנתונים משמשים למטרות מחקר בלבד.
       </p>
     </div>
@@ -792,39 +758,39 @@ label,
     <div style="max-width:720px;margin:0 auto;padding:0;">
 
     <div style="border-top:1px solid rgba(178,224,243,0.4);padding-top:36px;margin-bottom:36px;">
-      <p id="about-label-measure" style="font-size:9px;font-weight:700;letter-spacing:0.4em;color:#aaa;margin:0 0 24px;font-family:ChakraPetch,HaimClassic,Heebo,sans-serif;">מה אנחנו מודדים</p>
+      <p id="about-label-measure" style="font-size:9px;font-weight:700;letter-spacing:0.4em;color:#aaa;margin:0 0 24px;font-family:HaimVariable,Heebo,sans-serif;">מה אנחנו מודדים</p>
       <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;">
         <div style="background:rgba(255,255,255,0.15);border-radius:10px;padding:16px;border:1px solid rgba(255,255,255,0.3);backdrop-filter:blur(12px);">
-          <p style="font-size:9px;font-weight:700;letter-spacing:0.25em;color:#aaa;margin:0 0 6px;font-family:ChakraPetch,HaimClassic,Heebo,sans-serif;">קיבוע</p>
-          <p style="font-size:12px;color:#888;margin:0;line-height:1.6;font-family:ChakraPetch,HaimClassic,Heebo,sans-serif;">מבט ממושך על אזור יחיד. מעיד על עניין או עיבוד קוגניטיבי.</p>
+          <p style="font-size:9px;font-weight:700;letter-spacing:0.25em;color:#aaa;margin:0 0 6px;font-family:HaimVariable,Heebo,sans-serif;">קיבוע</p>
+          <p style="font-size:12px;color:#888;margin:0;line-height:1.6;font-family:HaimVariable,Heebo,sans-serif;">מבט ממושך על אזור יחיד. מעיד על עניין או עיבוד קוגניטיבי.</p>
         </div>
         <div style="background:rgba(255,255,255,0.15);border-radius:10px;padding:16px;border:1px solid rgba(255,255,255,0.3);backdrop-filter:blur(12px);">
-          <p style="font-size:9px;font-weight:700;letter-spacing:0.25em;color:#aaa;margin:0 0 6px;font-family:ChakraPetch,HaimClassic,Heebo,sans-serif;">סקאדה</p>
-          <p style="font-size:12px;color:#888;margin:0;line-height:1.6;font-family:ChakraPetch,HaimClassic,Heebo,sans-serif;">תנועת עין מהירה בין אזורים. חושפת כיצד העין סורקת סצנה.</p>
+          <p style="font-size:9px;font-weight:700;letter-spacing:0.25em;color:#aaa;margin:0 0 6px;font-family:HaimVariable,Heebo,sans-serif;">סקאדה</p>
+          <p style="font-size:12px;color:#888;margin:0;line-height:1.6;font-family:HaimVariable,Heebo,sans-serif;">תנועת עין מהירה בין אזורים. חושפת כיצד העין סורקת סצנה.</p>
         </div>
         <div style="background:rgba(255,255,255,0.15);border-radius:10px;padding:16px;border:1px solid rgba(255,255,255,0.3);backdrop-filter:blur(12px);">
-          <p style="font-size:9px;font-weight:700;letter-spacing:0.25em;color:#aaa;margin:0 0 6px;font-family:ChakraPetch,HaimClassic,Heebo,sans-serif;">מסלול סריקה</p>
-          <p style="font-size:12px;color:#888;margin:0;line-height:1.6;font-family:ChakraPetch,HaimClassic,Heebo,sans-serif;">הרצף הממוין של הקיבועים. ממפה את המסע החזותי על פני התמונה.</p>
+          <p style="font-size:9px;font-weight:700;letter-spacing:0.25em;color:#aaa;margin:0 0 6px;font-family:HaimVariable,Heebo,sans-serif;">מסלול סריקה</p>
+          <p style="font-size:12px;color:#888;margin:0;line-height:1.6;font-family:HaimVariable,Heebo,sans-serif;">הרצף הממוין של הקיבועים. ממפה את המסע החזותי על פני התמונה.</p>
         </div>
         <div style="background:rgba(255,255,255,0.15);border-radius:10px;padding:16px;border:1px solid rgba(255,255,255,0.3);backdrop-filter:blur(12px);">
-          <p style="font-size:9px;font-weight:700;letter-spacing:0.25em;color:#aaa;margin:0 0 6px;font-family:ChakraPetch,HaimClassic,Heebo,sans-serif;">מפת חום</p>
-          <p style="font-size:12px;color:#888;margin:0;line-height:1.6;font-family:ChakraPetch,HaimClassic,Heebo,sans-serif;">מפת צפיפות של תשומת הלב החזותית. מראה היכן מתקבצים רוב הקיבועים.</p>
+          <p style="font-size:9px;font-weight:700;letter-spacing:0.25em;color:#aaa;margin:0 0 6px;font-family:HaimVariable,Heebo,sans-serif;">מפת חום</p>
+          <p style="font-size:12px;color:#888;margin:0;line-height:1.6;font-family:HaimVariable,Heebo,sans-serif;">מפת צפיפות של תשומת הלב החזותית. מראה היכן מתקבצים רוב הקיבועים.</p>
         </div>
         <div style="background:rgba(255,255,255,0.15);border-radius:10px;padding:16px;border:1px solid rgba(255,255,255,0.3);backdrop-filter:blur(12px);">
-          <p style="font-size:9px;font-weight:700;letter-spacing:0.25em;color:#aaa;margin:0 0 6px;font-family:ChakraPetch,HaimClassic,Heebo,sans-serif;">TTFF</p>
-          <p style="font-size:12px;color:#888;margin:0;line-height:1.6;font-family:ChakraPetch,HaimClassic,Heebo,sans-serif;">זמן עד לקיבוע הראשון. מודד עד כמה מהר אזור מושך תשומת לב.</p>
+          <p style="font-size:9px;font-weight:700;letter-spacing:0.25em;color:#aaa;margin:0 0 6px;font-family:HaimVariable,Heebo,sans-serif;">TTFF</p>
+          <p style="font-size:12px;color:#888;margin:0;line-height:1.6;font-family:HaimVariable,Heebo,sans-serif;">זמן עד לקיבוע הראשון. מודד עד כמה מהר אזור מושך תשומת לב.</p>
         </div>
         <div style="background:rgba(255,255,255,0.15);border-radius:10px;padding:16px;border:1px solid rgba(255,255,255,0.3);backdrop-filter:blur(12px);">
-          <p style="font-size:9px;font-weight:700;letter-spacing:0.25em;color:#aaa;margin:0 0 6px;font-family:ChakraPetch,HaimClassic,Heebo,sans-serif;">קיבוע ראשון</p>
-          <p style="font-size:12px;color:#888;margin:0;line-height:1.6;font-family:ChakraPetch,HaimClassic,Heebo,sans-serif;">האזור הראשון שנוצד. נקודת הכניסה הטרום-מודעת של תשומת הלב החזותית.</p>
+          <p style="font-size:9px;font-weight:700;letter-spacing:0.25em;color:#aaa;margin:0 0 6px;font-family:HaimVariable,Heebo,sans-serif;">קיבוע ראשון</p>
+          <p style="font-size:12px;color:#888;margin:0;line-height:1.6;font-family:HaimVariable,Heebo,sans-serif;">האזור הראשון שנוצד. נקודת הכניסה הטרום-מודעת של תשומת הלב החזותית.</p>
         </div>
       </div>
     </div>
 
     <div style="border-top:1px solid rgba(178,224,243,0.4);padding-top:36px;padding-bottom:60px;">
-      <p id="about-label-built" style="font-size:9px;font-weight:700;letter-spacing:0.4em;color:#aaa;margin:0 0 16px;font-family:ChakraPetch,HaimClassic,Heebo,sans-serif;">נבנה על ידי</p>
-      <p style="font-size:17px;font-weight:700;color:#FF0000;margin:0 0 6px;font-family:ChakraPetch,HaimClassic,Heebo,sans-serif;">Noam Katzenelbogen</p>
-      <p style="font-size:13px;color:#888;line-height:1.8;margin:0;font-family:ChakraPetch,HaimClassic,Heebo,sans-serif;">
+      <p id="about-label-built" style="font-size:9px;font-weight:700;letter-spacing:0.4em;color:#aaa;margin:0 0 16px;font-family:HaimVariable,Heebo,sans-serif;">נבנה על ידי</p>
+      <p style="font-size:17px;font-weight:700;color:#FF0000;margin:0 0 6px;font-family:HaimVariable,Heebo,sans-serif;">Noam Katzenelbogen</p>
+      <p style="font-size:13px;color:#888;line-height:1.8;margin:0;font-family:HaimVariable,Heebo,sans-serif;">
         פרויקט גמר — תואר ראשון בתקשורת חזותית, אוניברסיטת חיפה.<br>
         בהנחיית רונית ישראלי.<br>
         תוכנן, עוצב ופותח מאפס — כולל מסגרת מחקר, עיצוב UX ופיתוח צד לקוח וצד שרת.
@@ -832,12 +798,12 @@ label,
     </div>
 
     <div style="border-top:1px solid rgba(178,224,243,0.4);padding-top:36px;padding-bottom:60px;">
-      <p id="about-label-credits" style="font-size:9px;font-weight:700;letter-spacing:0.4em;color:#aaa;margin:0 0 20px;font-family:ChakraPetch,HaimClassic,Heebo,sans-serif;">קרדיטים לתמונות</p>
-      <p style="font-size:12px;font-weight:300;color:#aaa;line-height:1.8;margin:0 0 20px;font-family:ChakraPetch,HaimClassic,Heebo,sans-serif;">
+      <p id="about-label-credits" style="font-size:9px;font-weight:700;letter-spacing:0.4em;color:#aaa;margin:0 0 20px;font-family:HaimVariable,Heebo,sans-serif;">קרדיטים לתמונות</p>
+      <p style="font-size:12px;font-weight:300;color:#aaa;line-height:1.8;margin:0 0 20px;font-family:HaimVariable,Heebo,sans-serif;">
         כל התמונות באדיבות לשכת העיתונות הממשלתית של ישראל.
       </p>
       <div style="display:flex;flex-direction:column;gap:8px;">
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px 32px;font-family:ChakraPetch,HaimClassic,Heebo,sans-serif;">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px 32px;font-family:HaimVariable,Heebo,sans-serif;">
           <div style="font-size:8px;font-weight:700;letter-spacing:0.3em;color:#bbb;padding-bottom:8px;border-bottom:1px solid #f0f0f0;">תמונה</div>
           <div style="font-size:8px;font-weight:700;letter-spacing:0.3em;color:#bbb;padding-bottom:8px;border-bottom:1px solid #f0f0f0;">PHOTOGRAPHER</div>
           <div style="font-size:12px;font-weight:300;color:#888;">Politics 4</div>
@@ -1017,10 +983,10 @@ function drawCalIntro(){const W=window.innerWidth,H=window.innerHeight;
   calCtx.clearRect(0,0,W,H);
   calCtx.textAlign='center';
   calCtx.fillStyle='rgba(255,0,0,0.7)';
-  calCtx.font='700 11px HaimClassic';
+  calCtx.font='700 11px HaimVariable';
   calCtx.fillText('מערכת ניתוח חזותי',W/2,H/2-130);
   calCtx.fillStyle='#FF0000';
-  calCtx.font='700 28px HaimClassic';
+  calCtx.font='700 28px HaimVariable';
   calCtx.fillText('כיול מעקב עיניים',W/2,H/2-90);
   calCtx.strokeStyle='rgba(255,0,0,0.25)';
   calCtx.lineWidth=1;
@@ -1029,7 +995,7 @@ function drawCalIntro(){const W=window.innerWidth,H=window.innerHeight;
   calCtx.lineTo(W/2+200,H/2-68);
   calCtx.stroke();
   calCtx.fillStyle='#444';
-  calCtx.font='300 14px HaimClassic';
+  calCtx.font='300 14px HaimVariable';
   calCtx.fillText('שמור על ראשך ללא תנועה — הזז רק את עינייך לכל נקודה',W/2,H/2-42);
   calCtx.fillText('החזק את המבט עד שהטבעת תתמלא לחלוטין',W/2,H/2-18);
   calCtx.strokeStyle='rgba(255,0,0,0.15)';
@@ -1038,26 +1004,26 @@ function drawCalIntro(){const W=window.innerWidth,H=window.innerHeight;
   calCtx.lineTo(W/2+200,H/2+4);
   calCtx.stroke();
   calCtx.fillStyle='#444';
-  calCtx.font='300 13px HaimClassic';
+  calCtx.font='300 13px HaimVariable';
   calCtx.fillText('לאחר הכיול תגיע לעמוד הבית.',W/2,H/2+26);
   calCtx.fillText('לחץ על "התחלה" כדי להתחיל את סשן הצפייה בתמונות.',W/2,H/2+48);
   calCtx.fillStyle='#777';
-  calCtx.font='300 11px HaimClassic';
+  calCtx.font='300 11px HaimVariable';
   calCtx.fillText('הכיול ישמש גם לצפייה בתמונות — אין צורך בכיול נוסף.',W/2,H/2+70);
 }
 
 function drawCalDone(){const W=window.innerWidth,H=window.innerHeight;
   calCtx.clearRect(0,0,W,H);
   calCtx.textAlign="center";
-  calCtx.fillStyle='#FF0000';calCtx.font="700 28px HaimClassic";
+  calCtx.fillStyle='#FF0000';calCtx.font="700 28px HaimVariable";
   calCtx.fillText("מוכן!",W/2,H/2-8);
-  calCtx.fillStyle='#666';calCtx.font="300 13px HaimClassic";
+  calCtx.fillStyle='#666';calCtx.font="300 13px HaimVariable";
   calCtx.fillText('הכיול הושלם — עמוד הבית עומד להיפתח.',W/2,H/2+20);
 }
 
 function awaitDot(px,py,index){return new Promise(resolve=>{let progress=0,prevTs=null;const samples=[];function frame(ts){const dt=prevTs?Math.min((ts-prevTs)/1000,0.05):0;prevTs=ts;const s=eyeStab();progress+=s*CAL_FILL_RATE*dt;progress-=(1-s)*CAL_DRAIN_RATE*dt;progress=Math.max(0,Math.min(1,progress));if(s>0.45&&eyeValid)samples.push({ox:curEyeOffX,oy:curEyeOffY});const W=window.innerWidth,H=window.innerHeight;
   calCtx.clearRect(0,0,W,H);
-  calCtx.textAlign='right';calCtx.fillStyle='rgba(255,255,255,0.5)';calCtx.font='400 14px HaimClassic';calCtx.fillText((index+1)+'  /  '+CAL_PTS.length,W-28,36);calCtx.beginPath();calCtx.arc(px,py,22,0,Math.PI*2);calCtx.strokeStyle='rgba(178,224,243,0.5)';calCtx.lineWidth=1.5;calCtx.stroke();if(progress>0){calCtx.beginPath();calCtx.arc(px,py,22,-Math.PI/2,-Math.PI/2+progress*Math.PI*2);calCtx.strokeStyle='rgba(255,0,0,'+(0.35+s*0.65)+')';calCtx.lineWidth=2;calCtx.stroke();}const r=3.5+s*2.5;calCtx.beginPath();calCtx.arc(px,py,r,0,Math.PI*2);calCtx.fillStyle='rgba(255,0,0,'+(0.2+s*0.8)+')';calCtx.fill();if(progress>=1){calCtx.beginPath();calCtx.arc(px,py,22,0,Math.PI*2);calCtx.strokeStyle='rgba(255,0,0,0.9)';calCtx.lineWidth=2;calCtx.stroke();const n=samples.length||1;setTimeout(()=>resolve({ox:samples.reduce((a,v)=>a+v.ox,0)/n,oy:samples.reduce((a,v)=>a+v.oy,0)/n}),280);}else requestAnimationFrame(frame);}requestAnimationFrame(frame);});}
+  calCtx.textAlign='right';calCtx.fillStyle='rgba(255,255,255,0.5)';calCtx.font='400 14px HaimVariable';calCtx.fillText((index+1)+'  /  '+CAL_PTS.length,W-28,36);calCtx.beginPath();calCtx.arc(px,py,22,0,Math.PI*2);calCtx.strokeStyle='rgba(178,224,243,0.5)';calCtx.lineWidth=1.5;calCtx.stroke();if(progress>0){calCtx.beginPath();calCtx.arc(px,py,22,-Math.PI/2,-Math.PI/2+progress*Math.PI*2);calCtx.strokeStyle='rgba(255,0,0,'+(0.35+s*0.65)+')';calCtx.lineWidth=2;calCtx.stroke();}const r=3.5+s*2.5;calCtx.beginPath();calCtx.arc(px,py,r,0,Math.PI*2);calCtx.fillStyle='rgba(255,0,0,'+(0.2+s*0.8)+')';calCtx.fill();if(progress>=1){calCtx.beginPath();calCtx.arc(px,py,22,0,Math.PI*2);calCtx.strokeStyle='rgba(255,0,0,0.9)';calCtx.lineWidth=2;calCtx.stroke();const n=samples.length||1;setTimeout(()=>resolve({ox:samples.reduce((a,v)=>a+v.ox,0)/n,oy:samples.reduce((a,v)=>a+v.oy,0)/n}),280);}else requestAnimationFrame(frame);}requestAnimationFrame(frame);});}
 
 async function startEyeTracking(){
   let fl;
@@ -1222,20 +1188,20 @@ function getMSSegs(idx,T,R,B,L){switch(idx){case 1:return[[L,B]];case 2:return[[
 function drawMarchingSquares(ctx,W,H,hm,hmW,hmH,col='255,0,0'){let maxVal=0;for(let i=0;i<hm.length;i++)if(hm[i]>maxVal)maxVal=hm[i];if(maxVal<0.01)return;const levels=[0.15,0.3,0.45,0.6,0.75,0.9];for(const level of levels){ctx.strokeStyle='rgba('+col+','+Math.min(1,(0.55+level*0.5)).toFixed(2)+')';ctx.lineWidth=3.5;ctx.beginPath();for(let cy=0;cy<hmH-1;cy++)for(let cx=0;cx<hmW-1;cx++){const vTL=hm[cy*hmW+cx]/maxVal,vTR=hm[cy*hmW+(cx+1)]/maxVal,vBR=hm[(cy+1)*hmW+(cx+1)]/maxVal,vBL=hm[(cy+1)*hmW+cx]/maxVal;const idx=(vTL>=level?8:0)+(vTR>=level?4:0)+(vBR>=level?2:0)+(vBL>=level?1:0);if(idx===0||idx===15)continue;const sx0=cx*W/hmW,sx1=(cx+1)*W/hmW,sy0=cy*H/hmH,sy1=(cy+1)*H/hmH;function lerp(v0,v1){return Math.abs(v1-v0)<1e-10?0.5:Math.max(0,Math.min(1,(level-v0)/(v1-v0)));}const T=[sx0+lerp(vTL,vTR)*(sx1-sx0),sy0],R=[sx1,sy0+lerp(vTR,vBR)*(sy1-sy0)],B=[sx0+lerp(vBL,vBR)*(sx1-sx0),sy1],L=[sx0,sy0+lerp(vTL,vBL)*(sy1-sy0)];for(const[p1,p2]of getMSSegs(idx,T,R,B,L)){ctx.moveTo(p1[0],p1[1]);ctx.lineTo(p2[0],p2[1]);}}ctx.stroke();}}
 
 function staticGaze(ctx,W,H,log,col='255,0,0'){ctx.clearRect(0,0,W,H);ctx.fillStyle='rgba('+col+',0.9)';for(const p of log){ctx.beginPath();ctx.arc(p.x*W,p.y*H,5,0,Math.PI*2);ctx.fill();}}
-function staticFixation(ctx,W,H,history,col='255,0,0'){ctx.clearRect(0,0,W,H);for(const fix of history){const cx=fix.x*W,cy=fix.y*H,r=Math.min(8+fix.duration/80,44);ctx.beginPath();ctx.arc(cx,cy,r,0,Math.PI*2);ctx.fillStyle='rgba('+col+',0.3)';ctx.fill();ctx.beginPath();ctx.arc(cx,cy,r,0,Math.PI*2);ctx.strokeStyle='rgba('+col+',1)';ctx.lineWidth=2.5;ctx.stroke();if(fix.duration>300){ctx.fillStyle='rgba('+col+',1)';ctx.font='700 10px HaimClassic';ctx.textAlign='center';ctx.textBaseline='alphabetic';ctx.fillText(Math.round(fix.duration)+'ms',cx,cy+r+13);}}}
+function staticFixation(ctx,W,H,history,col='255,0,0'){ctx.clearRect(0,0,W,H);for(const fix of history){const cx=fix.x*W,cy=fix.y*H,r=Math.min(8+fix.duration/80,44);ctx.beginPath();ctx.arc(cx,cy,r,0,Math.PI*2);ctx.fillStyle='rgba('+col+',0.3)';ctx.fill();ctx.beginPath();ctx.arc(cx,cy,r,0,Math.PI*2);ctx.strokeStyle='rgba('+col+',1)';ctx.lineWidth=2.5;ctx.stroke();if(fix.duration>300){ctx.fillStyle='rgba('+col+',1)';ctx.font='700 10px HaimVariable';ctx.textAlign='center';ctx.textBaseline='alphabetic';ctx.fillText(Math.round(fix.duration)+'ms',cx,cy+r+13);}}}
 function staticSaccade(ctx,W,H,history,col='255,0,0'){ctx.clearRect(0,0,W,H);for(const sac of history){const fx=sac.fromX*W,fy=sac.fromY*H,tx=sac.toX*W,ty=sac.toY*H;ctx.beginPath();ctx.moveTo(fx,fy);ctx.lineTo(tx,ty);ctx.strokeStyle='rgba('+col+',1)';ctx.lineWidth=2.5;ctx.stroke();const a=Math.atan2(ty-fy,tx-fx),l=11;ctx.beginPath();ctx.moveTo(tx,ty);ctx.lineTo(tx-l*Math.cos(a-Math.PI/6),ty-l*Math.sin(a-Math.PI/6));ctx.lineTo(tx-l*Math.cos(a+Math.PI/6),ty-l*Math.sin(a+Math.PI/6));ctx.closePath();ctx.fillStyle='rgba('+col+',1)';ctx.fill();}}
-function staticScanPath(ctx,W,H,history,col='255,0,0'){ctx.clearRect(0,0,W,H);if(!history.length)return;const R=12;if(history.length>=2){ctx.save();ctx.setLineDash([4,6]);ctx.strokeStyle='rgba('+col+',1)';ctx.lineWidth=2.5;ctx.beginPath();for(let j=0;j<history.length-1;j++){const ax=history[j].x*W,ay=history[j].y*H,bx=history[j+1].x*W,by=history[j+1].y*H;const dx=bx-ax,dy=by-ay,dist=Math.hypot(dx,dy);if(dist<1)continue;const ux=dx/dist,uy=dy/dist;ctx.moveTo(ax+ux*R,ay+uy*R);ctx.lineTo(bx-ux*R,by-uy*R);}ctx.stroke();ctx.setLineDash([]);ctx.restore();}for(let j=0;j<history.length;j++){const cx=history[j].x*W,cy=history[j].y*H;ctx.beginPath();ctx.arc(cx,cy,R,0,Math.PI*2);ctx.strokeStyle='rgba('+col+',1)';ctx.lineWidth=3;ctx.stroke();ctx.fillStyle='rgba('+col+',1)';ctx.font='700 10px HaimClassic';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText(j+1,cx,cy);ctx.textBaseline='alphabetic';}}
+function staticScanPath(ctx,W,H,history,col='255,0,0'){ctx.clearRect(0,0,W,H);if(!history.length)return;const R=12;if(history.length>=2){ctx.save();ctx.setLineDash([4,6]);ctx.strokeStyle='rgba('+col+',1)';ctx.lineWidth=2.5;ctx.beginPath();for(let j=0;j<history.length-1;j++){const ax=history[j].x*W,ay=history[j].y*H,bx=history[j+1].x*W,by=history[j+1].y*H;const dx=bx-ax,dy=by-ay,dist=Math.hypot(dx,dy);if(dist<1)continue;const ux=dx/dist,uy=dy/dist;ctx.moveTo(ax+ux*R,ay+uy*R);ctx.lineTo(bx-ux*R,by-uy*R);}ctx.stroke();ctx.setLineDash([]);ctx.restore();}for(let j=0;j<history.length;j++){const cx=history[j].x*W,cy=history[j].y*H;ctx.beginPath();ctx.arc(cx,cy,R,0,Math.PI*2);ctx.strokeStyle='rgba('+col+',1)';ctx.lineWidth=3;ctx.stroke();ctx.fillStyle='rgba('+col+',1)';ctx.font='700 10px HaimVariable';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText(j+1,cx,cy);ctx.textBaseline='alphabetic';}}
 function staticHeatmap(ctx,W,H,log,col='255,0,0'){ctx.clearRect(0,0,W,H);const hmW=200,hmH=112;drawMarchingSquares(ctx,W,H,buildHeatmapFromLog(log,hmW,hmH),hmW,hmH,col);}
-function staticFirstFix(ctx,W,H,fix,modeTs,col='255,0,0'){ctx.clearRect(0,0,W,H);if(!fix){ctx.fillStyle='rgba(150,150,150,0.7)';ctx.font='300 11px HaimClassic';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText('לא זוהה קיבוע ראשון',W/2,H/2);return;}const cx=fix.x*W,cy=fix.y*H,offset=modeTs?((fix.startTs-modeTs)/1000):0;ctx.beginPath();ctx.arc(cx,cy,14,0,Math.PI*2);ctx.fillStyle='rgba('+col+',1)';ctx.fill();ctx.textAlign='center';ctx.textBaseline='alphabetic';ctx.fillStyle='rgba('+col+',1)';ctx.font='700 11px HaimClassic';ctx.fillText('קיבוע ראשון',cx,cy-46);ctx.font='300 9px HaimClassic';ctx.fillText('+'+offset.toFixed(2)+'s',cx,cy-32);}
+function staticFirstFix(ctx,W,H,fix,modeTs,col='255,0,0'){ctx.clearRect(0,0,W,H);if(!fix){ctx.fillStyle='rgba(150,150,150,0.7)';ctx.font='300 11px HaimVariable';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText('לא זוהה קיבוע ראשון',W/2,H/2);return;}const cx=fix.x*W,cy=fix.y*H,offset=modeTs?((fix.startTs-modeTs)/1000):0;ctx.beginPath();ctx.arc(cx,cy,14,0,Math.PI*2);ctx.fillStyle='rgba('+col+',1)';ctx.fill();ctx.textAlign='center';ctx.textBaseline='alphabetic';ctx.fillStyle='rgba('+col+',1)';ctx.font='700 11px HaimVariable';ctx.fillText('קיבוע ראשון',cx,cy-46);ctx.font='300 9px HaimVariable';ctx.fillText('+'+offset.toFixed(2)+'s',cx,cy-32);}
 
 function cancelAnimation(){if(currentAnimation){currentAnimation.cancel();currentAnimation=null;}}
 function getDataCanvas(){const dc=document.getElementById('dataCanvas'),area=document.getElementById('dataImgArea');dc.width=area.offsetWidth;dc.height=area.offsetHeight;return dc;}
 function animateGaze(ctx,W,H,log){let tid=null,cancelled=false;const pts=log.slice();let i=0;function step(){if(cancelled||i>=pts.length)return;const p=pts[i++];ctx.beginPath();ctx.arc(p.x*W,p.y*H,5,0,Math.PI*2);ctx.fillStyle='rgba(255,0,0,0.9)';ctx.fill();tid=setTimeout(step,50);}step();return{cancel:()=>{cancelled=true;clearTimeout(tid);}};}
-function animateFixation(ctx,W,H,history){let tid=null,rafId=null,cancelled=false;const fixes=history.slice();let i=0;const drawn=[];function redrawAll(){for(const fix of drawn){const cx=fix.x*W,cy=fix.y*H,r=Math.min(8+fix.duration/80,44);ctx.beginPath();ctx.arc(cx,cy,r,0,Math.PI*2);ctx.fillStyle='rgba(255,0,0,0.3)';ctx.fill();ctx.beginPath();ctx.arc(cx,cy,r,0,Math.PI*2);ctx.strokeStyle='rgba(255,0,0,1)';ctx.lineWidth=2.5;ctx.stroke();if(fix.duration>300){ctx.fillStyle='rgba(255,0,0,1)';ctx.font='700 10px HaimClassic';ctx.textAlign='center';ctx.textBaseline='alphabetic';ctx.fillText(Math.round(fix.duration)+'ms',cx,cy+r+13);}}}function next(){if(cancelled||i>=fixes.length)return;const fix=fixes[i++];const cx=fix.x*W,cy=fix.y*H,rFinal=Math.min(8+fix.duration/80,44);const start=performance.now();function grow(now){if(cancelled)return;const t=Math.min(1,(now-start)/300);ctx.clearRect(0,0,W,H);redrawAll();const r=rFinal*t;ctx.beginPath();ctx.arc(cx,cy,Math.max(1,r),0,Math.PI*2);ctx.fillStyle='rgba(255,0,0,0.3)';ctx.fill();ctx.beginPath();ctx.arc(cx,cy,Math.max(1,r),0,Math.PI*2);ctx.strokeStyle='rgba(255,0,0,1)';ctx.lineWidth=2.5;ctx.stroke();if(t<1){rafId=requestAnimationFrame(grow);}else{if(fix.duration>300){ctx.fillStyle='rgba(255,0,0,1)';ctx.font='700 10px HaimClassic';ctx.textAlign='center';ctx.textBaseline='alphabetic';ctx.fillText(Math.round(fix.duration)+'ms',cx,cy+rFinal+13);}drawn.push(fix);tid=setTimeout(next,600);}}rafId=requestAnimationFrame(grow);}next();return{cancel:()=>{cancelled=true;clearTimeout(tid);cancelAnimationFrame(rafId);}};}
+function animateFixation(ctx,W,H,history){let tid=null,rafId=null,cancelled=false;const fixes=history.slice();let i=0;const drawn=[];function redrawAll(){for(const fix of drawn){const cx=fix.x*W,cy=fix.y*H,r=Math.min(8+fix.duration/80,44);ctx.beginPath();ctx.arc(cx,cy,r,0,Math.PI*2);ctx.fillStyle='rgba(255,0,0,0.3)';ctx.fill();ctx.beginPath();ctx.arc(cx,cy,r,0,Math.PI*2);ctx.strokeStyle='rgba(255,0,0,1)';ctx.lineWidth=2.5;ctx.stroke();if(fix.duration>300){ctx.fillStyle='rgba(255,0,0,1)';ctx.font='700 10px HaimVariable';ctx.textAlign='center';ctx.textBaseline='alphabetic';ctx.fillText(Math.round(fix.duration)+'ms',cx,cy+r+13);}}}function next(){if(cancelled||i>=fixes.length)return;const fix=fixes[i++];const cx=fix.x*W,cy=fix.y*H,rFinal=Math.min(8+fix.duration/80,44);const start=performance.now();function grow(now){if(cancelled)return;const t=Math.min(1,(now-start)/300);ctx.clearRect(0,0,W,H);redrawAll();const r=rFinal*t;ctx.beginPath();ctx.arc(cx,cy,Math.max(1,r),0,Math.PI*2);ctx.fillStyle='rgba(255,0,0,0.3)';ctx.fill();ctx.beginPath();ctx.arc(cx,cy,Math.max(1,r),0,Math.PI*2);ctx.strokeStyle='rgba(255,0,0,1)';ctx.lineWidth=2.5;ctx.stroke();if(t<1){rafId=requestAnimationFrame(grow);}else{if(fix.duration>300){ctx.fillStyle='rgba(255,0,0,1)';ctx.font='700 10px HaimVariable';ctx.textAlign='center';ctx.textBaseline='alphabetic';ctx.fillText(Math.round(fix.duration)+'ms',cx,cy+rFinal+13);}drawn.push(fix);tid=setTimeout(next,600);}}rafId=requestAnimationFrame(grow);}next();return{cancel:()=>{cancelled=true;clearTimeout(tid);cancelAnimationFrame(rafId);}};}
 function animateSaccade(ctx,W,H,history){let tid=null,rafId=null,cancelled=false;const sacs=history.slice();let i=0;const drawn=[];function drawSacFull(sac){const fx=sac.fromX*W,fy=sac.fromY*H,tx=sac.toX*W,ty=sac.toY*H;ctx.beginPath();ctx.moveTo(fx,fy);ctx.lineTo(tx,ty);ctx.strokeStyle='rgba(255,0,0,1)';ctx.lineWidth=2.5;ctx.stroke();const a=Math.atan2(ty-fy,tx-fx),l=9;ctx.beginPath();ctx.moveTo(tx,ty);ctx.lineTo(tx-l*Math.cos(a-Math.PI/6),ty-l*Math.sin(a-Math.PI/6));ctx.lineTo(tx-l*Math.cos(a+Math.PI/6),ty-l*Math.sin(a+Math.PI/6));ctx.closePath();ctx.fillStyle='rgba(255,0,0,1)';ctx.fill();}function redrawAll(){for(const s of drawn)drawSacFull(s);}function next(){if(cancelled||i>=sacs.length)return;const sac=sacs[i++];const fx=sac.fromX*W,fy=sac.fromY*H,tx=sac.toX*W,ty=sac.toY*H;const start=performance.now();function anim(now){if(cancelled)return;const t=Math.min(1,(now-start)/200);ctx.clearRect(0,0,W,H);redrawAll();const ex=fx+(tx-fx)*t,ey=fy+(ty-fy)*t;ctx.beginPath();ctx.moveTo(fx,fy);ctx.lineTo(ex,ey);ctx.strokeStyle='rgba(255,0,0,1)';ctx.lineWidth=2.5;ctx.stroke();if(t<1){rafId=requestAnimationFrame(anim);}else{drawSacFull(sac);drawn.push(sac);tid=setTimeout(next,500);}}rafId=requestAnimationFrame(anim);}next();return{cancel:()=>{cancelled=true;clearTimeout(tid);cancelAnimationFrame(rafId);}};}
-function animateScanPath(ctx,W,H,history){let tid=null,cancelled=false;const pts=history.slice();let shown=0;const R=11;function drawAll(n){ctx.clearRect(0,0,W,H);if(n<1)return;if(n>=2){ctx.save();ctx.setLineDash([4,6]);ctx.strokeStyle='rgba(255,0,0,1)';ctx.lineWidth=2.5;ctx.beginPath();for(let j=0;j<n-1;j++){const ax=pts[j].x*W,ay=pts[j].y*H,bx=pts[j+1].x*W,by=pts[j+1].y*H;const dx=bx-ax,dy=by-ay,dist=Math.hypot(dx,dy);if(dist<1)continue;const ux=dx/dist,uy=dy/dist;ctx.moveTo(ax+ux*R,ay+uy*R);ctx.lineTo(bx-ux*R,by-uy*R);}ctx.stroke();ctx.setLineDash([]);ctx.restore();}for(let j=0;j<n;j++){const{x,y}=pts[j],cx=x*W,cy=y*H;ctx.beginPath();ctx.arc(cx,cy,R,0,Math.PI*2);ctx.strokeStyle='rgba(255,0,0,1)';ctx.lineWidth=3;ctx.stroke();ctx.fillStyle='rgba(255,0,0,1)';ctx.font='700 10px HaimClassic';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText(j+1,cx,cy);ctx.textBaseline='alphabetic';}}function next(){if(cancelled||shown>=pts.length)return;shown++;drawAll(shown);tid=setTimeout(next,700);}next();return{cancel:()=>{cancelled=true;clearTimeout(tid);}};}
+function animateScanPath(ctx,W,H,history){let tid=null,cancelled=false;const pts=history.slice();let shown=0;const R=11;function drawAll(n){ctx.clearRect(0,0,W,H);if(n<1)return;if(n>=2){ctx.save();ctx.setLineDash([4,6]);ctx.strokeStyle='rgba(255,0,0,1)';ctx.lineWidth=2.5;ctx.beginPath();for(let j=0;j<n-1;j++){const ax=pts[j].x*W,ay=pts[j].y*H,bx=pts[j+1].x*W,by=pts[j+1].y*H;const dx=bx-ax,dy=by-ay,dist=Math.hypot(dx,dy);if(dist<1)continue;const ux=dx/dist,uy=dy/dist;ctx.moveTo(ax+ux*R,ay+uy*R);ctx.lineTo(bx-ux*R,by-uy*R);}ctx.stroke();ctx.setLineDash([]);ctx.restore();}for(let j=0;j<n;j++){const{x,y}=pts[j],cx=x*W,cy=y*H;ctx.beginPath();ctx.arc(cx,cy,R,0,Math.PI*2);ctx.strokeStyle='rgba(255,0,0,1)';ctx.lineWidth=3;ctx.stroke();ctx.fillStyle='rgba(255,0,0,1)';ctx.font='700 10px HaimVariable';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText(j+1,cx,cy);ctx.textBaseline='alphabetic';}}function next(){if(cancelled||shown>=pts.length)return;shown++;drawAll(shown);tid=setTimeout(next,700);}next();return{cancel:()=>{cancelled=true;clearTimeout(tid);}};}
 function animateHeatmap(ctx,W,H,log){let tid=null,cancelled=false;const hmW=200,hmH=112,hm=new Float32Array(hmW*hmH),sigma=0.07*Math.max(hmW,hmH),r=Math.ceil(3*sigma),inv2s2=1/(2*sigma*sigma);const pts=log.slice();let i=0;function addPt(p){const gx=p.x*hmW,gy=p.y*hmH,x0=Math.max(0,Math.floor(gx-r)),x1=Math.min(hmW-1,Math.ceil(gx+r)),y0=Math.max(0,Math.floor(gy-r)),y1=Math.min(hmH-1,Math.ceil(gy+r));for(let y=y0;y<=y1;y++)for(let x=x0;x<=x1;x++)hm[y*hmW+x]+=0.18*Math.exp(-((x-gx)**2+(y-gy)**2)*inv2s2);}function render(){ctx.clearRect(0,0,W,H);drawMarchingSquares(ctx,W,H,hm,hmW,hmH);}const perStep=Math.max(1,Math.ceil(pts.length/60));function step(){if(cancelled)return;let c=0;while(i<pts.length&&c<perStep){addPt(pts[i++]);c++;}render();if(i<pts.length)tid=setTimeout(step,50);}step();return{cancel:()=>{cancelled=true;clearTimeout(tid);}};}
-function animateFirstFix(ctx,W,H,fix,modeTs){let tid=null,rafId=null,cancelled=false;if(!fix){ctx.fillStyle='rgba(150,150,150,0.7)';ctx.font='300 11px HaimClassic';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText('לא זוהה קיבוע ראשון',W/2,H/2);return{cancel:()=>{}};}const cx=fix.x*W,cy=fix.y*H,offset=(fix.startTs-modeTs)/1000;tid=setTimeout(()=>{if(cancelled)return;const startPhase=performance.now();function phase2(now){if(cancelled)return;const t=Math.min(1,(now-startPhase)/600);ctx.clearRect(0,0,W,H);const ringR=20+t*40;ctx.beginPath();ctx.arc(cx,cy,ringR,0,Math.PI*2);ctx.strokeStyle='rgba(255,0,0,'+(1-t)*0.9+')';ctx.lineWidth=2.5;ctx.stroke();ctx.globalAlpha=t;ctx.beginPath();ctx.arc(cx,cy,14,0,Math.PI*2);ctx.fillStyle='rgba(255,0,0,1)';ctx.fill();ctx.globalAlpha=1;if(t>0.5){ctx.globalAlpha=(t-0.5)*2;ctx.textAlign='center';ctx.textBaseline='alphabetic';ctx.fillStyle='rgba(255,0,0,1)';ctx.font='700 11px HaimClassic';ctx.fillText('קיבוע ראשון',cx,cy-46);ctx.font='300 9px HaimClassic';ctx.fillText('+'+offset.toFixed(2)+'s',cx,cy-32);ctx.globalAlpha=1;}if(t<1){rafId=requestAnimationFrame(phase2);}else{const startPulse=performance.now();function pulse(now){if(cancelled)return;const pt=(now-startPulse)/1000,pr=20+Math.sin(pt*Math.PI*2)*5;ctx.clearRect(0,0,W,H);ctx.beginPath();ctx.arc(cx,cy,pr,0,Math.PI*2);ctx.strokeStyle='rgba(255,0,0,0.7)';ctx.lineWidth=2.5;ctx.stroke();ctx.beginPath();ctx.arc(cx,cy,14,0,Math.PI*2);ctx.fillStyle='rgba(255,0,0,1)';ctx.fill();ctx.textAlign='center';ctx.textBaseline='alphabetic';ctx.fillStyle='rgba(255,0,0,1)';ctx.font='700 11px HaimClassic';ctx.fillText('קיבוע ראשון',cx,cy-46);ctx.font='300 9px HaimClassic';ctx.fillText('+'+offset.toFixed(2)+'s',cx,cy-32);rafId=requestAnimationFrame(pulse);}rafId=requestAnimationFrame(pulse);}}rafId=requestAnimationFrame(phase2);},1000);return{cancel:()=>{cancelled=true;clearTimeout(tid);cancelAnimationFrame(rafId);}};}
+function animateFirstFix(ctx,W,H,fix,modeTs){let tid=null,rafId=null,cancelled=false;if(!fix){ctx.fillStyle='rgba(150,150,150,0.7)';ctx.font='300 11px HaimVariable';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText('לא זוהה קיבוע ראשון',W/2,H/2);return{cancel:()=>{}};}const cx=fix.x*W,cy=fix.y*H,offset=(fix.startTs-modeTs)/1000;tid=setTimeout(()=>{if(cancelled)return;const startPhase=performance.now();function phase2(now){if(cancelled)return;const t=Math.min(1,(now-startPhase)/600);ctx.clearRect(0,0,W,H);const ringR=20+t*40;ctx.beginPath();ctx.arc(cx,cy,ringR,0,Math.PI*2);ctx.strokeStyle='rgba(255,0,0,'+(1-t)*0.9+')';ctx.lineWidth=2.5;ctx.stroke();ctx.globalAlpha=t;ctx.beginPath();ctx.arc(cx,cy,14,0,Math.PI*2);ctx.fillStyle='rgba(255,0,0,1)';ctx.fill();ctx.globalAlpha=1;if(t>0.5){ctx.globalAlpha=(t-0.5)*2;ctx.textAlign='center';ctx.textBaseline='alphabetic';ctx.fillStyle='rgba(255,0,0,1)';ctx.font='700 11px HaimVariable';ctx.fillText('קיבוע ראשון',cx,cy-46);ctx.font='300 9px HaimVariable';ctx.fillText('+'+offset.toFixed(2)+'s',cx,cy-32);ctx.globalAlpha=1;}if(t<1){rafId=requestAnimationFrame(phase2);}else{const startPulse=performance.now();function pulse(now){if(cancelled)return;const pt=(now-startPulse)/1000,pr=20+Math.sin(pt*Math.PI*2)*5;ctx.clearRect(0,0,W,H);ctx.beginPath();ctx.arc(cx,cy,pr,0,Math.PI*2);ctx.strokeStyle='rgba(255,0,0,0.7)';ctx.lineWidth=2.5;ctx.stroke();ctx.beginPath();ctx.arc(cx,cy,14,0,Math.PI*2);ctx.fillStyle='rgba(255,0,0,1)';ctx.fill();ctx.textAlign='center';ctx.textBaseline='alphabetic';ctx.fillStyle='rgba(255,0,0,1)';ctx.font='700 11px HaimVariable';ctx.fillText('קיבוע ראשון',cx,cy-46);ctx.font='300 9px HaimVariable';ctx.fillText('+'+offset.toFixed(2)+'s',cx,cy-32);rafId=requestAnimationFrame(pulse);}rafId=requestAnimationFrame(pulse);}}rafId=requestAnimationFrame(phase2);},1000);return{cancel:()=>{cancelled=true;clearTimeout(tid);cancelAnimationFrame(rafId);}};}
 
 function playLayer(layer){cancelAnimation();const dc=getDataCanvas();const ctx=dc.getContext('2d');ctx.clearRect(0,0,dc.width,dc.height);const W=dc.width,H=dc.height;const sess=viewSession||{gazeLog,fixationHistory,saccadeHistory,scanPathHistory,firstFix,firstFixModeTs};renderAnalysisBadge(layer,sess);if(playMode==='STATIC'){switch(layer){case 'GAZE':staticGaze(ctx,W,H,sess.gazeLog);break;case 'קיבוע':staticFixation(ctx,W,H,sess.fixationHistory);break;case 'סקאדה':staticSaccade(ctx,W,H,sess.saccadeHistory);break;case 'SCANPATH':staticScanPath(ctx,W,H,sess.scanPathHistory);break;case 'מפת חום':staticHeatmap(ctx,W,H,sess.gazeLog);break;case 'FIRSTFIX':staticFirstFix(ctx,W,H,sess.firstFix,sess.firstFixModeTs);break;}}else{switch(layer){case 'GAZE':currentAnimation=animateGaze(ctx,W,H,sess.gazeLog);break;case 'קיבוע':currentAnimation=animateFixation(ctx,W,H,sess.fixationHistory);break;case 'סקאדה':currentAnimation=animateSaccade(ctx,W,H,sess.saccadeHistory);break;case 'SCANPATH':currentAnimation=animateScanPath(ctx,W,H,sess.scanPathHistory);break;case 'מפת חום':currentAnimation=animateHeatmap(ctx,W,H,sess.gazeLog);break;case 'FIRSTFIX':currentAnimation=animateFirstFix(ctx,W,H,sess.firstFix,sess.firstFixModeTs);break;}}}
 
@@ -1628,7 +1594,7 @@ function showAuthNav(){
 // ── Dashboard ─────────────────────────────────────────────────────────
 function openDashboard(){hideAllScreens();showSharedBg();setNavTheme('dark');navDashboardLink.classList.add('active');const scr=document.getElementById('dashboardScreen');scr.style.display='flex';if(allSessions.length===0){showEmptyState('dashboardScreen','התחל את הסשן הראשון שלך כדי לראות את לוח הבקרה.');}else{renderDashboard();}}
 
-function renderDashboard(){const container=document.getElementById('dashboardContent');container.innerHTML='';if(allSessions.length===0){container.innerHTML='<div style="padding:60px 0;text-align:center;font-size:11px;letter-spacing:0.25em;color:#ccc;font-family:ChakraPetch,HaimClassic,Heebo,sans-serif;">אין סשנים עדיין</div>';return;}const latest=allSessions[allSessions.length-1];const totalFix=latest.fixationHistory.length;const totalSac=latest.saccadeHistory.length;const avgFixDur=totalFix?Math.round(latest.fixationHistory.reduce((s,f)=>s+f.duration,0)/totalFix):0;const sacAmp=totalSac?+(latest.saccadeHistory.reduce((s,f)=>s+Math.hypot(f.toX-f.fromX,f.toY-f.fromY),0)/totalSac*100).toFixed(1):0;const dur=latest.sessionDuration?(latest.sessionDuration/1000).toFixed(1):0;const ttff=latest.firstFix?((latest.firstFix.startTs-latest.firstFixModeTs)/1000).toFixed(2):null;const kpiSection=document.createElement('div');kpiSection.className='dash-section';kpiSection.innerHTML='<div class="dash-section-title">הסשן האחרון שלי — '+latest.user+'</div>';const kpiRow=document.createElement('div');kpiRow.className='dash-kpi-row';kpiRow.innerHTML=`<div class="dash-kpi accent"><div class="dash-kpi-label">קיבועים</div><div class="dash-kpi-val">${totalFix||'-'}</div><div class="dash-kpi-sub">נקודות מבט</div></div><div class="dash-kpi accent"><div class="dash-kpi-label">AVG FIXATION</div><div class="dash-kpi-val">${avgFixDur||'-'}<span class="dash-kpi-unit">ms</span></div><div class="dash-kpi-sub">זמן שהייה</div></div><div class="dash-kpi accent"><div class="dash-kpi-label">סקאדות</div><div class="dash-kpi-val">${totalSac||'-'}</div><div class="dash-kpi-sub">קפיצות עין</div></div><div class="dash-kpi accent"><div class="dash-kpi-label">SAC AMPLITUDE</div><div class="dash-kpi-val">${sacAmp||'-'}<span class="dash-kpi-unit">%</span></div><div class="dash-kpi-sub">מרחק ממוצע</div></div><div class="dash-kpi accent"><div class="dash-kpi-label">משך</div><div class="dash-kpi-val">${dur}<span class="dash-kpi-unit">s</span></div><div class="dash-kpi-sub">זמן צפייה</div></div><div class="dash-kpi accent"><div class="dash-kpi-label">TTFF</div><div class="dash-kpi-val">${ttff||'-'}<span class="dash-kpi-unit">${ttff?'s':''}</span></div><div class="dash-kpi-sub">זמן לקיבוע ראשון</div></div><div class="dash-kpi"><div class="dash-kpi-label">דגימות</div><div class="dash-kpi-val">${latest.gazeLog.length}</div><div class="dash-kpi-sub">נקודות מבט</div></div><div class="dash-kpi"><div class="dash-kpi-label">תמונה</div><div class="dash-kpi-val" style="font-size:13px">${latest.imageName}</div></div>`;kpiSection.appendChild(kpiRow);container.appendChild(kpiSection);}
+function renderDashboard(){const container=document.getElementById('dashboardContent');container.innerHTML='';if(allSessions.length===0){container.innerHTML='<div style="padding:60px 0;text-align:center;font-size:11px;letter-spacing:0.25em;color:#ccc;font-family:HaimVariable,Heebo,sans-serif;">אין סשנים עדיין</div>';return;}const latest=allSessions[allSessions.length-1];const totalFix=latest.fixationHistory.length;const totalSac=latest.saccadeHistory.length;const avgFixDur=totalFix?Math.round(latest.fixationHistory.reduce((s,f)=>s+f.duration,0)/totalFix):0;const sacAmp=totalSac?+(latest.saccadeHistory.reduce((s,f)=>s+Math.hypot(f.toX-f.fromX,f.toY-f.fromY),0)/totalSac*100).toFixed(1):0;const dur=latest.sessionDuration?(latest.sessionDuration/1000).toFixed(1):0;const ttff=latest.firstFix?((latest.firstFix.startTs-latest.firstFixModeTs)/1000).toFixed(2):null;const kpiSection=document.createElement('div');kpiSection.className='dash-section';kpiSection.innerHTML='<div class="dash-section-title">הסשן האחרון שלי — '+latest.user+'</div>';const kpiRow=document.createElement('div');kpiRow.className='dash-kpi-row';kpiRow.innerHTML=`<div class="dash-kpi accent"><div class="dash-kpi-label">קיבועים</div><div class="dash-kpi-val">${totalFix||'-'}</div><div class="dash-kpi-sub">נקודות מבט</div></div><div class="dash-kpi accent"><div class="dash-kpi-label">AVG FIXATION</div><div class="dash-kpi-val">${avgFixDur||'-'}<span class="dash-kpi-unit">ms</span></div><div class="dash-kpi-sub">זמן שהייה</div></div><div class="dash-kpi accent"><div class="dash-kpi-label">סקאדות</div><div class="dash-kpi-val">${totalSac||'-'}</div><div class="dash-kpi-sub">קפיצות עין</div></div><div class="dash-kpi accent"><div class="dash-kpi-label">SAC AMPLITUDE</div><div class="dash-kpi-val">${sacAmp||'-'}<span class="dash-kpi-unit">%</span></div><div class="dash-kpi-sub">מרחק ממוצע</div></div><div class="dash-kpi accent"><div class="dash-kpi-label">משך</div><div class="dash-kpi-val">${dur}<span class="dash-kpi-unit">s</span></div><div class="dash-kpi-sub">זמן צפייה</div></div><div class="dash-kpi accent"><div class="dash-kpi-label">TTFF</div><div class="dash-kpi-val">${ttff||'-'}<span class="dash-kpi-unit">${ttff?'s':''}</span></div><div class="dash-kpi-sub">זמן לקיבוע ראשון</div></div><div class="dash-kpi"><div class="dash-kpi-label">דגימות</div><div class="dash-kpi-val">${latest.gazeLog.length}</div><div class="dash-kpi-sub">נקודות מבט</div></div><div class="dash-kpi"><div class="dash-kpi-label">תמונה</div><div class="dash-kpi-val" style="font-size:13px">${latest.imageName}</div></div>`;kpiSection.appendChild(kpiRow);container.appendChild(kpiSection);}
 
 // ── Profile ───────────────────────────────────────────────────────────
 function openProfile(){hideAllScreens();showSharedBg();setNavTheme('dark');navProfileLink.classList.add('active');document.getElementById('profileScreen').style.display='flex';renderProfile();}
@@ -1646,14 +1612,14 @@ async function renderProfile(){
   const totalFix=sessions.reduce((s,ss)=>s+(ss.fixation_count||0),0);
   const totalSac=sessions.reduce((s,ss)=>s+(ss.saccade_count||0),0);
   const avgDur=sessions.length?+(sessions.reduce((s,ss)=>s+(ss.session_duration||0),0)/sessions.length/1000).toFixed(1):0;
-  body.innerHTML=`<div style="max-width:800px;margin:0 auto;"><div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:32px;padding-bottom:20px;border-bottom:1px solid #e0e0e0;"><div><div style="font-size:9px;font-weight:700;letter-spacing:0.45em;color:#bbb;margin-bottom:8px;font-family:ChakraPetch,HaimClassic,Heebo,sans-serif;">פרופיל</div><div style="font-size:28px;font-weight:700;color:#FF0000;font-family:ChakraPetch,HaimClassic,Heebo,sans-serif;">${profile.name}</div><div style="font-size:11px;font-weight:300;color:#999;margin-top:4px;font-family:ChakraPetch,HaimClassic,Heebo,sans-serif;">${[profile.age?profile.age+'y':'',profile.gender||'',profile.location||''].filter(Boolean).join(' · ')}</div></div></div><div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:28px;">${[['סשנים',sessions.length,'סה"כ'],['קיבועים',totalFix,'עד כה'],['סקאדות',totalSac,'עד כה'],['משך ממוצע',avgDur+'s','לסשן'],].map(([label,val,sub])=>`<div style="background:#fff;border:1px solid #eee;border-radius:8px;padding:16px;"><div style="font-size:7px;font-weight:700;letter-spacing:0.35em;color:#bbb;margin-bottom:8px;font-family:ChakraPetch,HaimClassic,Heebo,sans-serif;">${label}</div><div style="font-size:22px;font-weight:700;color:#FF0000;font-family:ChakraPetch,HaimClassic,Heebo,sans-serif;">${val}</div><div style="font-size:8px;color:#bbb;margin-top:3px;font-family:ChakraPetch,HaimClassic,Heebo,sans-serif;">${sub}</div></div>`).join('')}</div>${sessions.length===0?'':sessions.slice().reverse().map(s=>`<div style="display:flex;align-items:center;justify-content:space-between;padding:12px 16px;background:#fff;border:1px solid #eee;border-radius:8px;margin-bottom:8px;font-family:ChakraPetch,HaimClassic,Heebo,sans-serif;"><div><div style="font-size:11px;font-weight:700;color:#111;">${s.image_name||'—'}</div><div style="font-size:9px;color:#bbb;margin-top:2px;">${new Date(s.timestamp||s.created_at).toLocaleString()}</div></div><div style="display:flex;gap:20px;text-align:right;"><div><div style="font-size:9px;color:#bbb;">קיבועים</div><div style="font-size:13px;font-weight:700;color:#FF0000;">${s.fixation_count||0}</div></div><div><div style="font-size:9px;color:#bbb;">סקאדות</div><div style="font-size:13px;font-weight:700;color:#FF0000;">${s.saccade_count||0}</div></div><div><div style="font-size:9px;color:#bbb;">משך</div><div style="font-size:13px;font-weight:700;color:#FF0000;">${((s.session_duration||0)/1000).toFixed(1)}s</div></div></div></div>`).join('')}</div>`;
+  body.innerHTML=`<div style="max-width:800px;margin:0 auto;"><div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:32px;padding-bottom:20px;border-bottom:1px solid #e0e0e0;"><div><div style="font-size:9px;font-weight:700;letter-spacing:0.45em;color:#bbb;margin-bottom:8px;font-family:HaimVariable,Heebo,sans-serif;">פרופיל</div><div style="font-size:28px;font-weight:700;color:#FF0000;font-family:HaimVariable,Heebo,sans-serif;">${profile.name}</div><div style="font-size:11px;font-weight:300;color:#999;margin-top:4px;font-family:HaimVariable,Heebo,sans-serif;">${[profile.age?profile.age+'y':'',profile.gender||'',profile.location||''].filter(Boolean).join(' · ')}</div></div></div><div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:28px;">${[['סשנים',sessions.length,'סה"כ'],['קיבועים',totalFix,'עד כה'],['סקאדות',totalSac,'עד כה'],['משך ממוצע',avgDur+'s','לסשן'],].map(([label,val,sub])=>`<div style="background:#fff;border:1px solid #eee;border-radius:8px;padding:16px;"><div style="font-size:7px;font-weight:700;letter-spacing:0.35em;color:#bbb;margin-bottom:8px;font-family:HaimVariable,Heebo,sans-serif;">${label}</div><div style="font-size:22px;font-weight:700;color:#FF0000;font-family:HaimVariable,Heebo,sans-serif;">${val}</div><div style="font-size:8px;color:#bbb;margin-top:3px;font-family:HaimVariable,Heebo,sans-serif;">${sub}</div></div>`).join('')}</div>${sessions.length===0?'':sessions.slice().reverse().map(s=>`<div style="display:flex;align-items:center;justify-content:space-between;padding:12px 16px;background:#fff;border:1px solid #eee;border-radius:8px;margin-bottom:8px;font-family:HaimVariable,Heebo,sans-serif;"><div><div style="font-size:11px;font-weight:700;color:#111;">${s.image_name||'—'}</div><div style="font-size:9px;color:#bbb;margin-top:2px;">${new Date(s.timestamp||s.created_at).toLocaleString()}</div></div><div style="display:flex;gap:20px;text-align:right;"><div><div style="font-size:9px;color:#bbb;">קיבועים</div><div style="font-size:13px;font-weight:700;color:#FF0000;">${s.fixation_count||0}</div></div><div><div style="font-size:9px;color:#bbb;">סקאדות</div><div style="font-size:13px;font-weight:700;color:#FF0000;">${s.saccade_count||0}</div></div><div><div style="font-size:9px;color:#bbb;">משך</div><div style="font-size:13px;font-weight:700;color:#FF0000;">${((s.session_duration||0)/1000).toFixed(1)}s</div></div></div></div>`).join('')}</div>`;
 }
 
 // ── About ─────────────────────────────────────────────────────────────
 function openAbout(){hideAllScreens();showSharedBg();setNavTheme('dark');navAboutLink.classList.add('active');document.getElementById('aboutScreen').style.display='flex';}
 
 // ── Empty state ───────────────────────────────────────────────────────
-function showEmptyState(screenId,msg){const scr=document.getElementById(screenId);scr.style.display='flex';const existing=document.querySelector('.empty-state-overlay');if(existing)existing.remove();const overlay=document.createElement('div');overlay.className='empty-state-overlay';overlay.style.cssText='position:fixed;inset:0;top:52px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;z-index:8990;pointer-events:all;';overlay.innerHTML=`<div style="font-size:9px;font-weight:700;letter-spacing:0.45em;color:#aaa;font-family:ChakraPetch,HaimClassic,Heebo,sans-serif;margin-bottom:4px;">אין סשנים עדיין</div><div style="font-size:13px;font-weight:300;color:#999;font-family:ChakraPetch,HaimClassic,Heebo,sans-serif;margin-bottom:16px;">${msg}</div>`;document.body.appendChild(overlay);}
+function showEmptyState(screenId,msg){const scr=document.getElementById(screenId);scr.style.display='flex';const existing=document.querySelector('.empty-state-overlay');if(existing)existing.remove();const overlay=document.createElement('div');overlay.className='empty-state-overlay';overlay.style.cssText='position:fixed;inset:0;top:52px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;z-index:8990;pointer-events:all;';overlay.innerHTML=`<div style="font-size:9px;font-weight:700;letter-spacing:0.45em;color:#aaa;font-family:HaimVariable,Heebo,sans-serif;margin-bottom:4px;">אין סשנים עדיין</div><div style="font-size:13px;font-weight:300;color:#999;font-family:HaimVariable,Heebo,sans-serif;margin-bottom:16px;">${msg}</div>`;document.body.appendChild(overlay);}
 
 // ── Toolbar collapse ──────────────────────────────────────────────────
 const dataToolbarCollapseBtn=document.getElementById('dataToolbarCollapseBtn');
