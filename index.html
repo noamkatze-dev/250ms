@@ -1581,11 +1581,12 @@ function showAuthNav(){
   window._MODES_REF = MODES;
 
   const gazeLog=[
-    {x:0.18,y:0.30},{x:0.20,y:0.28},{x:0.22,y:0.32},
-    {x:0.50,y:0.22},{x:0.52,y:0.24},{x:0.54,y:0.20},
-    {x:0.74,y:0.50},{x:0.72,y:0.52},{x:0.76,y:0.48},
-    {x:0.34,y:0.68},{x:0.36,y:0.66},{x:0.38,y:0.70},
-    {x:0.60,y:0.78},{x:0.62,y:0.76},{x:0.58,y:0.80},
+    // clusters around each fixation point
+    {x:0.20,y:0.30},{x:0.19,y:0.31},{x:0.21,y:0.29},
+    {x:0.52,y:0.22},{x:0.51,y:0.23},{x:0.53,y:0.21},
+    {x:0.74,y:0.50},{x:0.73,y:0.51},{x:0.75,y:0.49},
+    {x:0.36,y:0.68},{x:0.35,y:0.69},{x:0.37,y:0.67},
+    {x:0.61,y:0.78},{x:0.60,y:0.79},{x:0.62,y:0.77},
     {x:0.28,y:0.48},{x:0.50,y:0.50},{x:0.65,y:0.35}
   ];
   const fixHist=[
@@ -1595,6 +1596,7 @@ function showAuthNav(){
     {x:0.36,y:0.68,duration:180},
     {x:0.61,y:0.78,duration:320}
   ];
+  // saccades connect exactly between fixation points
   const sacHist=[
     {fromX:0.20,fromY:0.30,toX:0.52,toY:0.22},
     {fromX:0.52,fromY:0.22,toX:0.74,toY:0.50},
@@ -1844,7 +1846,7 @@ function showAuthNav(){
   }
 
   function runFirstFix(){
-    const fix={x:0.35,y:0.45};
+    const fix={x:fixHist[0].x,y:fixHist[0].y}; // exactly the first fixation point
     let phase='flash',start=null;
     function draw(ts){
       if(stopFlag) return;
