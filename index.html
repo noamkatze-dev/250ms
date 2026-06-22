@@ -119,8 +119,8 @@ body{
 }
 .home-content{text-align:center;pointer-events:all;display:flex;flex-direction:column;align-items:center;}
 .home-eyebrow{font-size:9px;font-weight:700;letter-spacing:0.5em;color:rgba(255,255,255,0.7);margin-bottom:16px;text-transform:uppercase;}
-.home-heading{font-size:36px;font-weight:400;font-family:HaimNum,HaimVariable,Heebo,sans-serif;color:#fff;line-height:1.1;margin-bottom:32px;white-space:nowrap;}
-#homeStartBtn{background:rgba(255,255,255,0.08);color:#fff;border:1px solid rgba(255,255,255,0.6);font-family:HaimNum,HaimVariable,Heebo,sans-serif;font-size:13px;font-weight:400;letter-spacing:0.22em;padding:14px 48px;cursor:pointer;transition:all 0.18s;margin-top:24px;margin-bottom:36px;border-radius:100px;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);}
+.home-heading{font-size:36px;font-weight:400;font-family:HaimNum,HaimVariable,Heebo,sans-serif;color:#FF0000;line-height:1.1;margin-bottom:32px;white-space:nowrap;}
+#homeStartBtn{background:rgba(255,255,255,0.08);color:#FF0000;border:1px solid rgba(255,255,255,0.6);font-family:HaimNum,HaimVariable,Heebo,sans-serif;font-size:13px;font-weight:400;letter-spacing:0.22em;padding:14px 48px;cursor:pointer;transition:all 0.18s;margin-top:24px;margin-bottom:36px;border-radius:100px;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);}
 
 /* ── BRIEFING SCREEN ── */
 #briefingScreen{
@@ -156,11 +156,11 @@ body{
   width:48px;height:1px;background:#FF0000;margin:0 auto 28px;
 }
 .briefing-body{
-  font-size:14px;font-weight:300;color:#444;line-height:1.8;
+  font-size:14px;font-weight:300;color:#FF0000;line-height:1.8;
   margin-bottom:14px;font-family:HaimNum,HaimVariable,Heebo,sans-serif;
 }
 .briefing-note{
-  font-size:11px;font-weight:300;color:#666;line-height:1.7;
+  font-size:11px;font-weight:300;color:#FF0000;line-height:1.7;
   margin-bottom:44px;font-family:HaimNum,HaimVariable,Heebo,sans-serif;
 }
 .briefing-steps{
@@ -177,7 +177,7 @@ body{
 }
 .briefing-step-icon{font-size:22px;line-height:1;}
 .briefing-step-text{
-  font-size:11px;font-weight:300;color:#555;line-height:1.5;
+  font-size:11px;font-weight:300;color:#FF0000;line-height:1.5;
   font-family:HaimNum,HaimVariable,Heebo,sans-serif;
 }
 #briefingStartBtn{
@@ -199,7 +199,7 @@ body{
 }
 
 .home-badges{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-bottom:40px;}
-.home-badge{font-size:10px;color:#555;border:1px solid #ddd;padding:5px 14px;border-radius:100px;letter-spacing:0.05em;}
+.home-badge{font-size:10px;color:#FF0000;border:1px solid #ddd;padding:5px 14px;border-radius:100px;letter-spacing:0.05em;}
 .home-scroll-hint{font-size:9px;font-weight:600;letter-spacing:0.4em;color:#FF0000;display:flex;flex-direction:column;align-items:center;gap:11px;position:absolute;bottom:28px;left:50%;transform:translateX(-50%);z-index:4;pointer-events:none;transition:opacity 0.4s ease;}
 .home-scroll-hint-arrow{font-size:22px;color:#FF0000;line-height:1;}
 
@@ -208,14 +208,14 @@ body{
 .hi-section+.hi-section{border-top:none;}
 .hi-section-dark{background:transparent;}
 .hi-label{font-size:8px;font-weight:700;letter-spacing:0.5em;color:#FF0000;margin-bottom:20px;text-transform:uppercase;}
-.hi-label-light{color:#bbb;}
+.hi-label-light{color:#FF0000;}
 .hi-title{font-size:28px;font-weight:700;color:#FF0000;margin-bottom:8px;line-height:1.2;white-space:nowrap;}
-.hi-title-light{color:#111;}
-.hi-sub{font-size:13px;font-weight:300;color:#888;max-width:480px;line-height:1.7;margin-bottom:40px;}
+.hi-title-light{color:#FF0000;}
+.hi-sub{font-size:13px;font-weight:300;color:#FF0000;max-width:480px;line-height:1.7;margin-bottom:40px;}
 
 .va-btn{font-family:HaimNum,HaimVariable,Heebo,sans-serif;letter-spacing:0.18em;cursor:pointer;transition:background 0.18s,color 0.18s,border-color 0.18s;border-radius:100px;}
-.va-btn-primary{background:rgba(255,255,255,0.35);color:#333;border:1px solid rgba(255,255,255,0.6);font-size:13px;font-weight:400;padding:14px 48px;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:0 2px 16px rgba(178,224,243,0.25);}
-.va-btn-secondary{background:#fff;color:#111;border:2px solid #111;font-size:12px;font-weight:400;padding:9px 24px;}
+.va-btn-primary{background:rgba(255,255,255,0.35);color:#FF0000;border:1px solid rgba(255,255,255,0.6);font-size:13px;font-weight:400;padding:14px 48px;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:0 2px 16px rgba(178,224,243,0.25);}
+.va-btn-secondary{background:#fff;color:#FF0000;border:2px solid #111;font-size:12px;font-weight:400;padding:9px 24px;}
 
 #nameScreen,
 #libraryScreen,
@@ -254,12 +254,12 @@ body{
 .lib-card:hover{border-color:#999;}
 .lib-card.selected{border-color:#111;}
 .lib-card.viewed-once{opacity:0.55;}
-.lib-card.viewed-once::after{content:'נצפה';position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.35);color:#fff;font-size:9px;font-weight:700;letter-spacing:0.3em;}
+.lib-card.viewed-once::after{content:'נצפה';position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.35);color:#FF0000;font-size:9px;font-weight:700;letter-spacing:0.3em;}
 .lib-card img{width:100%;height:100%;object-fit:cover;display:block;}
-.lib-num{position:absolute;top:6px;left:8px;font-size:9px;font-weight:700;color:#fff;text-shadow:0 0 4px rgba(0,0,0,0.8);letter-spacing:0.1em;}
+.lib-num{position:absolute;top:6px;left:8px;font-size:9px;font-weight:700;color:#FF0000;text-shadow:0 0 4px rgba(0,0,0,0.8);letter-spacing:0.1em;}
 .lib-add{aspect-ratio:4/3;border:1.5px dashed #ddd;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:6px;transition:border-color 0.15s;}
 .lib-add:hover{border-color:#999;}
-.lib-add-plus{font-size:28px;color:#ccc;line-height:1;}
+.lib-add-plus{font-size:28px;color:#FF0000;line-height:1;}
 .lib-add-label{font-size:9px;font-weight:300;letter-spacing:0.2em;color:#FF0000;}
 #libFileInput{display:none;}
 #imgWrapper{position:fixed;inset:0;overflow:hidden;display:none;}
@@ -269,8 +269,8 @@ body{
 #gazeDot{position:fixed;width:22px;height:22px;border-radius:50%;border:2px solid rgba(255,255,255,0.85);background:rgba(255,255,255,0.12);transform:translate(-50%,-50%);pointer-events:none;z-index:50;display:none;}
 #info{position:fixed;bottom:14px;left:50%;transform:translateX(-50%);font-family:HaimNum,HaimVariable,Heebo,sans-serif;font-size:10px;font-weight:300;letter-spacing:0.22em;color:rgba(255,255,255,0.6);pointer-events:none;transition:opacity 2s ease;white-space:nowrap;z-index:50;display:none;}
 #sessionInfoOverlay{display:none !important;}
-#finishBtn{position:fixed;bottom:28px;left:50%;transform:translateX(-50%);font-family:HaimNum,HaimVariable,Heebo,sans-serif;font-size:11px;font-weight:700;letter-spacing:0.2em;color:#fff;background:rgba(0,0,0,0.55);border:1.5px solid rgba(255,255,255,0.5);padding:11px 32px;cursor:pointer;z-index:60;display:none;transition:background 0.15s,color 0.15s,border-color 0.15s;border-radius:100px;backdrop-filter:blur(8px);}
-#finishBtn:hover{background:rgba(255,255,255,0.95);color:#111;border-color:#fff;}
+#finishBtn{position:fixed;bottom:28px;left:50%;transform:translateX(-50%);font-family:HaimNum,HaimVariable,Heebo,sans-serif;font-size:11px;font-weight:700;letter-spacing:0.2em;color:#FF0000;background:rgba(0,0,0,0.55);border:1.5px solid rgba(255,255,255,0.5);padding:11px 32px;cursor:pointer;z-index:60;display:none;transition:background 0.15s,color 0.15s,border-color 0.15s;border-radius:100px;backdrop-filter:blur(8px);}
+#finishBtn:hover{background:rgba(255,255,255,0.95);color:#FF0000;border-color:#fff;}
 #dataScreen{display:none;position:fixed;inset:0;z-index:1500;flex-direction:column;overflow:hidden;padding-top:52px;}
 #dataHeader{display:none;}
 #dataBody{display:flex;flex:1;overflow:hidden;position:relative;}
@@ -288,7 +288,7 @@ body{
 .dsb-item{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;padding:8px 14px;border-right:1px solid rgba(255,255,255,0.05);}
 .dsb-item:last-child{border-right:none;}
 .dsb-label{font-size:7px;font-weight:700;letter-spacing:0.3em;color:#FF0000;text-transform:uppercase;}
-.dsb-val{font-size:11px;font-weight:700;color:#fff;}
+.dsb-val{font-size:11px;font-weight:700;color:#FF0000;}
 #dataAnalysisBadge{position:absolute;bottom:14px;right:14px;display:none;flex-direction:column;background:rgba(0,0,0,0.65);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.08);border-radius:12px;z-index:8;pointer-events:all;min-width:170px;overflow:hidden;}
 .dab-header{display:flex;align-items:center;justify-content:space-between;padding:7px 12px;cursor:pointer;user-select:none;border-bottom:1px solid rgba(255,255,255,0.06);}
 .dab-header-label{font-size:7px;font-weight:700;letter-spacing:0.35em;color:#FF0000;text-transform:uppercase;}
@@ -298,29 +298,29 @@ body{
 .dab-content.collapsed{max-height:0;padding-top:0;padding-bottom:0;}
 .dab-row{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:3px;gap:12px;}
 .dab-name{font-size:9px;font-weight:300;color:rgba(255,255,255,0.4);}
-.dab-val{font-size:11px;font-weight:700;color:#fff;}
+.dab-val{font-size:11px;font-weight:700;color:#FF0000;}
 .dab-unit{font-size:8px;font-weight:300;color:rgba(255,255,255,0.35);margin-left:2px;}
 #dataToolbar{position:absolute;top:14px;left:50%;transform:translateX(-50%);display:flex;flex-wrap:nowrap;align-items:center;gap:2px;background:rgba(0,0,0,0.72);backdrop-filter:blur(14px);padding:5px 10px;border:1px solid rgba(255,255,255,0.08);border-radius:100px;z-index:10;transition:opacity 0.2s;}
 #dataToolbar.collapsed .toolbar-inner-content{display:none;}
 .toolbar-sep{width:1px;height:16px;background:rgba(255,255,255,0.22);flex-shrink:0;margin:0 8px;}
-.layer-btn{font-family:HaimNum,HaimVariable,Heebo,sans-serif;font-size:7.5px;font-weight:400;letter-spacing:0.06em;color:#555;background:transparent;border:1.5px solid transparent;padding:5px 9px;cursor:pointer;transition:color 0.15s,border-color 0.15s;white-space:nowrap;border-radius:100px;position:relative;}
-.layer-btn.active{color:#fff;border-color:rgba(255,255,255,0.35);background:rgba(255,255,255,0.07);}
-.layer-btn[data-tooltip]::after{content:attr(data-tooltip);position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);background:rgba(0,0,0,0.88);color:#ccc;font-size:9px;font-weight:300;letter-spacing:0.04em;white-space:nowrap;padding:5px 10px;border-radius:6px;pointer-events:none;opacity:0;transition:opacity 0.15s;border:1px solid rgba(255,255,255,0.08);z-index:100;}
+.layer-btn{font-family:HaimNum,HaimVariable,Heebo,sans-serif;font-size:7.5px;font-weight:400;letter-spacing:0.06em;color:#FF0000;background:transparent;border:1.5px solid transparent;padding:5px 9px;cursor:pointer;transition:color 0.15s,border-color 0.15s;white-space:nowrap;border-radius:100px;position:relative;}
+.layer-btn.active{color:#FF0000;border-color:rgba(255,255,255,0.35);background:rgba(255,255,255,0.07);}
+.layer-btn[data-tooltip]::after{content:attr(data-tooltip);position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);background:rgba(0,0,0,0.88);color:#FF0000;font-size:9px;font-weight:300;letter-spacing:0.04em;white-space:nowrap;padding:5px 10px;border-radius:6px;pointer-events:none;opacity:0;transition:opacity 0.15s;border:1px solid rgba(255,255,255,0.08);z-index:100;}
 .layer-btn[data-tooltip]:hover::after{opacity:1;}
 .toggle-group{display:flex;gap:2px;}
-.toggle-btn{font-family:HaimNum,HaimVariable,Heebo,sans-serif;font-size:7.5px;font-weight:400;letter-spacing:0.05em;padding:5px 8px;border:1.5px solid transparent;background:transparent;color:#555;cursor:pointer;transition:all 0.15s,transform 0.15s;white-space:nowrap;border-radius:100px;}
-.toggle-btn.active{color:#fff;border-color:rgba(255,255,255,0.35);background:rgba(255,255,255,0.07);}
-#playBtn{font-family:HaimNum,HaimVariable,Heebo,sans-serif;font-size:7.5px;font-weight:400;letter-spacing:0.06em;color:#fff;background:#222;border:1.5px solid #3a3a3a;padding:5px 10px;cursor:pointer;transition:background 0.15s;flex-shrink:0;border-radius:100px;}
-.view-tab{font-family:HaimNum,HaimVariable,Heebo,sans-serif;font-size:7.5px;font-weight:400;letter-spacing:0.06em;padding:5px 9px;border:1.5px solid transparent;background:transparent;color:#555;cursor:pointer;transition:all 0.15s;border-radius:100px;}
-.view-tab.active{background:rgba(255,255,255,0.07);color:#fff;border-color:rgba(255,255,255,0.35);}
+.toggle-btn{font-family:HaimNum,HaimVariable,Heebo,sans-serif;font-size:7.5px;font-weight:400;letter-spacing:0.05em;padding:5px 8px;border:1.5px solid transparent;background:transparent;color:#FF0000;cursor:pointer;transition:all 0.15s,transform 0.15s;white-space:nowrap;border-radius:100px;}
+.toggle-btn.active{color:#FF0000;border-color:rgba(255,255,255,0.35);background:rgba(255,255,255,0.07);}
+#playBtn{font-family:HaimNum,HaimVariable,Heebo,sans-serif;font-size:7.5px;font-weight:400;letter-spacing:0.06em;color:#FF0000;background:#222;border:1.5px solid #3a3a3a;padding:5px 10px;cursor:pointer;transition:background 0.15s;flex-shrink:0;border-radius:100px;}
+.view-tab{font-family:HaimNum,HaimVariable,Heebo,sans-serif;font-size:7.5px;font-weight:400;letter-spacing:0.06em;padding:5px 9px;border:1.5px solid transparent;background:transparent;color:#FF0000;cursor:pointer;transition:all 0.15s;border-radius:100px;}
+.view-tab.active{background:rgba(255,255,255,0.07);color:#FF0000;border-color:rgba(255,255,255,0.35);}
 #galleryScreen{display:none;position:fixed;inset:0;z-index:1500;flex-direction:column;overflow:hidden;padding-top:52px;}
 #galleryHeader{display:flex;align-items:center;justify-content:space-between;padding:10px 60px;border-bottom:1px solid rgba(255,255,255,0.4);flex-shrink:0;background:rgba(255,255,255,0.45);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);}
-#galleryHeader .gallery-title{font-size:11px;font-weight:700;letter-spacing:0.45em;color:#111;}
+#galleryHeader .gallery-title{font-size:11px;font-weight:700;letter-spacing:0.45em;color:#FF0000;}
 .gallery-header-right{display:flex;align-items:center;gap:8px;}
 #galleryBody{flex:1;overflow-y:auto;padding:16px 60px;}
 .gallery-user-block{margin-bottom:40px;}
 .gallery-user-name{font-size:11px;font-weight:700;letter-spacing:0.3em;color:#FF0000;text-transform:uppercase;margin-bottom:6px;}
-.gallery-user-meta{font-size:9px;font-weight:300;color:#555;letter-spacing:0.06em;margin-bottom:16px;}
+.gallery-user-meta{font-size:9px;font-weight:300;color:#FF0000;letter-spacing:0.06em;margin-bottom:16px;}
 .gallery-images-row{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:8px;}
 .gallery-item{background:#fff;border:1px solid #e0e0e0;border-radius:4px;overflow:hidden;cursor:pointer;transition:border-color 0.15s;}
 .gallery-item:hover{border-color:#999;}
@@ -328,11 +328,11 @@ body{
 .gallery-item-img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;}
 .gallery-item-info{padding:5px 8px;display:flex;justify-content:space-between;align-items:center;}
 .gallery-item-name{font-size:8px;font-weight:700;letter-spacing:0.1em;color:#FF0000;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-.gallery-item-stats{font-size:7px;font-weight:300;color:#999;white-space:nowrap;}
+.gallery-item-stats{font-size:7px;font-weight:300;color:#FF0000;white-space:nowrap;}
 #compareView{display:none;flex:1;overflow:hidden;flex-direction:column;}
 #compareFilters{background:rgba(255,255,255,0.45);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,0.4);padding:10px 60px;display:flex;flex-wrap:wrap;gap:8px;align-items:center;flex-shrink:0;}
-.cf-label{font-size:8px;font-weight:700;letter-spacing:0.3em;color:#999;text-transform:uppercase;}
-.cf-select{font-family:HaimNum,HaimVariable,Heebo,sans-serif;font-size:10px;background:#fff;color:#333;border:1.5px solid #ddd;padding:5px 10px;cursor:pointer;border-radius:100px;outline:none;-webkit-appearance:none;}
+.cf-label{font-size:8px;font-weight:700;letter-spacing:0.3em;color:#FF0000;text-transform:uppercase;}
+.cf-select{font-family:HaimNum,HaimVariable,Heebo,sans-serif;font-size:10px;background:#fff;color:#FF0000;border:1.5px solid #ddd;padding:5px 10px;cursor:pointer;border-radius:100px;outline:none;-webkit-appearance:none;}
 .cf-select:focus{border-color:#555;}
 .cf-sep{width:1px;height:16px;background:#ddd;align-self:center;}
 #compareGrid-wrap{flex:1;overflow:auto;padding:16px 60px;}
@@ -340,59 +340,59 @@ body{
 .compare-panel{background:#fff;border:1px solid #e0e0e0;overflow:hidden;border-radius:4px;}
 .compare-panel-header{display:flex;justify-content:space-between;align-items:flex-start;padding:7px 10px;border-bottom:1px solid #eee;flex-wrap:wrap;gap:3px;}
 .cp-user{font-size:10px;font-weight:700;letter-spacing:0.1em;color:#FF0000;}
-.cp-meta{font-size:7px;font-weight:300;color:#999;line-height:1.4;}
-.cp-time{font-size:8px;font-weight:300;color:#999;}
+.cp-meta{font-size:7px;font-weight:300;color:#FF0000;line-height:1.4;}
+.cp-time{font-size:8px;font-weight:300;color:#FF0000;}
 .compare-canvas-wrap{position:relative;aspect-ratio:16/9;background:#000;overflow:hidden;}
 .cp-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;}
 .cp-canvas{position:absolute;inset:0;pointer-events:none;}
-.cp-stats{font-size:8px;font-weight:300;color:#999;padding:5px 10px;letter-spacing:0.05em;border-top:1px solid #eee;}
+.cp-stats{font-size:8px;font-weight:300;color:#FF0000;padding:5px 10px;letter-spacing:0.05em;border-top:1px solid #eee;}
 #nameScreen{display:none;position:fixed;inset:0;z-index:9500;flex-direction:column;align-items:center;justify-content:center;overflow-y:auto;padding:40px 60px;}
 .ns-title{font-size:9px;font-weight:300;letter-spacing:0.55em;color:#FF0000;margin-bottom:52px;}
 .ns-form{display:flex;flex-direction:column;align-items:center;width:100%;max-width:320px;}
 .ns-field{width:100%;margin-bottom:30px;}
-.ns-field label{display:block;font-size:9px;font-weight:700;letter-spacing:0.3em;color:#111;margin-bottom:12px;text-transform:uppercase;}
+.ns-field label{display:block;font-size:9px;font-weight:700;letter-spacing:0.3em;color:#FF0000;margin-bottom:12px;text-transform:uppercase;}
 .ns-field input,.ns-field select{background:#fff;border:1px solid rgba(255,255,255,0.7);color:#FF0000;font-family:HaimNum,HaimVariable,Heebo,sans-serif;font-size:16px;letter-spacing:0.08em;padding:12px 16px;width:100%;caret-color:#111;transition:border-color 0.15s;-webkit-appearance:none;border-radius:6px;outline:none;}
 .ns-field input:focus,.ns-field select:focus{border-color:rgba(178,224,243,0.8);outline:none;}
-.ns-field input::placeholder{color:#bbb;font-size:14px;}
+.ns-field input::placeholder{color:#FF0000;font-size:14px;}
 .ns-field select{background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23aaa' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat right 14px center;}
 [dir="rtl"] .ns-field select{-webkit-appearance:none;appearance:none;background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23aaa' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat 14px center;padding-left:36px;padding-right:16px;}
 .ns-field input:-webkit-autofill,
 .ns-field input:-webkit-autofill:hover,
-.ns-field input:-webkit-autofill:focus{-webkit-box-shadow:0 0 0px 1000px #fff inset;-webkit-text-fill-color:#111;transition:background-color 5000s ease-in-out 0s;}
+.ns-field input:-webkit-autofill:focus{-webkit-box-shadow:0 0 0px 1000px #fff inset;-webkit-text-fill-color:#FF0000;transition:background-color 5000s ease-in-out 0s;}
 .ns-row{display:flex;gap:24px;width:100%;}
 .ns-row .ns-field{flex:1;}
 #dashboardScreen{display:none;position:fixed;inset:0;z-index:1600;flex-direction:column;overflow:hidden;padding-top:52px;}
 #dashboardHeader{display:flex;align-items:center;justify-content:space-between;padding:10px 20px;border-bottom:1px solid rgba(255,255,255,0.4);flex-shrink:0;background:rgba(255,255,255,0.45);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);}
-#dashboardHeader .dash-title{font-size:11px;font-weight:700;letter-spacing:0.45em;color:#111;}
+#dashboardHeader .dash-title{font-size:11px;font-weight:700;letter-spacing:0.45em;color:#FF0000;}
 #dashboardBody{flex:1;overflow-y:auto;padding:16px 60px;}
 .dash-section{margin-bottom:28px;}
 .dash-section-title{font-size:8px;font-weight:700;letter-spacing:0.45em;color:#FF0000;text-transform:uppercase;margin-bottom:14px;padding-bottom:8px;border-bottom:1px solid #e0e0e0;}
 .dash-kpi-row{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:8px;margin-bottom:20px;}
 .dash-kpi{background:#fff;border:1px solid #eee;border-radius:6px;padding:14px 16px;box-shadow:0 1px 4px rgba(0,0,0,0.04);}
 .dash-kpi-label{font-size:7px;font-weight:700;letter-spacing:0.35em;color:#FF0000;text-transform:uppercase;margin-bottom:6px;}
-.dash-kpi-val{font-size:22px;font-weight:700;color:#111;line-height:1;}
-.dash-kpi-unit{font-size:9px;font-weight:300;color:#555;margin-left:3px;}
-.dash-kpi-sub{font-size:8px;font-weight:300;color:#bbb;margin-top:3px;}
+.dash-kpi-val{font-size:22px;font-weight:700;color:#FF0000;line-height:1;}
+.dash-kpi-unit{font-size:9px;font-weight:300;color:#FF0000;margin-left:3px;}
+.dash-kpi-sub{font-size:8px;font-weight:300;color:#FF0000;margin-top:3px;}
 .dash-kpi.accent{border-color:rgba(255,255,255,0.15);}
 .dash-kpi.accent .dash-kpi-val{color:#FF0000;}
 .dash-chart-area{background:#fff;border:1px solid #eee;border-radius:6px;padding:16px;margin-bottom:12px;box-shadow:0 1px 4px rgba(0,0,0,0.04);}
-.dash-chart-title{font-size:8px;font-weight:700;letter-spacing:0.3em;color:#bbb;text-transform:uppercase;margin-bottom:12px;}
+.dash-chart-title{font-size:8px;font-weight:700;letter-spacing:0.3em;color:#FF0000;text-transform:uppercase;margin-bottom:12px;}
 .dash-bar-row{display:flex;align-items:center;gap:10px;margin-bottom:8px;}
-.dash-bar-label{font-size:9px;font-weight:300;color:#999;width:80px;flex-shrink:0;text-overflow:ellipsis;overflow:hidden;white-space:nowrap;}
+.dash-bar-label{font-size:9px;font-weight:300;color:#FF0000;width:80px;flex-shrink:0;text-overflow:ellipsis;overflow:hidden;white-space:nowrap;}
 .dash-bar-wrap{flex:1;height:6px;background:#f0f0f0;border-radius:3px;overflow:hidden;}
 .dash-bar-fill{height:100%;background:#FF0000;border-radius:3px;transition:width 0.6s ease;}
 .dash-bar-val{font-size:8px;font-weight:700;color:#FF0000;width:40px;text-align:right;flex-shrink:0;}
 .dash-compare-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px;}
 .dash-user-card{background:#fff;border:1px solid #eee;border-radius:6px;padding:14px 16px;box-shadow:0 1px 4px rgba(0,0,0,0.04);}
 .dash-user-card-name{font-size:11px;font-weight:700;color:#FF0000;margin-bottom:2px;}
-.dash-user-card-meta{font-size:8px;font-weight:300;color:#bbb;margin-bottom:10px;}
+.dash-user-card-meta{font-size:8px;font-weight:300;color:#FF0000;margin-bottom:10px;}
 .dash-user-stats{display:grid;grid-template-columns:1fr 1fr;gap:6px;}
 .dash-user-stat{background:#f8f8f8;border-radius:4px;padding:8px 10px;}
-.dash-user-stat-label{font-size:7px;font-weight:700;letter-spacing:0.25em;color:#bbb;text-transform:uppercase;margin-bottom:3px;}
+.dash-user-stat-label{font-size:7px;font-weight:700;letter-spacing:0.25em;color:#FF0000;text-transform:uppercase;margin-bottom:3px;}
 .dash-user-stat-val{font-size:13px;font-weight:700;color:#FF0000;}
-.dash-empty{color:#ccc;font-size:11px;letter-spacing:0.2em;text-align:center;padding:60px 0;}
+.dash-empty{color:#FF0000;font-size:11px;letter-spacing:0.2em;text-align:center;padding:60px 0;}
 #dataToolbarCollapseBtn{width:22px;height:22px;padding:0;cursor:pointer;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:100px;color:rgba(255,255,255,0.7);flex-shrink:0;transition:color 0.15s,background 0.15s;}
-#dataToolbarCollapseBtn:hover{color:#fff;background:rgba(255,255,255,0.18);}
+#dataToolbarCollapseBtn:hover{color:#FF0000;background:rgba(255,255,255,0.18);}
 #dataToolbarCollapseBtn .tcb-arrow{font-size:10px;font-weight:900;line-height:1;}
 
 #homeScreen .hi-label,#homeScreen .hi-title,#homeScreen .hi-sub,
@@ -428,11 +428,11 @@ body{
 #aboutScreen [id^="about-label-"]{color:#FF0000 !important;}
 #aboutScreen p[style*="font-size:15px"],
 #aboutScreen p[style*="font-size:13px"],
-#aboutScreen p[style*="font-size:12px"]{color:#444 !important;}
+#aboutScreen p[style*="font-size:12px"]{color:#FF0000 !important;}
 #aboutScreen p[style*="font-size:9px"],
 #aboutScreen p[style*="font-size:17px"]{color:#FF0000 !important;}
 #aboutScreen div[style*="font-size:8px"],
-#aboutScreen div[style*="font-size:12px"]{color:#444 !important;}
+#aboutScreen div[style*="font-size:12px"]{color:#FF0000 !important;}
 
 h1, h2, h3, h4, h5, h6,
 .hi-title, .hi-label, .step-title, .step-num,
@@ -514,7 +514,7 @@ label,
     <h2 class="briefing-title">עומד להתחיל סשן צפייה</h2>
     <div class="briefing-divider"></div>
     <p class="briefing-body">
-      תראה סדרה של <strong style="color:#fff;font-weight:700;">5 תמונות פוליטיות</strong>,
+      תראה סדרה של <strong style="color:#FF0000;font-weight:700;">5 תמונות פוליטיות</strong>,
       כל אחת למשך 5 שניות.<br>
       הסתכל באופן טבעי — אין תשובות נכונות או שגויות.
     </p>
@@ -733,27 +733,27 @@ label,
   <div id="aboutBody" style="flex:1;overflow-y:auto;padding:48px 60px;">
     <div style="max-width:720px;margin:0 auto;padding:0;">
 
-    <p id="about-label-title" style="font-size:9px;font-weight:700;letter-spacing:0.45em;color:#aaa;margin:0 0 20px;font-family:HaimNum,HaimVariable,Heebo,sans-serif;">אודות</p>
+    <p id="about-label-title" style="font-size:9px;font-weight:700;letter-spacing:0.45em;color:#FF0000;margin:0 0 20px;font-family:HaimNum,HaimVariable,Heebo,sans-serif;">אודות</p>
 
     <h1 style="font-size:36px;font-weight:900;color:#FF0000;margin:0 0 12px;line-height:1.1;font-family:HaimNum,HaimVariable,Heebo,sans-serif;">0.25 שניות</h1>
 
-    <p style="font-size:15px;color:#666;margin:0 0 48px;line-height:1.8;font-family:HaimNum,HaimVariable,Heebo,sans-serif;">
+    <p style="font-size:15px;color:#FF0000;margin:0 0 48px;line-height:1.8;font-family:HaimNum,HaimVariable,Heebo,sans-serif;">
       0.25 שניות היא מערכת מעקב עיניים מבוססת דפדפן לניתוח תשומת לב חזותית על תמונות פוליטיות. היא מודדת לאן מסתכלים הצופים, מה הם מבחינים בו ראשון, וכיצד המבט שלהם נע על פני תמונה — ללא חומרה כלשהי מלבד מצלמת רשת רגילה.
     </p>
 
     <div style="border-top:1px solid rgba(178,224,243,0.4);padding-top:36px;margin-bottom:36px;">
-      <p id="about-label-system" style="font-size:9px;font-weight:700;letter-spacing:0.4em;color:#aaa;margin:0 0 16px;font-family:HaimNum,HaimVariable,Heebo,sans-serif;">המערכת</p>
-      <p style="font-size:15px;color:#666;line-height:1.8;margin:0 0 14px;font-family:HaimNum,HaimVariable,Heebo,sans-serif;">
+      <p id="about-label-system" style="font-size:9px;font-weight:700;letter-spacing:0.4em;color:#FF0000;margin:0 0 16px;font-family:HaimNum,HaimVariable,Heebo,sans-serif;">המערכת</p>
+      <p style="font-size:15px;color:#FF0000;line-height:1.8;margin:0 0 14px;font-family:HaimNum,HaimVariable,Heebo,sans-serif;">
         המערכת משתמשת ב-MediaPipe לזיהוי 478 נקודות ציון פנים בכל פריים, תוך בידוד מיקום האיריס בזמן אמת. כיול אפיני של 9 נקודות ממפה את תנועת העין לקואורדינטות המסך, ודגימות המבט מסווגות לקיבועים, סקאדות, מסלולי סריקה ומפות חום באמצעות אלגוריתמי I-DT ו-I-VT.
       </p>
-      <p style="font-size:15px;color:#666;line-height:1.8;margin:0;font-family:HaimNum,HaimVariable,Heebo,sans-serif;">
+      <p style="font-size:15px;color:#FF0000;line-height:1.8;margin:0;font-family:HaimNum,HaimVariable,Heebo,sans-serif;">
         המערכת תוכננה לחקור דפוסי תשומת לב חזותית על תמונות פוליטיות — בוחנת אילו אזורים מושכים את העין ראשונים, כמה זמן שוהה המבט באזורים שונים, ואם צצים דפוסי צפייה שונים בקרב משקיפים שונים.
       </p>
     </div>
 
     <div style="border-top:1px solid rgba(178,224,243,0.4);padding-top:36px;margin-bottom:36px;">
-      <p id="about-label-research" style="font-size:9px;font-weight:700;letter-spacing:0.4em;color:#aaa;margin:0 0 16px;font-family:HaimNum,HaimVariable,Heebo,sans-serif;">מוקד המחקר</p>
-      <p style="font-size:15px;color:#666;line-height:1.8;margin:0;font-family:HaimNum,HaimVariable,Heebo,sans-serif;">
+      <p id="about-label-research" style="font-size:9px;font-weight:700;letter-spacing:0.4em;color:#FF0000;margin:0 0 16px;font-family:HaimNum,HaimVariable,Heebo,sans-serif;">מוקד המחקר</p>
+      <p style="font-size:15px;color:#FF0000;line-height:1.8;margin:0;font-family:HaimNum,HaimVariable,Heebo,sans-serif;">
         כל סשן מקושר לפרופיל בעל שם הכולל גיל, מגדר ומיקום מזוהה. ההשתתפות היא וולונטרית והנתונים משמשים למטרות מחקר בלבד.
       </p>
     </div>
@@ -768,9 +768,9 @@ label,
             <h2 class="hi-title">שש דרכים לקרוא תשומת לב חזותית.</h2>
             <p class="hi-sub">עברו בין מצבים בזמן אמת כדי לחקור ממדים שונים של האופן שבו צופה סורק תמונה.</p>
             <div style="margin-top:40px;">
-              <div id="modeNum" style="font-size:9px;font-weight:700;letter-spacing:0.4em;color:#bbb;margin-bottom:12px;">01 / 06</div>
+              <div id="modeNum" style="font-size:9px;font-weight:700;letter-spacing:0.4em;color:#FF0000;margin-bottom:12px;">01 / 06</div>
               <div id="modeName" style="font-size:28px;font-weight:600;color:#FF0000;margin-bottom:12px;line-height:1.1;"></div>
-              <div id="modeDesc" style="font-size:14px;font-weight:300;color:#666;line-height:1.7;"></div>
+              <div id="modeDesc" style="font-size:14px;font-weight:300;color:#FF0000;line-height:1.7;"></div>
             </div>
           </div>
           <div style="display:flex;gap:12px;margin-top:28px;align-items:center;">
@@ -792,39 +792,39 @@ label,
     <div style="max-width:720px;margin:0 auto;padding:0;">
 
     <div style="border-top:1px solid rgba(178,224,243,0.4);padding-top:36px;margin-bottom:36px;">
-      <p id="about-label-measure" style="font-size:9px;font-weight:700;letter-spacing:0.4em;color:#aaa;margin:0 0 24px;font-family:HaimNum,HaimVariable,Heebo,sans-serif;">מה אנחנו מודדים</p>
+      <p id="about-label-measure" style="font-size:9px;font-weight:700;letter-spacing:0.4em;color:#FF0000;margin:0 0 24px;font-family:HaimNum,HaimVariable,Heebo,sans-serif;">מה אנחנו מודדים</p>
       <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;">
         <div style="background:rgba(255,255,255,0.15);border-radius:10px;padding:16px;border:1px solid rgba(255,255,255,0.3);backdrop-filter:blur(12px);">
-          <p style="font-size:9px;font-weight:700;letter-spacing:0.25em;color:#aaa;margin:0 0 6px;font-family:HaimNum,HaimVariable,Heebo,sans-serif;">קיבוע</p>
-          <p style="font-size:12px;color:#888;margin:0;line-height:1.6;font-family:HaimNum,HaimVariable,Heebo,sans-serif;">מבט ממושך על אזור יחיד. מעיד על עניין או עיבוד קוגניטיבי.</p>
+          <p style="font-size:9px;font-weight:700;letter-spacing:0.25em;color:#FF0000;margin:0 0 6px;font-family:HaimNum,HaimVariable,Heebo,sans-serif;">קיבוע</p>
+          <p style="font-size:12px;color:#FF0000;margin:0;line-height:1.6;font-family:HaimNum,HaimVariable,Heebo,sans-serif;">מבט ממושך על אזור יחיד. מעיד על עניין או עיבוד קוגניטיבי.</p>
         </div>
         <div style="background:rgba(255,255,255,0.15);border-radius:10px;padding:16px;border:1px solid rgba(255,255,255,0.3);backdrop-filter:blur(12px);">
-          <p style="font-size:9px;font-weight:700;letter-spacing:0.25em;color:#aaa;margin:0 0 6px;font-family:HaimNum,HaimVariable,Heebo,sans-serif;">סקאדה</p>
-          <p style="font-size:12px;color:#888;margin:0;line-height:1.6;font-family:HaimNum,HaimVariable,Heebo,sans-serif;">תנועת עין מהירה בין אזורים. חושפת כיצד העין סורקת סצנה.</p>
+          <p style="font-size:9px;font-weight:700;letter-spacing:0.25em;color:#FF0000;margin:0 0 6px;font-family:HaimNum,HaimVariable,Heebo,sans-serif;">סקאדה</p>
+          <p style="font-size:12px;color:#FF0000;margin:0;line-height:1.6;font-family:HaimNum,HaimVariable,Heebo,sans-serif;">תנועת עין מהירה בין אזורים. חושפת כיצד העין סורקת סצנה.</p>
         </div>
         <div style="background:rgba(255,255,255,0.15);border-radius:10px;padding:16px;border:1px solid rgba(255,255,255,0.3);backdrop-filter:blur(12px);">
-          <p style="font-size:9px;font-weight:700;letter-spacing:0.25em;color:#aaa;margin:0 0 6px;font-family:HaimNum,HaimVariable,Heebo,sans-serif;">מסלול סריקה</p>
-          <p style="font-size:12px;color:#888;margin:0;line-height:1.6;font-family:HaimNum,HaimVariable,Heebo,sans-serif;">הרצף הממוין של הקיבועים. ממפה את המסע החזותי על פני התמונה.</p>
+          <p style="font-size:9px;font-weight:700;letter-spacing:0.25em;color:#FF0000;margin:0 0 6px;font-family:HaimNum,HaimVariable,Heebo,sans-serif;">מסלול סריקה</p>
+          <p style="font-size:12px;color:#FF0000;margin:0;line-height:1.6;font-family:HaimNum,HaimVariable,Heebo,sans-serif;">הרצף הממוין של הקיבועים. ממפה את המסע החזותי על פני התמונה.</p>
         </div>
         <div style="background:rgba(255,255,255,0.15);border-radius:10px;padding:16px;border:1px solid rgba(255,255,255,0.3);backdrop-filter:blur(12px);">
-          <p style="font-size:9px;font-weight:700;letter-spacing:0.25em;color:#aaa;margin:0 0 6px;font-family:HaimNum,HaimVariable,Heebo,sans-serif;">מפת חום</p>
-          <p style="font-size:12px;color:#888;margin:0;line-height:1.6;font-family:HaimNum,HaimVariable,Heebo,sans-serif;">מפת צפיפות של תשומת הלב החזותית. מראה היכן מתקבצים רוב הקיבועים.</p>
+          <p style="font-size:9px;font-weight:700;letter-spacing:0.25em;color:#FF0000;margin:0 0 6px;font-family:HaimNum,HaimVariable,Heebo,sans-serif;">מפת חום</p>
+          <p style="font-size:12px;color:#FF0000;margin:0;line-height:1.6;font-family:HaimNum,HaimVariable,Heebo,sans-serif;">מפת צפיפות של תשומת הלב החזותית. מראה היכן מתקבצים רוב הקיבועים.</p>
         </div>
         <div style="background:rgba(255,255,255,0.15);border-radius:10px;padding:16px;border:1px solid rgba(255,255,255,0.3);backdrop-filter:blur(12px);">
-          <p style="font-size:9px;font-weight:700;letter-spacing:0.25em;color:#aaa;margin:0 0 6px;font-family:HaimNum,HaimVariable,Heebo,sans-serif;">TTFF</p>
-          <p style="font-size:12px;color:#888;margin:0;line-height:1.6;font-family:HaimNum,HaimVariable,Heebo,sans-serif;">זמן עד לקיבוע הראשון. מודד עד כמה מהר אזור מושך תשומת לב.</p>
+          <p style="font-size:9px;font-weight:700;letter-spacing:0.25em;color:#FF0000;margin:0 0 6px;font-family:HaimNum,HaimVariable,Heebo,sans-serif;">TTFF</p>
+          <p style="font-size:12px;color:#FF0000;margin:0;line-height:1.6;font-family:HaimNum,HaimVariable,Heebo,sans-serif;">זמן עד לקיבוע הראשון. מודד עד כמה מהר אזור מושך תשומת לב.</p>
         </div>
         <div style="background:rgba(255,255,255,0.15);border-radius:10px;padding:16px;border:1px solid rgba(255,255,255,0.3);backdrop-filter:blur(12px);">
-          <p style="font-size:9px;font-weight:700;letter-spacing:0.25em;color:#aaa;margin:0 0 6px;font-family:HaimNum,HaimVariable,Heebo,sans-serif;">קיבוע ראשון</p>
-          <p style="font-size:12px;color:#888;margin:0;line-height:1.6;font-family:HaimNum,HaimVariable,Heebo,sans-serif;">האזור הראשון שנוצד. נקודת הכניסה הטרום-מודעת של תשומת הלב החזותית.</p>
+          <p style="font-size:9px;font-weight:700;letter-spacing:0.25em;color:#FF0000;margin:0 0 6px;font-family:HaimNum,HaimVariable,Heebo,sans-serif;">קיבוע ראשון</p>
+          <p style="font-size:12px;color:#FF0000;margin:0;line-height:1.6;font-family:HaimNum,HaimVariable,Heebo,sans-serif;">האזור הראשון שנוצד. נקודת הכניסה הטרום-מודעת של תשומת הלב החזותית.</p>
         </div>
       </div>
     </div>
 
     <div style="border-top:1px solid rgba(178,224,243,0.4);padding-top:36px;padding-bottom:60px;">
-      <p id="about-label-built" style="font-size:9px;font-weight:700;letter-spacing:0.4em;color:#aaa;margin:0 0 16px;font-family:HaimNum,HaimVariable,Heebo,sans-serif;">נבנה על ידי</p>
+      <p id="about-label-built" style="font-size:9px;font-weight:700;letter-spacing:0.4em;color:#FF0000;margin:0 0 16px;font-family:HaimNum,HaimVariable,Heebo,sans-serif;">נבנה על ידי</p>
       <p style="font-size:17px;font-weight:700;color:#FF0000;margin:0 0 6px;font-family:HaimNum,HaimVariable,Heebo,sans-serif;">Noam Katzenelbogen</p>
-      <p style="font-size:13px;color:#888;line-height:1.8;margin:0;font-family:HaimNum,HaimVariable,Heebo,sans-serif;">
+      <p style="font-size:13px;color:#FF0000;line-height:1.8;margin:0;font-family:HaimNum,HaimVariable,Heebo,sans-serif;">
         פרויקט גמר — תואר ראשון בתקשורת חזותית, אוניברסיטת חיפה.<br>
         בהנחיית רונית ישראלי.<br>
         תוכנן, עוצב ופותח מאפס — כולל מסגרת מחקר, עיצוב UX ופיתוח צד לקוח וצד שרת.
@@ -832,24 +832,24 @@ label,
     </div>
 
     <div style="border-top:1px solid rgba(178,224,243,0.4);padding-top:36px;padding-bottom:60px;">
-      <p id="about-label-credits" style="font-size:9px;font-weight:700;letter-spacing:0.4em;color:#aaa;margin:0 0 20px;font-family:HaimNum,HaimVariable,Heebo,sans-serif;">קרדיטים לתמונות</p>
-      <p style="font-size:12px;font-weight:300;color:#aaa;line-height:1.8;margin:0 0 20px;font-family:HaimNum,HaimVariable,Heebo,sans-serif;">
+      <p id="about-label-credits" style="font-size:9px;font-weight:700;letter-spacing:0.4em;color:#FF0000;margin:0 0 20px;font-family:HaimNum,HaimVariable,Heebo,sans-serif;">קרדיטים לתמונות</p>
+      <p style="font-size:12px;font-weight:300;color:#FF0000;line-height:1.8;margin:0 0 20px;font-family:HaimNum,HaimVariable,Heebo,sans-serif;">
         כל התמונות באדיבות לשכת העיתונות הממשלתית של ישראל.
       </p>
       <div style="display:flex;flex-direction:column;gap:8px;">
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px 32px;font-family:HaimNum,HaimVariable,Heebo,sans-serif;">
-          <div style="font-size:8px;font-weight:700;letter-spacing:0.3em;color:#bbb;padding-bottom:8px;border-bottom:1px solid #f0f0f0;">תמונה</div>
-          <div style="font-size:8px;font-weight:700;letter-spacing:0.3em;color:#bbb;padding-bottom:8px;border-bottom:1px solid #f0f0f0;">PHOTOGRAPHER</div>
-          <div style="font-size:12px;font-weight:300;color:#888;">Politics 4</div>
-          <div style="font-size:12px;font-weight:300;color:#888;">Government Press Office</div>
-          <div style="font-size:12px;font-weight:300;color:#888;">Politics 5</div>
-          <div style="font-size:12px;font-weight:300;color:#888;">Government Press Office</div>
-          <div style="font-size:12px;font-weight:300;color:#888;">Politics 7</div>
-          <div style="font-size:12px;font-weight:300;color:#888;">Government Press Office</div>
-          <div style="font-size:12px;font-weight:300;color:#888;">Politics 8</div>
-          <div style="font-size:12px;font-weight:300;color:#888;">Government Press Office</div>
-          <div style="font-size:12px;font-weight:300;color:#888;">Politics 9</div>
-          <div style="font-size:12px;font-weight:300;color:#888;">Government Press Office</div>
+          <div style="font-size:8px;font-weight:700;letter-spacing:0.3em;color:#FF0000;padding-bottom:8px;border-bottom:1px solid #f0f0f0;">תמונה</div>
+          <div style="font-size:8px;font-weight:700;letter-spacing:0.3em;color:#FF0000;padding-bottom:8px;border-bottom:1px solid #f0f0f0;">PHOTOGRAPHER</div>
+          <div style="font-size:12px;font-weight:300;color:#FF0000;">Politics 4</div>
+          <div style="font-size:12px;font-weight:300;color:#FF0000;">Government Press Office</div>
+          <div style="font-size:12px;font-weight:300;color:#FF0000;">Politics 5</div>
+          <div style="font-size:12px;font-weight:300;color:#FF0000;">Government Press Office</div>
+          <div style="font-size:12px;font-weight:300;color:#FF0000;">Politics 7</div>
+          <div style="font-size:12px;font-weight:300;color:#FF0000;">Government Press Office</div>
+          <div style="font-size:12px;font-weight:300;color:#FF0000;">Politics 8</div>
+          <div style="font-size:12px;font-weight:300;color:#FF0000;">Government Press Office</div>
+          <div style="font-size:12px;font-weight:300;color:#FF0000;">Politics 9</div>
+          <div style="font-size:12px;font-weight:300;color:#FF0000;">Government Press Office</div>
         </div>
       </div>
     </div>
@@ -1028,7 +1028,7 @@ function drawCalIntro(){const W=window.innerWidth,H=window.innerHeight;
   calCtx.moveTo(W/2-200,H/2-68);
   calCtx.lineTo(W/2+200,H/2-68);
   calCtx.stroke();
-  calCtx.fillStyle='#444';
+  calCtx.fillStyle='#FF0000';
   calCtx.font='300 14px HaimNum,HaimVariable';
   calCtx.fillText('שמור על ראשך ללא תנועה — הזז רק את עינייך לכל נקודה',W/2,H/2-42);
   calCtx.fillText('החזק את המבט עד שהטבעת תתמלא לחלוטין',W/2,H/2-18);
@@ -1037,11 +1037,11 @@ function drawCalIntro(){const W=window.innerWidth,H=window.innerHeight;
   calCtx.moveTo(W/2-200,H/2+4);
   calCtx.lineTo(W/2+200,H/2+4);
   calCtx.stroke();
-  calCtx.fillStyle='#444';
+  calCtx.fillStyle='#FF0000';
   calCtx.font='300 13px HaimNum,HaimVariable';
   calCtx.fillText('לאחר הכיול תגיע לעמוד הבית.',W/2,H/2+26);
   calCtx.fillText('לחץ על "התחלה" כדי להתחיל את סשן הצפייה בתמונות.',W/2,H/2+48);
-  calCtx.fillStyle='#777';
+  calCtx.fillStyle='#FF0000';
   calCtx.font='300 11px HaimNum,HaimVariable';
   calCtx.fillText('הכיול ישמש גם לצפייה בתמונות — אין צורך בכיול נוסף.',W/2,H/2+70);
 }
@@ -1051,7 +1051,7 @@ function drawCalDone(){const W=window.innerWidth,H=window.innerHeight;
   calCtx.textAlign="center";
   calCtx.fillStyle='#FF0000';calCtx.font="700 28px HaimNum,HaimVariable";
   calCtx.fillText("מוכן!",W/2,H/2-8);
-  calCtx.fillStyle='#666';calCtx.font="300 13px HaimNum,HaimVariable";
+  calCtx.fillStyle='#FF0000';calCtx.font="300 13px HaimNum,HaimVariable";
   calCtx.fillText('הכיול הושלם — עמוד הבית עומד להיפתח.',W/2,H/2+20);
 }
 
@@ -1226,7 +1226,7 @@ function staticFixation(ctx,W,H,history,col='255,0,0'){ctx.clearRect(0,0,W,H);fo
 function staticSaccade(ctx,W,H,history,col='255,0,0'){ctx.clearRect(0,0,W,H);for(const sac of history){const fx=sac.fromX*W,fy=sac.fromY*H,tx=sac.toX*W,ty=sac.toY*H;ctx.beginPath();ctx.moveTo(fx,fy);ctx.lineTo(tx,ty);ctx.strokeStyle='rgba('+col+',1)';ctx.lineWidth=2.5;ctx.stroke();const a=Math.atan2(ty-fy,tx-fx),l=11;ctx.beginPath();ctx.moveTo(tx,ty);ctx.lineTo(tx-l*Math.cos(a-Math.PI/6),ty-l*Math.sin(a-Math.PI/6));ctx.lineTo(tx-l*Math.cos(a+Math.PI/6),ty-l*Math.sin(a+Math.PI/6));ctx.closePath();ctx.fillStyle='rgba('+col+',1)';ctx.fill();}}
 function staticScanPath(ctx,W,H,history,col='255,0,0'){ctx.clearRect(0,0,W,H);if(!history.length)return;const R=12;if(history.length>=2){ctx.save();ctx.setLineDash([4,6]);ctx.strokeStyle='rgba('+col+',1)';ctx.lineWidth=2.5;ctx.beginPath();for(let j=0;j<history.length-1;j++){const ax=history[j].x*W,ay=history[j].y*H,bx=history[j+1].x*W,by=history[j+1].y*H;const dx=bx-ax,dy=by-ay,dist=Math.hypot(dx,dy);if(dist<1)continue;const ux=dx/dist,uy=dy/dist;ctx.moveTo(ax+ux*R,ay+uy*R);ctx.lineTo(bx-ux*R,by-uy*R);}ctx.stroke();ctx.setLineDash([]);ctx.restore();}for(let j=0;j<history.length;j++){const cx=history[j].x*W,cy=history[j].y*H;ctx.beginPath();ctx.arc(cx,cy,R,0,Math.PI*2);ctx.strokeStyle='rgba('+col+',1)';ctx.lineWidth=3;ctx.stroke();ctx.fillStyle='rgba('+col+',1)';ctx.font='700 10px HaimNum,HaimVariable';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText(j+1,cx,cy);ctx.textBaseline='alphabetic';}}
 function staticHeatmap(ctx,W,H,log,col='255,0,0'){ctx.clearRect(0,0,W,H);const hmW=200,hmH=112;drawMarchingSquares(ctx,W,H,buildHeatmapFromLog(log,hmW,hmH),hmW,hmH,col);}
-function staticFirstFix(ctx,W,H,fix,modeTs,col='255,0,0'){ctx.clearRect(0,0,W,H);if(!fix){ctx.fillStyle='rgba(150,150,150,0.7)';ctx.font='300 11px HaimNum,HaimVariable';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText('לא זוהה קיבוע ראשון',W/2,H/2);return;}const cx=fix.x*W,cy=fix.y*H,offset=modeTs?((fix.startTs-modeTs)/1000):0;ctx.beginPath();ctx.arc(cx,cy,14,0,Math.PI*2);ctx.fillStyle='rgba('+col+',1)';ctx.fill();ctx.textAlign='center';ctx.textBaseline='alphabetic';ctx.fillStyle='rgba('+col+',1)';ctx.font='700 11px HaimNum,HaimVariable';ctx.fillText('קיבוע ראשון',cx,cy-46);ctx.font='300 9px HaimNum,HaimVariable';ctx.fillText('+'+offset.toFixed(2)+'s',cx,cy-32);}
+function staticFirstFix(ctx,W,H,fix,modeTs,col='255,0,0'){ctx.clearRect(0,0,W,H);if(!fix){ctx.fillStyle='rgba(255,0,0,0.7)';ctx.font='300 11px HaimNum,HaimVariable';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText('לא זוהה קיבוע ראשון',W/2,H/2);return;}const cx=fix.x*W,cy=fix.y*H,offset=modeTs?((fix.startTs-modeTs)/1000):0;ctx.beginPath();ctx.arc(cx,cy,14,0,Math.PI*2);ctx.fillStyle='rgba('+col+',1)';ctx.fill();ctx.textAlign='center';ctx.textBaseline='alphabetic';ctx.fillStyle='rgba('+col+',1)';ctx.font='700 11px HaimNum,HaimVariable';ctx.fillText('קיבוע ראשון',cx,cy-46);ctx.font='300 9px HaimNum,HaimVariable';ctx.fillText('+'+offset.toFixed(2)+'s',cx,cy-32);}
 
 function cancelAnimation(){if(currentAnimation){currentAnimation.cancel();currentAnimation=null;}}
 function getDataCanvas(){const dc=document.getElementById('dataCanvas'),area=document.getElementById('dataImgArea');dc.width=area.offsetWidth;dc.height=area.offsetHeight;return dc;}
@@ -1235,14 +1235,14 @@ function animateFixation(ctx,W,H,history){let tid=null,rafId=null,cancelled=fals
 function animateSaccade(ctx,W,H,history){let tid=null,rafId=null,cancelled=false;const sacs=history.slice();let i=0;const drawn=[];function drawSacFull(sac){const fx=sac.fromX*W,fy=sac.fromY*H,tx=sac.toX*W,ty=sac.toY*H;ctx.beginPath();ctx.moveTo(fx,fy);ctx.lineTo(tx,ty);ctx.strokeStyle='rgba(255,0,0,1)';ctx.lineWidth=2.5;ctx.stroke();const a=Math.atan2(ty-fy,tx-fx),l=9;ctx.beginPath();ctx.moveTo(tx,ty);ctx.lineTo(tx-l*Math.cos(a-Math.PI/6),ty-l*Math.sin(a-Math.PI/6));ctx.lineTo(tx-l*Math.cos(a+Math.PI/6),ty-l*Math.sin(a+Math.PI/6));ctx.closePath();ctx.fillStyle='rgba(255,0,0,1)';ctx.fill();}function redrawAll(){for(const s of drawn)drawSacFull(s);}function next(){if(cancelled||i>=sacs.length)return;const sac=sacs[i++];const fx=sac.fromX*W,fy=sac.fromY*H,tx=sac.toX*W,ty=sac.toY*H;const start=performance.now();function anim(now){if(cancelled)return;const t=Math.min(1,(now-start)/200);ctx.clearRect(0,0,W,H);redrawAll();const ex=fx+(tx-fx)*t,ey=fy+(ty-fy)*t;ctx.beginPath();ctx.moveTo(fx,fy);ctx.lineTo(ex,ey);ctx.strokeStyle='rgba(255,0,0,1)';ctx.lineWidth=2.5;ctx.stroke();if(t<1){rafId=requestAnimationFrame(anim);}else{drawSacFull(sac);drawn.push(sac);tid=setTimeout(next,500);}}rafId=requestAnimationFrame(anim);}next();return{cancel:()=>{cancelled=true;clearTimeout(tid);cancelAnimationFrame(rafId);}};}
 function animateScanPath(ctx,W,H,history){let tid=null,cancelled=false;const pts=history.slice();let shown=0;const R=11;function drawAll(n){ctx.clearRect(0,0,W,H);if(n<1)return;if(n>=2){ctx.save();ctx.setLineDash([4,6]);ctx.strokeStyle='rgba(255,0,0,1)';ctx.lineWidth=2.5;ctx.beginPath();for(let j=0;j<n-1;j++){const ax=pts[j].x*W,ay=pts[j].y*H,bx=pts[j+1].x*W,by=pts[j+1].y*H;const dx=bx-ax,dy=by-ay,dist=Math.hypot(dx,dy);if(dist<1)continue;const ux=dx/dist,uy=dy/dist;ctx.moveTo(ax+ux*R,ay+uy*R);ctx.lineTo(bx-ux*R,by-uy*R);}ctx.stroke();ctx.setLineDash([]);ctx.restore();}for(let j=0;j<n;j++){const{x,y}=pts[j],cx=x*W,cy=y*H;ctx.beginPath();ctx.arc(cx,cy,R,0,Math.PI*2);ctx.strokeStyle='rgba(255,0,0,1)';ctx.lineWidth=3;ctx.stroke();ctx.fillStyle='rgba(255,0,0,1)';ctx.font='700 10px HaimNum,HaimVariable';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText(j+1,cx,cy);ctx.textBaseline='alphabetic';}}function next(){if(cancelled||shown>=pts.length)return;shown++;drawAll(shown);tid=setTimeout(next,700);}next();return{cancel:()=>{cancelled=true;clearTimeout(tid);}};}
 function animateHeatmap(ctx,W,H,log){let tid=null,cancelled=false;const hmW=200,hmH=112,hm=new Float32Array(hmW*hmH),sigma=0.07*Math.max(hmW,hmH),r=Math.ceil(3*sigma),inv2s2=1/(2*sigma*sigma);const pts=log.slice();let i=0;function addPt(p){const gx=p.x*hmW,gy=p.y*hmH,x0=Math.max(0,Math.floor(gx-r)),x1=Math.min(hmW-1,Math.ceil(gx+r)),y0=Math.max(0,Math.floor(gy-r)),y1=Math.min(hmH-1,Math.ceil(gy+r));for(let y=y0;y<=y1;y++)for(let x=x0;x<=x1;x++)hm[y*hmW+x]+=0.18*Math.exp(-((x-gx)**2+(y-gy)**2)*inv2s2);}function render(){ctx.clearRect(0,0,W,H);drawMarchingSquares(ctx,W,H,hm,hmW,hmH);}const perStep=Math.max(1,Math.ceil(pts.length/60));function step(){if(cancelled)return;let c=0;while(i<pts.length&&c<perStep){addPt(pts[i++]);c++;}render();if(i<pts.length)tid=setTimeout(step,50);}step();return{cancel:()=>{cancelled=true;clearTimeout(tid);}};}
-function animateFirstFix(ctx,W,H,fix,modeTs){let tid=null,rafId=null,cancelled=false;if(!fix){ctx.fillStyle='rgba(150,150,150,0.7)';ctx.font='300 11px HaimNum,HaimVariable';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText('לא זוהה קיבוע ראשון',W/2,H/2);return{cancel:()=>{}};}const cx=fix.x*W,cy=fix.y*H,offset=(fix.startTs-modeTs)/1000;tid=setTimeout(()=>{if(cancelled)return;const startPhase=performance.now();function phase2(now){if(cancelled)return;const t=Math.min(1,(now-startPhase)/600);ctx.clearRect(0,0,W,H);const ringR=20+t*40;ctx.beginPath();ctx.arc(cx,cy,ringR,0,Math.PI*2);ctx.strokeStyle='rgba(255,0,0,'+(1-t)*0.9+')';ctx.lineWidth=2.5;ctx.stroke();ctx.globalAlpha=t;ctx.beginPath();ctx.arc(cx,cy,14,0,Math.PI*2);ctx.fillStyle='rgba(255,0,0,1)';ctx.fill();ctx.globalAlpha=1;if(t>0.5){ctx.globalAlpha=(t-0.5)*2;ctx.textAlign='center';ctx.textBaseline='alphabetic';ctx.fillStyle='rgba(255,0,0,1)';ctx.font='700 11px HaimNum,HaimVariable';ctx.fillText('קיבוע ראשון',cx,cy-46);ctx.font='300 9px HaimNum,HaimVariable';ctx.fillText('+'+offset.toFixed(2)+'s',cx,cy-32);ctx.globalAlpha=1;}if(t<1){rafId=requestAnimationFrame(phase2);}else{const startPulse=performance.now();function pulse(now){if(cancelled)return;const pt=(now-startPulse)/1000,pr=20+Math.sin(pt*Math.PI*2)*5;ctx.clearRect(0,0,W,H);ctx.beginPath();ctx.arc(cx,cy,pr,0,Math.PI*2);ctx.strokeStyle='rgba(255,0,0,0.7)';ctx.lineWidth=2.5;ctx.stroke();ctx.beginPath();ctx.arc(cx,cy,14,0,Math.PI*2);ctx.fillStyle='rgba(255,0,0,1)';ctx.fill();ctx.textAlign='center';ctx.textBaseline='alphabetic';ctx.fillStyle='rgba(255,0,0,1)';ctx.font='700 11px HaimNum,HaimVariable';ctx.fillText('קיבוע ראשון',cx,cy-46);ctx.font='300 9px HaimNum,HaimVariable';ctx.fillText('+'+offset.toFixed(2)+'s',cx,cy-32);rafId=requestAnimationFrame(pulse);}rafId=requestAnimationFrame(pulse);}}rafId=requestAnimationFrame(phase2);},1000);return{cancel:()=>{cancelled=true;clearTimeout(tid);cancelAnimationFrame(rafId);}};}
+function animateFirstFix(ctx,W,H,fix,modeTs){let tid=null,rafId=null,cancelled=false;if(!fix){ctx.fillStyle='rgba(255,0,0,0.7)';ctx.font='300 11px HaimNum,HaimVariable';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText('לא זוהה קיבוע ראשון',W/2,H/2);return{cancel:()=>{}};}const cx=fix.x*W,cy=fix.y*H,offset=(fix.startTs-modeTs)/1000;tid=setTimeout(()=>{if(cancelled)return;const startPhase=performance.now();function phase2(now){if(cancelled)return;const t=Math.min(1,(now-startPhase)/600);ctx.clearRect(0,0,W,H);const ringR=20+t*40;ctx.beginPath();ctx.arc(cx,cy,ringR,0,Math.PI*2);ctx.strokeStyle='rgba(255,0,0,'+(1-t)*0.9+')';ctx.lineWidth=2.5;ctx.stroke();ctx.globalAlpha=t;ctx.beginPath();ctx.arc(cx,cy,14,0,Math.PI*2);ctx.fillStyle='rgba(255,0,0,1)';ctx.fill();ctx.globalAlpha=1;if(t>0.5){ctx.globalAlpha=(t-0.5)*2;ctx.textAlign='center';ctx.textBaseline='alphabetic';ctx.fillStyle='rgba(255,0,0,1)';ctx.font='700 11px HaimNum,HaimVariable';ctx.fillText('קיבוע ראשון',cx,cy-46);ctx.font='300 9px HaimNum,HaimVariable';ctx.fillText('+'+offset.toFixed(2)+'s',cx,cy-32);ctx.globalAlpha=1;}if(t<1){rafId=requestAnimationFrame(phase2);}else{const startPulse=performance.now();function pulse(now){if(cancelled)return;const pt=(now-startPulse)/1000,pr=20+Math.sin(pt*Math.PI*2)*5;ctx.clearRect(0,0,W,H);ctx.beginPath();ctx.arc(cx,cy,pr,0,Math.PI*2);ctx.strokeStyle='rgba(255,0,0,0.7)';ctx.lineWidth=2.5;ctx.stroke();ctx.beginPath();ctx.arc(cx,cy,14,0,Math.PI*2);ctx.fillStyle='rgba(255,0,0,1)';ctx.fill();ctx.textAlign='center';ctx.textBaseline='alphabetic';ctx.fillStyle='rgba(255,0,0,1)';ctx.font='700 11px HaimNum,HaimVariable';ctx.fillText('קיבוע ראשון',cx,cy-46);ctx.font='300 9px HaimNum,HaimVariable';ctx.fillText('+'+offset.toFixed(2)+'s',cx,cy-32);rafId=requestAnimationFrame(pulse);}rafId=requestAnimationFrame(pulse);}}rafId=requestAnimationFrame(phase2);},1000);return{cancel:()=>{cancelled=true;clearTimeout(tid);cancelAnimationFrame(rafId);}};}
 
 function playLayer(layer){cancelAnimation();const dc=getDataCanvas();const ctx=dc.getContext('2d');ctx.clearRect(0,0,dc.width,dc.height);const W=dc.width,H=dc.height;const sess=viewSession||{gazeLog,fixationHistory,saccadeHistory,scanPathHistory,firstFix,firstFixModeTs};renderAnalysisBadge(layer,sess);if(playMode==='STATIC'){switch(layer){case 'GAZE':staticGaze(ctx,W,H,sess.gazeLog);break;case 'קיבוע':staticFixation(ctx,W,H,sess.fixationHistory);break;case 'סקאדה':staticSaccade(ctx,W,H,sess.saccadeHistory);break;case 'SCANPATH':staticScanPath(ctx,W,H,sess.scanPathHistory);break;case 'מפת חום':staticHeatmap(ctx,W,H,sess.gazeLog);break;case 'FIRSTFIX':staticFirstFix(ctx,W,H,sess.firstFix,sess.firstFixModeTs);break;}}else{switch(layer){case 'GAZE':currentAnimation=animateGaze(ctx,W,H,sess.gazeLog);break;case 'קיבוע':currentAnimation=animateFixation(ctx,W,H,sess.fixationHistory);break;case 'סקאדה':currentAnimation=animateSaccade(ctx,W,H,sess.saccadeHistory);break;case 'SCANPATH':currentAnimation=animateScanPath(ctx,W,H,sess.scanPathHistory);break;case 'מפת חום':currentAnimation=animateHeatmap(ctx,W,H,sess.gazeLog);break;case 'FIRSTFIX':currentAnimation=animateFirstFix(ctx,W,H,sess.firstFix,sess.firstFixModeTs);break;}}}
 
 function populateCompareFilters(){const users=[...new Set(allSessions.map(s=>s.user))];const genders=[...new Set(allSessions.map(s=>s.gender).filter(Boolean))];const locations=[...new Set(allSessions.map(s=>s.location).filter(Boolean))];const cfUser=document.getElementById('cf-user');cfUser.innerHTML='<option value="">כל המשתמשים</option>'+users.map(u=>'<option value="'+u+'">'+u+'</option>').join('');const cfGender=document.getElementById('cf-gender');cfGender.innerHTML='<option value="">כל המגדרים</option>'+genders.map(g=>'<option value="'+g+'">'+g+'</option>').join('');const cfLoc=document.getElementById('cf-location');cfLoc.innerHTML='<option value="">כל המיקומים</option>'+locations.map(l=>'<option value="'+l+'">'+l+'</option>').join('');}
 function getFilteredSessions(){const user=document.getElementById('cf-user').value,gender=document.getElementById('cf-gender').value,location=document.getElementById('cf-location').value,sort=document.getElementById('cf-sort').value;let list=allSessions.filter(s=>(!user||s.user===user)&&(!gender||s.gender===gender)&&(!location||s.location===location));if(sort){const[key,dir]=sort.split('_');const asc=dir==='asc';const getVal=(s)=>{switch(key){case 'fixations':return s.fixationHistory?.length||0;case 'saccades':return s.saccadeHistory?.length||0;case 'duration':return s.sessionDuration||0;case 'samples':return s.gazeLog?.length||0;case 'ttff':return s.firstFix?(s.firstFix.startTs-s.firstFixModeTs):Infinity;case 'sacAmp':{const sh=s.saccadeHistory||[];return sh.length?sh.reduce((a,f)=>a+Math.hypot(f.toX-f.fromX,f.toY-f.fromY),0)/sh.length:0;}case 'age':return parseInt(s.age)||0;default:return 0;}};list.sort((a,b)=>asc?getVal(a)-getVal(b):getVal(b)-getVal(a));}return list;}
 
-function renderCompareView(){populateCompareFilters();const grid=document.getElementById('compareGrid');grid.innerHTML='';const layer=document.getElementById('cf-layer').value||dataActiveLayer||'GAZE';const filteredSessions=getFilteredSessions();if(allSessions.length===0){grid.innerHTML='<div style="color:#555;font-size:11px;letter-spacing:0.2em;text-align:center;padding:40px 0;grid-column:1/-1;">אין סשנים להשוואה עדיין</div>';return;}for(const sess of filteredSessions){const cell=document.createElement('div');cell.className='compare-panel';const ts=new Date(sess.timestamp).toLocaleTimeString();const dur=sess.sessionDuration?(sess.sessionDuration/1000).toFixed(1)+'s':'--';cell.innerHTML='<div class="compare-panel-header"><div><div class="cp-user">'+sess.user+'</div><div class="cp-meta">'+(sess.age?sess.age+' yrs':'')+((sess.age&&sess.gender)?' . ':'')+( sess.gender||'')+(sess.location?' . '+sess.location:'')+'</div></div><div style="text-align:right"><div class="cp-time">'+sess.imageName+'</div><div class="cp-time">'+ts+' . '+dur+'</div></div></div><div class="compare-canvas-wrap"><img class="cp-img" src="'+sess.imageSrc+'"><canvas class="cp-canvas"></canvas></div><div class="cp-stats">'+sess.fixationHistory.length+' fix . '+sess.saccadeHistory.length+' sac . '+sess.gazeLog.length+' samples</div>';grid.appendChild(cell);const wrap=cell.querySelector('.compare-canvas-wrap'),canvas=cell.querySelector('.cp-canvas');setTimeout(()=>{canvas.width=wrap.offsetWidth;canvas.height=wrap.offsetHeight;const ctx=canvas.getContext('2d');const W=canvas.width,H=canvas.height;const RC='255,0,0';switch(layer){case 'GAZE':staticGaze(ctx,W,H,sess.gazeLog,RC);break;case 'קיבוע':staticFixation(ctx,W,H,sess.fixationHistory,RC);break;case 'סקאדה':staticSaccade(ctx,W,H,sess.saccadeHistory,RC);break;case 'SCANPATH':staticScanPath(ctx,W,H,sess.scanPathHistory,RC);break;case 'מפת חום':staticHeatmap(ctx,W,H,sess.gazeLog,RC);break;case 'FIRSTFIX':staticFirstFix(ctx,W,H,sess.firstFix,sess.firstFixModeTs,RC);break;}},60);}}
+function renderCompareView(){populateCompareFilters();const grid=document.getElementById('compareGrid');grid.innerHTML='';const layer=document.getElementById('cf-layer').value||dataActiveLayer||'GAZE';const filteredSessions=getFilteredSessions();if(allSessions.length===0){grid.innerHTML='<div style="color:#FF0000;font-size:11px;letter-spacing:0.2em;text-align:center;padding:40px 0;grid-column:1/-1;">אין סשנים להשוואה עדיין</div>';return;}for(const sess of filteredSessions){const cell=document.createElement('div');cell.className='compare-panel';const ts=new Date(sess.timestamp).toLocaleTimeString();const dur=sess.sessionDuration?(sess.sessionDuration/1000).toFixed(1)+'s':'--';cell.innerHTML='<div class="compare-panel-header"><div><div class="cp-user">'+sess.user+'</div><div class="cp-meta">'+(sess.age?sess.age+' yrs':'')+((sess.age&&sess.gender)?' . ':'')+( sess.gender||'')+(sess.location?' . '+sess.location:'')+'</div></div><div style="text-align:right"><div class="cp-time">'+sess.imageName+'</div><div class="cp-time">'+ts+' . '+dur+'</div></div></div><div class="compare-canvas-wrap"><img class="cp-img" src="'+sess.imageSrc+'"><canvas class="cp-canvas"></canvas></div><div class="cp-stats">'+sess.fixationHistory.length+' fix . '+sess.saccadeHistory.length+' sac . '+sess.gazeLog.length+' samples</div>';grid.appendChild(cell);const wrap=cell.querySelector('.compare-canvas-wrap'),canvas=cell.querySelector('.cp-canvas');setTimeout(()=>{canvas.width=wrap.offsetWidth;canvas.height=wrap.offsetHeight;const ctx=canvas.getContext('2d');const W=canvas.width,H=canvas.height;const RC='255,0,0';switch(layer){case 'GAZE':staticGaze(ctx,W,H,sess.gazeLog,RC);break;case 'קיבוע':staticFixation(ctx,W,H,sess.fixationHistory,RC);break;case 'סקאדה':staticSaccade(ctx,W,H,sess.saccadeHistory,RC);break;case 'SCANPATH':staticScanPath(ctx,W,H,sess.scanPathHistory,RC);break;case 'מפת חום':staticHeatmap(ctx,W,H,sess.gazeLog,RC);break;case 'FIRSTFIX':staticFirstFix(ctx,W,H,sess.firstFix,sess.firstFixModeTs,RC);break;}},60);}}
 
 document.getElementById('cf-apply').addEventListener('click',renderCompareView);
 document.getElementById('cf-layer').addEventListener('change',renderCompareView);
@@ -1261,7 +1261,7 @@ function openGallery(){
   renderGalleryScreen();
 }
 
-function renderGalleryScreen(){const body=document.getElementById('galleryBody');body.innerHTML='';const byUser=new Map();for(const sess of allSessions){if(!byUser.has(sess.user))byUser.set(sess.user,[]);byUser.get(sess.user).push(sess);}if(byUser.size===0){body.innerHTML='<div style="color:#555;font-size:11px;letter-spacing:0.2em;text-align:center;margin-top:60px;">אין סשנים עדיין</div>';return;}for(const[userName,userSessions]of byUser){const block=document.createElement('div');block.className='gallery-user-block';const meta=userSessions[0];const metaStr=[meta.age?meta.age+'y':'',meta.gender||'',meta.location||''].filter(Boolean).join(' . ');block.innerHTML='<div class="gallery-user-name">'+userName+'</div><div class="gallery-user-meta">'+metaStr+'</div><div class="gallery-images-row" id="gallery-row-'+userName.replace(/\s/g,'_')+'"></div>';body.appendChild(block);const row=block.querySelector('.gallery-images-row');for(const sess of userSessions){const item=document.createElement('div');item.className='gallery-item'+(sess===viewSession?' active-view':'');const dur=sess.sessionDuration?(sess.sessionDuration/1000).toFixed(1)+'s':'--';item.innerHTML='<img class="gallery-item-img" src="'+sess.imageSrc+'" alt="'+sess.imageName+'"/><div class="gallery-item-info"><span class="gallery-item-name">'+sess.imageName+'</span><span class="gallery-item-stats">'+sess.fixationHistory.length+'F . '+sess.gazeLog.length+'S . '+dur+'</span></div>';item.onclick=()=>{viewSession=sess;document.querySelectorAll('.gallery-item').forEach(el=>el.classList.remove('active-view'));item.classList.add('active-view');openData(false);};row.appendChild(item);}}}
+function renderGalleryScreen(){const body=document.getElementById('galleryBody');body.innerHTML='';const byUser=new Map();for(const sess of allSessions){if(!byUser.has(sess.user))byUser.set(sess.user,[]);byUser.get(sess.user).push(sess);}if(byUser.size===0){body.innerHTML='<div style="color:#FF0000;font-size:11px;letter-spacing:0.2em;text-align:center;margin-top:60px;">אין סשנים עדיין</div>';return;}for(const[userName,userSessions]of byUser){const block=document.createElement('div');block.className='gallery-user-block';const meta=userSessions[0];const metaStr=[meta.age?meta.age+'y':'',meta.gender||'',meta.location||''].filter(Boolean).join(' . ');block.innerHTML='<div class="gallery-user-name">'+userName+'</div><div class="gallery-user-meta">'+metaStr+'</div><div class="gallery-images-row" id="gallery-row-'+userName.replace(/\s/g,'_')+'"></div>';body.appendChild(block);const row=block.querySelector('.gallery-images-row');for(const sess of userSessions){const item=document.createElement('div');item.className='gallery-item'+(sess===viewSession?' active-view':'');const dur=sess.sessionDuration?(sess.sessionDuration/1000).toFixed(1)+'s':'--';item.innerHTML='<img class="gallery-item-img" src="'+sess.imageSrc+'" alt="'+sess.imageName+'"/><div class="gallery-item-info"><span class="gallery-item-name">'+sess.imageName+'</span><span class="gallery-item-stats">'+sess.fixationHistory.length+'F . '+sess.gazeLog.length+'S . '+dur+'</span></div>';item.onclick=()=>{viewSession=sess;document.querySelectorAll('.gallery-item').forEach(el=>el.classList.remove('active-view'));item.classList.add('active-view');openData(false);};row.appendChild(item);}}}
 
 // ── Supabase ──────────────────────────────────────────────────────────
 const SUPABASE_URL = 'https://idtghubjdrpcayyarzdr.supabase.co';
@@ -1569,91 +1569,373 @@ function showAuthNav(){
 
 // ── About screen mode carousel ────────────────────────────────────────
 (function(){
-  var RED='#FF0000';
-  function ra(a){return 'rgba(255,0,0,'+a+')';}
-
-  var MODES=[
-    {name:'Gaze',num:'01 / 06',desc:'Raw gaze positions sampled continuously - every point where the eye looked, frame by frame.'},
+  const RED = '#FF0000';
+  const MODES = [
+    {name:'Gaze',num:'01 / 06',desc:'Raw gaze positions sampled continuously — every point where the eye looked, frame by frame.'},
     {name:'Fixation',num:'02 / 06',desc:'Sustained gaze on a single region for ≥200ms. Indicates active cognitive processing.'},
-    {name:'Saccade',num:'03 / 06',desc:'Rapid קפיצות עין between fixations. Reveals how the eye explores and scans a scene.'},
-    {name:'Scan path',num:'04 / 06',desc:'The chronological sequence of fixations - the full visual journey across the image.'},
+    {name:'Saccade',num:'03 / 06',desc:'Rapid eye movements between fixations. Reveals how the eye explores and scans a scene.'},
+    {name:'Scan path',num:'04 / 06',desc:'The chronological sequence of fixations — the full visual journey across the image.'},
     {name:'Heatmap',num:'05 / 06',desc:'Density map of visual attention. Hotter areas received more and longer fixations.'},
-    {name:'First fixation',num:'06 / 06',desc:'The very first region noticed - the pre-conscious entry point of visual attention.'}
+    {name:'First fixation',num:'06 / 06',desc:'The very first region noticed — the pre-conscious entry point of visual attention.'}
   ];
   window._MODES_REF = MODES;
 
-  var gazeLog=[{x:0.18,y:0.30},{x:0.20,y:0.28},{x:0.22,y:0.32},{x:0.50,y:0.22},{x:0.52,y:0.24},{x:0.54,y:0.20},{x:0.74,y:0.50},{x:0.72,y:0.52},{x:0.76,y:0.48},{x:0.34,y:0.68},{x:0.36,y:0.66},{x:0.38,y:0.70},{x:0.60,y:0.78},{x:0.62,y:0.76},{x:0.58,y:0.80},{x:0.28,y:0.48},{x:0.50,y:0.50},{x:0.65,y:0.35}];
-  var fixHist=[{x:0.20,y:0.30,dur:380},{x:0.52,y:0.22,dur:260},{x:0.74,y:0.50,dur:500},{x:0.36,y:0.68,dur:180},{x:0.61,y:0.78,dur:320}];
-  var sacHist=[{fx:0.20,fy:0.30,tx:0.52,ty:0.22},{fx:0.52,fy:0.22,tx:0.74,ty:0.50},{fx:0.74,fy:0.50,tx:0.36,ty:0.68},{fx:0.36,fy:0.68,tx:0.61,ty:0.78}];
+  const gazeLog=[
+    {x:0.18,y:0.30},{x:0.20,y:0.28},{x:0.22,y:0.32},
+    {x:0.50,y:0.22},{x:0.52,y:0.24},{x:0.54,y:0.20},
+    {x:0.74,y:0.50},{x:0.72,y:0.52},{x:0.76,y:0.48},
+    {x:0.34,y:0.68},{x:0.36,y:0.66},{x:0.38,y:0.70},
+    {x:0.60,y:0.78},{x:0.62,y:0.76},{x:0.58,y:0.80},
+    {x:0.28,y:0.48},{x:0.50,y:0.50},{x:0.65,y:0.35}
+  ];
+  const fixHist=[
+    {x:0.20,y:0.30,duration:380},
+    {x:0.52,y:0.22,duration:260},
+    {x:0.74,y:0.50,duration:500},
+    {x:0.36,y:0.68,duration:180},
+    {x:0.61,y:0.78,duration:320}
+  ];
+  const sacHist=[
+    {fromX:0.20,fromY:0.30,toX:0.52,toY:0.22},
+    {fromX:0.52,fromY:0.22,toX:0.74,toY:0.50},
+    {fromX:0.74,fromY:0.50,toX:0.36,toY:0.68},
+    {fromX:0.36,fromY:0.68,toX:0.61,toY:0.78}
+  ];
 
-  var cur=0, raf=null, stopFlag=false;
-  var el, ctx, W, H;
+  let cur=0, raf=null, stopFlag=false;
+  let canvas, ctx, W, H;
 
   function setup(){
-    el=document.getElementById('modeCanvas');
-    if(!el)return false;
-    var dpr=window.devicePixelRatio||1;
-    var rect=el.getBoundingClientRect();
-    W=rect.width||280; H=rect.height||168;
-    el.width=W*dpr; el.height=H*dpr;
-    ctx=el.getContext('2d',{alpha:true});
-    ctx.scale(dpr,dpr);
+    canvas=document.getElementById('modeCanvas');
+    if(!canvas)return false;
+    const right=canvas.parentElement;
+    const dpr=window.devicePixelRatio||1;
+    W=right.offsetWidth||300; H=right.offsetHeight||200;
+    canvas.width=W*dpr; canvas.height=H*dpr;
+    canvas.style.width=W+'px'; canvas.style.height=H+'px';
+    ctx=canvas.getContext('2d',{alpha:true});
+    ctx.setTransform(dpr,0,0,dpr,0,0);
     ctx.clearRect(0,0,W,H);
     return true;
   }
 
-  function drawArrow(fx,fy,tx,ty){ctx.beginPath();ctx.moveTo(fx,fy);ctx.lineTo(tx,ty);ctx.stroke();var a=Math.atan2(ty-fy,tx-fx),l=8;ctx.beginPath();ctx.moveTo(tx,ty);ctx.lineTo(tx-l*Math.cos(a-Math.PI/6),ty-l*Math.sin(a-Math.PI/6));ctx.lineTo(tx-l*Math.cos(a+Math.PI/6),ty-l*Math.sin(a+Math.PI/6));ctx.closePath();ctx.fillStyle=RED;ctx.fill();}
+  function drawArrow(fx,fy,tx,ty){
+    ctx.beginPath(); ctx.moveTo(fx,fy); ctx.lineTo(tx,ty); ctx.stroke();
+    const a=Math.atan2(ty-fy,tx-fx),l=10;
+    ctx.beginPath();
+    ctx.moveTo(tx,ty);
+    ctx.lineTo(tx-l*Math.cos(a-Math.PI/6),ty-l*Math.sin(a-Math.PI/6));
+    ctx.lineTo(tx-l*Math.cos(a+Math.PI/6),ty-l*Math.sin(a+Math.PI/6));
+    ctx.closePath(); ctx.fillStyle=RED; ctx.fill();
+  }
 
-  function startAnim(idx){stopFlag=true;if(raf)cancelAnimationFrame(raf);setTimeout(function(){stopFlag=false;if(!setup())return;ctx.clearRect(0,0,W,H);switch(idx){case 0:runGaze();break;case 1:runFixation();break;case 2:runSaccade();break;case 3:runScanPath();break;case 4:runHeatmap();break;case 5:runFirstFix();break;}},50);}
+  function startAnim(idx){
+    stopFlag=true;
+    if(raf) cancelAnimationFrame(raf);
+    clearTimeout(window._mcTimer);
+    setTimeout(()=>{
+      stopFlag=false;
+      if(!setup()) return;
+      ctx.clearRect(0,0,W,H);
+      switch(idx){
+        case 0: runGaze(); break;
+        case 1: runFixation(); break;
+        case 2: runSaccade(); break;
+        case 3: runScanPath(); break;
+        case 4: runHeatmap(); break;
+        case 5: runFirstFix(); break;
+      }
+    }, 60);
+  }
 
-  function runGaze(){var dots=[],dIdx=0,t=0;function addDot(){var p=gazeLog[dIdx%gazeLog.length];var jit=function(){return(Math.random()-0.5)*0.06;};dots.push({x:Math.max(0.05,Math.min(0.95,p.x+jit())),y:Math.max(0.05,Math.min(0.95,p.y+jit())),age:0});if(dots.length>28)dots.shift();dIdx++;}for(var i=0;i<12;i++)addDot();function draw(){if(stopFlag)return;ctx.clearRect(0,0,W,H);for(var i=0;i<dots.length;i++){dots[i].age++;var alpha=Math.max(0,1-dots[i].age/160);ctx.beginPath();ctx.arc(dots[i].x*W,dots[i].y*H,3,0,Math.PI*2);ctx.fillStyle=ra(alpha*0.85);ctx.fill();}t++;if(t%8===0)addDot();raf=requestAnimationFrame(draw);}draw();}
+  function runGaze(){
+    let dots=[],dIdx=0,t=0;
+    function addDot(){
+      const p=gazeLog[dIdx%gazeLog.length];
+      const jit=()=>(Math.random()-0.5)*0.06;
+      dots.push({x:Math.max(0.05,Math.min(0.95,p.x+jit())),y:Math.max(0.05,Math.min(0.95,p.y+jit())),age:0});
+      if(dots.length>28) dots.shift();
+      dIdx++;
+    }
+    for(let i=0;i<12;i++) addDot();
+    function draw(){
+      if(stopFlag) return;
+      ctx.clearRect(0,0,W,H);
+      for(const d of dots){
+        d.age++;
+        const alpha=Math.max(0,1-d.age/160);
+        ctx.beginPath(); ctx.arc(d.x*W,d.y*H,3,0,Math.PI*2);
+        ctx.fillStyle=`rgba(255,0,0,${(alpha*0.85).toFixed(2)})`; ctx.fill();
+      }
+      t++; if(t%8===0) addDot();
+      raf=requestAnimationFrame(draw);
+    }
+    draw();
+  }
 
-  function runFixation(){var fIdx=0,shown=[],start=null,phase='grow';function maxR(dur){return Math.min(6+dur/80,Math.min(W,H)*0.22);}function drawAll(){ctx.clearRect(0,0,W,H);for(var i=0;i<shown.length;i++){var f=shown[i],cx=f.x*W,cy=f.y*H,r=maxR(f.dur);ctx.beginPath();ctx.arc(cx,cy,r,0,Math.PI*2);ctx.fillStyle=ra(0.15);ctx.fill();ctx.beginPath();ctx.arc(cx,cy,r,0,Math.PI*2);ctx.strokeStyle=RED;ctx.lineWidth=1.5;ctx.stroke();ctx.beginPath();ctx.arc(cx,cy,3,0,Math.PI*2);ctx.fillStyle=RED;ctx.fill();}}function draw(ts){if(stopFlag)return;if(!start)start=ts;var elapsed=ts-start;if(phase==='grow'){var f=fixHist[fIdx],dur=500,prog=Math.min(1,elapsed/dur);var cx=f.x*W,cy=f.y*H,r=maxR(f.dur)*prog;drawAll();ctx.beginPath();ctx.arc(cx,cy,Math.max(1,r),0,Math.PI*2);ctx.fillStyle=ra(0.15*prog);ctx.fill();ctx.beginPath();ctx.arc(cx,cy,Math.max(1,r),0,Math.PI*2);ctx.strokeStyle=ra(prog);ctx.lineWidth=1.5;ctx.stroke();if(prog>=1){shown.push(f);fIdx=(fIdx+1)%fixHist.length;phase='wait';start=ts;}}else{drawAll();if(elapsed>500){if(fIdx===0)shown=[];phase='grow';start=ts;}}raf=requestAnimationFrame(draw);}raf=requestAnimationFrame(draw);}
+  function maxR(duration){ return Math.min(8+duration/60, Math.min(W,H)*0.22); }
 
-  function runSaccade(){var sIdx=0,drawn=[],start=null,phase='draw';function drawAll(){ctx.clearRect(0,0,W,H);for(var i=0;i<drawn.length;i++){var sc=drawn[i];ctx.strokeStyle=RED;ctx.lineWidth=1.5;drawArrow(sc.fx*W,sc.fy*H,sc.tx*W,sc.ty*H);}}function draw(ts){if(stopFlag)return;if(!start)start=ts;var elapsed=ts-start;if(phase==='draw'){var sc=sacHist[sIdx],dur=300,prog=Math.min(1,elapsed/dur);var ex=sc.fx*W+(sc.tx*W-sc.fx*W)*prog,ey=sc.fy*H+(sc.ty*H-sc.fy*H)*prog;drawAll();ctx.strokeStyle=RED;ctx.lineWidth=1.5;ctx.beginPath();ctx.moveTo(sc.fx*W,sc.fy*H);ctx.lineTo(ex,ey);ctx.stroke();if(prog>=1){drawn.push(sc);sIdx=(sIdx+1)%sacHist.length;phase='wait';start=ts;}}else{drawAll();if(elapsed>400){if(sIdx===0)drawn.length=0;phase='draw';start=ts;}}raf=requestAnimationFrame(draw);}raf=requestAnimationFrame(draw);}
+  function runFixation(){
+    let fIdx=0,shown=[],start=null,phase='grow';
+    function drawAll(){
+      for(const fix of shown){
+        const cx=fix.x*W,cy=fix.y*H,r=maxR(fix.duration);
+        ctx.beginPath(); ctx.arc(cx,cy,r,0,Math.PI*2);
+        ctx.fillStyle='rgba(255,0,0,0.15)'; ctx.fill();
+        ctx.beginPath(); ctx.arc(cx,cy,r,0,Math.PI*2);
+        ctx.strokeStyle=RED; ctx.lineWidth=2; ctx.stroke();
+        if(fix.duration>250){
+          ctx.fillStyle=RED; ctx.font='700 10px HaimNum,HaimVariable';
+          ctx.textAlign='center'; ctx.textBaseline='alphabetic';
+          ctx.fillText(Math.round(fix.duration)+'ms',cx,cy+r+13);
+        }
+      }
+    }
+    function draw(ts){
+      if(stopFlag) return;
+      if(!start) start=ts;
+      const elapsed=ts-start;
+      if(phase==='grow'){
+        const fix=fixHist[fIdx],dur=550,prog=Math.min(1,elapsed/dur);
+        const cx=fix.x*W,cy=fix.y*H,r=maxR(fix.duration)*prog;
+        ctx.clearRect(0,0,W,H); drawAll();
+        ctx.beginPath(); ctx.arc(cx,cy,Math.max(1,r),0,Math.PI*2);
+        ctx.fillStyle=`rgba(255,0,0,${(0.15*prog).toFixed(2)})`; ctx.fill();
+        ctx.beginPath(); ctx.arc(cx,cy,Math.max(1,r),0,Math.PI*2);
+        ctx.strokeStyle=`rgba(255,0,0,${prog.toFixed(2)})`; ctx.lineWidth=2; ctx.stroke();
+        if(prog>=1){ shown.push(fix); fIdx=(fIdx+1)%fixHist.length; phase='wait'; start=ts; }
+      } else {
+        ctx.clearRect(0,0,W,H); drawAll();
+        if(elapsed>700){ if(fIdx===0) shown=[]; phase='grow'; start=ts; }
+      }
+      raf=requestAnimationFrame(draw);
+    }
+    raf=requestAnimationFrame(draw);
+  }
 
-  function runScanPath(){var n=0,start=null,phase='add',NODE_R=14;function drawN(count){ctx.clearRect(0,0,W,H);if(count>=2){ctx.save();ctx.setLineDash([4,7]);ctx.strokeStyle=RED;ctx.lineWidth=1.5;for(var j=0;j<count-1;j++){var a=fixHist[j],b=fixHist[j+1];var ax=a.x*W,ay=a.y*H,bx=b.x*W,by=b.y*H;var dx=bx-ax,dy=by-ay,dist=Math.sqrt(dx*dx+dy*dy);if(dist<1)continue;var ux=dx/dist,uy=dy/dist;ctx.beginPath();ctx.moveTo(ax+ux*NODE_R,ay+uy*NODE_R);ctx.lineTo(bx-ux*NODE_R,by-uy*NODE_R);ctx.stroke();}ctx.setLineDash([]);ctx.restore();}for(var j=0;j<count;j++){var p=fixHist[j],cx=p.x*W,cy=p.y*H;ctx.beginPath();ctx.arc(cx,cy,NODE_R,0,Math.PI*2);ctx.fillStyle='rgba(255,255,255,0.15)';ctx.fill();ctx.beginPath();ctx.arc(cx,cy,NODE_R,0,Math.PI*2);ctx.strokeStyle=RED;ctx.lineWidth=1.5;ctx.stroke();ctx.fillStyle=RED;ctx.font='bold 11px Arial';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText(j+1,cx,cy);}}function draw(ts){if(stopFlag)return;if(!start)start=ts;var elapsed=ts-start;if(phase==='add'){if(elapsed>650){n++;drawN(n);if(n>=fixHist.length)phase='pause';start=ts;}else drawN(n);}else{drawN(n);if(elapsed>1200){n=0;phase='add';start=ts;}}raf=requestAnimationFrame(draw);}raf=requestAnimationFrame(draw);}
+  function runSaccade(){
+    let sIdx=0,drawn=[],start=null,phase='draw';
+    function drawOne(sc,full){
+      ctx.strokeStyle=RED; ctx.lineWidth=2;
+      const fx=sc.fromX*W,fy=sc.fromY*H,tx=sc.toX*W,ty=sc.toY*H;
+      if(full){ drawArrow(fx,fy,tx,ty); }
+      else { ctx.beginPath(); ctx.moveTo(fx,fy); ctx.lineTo(tx,ty); ctx.stroke(); }
+    }
+    function drawAll(){ ctx.clearRect(0,0,W,H); for(const sc of drawn) drawOne(sc,true); }
+    function draw(ts){
+      if(stopFlag) return;
+      if(!start) start=ts;
+      const elapsed=ts-start;
+      if(phase==='draw'){
+        const sc=sacHist[sIdx],dur=350,prog=Math.min(1,elapsed/dur);
+        const fx=sc.fromX*W,fy=sc.fromY*H,tx=sc.toX*W,ty=sc.toY*H;
+        const ex=fx+(tx-fx)*prog,ey=fy+(ty-fy)*prog;
+        drawAll();
+        ctx.strokeStyle=RED; ctx.lineWidth=2;
+        ctx.beginPath(); ctx.moveTo(fx,fy); ctx.lineTo(ex,ey); ctx.stroke();
+        if(prog>=1){ drawn.push(sc); sIdx=(sIdx+1)%sacHist.length; phase='wait'; start=ts; }
+      } else {
+        drawAll();
+        if(elapsed>800){ if(sIdx===0) drawn=[]; phase='draw'; start=ts; }
+      }
+      raf=requestAnimationFrame(draw);
+    }
+    raf=requestAnimationFrame(draw);
+  }
 
-  function runHeatmap(){var hmW=60,hmH=36,hm=new Float32Array(hmW*hmH);var sigma=0.10*Math.max(hmW,hmH),r=Math.ceil(3*sigma),inv2=1/(2*sigma*sigma);var allPts=[];for(var rep=0;rep<3;rep++){for(var i=0;i<gazeLog.length;i++){var jx=(Math.random()-0.5)*0.08,jy=(Math.random()-0.5)*0.08;allPts.push({x:Math.max(0.05,Math.min(0.95,gazeLog[i].x+jx)),y:Math.max(0.05,Math.min(0.95,gazeLog[i].y+jy))});}}function addPoint(p){var gx=p.x*hmW,gy=p.y*hmH;var x0=Math.max(0,Math.floor(gx-r)),x1=Math.min(hmW-1,Math.ceil(gx+r));var y0=Math.max(0,Math.floor(gy-r)),y1=Math.min(hmH-1,Math.ceil(gy+r));for(var y=y0;y<=y1;y++)for(var x=x0;x<=x1;x++)hm[y*hmW+x]+=0.22*Math.exp(-((x-gx)*(x-gx)+(y-gy)*(y-gy))*inv2);}function getMSSegs(idx,T,R,B,L){switch(idx){case 1:return[[L,B]];case 2:return[[R,B]];case 3:return[[L,R]];case 4:return[[T,R]];case 5:return[[T,R],[L,B]];case 6:return[[T,B]];case 7:return[[T,L]];case 8:return[[T,L]];case 9:return[[T,B]];case 10:return[[L,T],[R,B]];case 11:return[[T,R]];case 12:return[[L,R]];case 13:return[[R,B]];case 14:return[[L,B]];default:return[];}}function render(){ctx.clearRect(0,0,W,H);var maxVal=0;for(var i=0;i<hm.length;i++)if(hm[i]>maxVal)maxVal=hm[i];if(maxVal<0.01)return;var levels=[0.15,0.30,0.50,0.70,0.88],M=4;for(var li=0;li<levels.length;li++){var level=levels[li];ctx.strokeStyle=ra(Math.min(1,0.35+level*0.65));ctx.lineWidth=2.5;ctx.beginPath();for(var cy2=0;cy2<hmH-1;cy2++){for(var cx2=0;cx2<hmW-1;cx2++){var vTL=hm[cy2*hmW+cx2]/maxVal,vTR=hm[cy2*hmW+(cx2+1)]/maxVal;var vBR=hm[(cy2+1)*hmW+(cx2+1)]/maxVal,vBL=hm[(cy2+1)*hmW+cx2]/maxVal;var idx2=(vTL>=level?8:0)+(vTR>=level?4:0)+(vBR>=level?2:0)+(vBL>=level?1:0);if(idx2===0||idx2===15)continue;var sx0=M+cx2*(W-2*M)/hmW,sx1=M+(cx2+1)*(W-2*M)/hmW;var sy0=M+cy2*(H-2*M)/hmH,sy1=M+(cy2+1)*(H-2*M)/hmH;var lp=function(v0,v1){return Math.abs(v1-v0)<1e-10?0.5:Math.max(0,Math.min(1,(level-v0)/(v1-v0)));};var T2=[sx0+lp(vTL,vTR)*(sx1-sx0),sy0],R2=[sx1,sy0+lp(vTR,vBR)*(sy1-sy0)];var B2=[sx0+lp(vBL,vBR)*(sx1-sx0),sy1],L2=[sx0,sy0+lp(vTL,vBL)*(sy1-sy0)];var segs=getMSSegs(idx2,T2,R2,B2,L2);for(var si=0;si<segs.length;si++){ctx.moveTo(segs[si][0][0],segs[si][0][1]);ctx.lineTo(segs[si][1][0],segs[si][1][1]);}}}ctx.stroke();}}var ptIdx=0,BATCH=3,INTERVAL=120;function step(){if(stopFlag)return;for(var b=0;b<BATCH&&ptIdx<allPts.length;b++,ptIdx++)addPoint(allPts[ptIdx]);render();if(ptIdx<allPts.length){setTimeout(step,INTERVAL);}else{setTimeout(function(){if(stopFlag)return;for(var i=0;i<hm.length;i++)hm[i]=0;ptIdx=0;setTimeout(step,400);},2500);}}setTimeout(step,200);}
+  function runScanPath(){
+    let n=0,start=null,phase='add';
+    const NODE_R=14;
+    function drawN(count){
+      ctx.clearRect(0,0,W,H);
+      if(count>=2){
+        ctx.save(); ctx.setLineDash([4,7]);
+        ctx.strokeStyle=RED; ctx.lineWidth=2;
+        for(let j=0;j<count-1;j++){
+          const a=fixHist[j],b=fixHist[j+1];
+          const ax=a.x*W,ay=a.y*H,bx=b.x*W,by=b.y*H;
+          const dx=bx-ax,dy=by-ay,dist=Math.sqrt(dx*dx+dy*dy);
+          if(dist<1) continue;
+          const ux=dx/dist,uy=dy/dist;
+          ctx.beginPath(); ctx.moveTo(ax+ux*NODE_R,ay+uy*NODE_R);
+          ctx.lineTo(bx-ux*NODE_R,by-uy*NODE_R); ctx.stroke();
+        }
+        ctx.setLineDash([]); ctx.restore();
+      }
+      for(let j=0;j<count;j++){
+        const p=fixHist[j],cx=p.x*W,cy=p.y*H;
+        ctx.beginPath(); ctx.arc(cx,cy,NODE_R,0,Math.PI*2);
+        ctx.fillStyle='rgba(255,0,0,0.15)'; ctx.fill();
+        ctx.beginPath(); ctx.arc(cx,cy,NODE_R,0,Math.PI*2);
+        ctx.strokeStyle=RED; ctx.lineWidth=2; ctx.stroke();
+        ctx.fillStyle=RED; ctx.font='700 11px HaimNum,HaimVariable';
+        ctx.textAlign='center'; ctx.textBaseline='middle';
+        ctx.fillText(j+1,cx,cy);
+      }
+    }
+    function draw(ts){
+      if(stopFlag) return;
+      if(!start) start=ts;
+      const elapsed=ts-start;
+      if(phase==='add'){
+        if(elapsed>700){ n++; drawN(n); if(n>=fixHist.length) phase='pause'; start=ts; }
+        else drawN(n);
+      } else {
+        drawN(n);
+        if(elapsed>1400){ n=0; phase='add'; start=ts; }
+      }
+      raf=requestAnimationFrame(draw);
+    }
+    raf=requestAnimationFrame(draw);
+  }
 
-  function runFirstFix(){var fix={x:0.35,y:0.45},phase='flash',start=null;function draw(ts){if(stopFlag)return;if(!start)start=ts;var elapsed=ts-start;ctx.clearRect(0,0,W,H);var cx=fix.x*W,cy=fix.y*H;if(phase==='flash'){var prog=Math.min(1,elapsed/700);ctx.beginPath();ctx.arc(cx,cy,8+prog*34,0,Math.PI*2);ctx.strokeStyle=ra((1-prog)*0.85);ctx.lineWidth=2;ctx.stroke();ctx.beginPath();ctx.arc(cx,cy,Math.max(2,14*prog),0,Math.PI*2);ctx.fillStyle=ra(prog);ctx.fill();if(prog>=1){phase='pulse';start=ts;}}else{var pt=(elapsed%1400)/1400,pr=14+Math.sin(pt*Math.PI*2)*5;ctx.beginPath();ctx.arc(cx,cy,pr,0,Math.PI*2);ctx.strokeStyle=ra(0.45);ctx.lineWidth=1.5;ctx.stroke();ctx.beginPath();ctx.arc(cx,cy,14,0,Math.PI*2);ctx.fillStyle=RED;ctx.fill();ctx.beginPath();ctx.arc(cx,cy,22,0,Math.PI*2);ctx.strokeStyle=ra(0.25);ctx.lineWidth=1;ctx.stroke();ctx.fillStyle=RED;ctx.font='bold 10px Arial';ctx.textAlign='center';ctx.textBaseline='alphabetic';ctx.fillText('קיבוע ראשון',cx,cy-34);if(elapsed>2200){phase='flash';start=ts;}}raf=requestAnimationFrame(draw);}raf=requestAnimationFrame(draw);}
+  function runHeatmap(){
+    const hmW=60,hmH=36,hm=new Float32Array(hmW*hmH);
+    const sigma=0.10*Math.max(hmW,hmH),r=Math.ceil(3*sigma),inv2=1/(2*sigma*sigma);
+    const allPts=[];
+    for(let rep=0;rep<3;rep++){
+      for(const p of gazeLog){
+        const jx=(Math.random()-0.5)*0.08,jy=(Math.random()-0.5)*0.08;
+        allPts.push({x:Math.max(0.05,Math.min(0.95,p.x+jx)),y:Math.max(0.05,Math.min(0.95,p.y+jy))});
+      }
+    }
+    function addPoint(p){
+      const gx=p.x*hmW,gy=p.y*hmH;
+      const x0=Math.max(0,Math.floor(gx-r)),x1=Math.min(hmW-1,Math.ceil(gx+r));
+      const y0=Math.max(0,Math.floor(gy-r)),y1=Math.min(hmH-1,Math.ceil(gy+r));
+      for(let y=y0;y<=y1;y++) for(let x=x0;x<=x1;x++)
+        hm[y*hmW+x]+=0.22*Math.exp(-((x-gx)**2+(y-gy)**2)*inv2);
+    }
+    function getMSSegs(idx,T,R,B,L){switch(idx){case 1:return[[L,B]];case 2:return[[R,B]];case 3:return[[L,R]];case 4:return[[T,R]];case 5:return[[T,R],[L,B]];case 6:return[[T,B]];case 7:return[[T,L]];case 8:return[[T,L]];case 9:return[[T,B]];case 10:return[[L,T],[R,B]];case 11:return[[T,R]];case 12:return[[L,R]];case 13:return[[R,B]];case 14:return[[L,B]];default:return[];}}
+    function render(){
+      ctx.clearRect(0,0,W,H);
+      let maxVal=0; for(let i=0;i<hm.length;i++) if(hm[i]>maxVal) maxVal=hm[i];
+      if(maxVal<0.01) return;
+      const M=4,levels=[0.15,0.30,0.50,0.70,0.88];
+      for(const level of levels){
+        ctx.strokeStyle=`rgba(255,0,0,${Math.min(1,0.35+level*0.65).toFixed(2)})`;
+        ctx.lineWidth=2.5; ctx.beginPath();
+        for(let cy2=0;cy2<hmH-1;cy2++) for(let cx2=0;cx2<hmW-1;cx2++){
+          const vTL=hm[cy2*hmW+cx2]/maxVal,vTR=hm[cy2*hmW+(cx2+1)]/maxVal;
+          const vBR=hm[(cy2+1)*hmW+(cx2+1)]/maxVal,vBL=hm[(cy2+1)*hmW+cx2]/maxVal;
+          const idx2=(vTL>=level?8:0)+(vTR>=level?4:0)+(vBR>=level?2:0)+(vBL>=level?1:0);
+          if(idx2===0||idx2===15) continue;
+          const sx0=M+cx2*(W-2*M)/hmW,sx1=M+(cx2+1)*(W-2*M)/hmW;
+          const sy0=M+cy2*(H-2*M)/hmH,sy1=M+(cy2+1)*(H-2*M)/hmH;
+          const lp=(v0,v1)=>Math.abs(v1-v0)<1e-10?0.5:Math.max(0,Math.min(1,(level-v0)/(v1-v0)));
+          const T2=[sx0+lp(vTL,vTR)*(sx1-sx0),sy0],R2=[sx1,sy0+lp(vTR,vBR)*(sy1-sy0)];
+          const B2=[sx0+lp(vBL,vBR)*(sx1-sx0),sy1],L2=[sx0,sy0+lp(vTL,vBL)*(sy1-sy0)];
+          for(const [p1,p2] of getMSSegs(idx2,T2,R2,B2,L2)){
+            ctx.moveTo(p1[0],p1[1]); ctx.lineTo(p2[0],p2[1]);
+          }
+        }
+        ctx.stroke();
+      }
+    }
+    let ptIdx=0;
+    function step(){
+      if(stopFlag) return;
+      for(let b=0;b<3&&ptIdx<allPts.length;b++,ptIdx++) addPoint(allPts[ptIdx]);
+      render();
+      if(ptIdx<allPts.length){ window._mcTimer=setTimeout(step,120); }
+      else{ window._mcTimer=setTimeout(()=>{ if(!stopFlag){for(let i=0;i<hm.length;i++) hm[i]=0; ptIdx=0; setTimeout(step,400);} },2500); }
+    }
+    setTimeout(step,200);
+  }
 
-  function goTo(n){cur=(n+6)%6;window._modeCur=cur;document.getElementById('modeNum').textContent=MODES[cur].num;document.getElementById('modeName').textContent=MODES[cur].name;document.getElementById('modeDesc').textContent=MODES[cur].desc;document.querySelectorAll('.mode-dot').forEach(function(d,i){d.style.background=i===cur?'#111':'#ddd';d.style.transform=i===cur?'scale(1.3)':'scale(1)';});startAnim(cur);}
+  function runFirstFix(){
+    const fix={x:0.35,y:0.45};
+    let phase='flash',start=null;
+    function draw(ts){
+      if(stopFlag) return;
+      if(!start) start=ts;
+      const elapsed=ts-start;
+      const cx=fix.x*W,cy=fix.y*H;
+      ctx.clearRect(0,0,W,H);
+      if(phase==='flash'){
+        const prog=Math.min(1,elapsed/700);
+        ctx.beginPath(); ctx.arc(cx,cy,8+prog*34,0,Math.PI*2);
+        ctx.strokeStyle=`rgba(255,0,0,${((1-prog)*0.85).toFixed(2)})`; ctx.lineWidth=2; ctx.stroke();
+        ctx.beginPath(); ctx.arc(cx,cy,Math.max(2,14*prog),0,Math.PI*2);
+        ctx.fillStyle=`rgba(255,0,0,${prog.toFixed(2)})`; ctx.fill();
+        if(prog>=1){ phase='pulse'; start=ts; }
+      } else {
+        const pt=(elapsed%1400)/1400, pr=14+Math.sin(pt*Math.PI*2)*5;
+        ctx.beginPath(); ctx.arc(cx,cy,pr,0,Math.PI*2);
+        ctx.strokeStyle='rgba(255,0,0,0.45)'; ctx.lineWidth=1.5; ctx.stroke();
+        ctx.beginPath(); ctx.arc(cx,cy,14,0,Math.PI*2);
+        ctx.fillStyle=RED; ctx.fill();
+        ctx.fillStyle=RED; ctx.font='700 10px HaimNum,HaimVariable';
+        ctx.textAlign='center'; ctx.textBaseline='alphabetic';
+        ctx.fillText('קיבוע ראשון',cx,cy-34);
+        if(elapsed>2200){ phase='flash'; start=ts; }
+      }
+      raf=requestAnimationFrame(draw);
+    }
+    raf=requestAnimationFrame(draw);
+  }
 
-  function init(){var dotsEl=document.getElementById('modeDots');if(!dotsEl)return;dotsEl.innerHTML='';for(var i=0;i<6;i++){var d=document.createElement('div');d.className='mode-dot';d.style.cssText='width:6px;height:6px;border-radius:50%;background:#ddd;cursor:pointer;transition:all 0.2s;';(function(idx){d.onclick=function(){goTo(idx);};})(i);dotsEl.appendChild(d);}document.getElementById('modePrev').onclick=function(){goTo(cur-1);};document.getElementById('modeNext').onclick=function(){goTo(cur+1);};goTo(0);}
+  function goTo(n){
+    cur=(n+6)%6;
+    window._modeCur=cur;
+    document.getElementById('modeNum').textContent=MODES[cur].num;
+    document.getElementById('modeName').textContent=MODES[cur].name;
+    document.getElementById('modeDesc').textContent=MODES[cur].desc;
+    document.querySelectorAll('.mode-dot').forEach((d,i)=>{
+      d.style.background=i===cur?'#FF0000':'#ddd';
+      d.style.transform=i===cur?'scale(1.3)':'scale(1)';
+    });
+    startAnim(cur);
+  }
 
-  document.fonts.ready.then(function(){setTimeout(init,150);});
+  function init(){
+    const dotsEl=document.getElementById('modeDots');
+    if(!dotsEl) return;
+    dotsEl.innerHTML='';
+    for(let i=0;i<6;i++){
+      const d=document.createElement('div');
+      d.className='mode-dot';
+      d.style.cssText='width:6px;height:6px;border-radius:50%;background:#ddd;cursor:pointer;transition:all 0.2s;';
+      d.onclick=()=>goTo(i);
+      dotsEl.appendChild(d);
+    }
+    document.getElementById('modePrev').onclick=()=>goTo(cur-1);
+    document.getElementById('modeNext').onclick=()=>goTo(cur+1);
+    goTo(0);
+  }
+
+  document.fonts.ready.then(()=>{ setTimeout(init,150); });
 })();
 
 // ── Dashboard ─────────────────────────────────────────────────────────
 function openDashboard(){hideAllScreens();showSharedBg();setNavTheme('dark');navDashboardLink.classList.add('active');const scr=document.getElementById('dashboardScreen');scr.style.display='flex';if(allSessions.length===0){showEmptyState('dashboardScreen','התחל את הסשן הראשון שלך כדי לראות את לוח הבקרה.');}else{renderDashboard();}}
 
-function renderDashboard(){const container=document.getElementById('dashboardContent');container.innerHTML='';if(allSessions.length===0){container.innerHTML='<div style="padding:60px 0;text-align:center;font-size:11px;letter-spacing:0.25em;color:#ccc;font-family:HaimNum,HaimVariable,Heebo,sans-serif;">אין סשנים עדיין</div>';return;}const latest=allSessions[allSessions.length-1];const totalFix=latest.fixationHistory.length;const totalSac=latest.saccadeHistory.length;const avgFixDur=totalFix?Math.round(latest.fixationHistory.reduce((s,f)=>s+f.duration,0)/totalFix):0;const sacAmp=totalSac?+(latest.saccadeHistory.reduce((s,f)=>s+Math.hypot(f.toX-f.fromX,f.toY-f.fromY),0)/totalSac*100).toFixed(1):0;const dur=latest.sessionDuration?(latest.sessionDuration/1000).toFixed(1):0;const ttff=latest.firstFix?((latest.firstFix.startTs-latest.firstFixModeTs)/1000).toFixed(2):null;const kpiSection=document.createElement('div');kpiSection.className='dash-section';kpiSection.innerHTML='<div class="dash-section-title">הסשן האחרון שלי — '+latest.user+'</div>';const kpiRow=document.createElement('div');kpiRow.className='dash-kpi-row';kpiRow.innerHTML=`<div class="dash-kpi accent"><div class="dash-kpi-label">קיבועים</div><div class="dash-kpi-val">${totalFix||'-'}</div><div class="dash-kpi-sub">נקודות מבט</div></div><div class="dash-kpi accent"><div class="dash-kpi-label">AVG FIXATION</div><div class="dash-kpi-val">${avgFixDur||'-'}<span class="dash-kpi-unit">ms</span></div><div class="dash-kpi-sub">זמן שהייה</div></div><div class="dash-kpi accent"><div class="dash-kpi-label">סקאדות</div><div class="dash-kpi-val">${totalSac||'-'}</div><div class="dash-kpi-sub">קפיצות עין</div></div><div class="dash-kpi accent"><div class="dash-kpi-label">SAC AMPLITUDE</div><div class="dash-kpi-val">${sacAmp||'-'}<span class="dash-kpi-unit">%</span></div><div class="dash-kpi-sub">מרחק ממוצע</div></div><div class="dash-kpi accent"><div class="dash-kpi-label">משך</div><div class="dash-kpi-val">${dur}<span class="dash-kpi-unit">s</span></div><div class="dash-kpi-sub">זמן צפייה</div></div><div class="dash-kpi accent"><div class="dash-kpi-label">TTFF</div><div class="dash-kpi-val">${ttff||'-'}<span class="dash-kpi-unit">${ttff?'s':''}</span></div><div class="dash-kpi-sub">זמן לקיבוע ראשון</div></div><div class="dash-kpi"><div class="dash-kpi-label">דגימות</div><div class="dash-kpi-val">${latest.gazeLog.length}</div><div class="dash-kpi-sub">נקודות מבט</div></div><div class="dash-kpi"><div class="dash-kpi-label">תמונה</div><div class="dash-kpi-val" style="font-size:13px">${latest.imageName}</div></div>`;kpiSection.appendChild(kpiRow);container.appendChild(kpiSection);}
+function renderDashboard(){const container=document.getElementById('dashboardContent');container.innerHTML='';if(allSessions.length===0){container.innerHTML='<div style="padding:60px 0;text-align:center;font-size:11px;letter-spacing:0.25em;color:#FF0000;font-family:HaimNum,HaimVariable,Heebo,sans-serif;">אין סשנים עדיין</div>';return;}const latest=allSessions[allSessions.length-1];const totalFix=latest.fixationHistory.length;const totalSac=latest.saccadeHistory.length;const avgFixDur=totalFix?Math.round(latest.fixationHistory.reduce((s,f)=>s+f.duration,0)/totalFix):0;const sacAmp=totalSac?+(latest.saccadeHistory.reduce((s,f)=>s+Math.hypot(f.toX-f.fromX,f.toY-f.fromY),0)/totalSac*100).toFixed(1):0;const dur=latest.sessionDuration?(latest.sessionDuration/1000).toFixed(1):0;const ttff=latest.firstFix?((latest.firstFix.startTs-latest.firstFixModeTs)/1000).toFixed(2):null;const kpiSection=document.createElement('div');kpiSection.className='dash-section';kpiSection.innerHTML='<div class="dash-section-title">הסשן האחרון שלי — '+latest.user+'</div>';const kpiRow=document.createElement('div');kpiRow.className='dash-kpi-row';kpiRow.innerHTML=`<div class="dash-kpi accent"><div class="dash-kpi-label">קיבועים</div><div class="dash-kpi-val">${totalFix||'-'}</div><div class="dash-kpi-sub">נקודות מבט</div></div><div class="dash-kpi accent"><div class="dash-kpi-label">AVG FIXATION</div><div class="dash-kpi-val">${avgFixDur||'-'}<span class="dash-kpi-unit">ms</span></div><div class="dash-kpi-sub">זמן שהייה</div></div><div class="dash-kpi accent"><div class="dash-kpi-label">סקאדות</div><div class="dash-kpi-val">${totalSac||'-'}</div><div class="dash-kpi-sub">קפיצות עין</div></div><div class="dash-kpi accent"><div class="dash-kpi-label">SAC AMPLITUDE</div><div class="dash-kpi-val">${sacAmp||'-'}<span class="dash-kpi-unit">%</span></div><div class="dash-kpi-sub">מרחק ממוצע</div></div><div class="dash-kpi accent"><div class="dash-kpi-label">משך</div><div class="dash-kpi-val">${dur}<span class="dash-kpi-unit">s</span></div><div class="dash-kpi-sub">זמן צפייה</div></div><div class="dash-kpi accent"><div class="dash-kpi-label">TTFF</div><div class="dash-kpi-val">${ttff||'-'}<span class="dash-kpi-unit">${ttff?'s':''}</span></div><div class="dash-kpi-sub">זמן לקיבוע ראשון</div></div><div class="dash-kpi"><div class="dash-kpi-label">דגימות</div><div class="dash-kpi-val">${latest.gazeLog.length}</div><div class="dash-kpi-sub">נקודות מבט</div></div><div class="dash-kpi"><div class="dash-kpi-label">תמונה</div><div class="dash-kpi-val" style="font-size:13px">${latest.imageName}</div></div>`;kpiSection.appendChild(kpiRow);container.appendChild(kpiSection);}
 
 // ── Profile ───────────────────────────────────────────────────────────
 function openProfile(){hideAllScreens();showSharedBg();setNavTheme('dark');navProfileLink.classList.add('active');document.getElementById('profileScreen').style.display='flex';renderProfile();}
 
 async function renderProfile(){
   const body=document.getElementById('profileBody');
-  body.innerHTML='<div style="font-size:11px;letter-spacing:0.2em;color:#bbb;text-align:center;padding:40px 0;">טוען...</div>';
-  if(!currentUser){body.innerHTML='<div style="font-size:11px;letter-spacing:0.2em;color:#bbb;text-align:center;padding:60px 0;">התחל את הסשן הראשון שלך</div>';return;}
+  body.innerHTML='<div style="font-size:11px;letter-spacing:0.2em;color:#FF0000;text-align:center;padding:40px 0;">טוען...</div>';
+  if(!currentUser){body.innerHTML='<div style="font-size:11px;letter-spacing:0.2em;color:#FF0000;text-align:center;padding:60px 0;">התחל את הסשן הראשון שלך</div>';return;}
   const remoteProfile = await loadProfile(currentUser);
   const localSessions = allSessions.filter(s => s.user === currentUser);
-  if(!remoteProfile && localSessions.length === 0){body.innerHTML='<div style="font-size:11px;letter-spacing:0.2em;color:#bbb;text-align:center;padding:60px 0;">אין סשנים עדיין עבור '+currentUser+'</div>';return;}
+  if(!remoteProfile && localSessions.length === 0){body.innerHTML='<div style="font-size:11px;letter-spacing:0.2em;color:#FF0000;text-align:center;padding:60px 0;">אין סשנים עדיין עבור '+currentUser+'</div>';return;}
   const profile = remoteProfile || { name: currentUser, age: currentAge, gender: currentGender, created_at: new Date().toISOString() };
   const remoteSessions = remoteProfile ? (remoteProfile.sessions || []) : [];
   const sessions = remoteSessions.length > 0 ? remoteSessions : localSessions.map(s=>({image_name:s.imageName,timestamp:s.timestamp,session_duration:s.sessionDuration,fixation_count:s.fixationHistory?.length||0,saccade_count:s.saccadeHistory?.length||0}));
   const totalFix=sessions.reduce((s,ss)=>s+(ss.fixation_count||0),0);
   const totalSac=sessions.reduce((s,ss)=>s+(ss.saccade_count||0),0);
   const avgDur=sessions.length?+(sessions.reduce((s,ss)=>s+(ss.session_duration||0),0)/sessions.length/1000).toFixed(1):0;
-  body.innerHTML=`<div style="max-width:800px;margin:0 auto;"><div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:32px;padding-bottom:20px;border-bottom:1px solid #e0e0e0;"><div><div style="font-size:9px;font-weight:700;letter-spacing:0.45em;color:#bbb;margin-bottom:8px;font-family:HaimNum,HaimVariable,Heebo,sans-serif;">פרופיל</div><div style="font-size:28px;font-weight:700;color:#FF0000;font-family:HaimNum,HaimVariable,Heebo,sans-serif;">${profile.name}</div><div style="font-size:11px;font-weight:300;color:#999;margin-top:4px;font-family:HaimNum,HaimVariable,Heebo,sans-serif;">${[profile.age?profile.age+'y':'',profile.gender||'',profile.location||''].filter(Boolean).join(' · ')}</div></div></div><div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:28px;">${[['סשנים',sessions.length,'סה"כ'],['קיבועים',totalFix,'עד כה'],['סקאדות',totalSac,'עד כה'],['משך ממוצע',avgDur+'s','לסשן'],].map(([label,val,sub])=>`<div style="background:#fff;border:1px solid #eee;border-radius:8px;padding:16px;"><div style="font-size:7px;font-weight:700;letter-spacing:0.35em;color:#bbb;margin-bottom:8px;font-family:HaimNum,HaimVariable,Heebo,sans-serif;">${label}</div><div style="font-size:22px;font-weight:700;color:#FF0000;font-family:HaimNum,HaimVariable,Heebo,sans-serif;">${val}</div><div style="font-size:8px;color:#bbb;margin-top:3px;font-family:HaimNum,HaimVariable,Heebo,sans-serif;">${sub}</div></div>`).join('')}</div>${sessions.length===0?'':sessions.slice().reverse().map(s=>`<div style="display:flex;align-items:center;justify-content:space-between;padding:12px 16px;background:#fff;border:1px solid #eee;border-radius:8px;margin-bottom:8px;font-family:HaimNum,HaimVariable,Heebo,sans-serif;"><div><div style="font-size:11px;font-weight:700;color:#111;">${s.image_name||'—'}</div><div style="font-size:9px;color:#bbb;margin-top:2px;">${new Date(s.timestamp||s.created_at).toLocaleString()}</div></div><div style="display:flex;gap:20px;text-align:right;"><div><div style="font-size:9px;color:#bbb;">קיבועים</div><div style="font-size:13px;font-weight:700;color:#FF0000;">${s.fixation_count||0}</div></div><div><div style="font-size:9px;color:#bbb;">סקאדות</div><div style="font-size:13px;font-weight:700;color:#FF0000;">${s.saccade_count||0}</div></div><div><div style="font-size:9px;color:#bbb;">משך</div><div style="font-size:13px;font-weight:700;color:#FF0000;">${((s.session_duration||0)/1000).toFixed(1)}s</div></div></div></div>`).join('')}</div>`;
+  body.innerHTML=`<div style="max-width:800px;margin:0 auto;"><div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:32px;padding-bottom:20px;border-bottom:1px solid #e0e0e0;"><div><div style="font-size:9px;font-weight:700;letter-spacing:0.45em;color:#FF0000;margin-bottom:8px;font-family:HaimNum,HaimVariable,Heebo,sans-serif;">פרופיל</div><div style="font-size:28px;font-weight:700;color:#FF0000;font-family:HaimNum,HaimVariable,Heebo,sans-serif;">${profile.name}</div><div style="font-size:11px;font-weight:300;color:#FF0000;margin-top:4px;font-family:HaimNum,HaimVariable,Heebo,sans-serif;">${[profile.age?profile.age+'y':'',profile.gender||'',profile.location||''].filter(Boolean).join(' · ')}</div></div></div><div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:28px;">${[['סשנים',sessions.length,'סה"כ'],['קיבועים',totalFix,'עד כה'],['סקאדות',totalSac,'עד כה'],['משך ממוצע',avgDur+'s','לסשן'],].map(([label,val,sub])=>`<div style="background:#fff;border:1px solid #eee;border-radius:8px;padding:16px;"><div style="font-size:7px;font-weight:700;letter-spacing:0.35em;color:#FF0000;margin-bottom:8px;font-family:HaimNum,HaimVariable,Heebo,sans-serif;">${label}</div><div style="font-size:22px;font-weight:700;color:#FF0000;font-family:HaimNum,HaimVariable,Heebo,sans-serif;">${val}</div><div style="font-size:8px;color:#FF0000;margin-top:3px;font-family:HaimNum,HaimVariable,Heebo,sans-serif;">${sub}</div></div>`).join('')}</div>${sessions.length===0?'':sessions.slice().reverse().map(s=>`<div style="display:flex;align-items:center;justify-content:space-between;padding:12px 16px;background:#fff;border:1px solid #eee;border-radius:8px;margin-bottom:8px;font-family:HaimNum,HaimVariable,Heebo,sans-serif;"><div><div style="font-size:11px;font-weight:700;color:#FF0000;">${s.image_name||'—'}</div><div style="font-size:9px;color:#FF0000;margin-top:2px;">${new Date(s.timestamp||s.created_at).toLocaleString()}</div></div><div style="display:flex;gap:20px;text-align:right;"><div><div style="font-size:9px;color:#FF0000;">קיבועים</div><div style="font-size:13px;font-weight:700;color:#FF0000;">${s.fixation_count||0}</div></div><div><div style="font-size:9px;color:#FF0000;">סקאדות</div><div style="font-size:13px;font-weight:700;color:#FF0000;">${s.saccade_count||0}</div></div><div><div style="font-size:9px;color:#FF0000;">משך</div><div style="font-size:13px;font-weight:700;color:#FF0000;">${((s.session_duration||0)/1000).toFixed(1)}s</div></div></div></div>`).join('')}</div>`;
 }
 
 // ── About ─────────────────────────────────────────────────────────────
 function openAbout(){hideAllScreens();showSharedBg();setNavTheme('dark');navAboutLink.classList.add('active');document.getElementById('aboutScreen').style.display='flex';}
 
 // ── Empty state ───────────────────────────────────────────────────────
-function showEmptyState(screenId,msg){const scr=document.getElementById(screenId);scr.style.display='flex';const existing=document.querySelector('.empty-state-overlay');if(existing)existing.remove();const overlay=document.createElement('div');overlay.className='empty-state-overlay';overlay.style.cssText='position:fixed;inset:0;top:52px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;z-index:8990;pointer-events:all;';overlay.innerHTML=`<div style="font-size:9px;font-weight:700;letter-spacing:0.45em;color:#aaa;font-family:HaimNum,HaimVariable,Heebo,sans-serif;margin-bottom:4px;">אין סשנים עדיין</div><div style="font-size:13px;font-weight:300;color:#999;font-family:HaimNum,HaimVariable,Heebo,sans-serif;margin-bottom:16px;">${msg}</div>`;document.body.appendChild(overlay);}
+function showEmptyState(screenId,msg){const scr=document.getElementById(screenId);scr.style.display='flex';const existing=document.querySelector('.empty-state-overlay');if(existing)existing.remove();const overlay=document.createElement('div');overlay.className='empty-state-overlay';overlay.style.cssText='position:fixed;inset:0;top:52px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;z-index:8990;pointer-events:all;';overlay.innerHTML=`<div style="font-size:9px;font-weight:700;letter-spacing:0.45em;color:#FF0000;font-family:HaimNum,HaimVariable,Heebo,sans-serif;margin-bottom:4px;">אין סשנים עדיין</div><div style="font-size:13px;font-weight:300;color:#FF0000;font-family:HaimNum,HaimVariable,Heebo,sans-serif;margin-bottom:16px;">${msg}</div>`;document.body.appendChild(overlay);}
 
 // ── Toolbar collapse ──────────────────────────────────────────────────
 const dataToolbarCollapseBtn=document.getElementById('dataToolbarCollapseBtn');
