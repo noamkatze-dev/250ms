@@ -126,58 +126,46 @@ body{
 #briefingScreen{
   display:none;position:fixed;inset:0;z-index:9100;
   flex-direction:column;align-items:center;justify-content:center;
-  background:#c8e8f5;overflow:hidden;
-}
-#briefingScreen::before{
-  content:'';position:absolute;inset:0;
-  background:url('sky.png') center/cover no-repeat;
-  filter:blur(22px);
-  transform:scale(1.08);opacity:0.7;
-  z-index:0;pointer-events:none;
-}
-#briefingScreen::after{
-  content:'';position:absolute;inset:0;
-  background:rgba(80,130,200,0.05);mix-blend-mode:screen;
-  z-index:1;pointer-events:none;
+  background:#fff;
 }
 .briefing-inner{
-  max-width:560px;width:90vw;display:flex;flex-direction:column;align-items:center;text-align:center;gap:0;
-  position:relative;z-index:2;
+  max-width:520px;width:90vw;display:flex;flex-direction:column;align-items:center;text-align:center;
+  margin-top:-60px;
 }
 .briefing-label{
   font-size:9px;font-weight:700;letter-spacing:0.55em;color:#FF0000;
-  text-transform:uppercase;margin-bottom:24px;font-family:HaimNum,HaimVariable,Heebo,sans-serif;
+  text-transform:uppercase;margin-bottom:16px;font-family:HaimNum,HaimVariable,Heebo,sans-serif;
 }
 .briefing-title{
-  font-size:32px;font-weight:700;color:#FF0000;line-height:1.15;margin-bottom:20px;
+  font-size:28px;font-weight:700;color:#FF0000;line-height:1.15;margin-bottom:16px;
   font-family:HaimNum,HaimVariable,Heebo,sans-serif;
 }
 .briefing-divider{
-  width:48px;height:1px;background:#FF0000;margin:0 auto 28px;
+  width:48px;height:1px;background:#FF0000;margin:0 auto 24px;
 }
 .briefing-body{
-  font-size:14px;font-weight:300;color:#FF0000;line-height:1.8;
-  margin-bottom:14px;font-family:HaimNum,HaimVariable,Heebo,sans-serif;
+  font-size:13px;font-weight:300;color:#FF0000;line-height:1.8;
+  margin-bottom:12px;font-family:HaimNum,HaimVariable,Heebo,sans-serif;
 }
 .briefing-note{
-  font-size:11px;font-weight:300;color:#FF0000;line-height:1.7;
-  margin-bottom:44px;font-family:HaimNum,HaimVariable,Heebo,sans-serif;
+  font-size:13px;font-weight:300;color:#FF0000;line-height:1.7;
+  margin-bottom:32px;font-family:HaimNum,HaimVariable,Heebo,sans-serif;
 }
 .briefing-steps{
-  display:flex;gap:0;width:100%;margin-bottom:44px;
+  display:flex;gap:0;width:100%;margin-bottom:0;
 }
 .briefing-step{
-  flex:1;padding:18px 14px;border-left:1px solid rgba(255,0,0,0.25);
-  display:flex;flex-direction:column;align-items:center;gap:8px;
+  flex:1;padding:16px 12px;border-left:1px solid rgba(255,0,0,0.2);
+  display:flex;flex-direction:column;align-items:center;gap:6px;
 }
 .briefing-step:first-child{border-left:none;}
 .briefing-step-n{
   font-size:8px;font-weight:700;letter-spacing:0.35em;color:#FF0000;
   font-family:HaimNum,HaimVariable,Heebo,sans-serif;
 }
-.briefing-step-icon{font-size:22px;line-height:1;}
+.briefing-step-icon{font-size:20px;line-height:1;}
 .briefing-step-text{
-  font-size:11px;font-weight:300;color:#FF0000;line-height:1.5;
+  font-size:13px;font-weight:300;color:#FF0000;line-height:1.5;
   font-family:HaimNum,HaimVariable,Heebo,sans-serif;
 }
 #briefingStartBtn{
@@ -186,6 +174,7 @@ body{
   font-family:HaimNum,HaimVariable,Heebo,sans-serif;font-size:13px;font-weight:400;
   letter-spacing:0.22em;padding:14px 52px;cursor:pointer;
   transition:all 0.18s;border-radius:100px;
+  margin-top:52px;
 }
 
 
@@ -266,7 +255,7 @@ body{
 #mainImg{display:block;width:100%;height:100%;object-fit:cover;}
 #dotCanvas{position:absolute;inset:0;pointer-events:none;z-index:5;}
 #annLayer{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:6;opacity:0;}
-#gazeDot{position:fixed;width:22px;height:22px;border-radius:50%;border:2px solid rgba(255,255,255,0.85);background:rgba(255,255,255,0.12);transform:translate(-50%,-50%);pointer-events:none;z-index:50;display:none;}
+#gazeDot{position:fixed;width:22px;height:22px;border-radius:50%;border:2px solid rgba(255,0,0,0.85);background:rgba(255,0,0,0.35);transform:translate(-50%,-50%);pointer-events:none;z-index:50;display:none;}
 #info{position:fixed;bottom:14px;left:50%;transform:translateX(-50%);font-family:HaimNum,HaimVariable,Heebo,sans-serif;font-size:10px;font-weight:300;letter-spacing:0.22em;color:rgba(255,255,255,0.6);pointer-events:none;transition:opacity 2s ease;white-space:nowrap;z-index:50;display:none;}
 #sessionInfoOverlay{display:none !important;}
 #finishBtn{position:fixed;bottom:28px;left:50%;transform:translateX(-50%);font-family:HaimNum,HaimVariable,Heebo,sans-serif;font-size:11px;font-weight:700;letter-spacing:0.2em;color:#FF0000;background:rgba(0,0,0,0.55);border:1.5px solid rgba(255,255,255,0.5);padding:11px 32px;cursor:pointer;z-index:60;display:none;transition:background 0.15s,color 0.15s,border-color 0.15s;border-radius:100px;backdrop-filter:blur(8px);}
@@ -546,6 +535,13 @@ label,
 <!-- SESSION COUNTDOWN -->
 <div id="sessionCountdown"></div>
 
+<!-- SESSION VIEWER — sky video + dots + images -->
+<div id="sessionViewer" style="display:none;position:fixed;inset:0;z-index:500;overflow:hidden;">
+  <video id="sessionSkyVideo" src="sky.mp4" muted playsinline loop
+    style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none;"></video>
+  <canvas id="sessionDotsCanvas" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:2;"></canvas>
+</div>
+
 <div id="imgWrapper">
   <img id="mainImg" src="" alt="stimulus"/>
   <canvas id="dotCanvas"></canvas>
@@ -705,6 +701,10 @@ label,
           <option value="Other">אחר</option>
         </select>
       </div>
+    </div>
+    <div class="ns-field">
+      <label for="locationInput">מיקום מגורים</label>
+      <input id="locationInput" type="text" placeholder="עיר, מדינה"/>
     </div>
     <button id="nameContinue" class="va-btn va-btn-primary">המשך לגלריה</button>
   </div>
@@ -1162,6 +1162,7 @@ function showNameScreen(){
     btn.onclick=()=>{
       const age=ageInp.value.trim();
       const gender=genderInp.value;
+      const locationVal=document.getElementById('locationInput').value.trim();
       let valid=true;
       if(!age){ ageInp.style.borderColor='#FF0000'; valid=false; }
       else { ageInp.style.borderColor=''; }
@@ -1170,6 +1171,7 @@ function showNameScreen(){
       if(!valid) return;
       currentAge=age;
       currentGender=gender;
+      if(locationVal) userLocation=locationVal;
       scr.style.display='none';
       saveAllPendingSessions();
       resolve();
@@ -1351,17 +1353,9 @@ function runImageSession(imgData, imgIndex, totalImgs){
     fixationHistory=[];currentFixation=null;scanPathHistory=[];saccadeHistory=[];
     saccadeActive=false;saccadeStart=null;gazeLog=[];firstFix=null;firstFixDone=false;
     heatmap=new Float32Array(W_HEAT*H_HEAT);window._gazeHistory=[];
-
-    imgWrapper.style.display='block';
-    mainImg.src=imgData.src;
     sessionStartTs=Date.now();
     firstFixModeTs=performance.now();
-
-    // Show image counter
-    const cdEl=document.getElementById('sessionCountdown');
-    cdEl.textContent=(imgIndex+1)+' / '+totalImgs;
-    cdEl.style.display='block';
-    setTimeout(()=>{ cdEl.style.display='none'; },1200);
+    mainImg.src=imgData.src;
 
     const gazeInterval=setInterval(()=>{
       if(!gazeOn)return;
@@ -1371,8 +1365,6 @@ function runImageSession(imgData, imgIndex, totalImgs){
 
     setTimeout(()=>{
       clearInterval(gazeInterval);
-      imgWrapper.style.display='none';
-
       const snap={
         user:currentUser,age:'',gender:'',
         location:userLocation,imageSrc:mainImg.src,imageName:imgData.name,
@@ -1389,12 +1381,166 @@ function runImageSession(imgData, imgIndex, totalImgs){
   });
 }
 
+// Dot positions for session viewer (5 images)
+const DOT_POSITIONS = [
+  {x:0.20, y:0.35},
+  {x:0.42, y:0.60},
+  {x:0.65, y:0.28},
+  {x:0.78, y:0.65},
+  {x:0.50, y:0.50},
+];
+
 async function runFullSequence(){
   const shuffled=shuffleArray(POLITICAL_IMAGES);
   document.getElementById('mainNav').style.display='none';
-  for(let i=0;i<shuffled.length;i++){
-    await runImageSession(shuffled[i], i, shuffled.length);
+
+  // Setup session viewer
+  const viewer=document.getElementById('sessionViewer');
+  const skyVid=document.getElementById('sessionSkyVideo');
+  const dotsCanvas=document.getElementById('sessionDotsCanvas');
+  const dotsCtxS=dotsCanvas.getContext('2d');
+
+  // Slow sky video to 50%
+  skyVid.playbackRate=0.5;
+
+  viewer.style.display='block';
+  imgWrapper.style.display='none';
+  gazeDot.style.display='block';
+
+  // Resize canvas
+  function resizeDots(){
+    dotsCanvas.width=viewer.offsetWidth;
+    dotsCanvas.height=viewer.offsetHeight;
   }
+  resizeDots();
+  window.addEventListener('resize',resizeDots);
+
+  const DOT_R=14;
+  const TOTAL=shuffled.length;
+
+  // Draw background dots
+  function drawDots(expandIdx=-1, expandProg=0, collapseIdx=-1, collapseProg=0){
+    dotsCtxS.clearRect(0,0,dotsCanvas.width,dotsCanvas.height);
+    const W=dotsCanvas.width, H=dotsCanvas.height;
+    for(let i=0;i<TOTAL;i++){
+      const pos=DOT_POSITIONS[i];
+      const cx=pos.x*W, cy=pos.y*H;
+      dotsCtxS.beginPath();
+      dotsCtxS.arc(cx,cy,DOT_R,0,Math.PI*2);
+      dotsCtxS.fillStyle='#FF0000';
+      dotsCtxS.fill();
+    }
+  }
+
+  // Animate image opening from dot, showing for 5s, then collapsing back
+  function animateImage(imgSrc, dotPos, duration){
+    return new Promise(resolveAnim=>{
+      const W=viewer.offsetWidth, H=viewer.offsetHeight;
+      const cx=dotPos.x*W, cy=dotPos.y*H;
+
+      // Create image element over viewer
+      const imgEl=document.createElement('img');
+      imgEl.src=imgSrc;
+      imgEl.style.cssText=`position:absolute;z-index:3;object-fit:cover;border-radius:50%;
+        transform-origin:center center;pointer-events:none;
+        left:${cx}px;top:${cy}px;width:0px;height:0px;margin-left:0;margin-top:0;`;
+      viewer.appendChild(imgEl);
+
+      const EXPAND_MS=600;
+      const COLLAPSE_MS=600;
+      const FINAL_W=Math.min(W*0.72, 640);
+      const FINAL_H=FINAL_W*0.625;
+      const startTime=performance.now();
+
+      function expandFrame(ts){
+        const prog=Math.min(1,(ts-startTime)/EXPAND_MS);
+        const ease=1-Math.pow(1-prog,3);
+        const w=FINAL_W*ease, h=FINAL_H*ease;
+        const borderR=Math.max(0,(1-ease)*50);
+        imgEl.style.width=w+'px';
+        imgEl.style.height=h+'px';
+        imgEl.style.left=(cx-w/2)+'px';
+        imgEl.style.top=(cy-h/2)+'px';
+        imgEl.style.borderRadius=borderR+'%';
+        if(prog<1){ requestAnimationFrame(expandFrame); }
+        else{
+          imgEl.style.width=FINAL_W+'px';
+          imgEl.style.height=FINAL_H+'px';
+          imgEl.style.left=(cx-FINAL_W/2)+'px';
+          imgEl.style.top=(cy-FINAL_H/2)+'px';
+          imgEl.style.borderRadius='4px';
+          setTimeout(()=>{
+            const colStart=performance.now();
+            function collapseFrame(ts2){
+              const p=Math.min(1,(ts2-colStart)/COLLAPSE_MS);
+              const ease=Math.pow(p,3);
+              const w=FINAL_W*(1-ease), h=FINAL_H*(1-ease);
+              const borderR=ease*50;
+              imgEl.style.width=w+'px';
+              imgEl.style.height=h+'px';
+              imgEl.style.left=(cx-w/2)+'px';
+              imgEl.style.top=(cy-h/2)+'px';
+              imgEl.style.borderRadius=borderR+'%';
+              if(p<1){ requestAnimationFrame(collapseFrame); }
+              else{
+                viewer.removeChild(imgEl);
+                resolveAnim();
+              }
+            }
+            requestAnimationFrame(collapseFrame);
+          }, duration);
+        }
+      }
+      requestAnimationFrame(expandFrame);
+    });
+  }
+
+  drawDots();
+
+  // Pick random dot order (shuffle dot indices separately from images)
+  const dotOrder=shuffleArray([...Array(TOTAL).keys()]);
+
+  for(let i=0;i<shuffled.length;i++){
+    const imgData=shuffled[i];
+    const dotPos=DOT_POSITIONS[dotOrder[i]];
+
+    // Start gaze tracking for this image
+    mainImg.src=imgData.src;
+    fixationHistory=[];currentFixation=null;scanPathHistory=[];saccadeHistory=[];
+    saccadeActive=false;saccadeStart=null;gazeLog=[];firstFix=null;firstFixDone=false;
+    heatmap=new Float32Array(W_HEAT*H_HEAT);window._gazeHistory=[];
+    sessionStartTs=Date.now();
+    firstFixModeTs=performance.now();
+
+    const gazeInterval=setInterval(()=>{
+      if(!gazeOn)return;
+      gazeLog.push({t:Date.now()-sessionStartTs,x:sGX,y:sGY});
+    },100);
+
+    await animateImage(imgData.src, dotPos, IMAGE_DURATION);
+
+    clearInterval(gazeInterval);
+
+    const snap={
+      user:currentUser,age:'',gender:'',
+      location:userLocation,imageSrc:mainImg.src,imageName:imgData.name,
+      timestamp:Date.now(),sessionDuration:Date.now()-sessionStartTs,
+      gazeLog:gazeLog.slice(),fixationHistory:fixationHistory.slice(),
+      saccadeHistory:saccadeHistory.slice(),scanPathHistory:scanPathHistory.slice(),
+      firstFix,firstFixModeTs,sessionStartTs
+    };
+    allSessions.push(snap);
+    viewSession=snap;
+    pendingSessions.push(snap);
+
+    drawDots(); // redraw dots between images
+    await new Promise(r=>setTimeout(r,400)); // brief pause between images
+  }
+
+  // Clean up
+  window.removeEventListener('resize',resizeDots);
+  viewer.style.display='none';
+  gazeDot.style.display='none';
   document.getElementById('mainNav').style.display='flex';
 }
 
