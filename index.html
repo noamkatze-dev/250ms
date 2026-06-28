@@ -126,7 +126,19 @@ body{
 #briefingScreen{
   display:none;position:fixed;inset:0;z-index:9100;
   flex-direction:column;align-items:center;justify-content:center;
-  background:#fff;
+  background:#c8e8f5;overflow:hidden;
+}
+#briefingScreen::before{
+  content:'';position:absolute;inset:0;
+  background:url('sky.png') center/cover no-repeat;
+  filter:blur(22px);
+  transform:scale(1.08);opacity:0.7;
+  z-index:0;pointer-events:none;
+}
+#briefingScreen::after{
+  content:'';position:absolute;inset:0;
+  background:rgba(80,130,200,0.05);mix-blend-mode:screen;
+  z-index:1;pointer-events:none;
 }
 .briefing-inner{
   max-width:520px;width:90vw;display:flex;flex-direction:column;align-items:center;text-align:center;
@@ -230,9 +242,9 @@ body{
 
 #libraryScreen{background-attachment:fixed;}
 
-#calOverlay{position:fixed;inset:0;z-index:9800;background:#fff;}
-#calOverlay::before{display:none;}
-#calOverlay::after{display:none;}
+#calOverlay{position:fixed;inset:0;z-index:9800;background:#c8e8f5;overflow:hidden;}
+#calOverlay::before{content:'';position:absolute;inset:0;background:url('sky.png') center/cover no-repeat;filter:blur(22px);transform:scale(1.08);opacity:0.7;z-index:0;pointer-events:none;}
+#calOverlay::after{content:'';position:absolute;inset:0;background:rgba(80,130,200,0.05);mix-blend-mode:screen;z-index:1;pointer-events:none;}
 #calCanvas{position:absolute;inset:0;width:100%;height:100%;background:transparent;z-index:2;pointer-events:none;}
 #calStartBtn{position:absolute;top:72%;left:50%;transform:translateX(-50%);display:none;z-index:10;pointer-events:all;background:transparent !important;color:#FF0000 !important;border:1.5px solid #FF0000 !important;box-shadow:none !important;backdrop-filter:none !important;}
 
@@ -335,7 +347,10 @@ body{
 .cp-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;}
 .cp-canvas{position:absolute;inset:0;pointer-events:none;}
 .cp-stats{font-size:8px;font-weight:300;color:#FF0000;padding:5px 10px;letter-spacing:0.05em;border-top:1px solid #eee;}
-#nameScreen{display:none;position:fixed;inset:0;z-index:9500;flex-direction:column;align-items:center;justify-content:center;overflow-y:auto;padding:40px 60px;}
+#nameScreen{display:none;position:fixed;inset:0;z-index:9500;flex-direction:column;align-items:center;justify-content:center;overflow-y:auto;padding:40px 60px;background:#c8e8f5;overflow:hidden;}
+#nameScreen::before{content:'';position:absolute;inset:0;background:url('sky.png') center/cover no-repeat;filter:blur(22px);transform:scale(1.08);opacity:0.7;z-index:0;pointer-events:none;}
+#nameScreen::after{content:'';position:absolute;inset:0;background:rgba(80,130,200,0.05);mix-blend-mode:screen;z-index:1;pointer-events:none;}
+.ns-title,.ns-form{position:relative;z-index:2;}
 .ns-title{font-size:9px;font-weight:300;letter-spacing:0.55em;color:#FF0000;margin-bottom:52px;}
 .ns-form{display:flex;flex-direction:column;align-items:center;width:100%;max-width:320px;}
 .ns-field{width:100%;margin-bottom:30px;}
