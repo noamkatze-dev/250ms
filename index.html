@@ -1394,6 +1394,11 @@ async function runFullSequence(){
   const shuffled=shuffleArray(POLITICAL_IMAGES);
   document.getElementById('mainNav').style.display='none';
 
+  // Preload all images before starting
+  await Promise.all(shuffled.map(imgData=>new Promise(r=>{
+    const img=new Image(); img.onload=r; img.onerror=r; img.src=imgData.src;
+  })));
+
   // Setup session viewer
   const viewer=document.getElementById('sessionViewer');
   const skyVid=document.getElementById('sessionSkyVideo');
@@ -1402,24 +1407,22 @@ async function runFullSequence(){
 
   // Slow sky video to 50%
   skyVid.playbackRate=0.5;
-
   viewer.style.display='block';
-  imgWrapper.style.display='none';
+
+  // Gaze dot follows eyes on session viewer
   gazeDot.style.display='block';
 
   // Resize canvas
   function resizeDots(){
     dotsCanvas.width=viewer.offsetWidth;
     dotsCanvas.height=viewer.offsetHeight;
+    drawDots();
   }
-  resizeDots();
-  window.addEventListener('resize',resizeDots);
 
   const DOT_R=14;
   const TOTAL=shuffled.length;
 
-  // Draw background dots
-  function drawDots(expandIdx=-1, expandProg=0, collapseIdx=-1, collapseProg=0){
+  function drawDots(){
     dotsCtxS.clearRect(0,0,dotsCanvas.width,dotsCanvas.height);
     const W=dotsCanvas.width, H=dotsCanvas.height;
     for(let i=0;i<TOTAL;i++){
@@ -1432,54 +1435,54 @@ async function runFullSequence(){
     }
   }
 
-  // Animate image opening from dot, showing for 5s, then collapsing back
+  resizeDots();
+  window.addEventListener('resize',resizeDots);
+
   function animateImage(imgSrc, dotPos, duration){
     return new Promise(resolveAnim=>{
       const W=viewer.offsetWidth, H=viewer.offsetHeight;
       const cx=dotPos.x*W, cy=dotPos.y*H;
+      const FINAL_W=W, FINAL_H=H;
 
-      // Create image element over viewer
       const imgEl=document.createElement('img');
       imgEl.src=imgSrc;
-      imgEl.style.cssText=`position:absolute;z-index:3;object-fit:cover;border-radius:50%;
-        transform-origin:center center;pointer-events:none;
-        left:${cx}px;top:${cy}px;width:0px;height:0px;margin-left:0;margin-top:0;`;
+      // Start at dot center, size 0
+      imgEl.style.cssText=`
+        position:absolute;z-index:3;object-fit:cover;
+        border-radius:50%;pointer-events:none;
+        left:${cx}px;top:${cy}px;
+        width:0px;height:0px;
+        transform:translate(-50%,-50%);
+        transform-origin:center center;
+      `;
       viewer.appendChild(imgEl);
 
       const EXPAND_MS=600;
       const COLLAPSE_MS=600;
-      const FINAL_W=Math.min(W*0.72, 640);
-      const FINAL_H=FINAL_W*0.625;
       const startTime=performance.now();
 
       function expandFrame(ts){
         const prog=Math.min(1,(ts-startTime)/EXPAND_MS);
         const ease=1-Math.pow(1-prog,3);
         const w=FINAL_W*ease, h=FINAL_H*ease;
-        const borderR=Math.max(0,(1-ease)*50);
+        const borderR=(1-ease)*50;
         imgEl.style.width=w+'px';
         imgEl.style.height=h+'px';
-        imgEl.style.left=(cx-w/2)+'px';
-        imgEl.style.top=(cy-h/2)+'px';
         imgEl.style.borderRadius=borderR+'%';
         if(prog<1){ requestAnimationFrame(expandFrame); }
         else{
           imgEl.style.width=FINAL_W+'px';
           imgEl.style.height=FINAL_H+'px';
-          imgEl.style.left=(cx-FINAL_W/2)+'px';
-          imgEl.style.top=(cy-FINAL_H/2)+'px';
-          imgEl.style.borderRadius='4px';
+          imgEl.style.borderRadius='0%';
           setTimeout(()=>{
             const colStart=performance.now();
             function collapseFrame(ts2){
               const p=Math.min(1,(ts2-colStart)/COLLAPSE_MS);
-              const ease=Math.pow(p,3);
-              const w=FINAL_W*(1-ease), h=FINAL_H*(1-ease);
-              const borderR=ease*50;
+              const ease2=Math.pow(p,3);
+              const w=FINAL_W*(1-ease2), h=FINAL_H*(1-ease2);
+              const borderR=ease2*50;
               imgEl.style.width=w+'px';
               imgEl.style.height=h+'px';
-              imgEl.style.left=(cx-w/2)+'px';
-              imgEl.style.top=(cy-h/2)+'px';
               imgEl.style.borderRadius=borderR+'%';
               if(p<1){ requestAnimationFrame(collapseFrame); }
               else{
@@ -1495,16 +1498,14 @@ async function runFullSequence(){
     });
   }
 
-  drawDots();
-
-  // Pick random dot order (shuffle dot indices separately from images)
+  // Pick random dot order
   const dotOrder=shuffleArray([...Array(TOTAL).keys()]);
 
   for(let i=0;i<shuffled.length;i++){
     const imgData=shuffled[i];
     const dotPos=DOT_POSITIONS[dotOrder[i]];
 
-    // Start gaze tracking for this image
+    // Start gaze tracking
     mainImg.src=imgData.src;
     fixationHistory=[];currentFixation=null;scanPathHistory=[];saccadeHistory=[];
     saccadeActive=false;saccadeStart=null;gazeLog=[];firstFix=null;firstFixDone=false;
@@ -1533,11 +1534,10 @@ async function runFullSequence(){
     viewSession=snap;
     pendingSessions.push(snap);
 
-    drawDots(); // redraw dots between images
-    await new Promise(r=>setTimeout(r,400)); // brief pause between images
+    drawDots();
+    await new Promise(r=>setTimeout(r,400));
   }
 
-  // Clean up
   window.removeEventListener('resize',resizeDots);
   viewer.style.display='none';
   gazeDot.style.display='none';
