@@ -19,7 +19,7 @@
   font-style: normal;
 }
 
-/* Haim Classic — digits only (0-9), selected by weight, size-adjusted to match surrounding text height */
+/* Haim Classic - digits only (0-9), selected by weight, size-adjusted to match surrounding text height */
 @font-face {
   font-family: 'HaimNum';
   src: url('haim-classic-light-fm.otf') format('opentype');
@@ -492,7 +492,7 @@ label,
   </div>
 </nav>
 
-<!-- Sky video — always behind home screen -->
+<!-- Sky video - always behind home screen -->
 <video id="homeSkyVideo" src="sky.mp4" muted playsinline loop preload="auto"
   style="display:none;position:fixed;inset:0;width:100%;height:100%;object-fit:cover;z-index:8998;pointer-events:none;"></video>
 <div id="skyColorOverlay" style="display:none;position:fixed;inset:0;z-index:8999;pointer-events:none;background:rgba(80,130,200,0.05);mix-blend-mode:screen;"></div>
@@ -500,7 +500,7 @@ label,
 <div id="sharedBg" style="display:none;position:fixed;inset:0;z-index:1090;pointer-events:none;background:url('sky.png') center/cover no-repeat;filter:blur(22px);transform:scale(1.05);"></div>
 <div id="sharedBgOverlay" style="display:none;position:fixed;inset:0;z-index:1091;pointer-events:none;background:rgba(160,200,240,0.35);"></div>
 
-<!-- HOME SCREEN — shown after calibration -->
+<!-- HOME SCREEN - shown after calibration -->
 <div id="homeScreen">
   <div id="homeHeroSection">
     <div id="heroRight" style="position:relative;z-index:2;">
@@ -511,7 +511,7 @@ label,
   </div>
 </div>
 
-<!-- BRIEFING SCREEN — shown after clicking "התחלה" -->
+<!-- BRIEFING SCREEN - shown after clicking "התחלה" -->
 <div id="briefingScreen">
   <div class="briefing-inner">
     <div class="briefing-label">מערכת ניתוח חזותי</div>
@@ -535,7 +535,7 @@ label,
 <!-- SESSION COUNTDOWN -->
 <div id="sessionCountdown"></div>
 
-<!-- SESSION VIEWER — sky video + dots + images -->
+<!-- SESSION VIEWER - sky video + dots + images -->
 <div id="sessionViewer" style="display:none;position:fixed;inset:0;z-index:500;overflow:hidden;">
   <video id="sessionSkyVideo" src="sky.mp4" muted playsinline loop
     style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none;"></video>
@@ -615,12 +615,12 @@ label,
             <span class="dsb-toggle" id="dsbToggle">&#9650;</span>
           </div>
           <div class="dsb-content" id="dsbContent">
-            <div class="dsb-item"><span class="dsb-label">שם</span><span class="dsb-val" id="dsb-name">&#8212;</span></div>
-            <div class="dsb-item"><span class="dsb-label">גיל</span><span class="dsb-val" id="dsb-age">&#8212;</span></div>
-            <div class="dsb-item"><span class="dsb-label">מגדר</span><span class="dsb-val" id="dsb-gender">&#8212;</span></div>
-            <div class="dsb-item"><span class="dsb-label">מיקום</span><span class="dsb-val" id="dsb-location">&#8212;</span></div>
-            <div class="dsb-item"><span class="dsb-label">משך</span><span class="dsb-val" id="dsb-duration">&#8212;</span></div>
-            <div class="dsb-item"><span class="dsb-label">דגימות</span><span class="dsb-val" id="dsb-samples">&#8212;</span></div>
+            <div class="dsb-item"><span class="dsb-label">שם</span><span class="dsb-val" id="dsb-name">-</span></div>
+            <div class="dsb-item"><span class="dsb-label">גיל</span><span class="dsb-val" id="dsb-age">-</span></div>
+            <div class="dsb-item"><span class="dsb-label">מגדר</span><span class="dsb-val" id="dsb-gender">-</span></div>
+            <div class="dsb-item"><span class="dsb-label">מיקום</span><span class="dsb-val" id="dsb-location">-</span></div>
+            <div class="dsb-item"><span class="dsb-label">משך</span><span class="dsb-val" id="dsb-duration">-</span></div>
+            <div class="dsb-item"><span class="dsb-label">דגימות</span><span class="dsb-val" id="dsb-samples">-</span></div>
           </div>
         </div>
 
@@ -682,7 +682,7 @@ label,
   <div id="galleryBody"></div>
 </div>
 
-<!-- NAME SCREEN — shown AFTER image session -->
+<!-- NAME SCREEN - shown AFTER image session -->
 <div id="nameScreen">
   <div class="ns-title">כמה פרטים קטנים</div>
 
@@ -690,7 +690,7 @@ label,
     <div class="ns-row">
       <div class="ns-field">
         <label for="ageInput">גיל</label>
-        <input id="ageInput" type="number" min="1" max="120" placeholder="&#8212;"/>
+        <input id="ageInput" type="number" min="1" max="120" placeholder="-"/>
       </div>
       <div class="ns-field">
         <label for="genderInput">מגדר</label>
@@ -744,7 +744,7 @@ label,
     <h1 style="font-size:36px;font-weight:900;color:#FF0000;margin:0 0 12px;line-height:1.1;font-family:HaimNum,HaimVariable,Heebo,sans-serif;">0.25 שניות</h1>
 
     <p style="font-size:15px;color:#FF0000;margin:0 0 48px;line-height:1.8;font-family:HaimNum,HaimVariable,Heebo,sans-serif;">
-      0.25 שניות היא מערכת מעקב עיניים מבוססת דפדפן לניתוח תשומת לב חזותית על תמונות פוליטיות. היא מודדת לאן מסתכלים הצופים, מה הם מבחינים בו ראשון, וכיצד המבט שלהם נע על פני תמונה — ללא חומרה כלשהי מלבד מצלמת רשת רגילה.
+      0.25 שניות היא מערכת מעקב עיניים מבוססת דפדפן לניתוח תשומת לב חזותית על תמונות פוליטיות. היא מודדת לאן מסתכלים הצופים, מה הם מבחינים בו ראשון, וכיצד המבט שלהם נע על פני תמונה - ללא חומרה כלשהי מלבד מצלמת רשת רגילה.
     </p>
 
     <div style="border-top:1px solid rgba(178,224,243,0.4);padding-top:36px;margin-bottom:36px;">
@@ -753,7 +753,7 @@ label,
         המערכת משתמשת ב-MediaPipe לזיהוי 478 נקודות ציון פנים בכל פריים, תוך בידוד מיקום האיריס בזמן אמת. כיול אפיני של 9 נקודות ממפה את תנועת העין לקואורדינטות המסך, ודגימות המבט מסווגות לקיבועים, סקאדות, מסלולי סריקה ומפות חום באמצעות אלגוריתמי I-DT ו-I-VT.
       </p>
       <p style="font-size:15px;color:#FF0000;line-height:1.8;margin:0;font-family:HaimNum,HaimVariable,Heebo,sans-serif;">
-        המערכת תוכננה לחקור דפוסי תשומת לב חזותית על תמונות פוליטיות — בוחנת אילו אזורים מושכים את העין ראשונים, כמה זמן שוהה המבט באזורים שונים, ואם צצים דפוסי צפייה שונים בקרב משקיפים שונים.
+        המערכת תוכננה לחקור דפוסי תשומת לב חזותית על תמונות פוליטיות - בוחנת אילו אזורים מושכים את העין ראשונים, כמה זמן שוהה המבט באזורים שונים, ואם צצים דפוסי צפייה שונים בקרב משקיפים שונים.
       </p>
     </div>
 
@@ -831,9 +831,9 @@ label,
       <p id="about-label-built" style="font-size:9px;font-weight:700;letter-spacing:0.4em;color:#FF0000;margin:0 0 16px;font-family:HaimNum,HaimVariable,Heebo,sans-serif;">נבנה על ידי</p>
       <p style="font-size:17px;font-weight:700;color:#FF0000;margin:0 0 6px;font-family:HaimNum,HaimVariable,Heebo,sans-serif;">Noam Katzenelbogen</p>
       <p style="font-size:13px;color:#FF0000;line-height:1.8;margin:0;font-family:HaimNum,HaimVariable,Heebo,sans-serif;">
-        פרויקט גמר — תואר ראשון בתקשורת חזותית, אוניברסיטת חיפה.<br>
+        פרויקט גמר - תואר ראשון בתקשורת חזותית, אוניברסיטת חיפה.<br>
         בהנחיית רונית ישראלי.<br>
-        תוכנן, עוצב ופותח מאפס — כולל מסגרת מחקר, עיצוב UX ופיתוח צד לקוח וצד שרת.
+        תוכנן, עוצב ופותח מאפס - כולל מסגרת מחקר, עיצוב UX ופיתוח צד לקוח וצד שרת.
       </p>
     </div>
 
@@ -1028,13 +1028,13 @@ function drawCalIntro(){const W=window.innerWidth,H=window.innerHeight;
   calCtx.fillText('כיול מעקב עיניים',W/2,cy-38);
   calCtx.fillStyle='#FF0000';
   calCtx.font='300 13px HaimNum,HaimVariable';
-  calCtx.fillText('שמור על ראשך ללא תנועה — הזז רק את עינייך לכל נקודה',W/2,cy+2);
+  calCtx.fillText('שמור על ראשך ללא תנועה - הזז רק את עינייך לכל נקודה',W/2,cy+2);
   calCtx.fillText('החזק את המבט עד שהטבעת תתמלא לחלוטין',W/2,cy+22);
   calCtx.fillText('לאחר הכיול תגיע לעמוד הבית.',W/2,cy+50);
   calCtx.fillText('לחץ על "התחלה" כדי להתחיל את סשן הצפייה בתמונות.',W/2,cy+70);
   calCtx.fillStyle='rgba(255,0,0,0.5)';
   calCtx.font='300 11px HaimNum,HaimVariable';
-  calCtx.fillText('הכיול ישמש גם לצפייה בתמונות — אין צורך בכיול נוסף.',W/2,cy+92);
+  calCtx.fillText('הכיול ישמש גם לצפייה בתמונות - אין צורך בכיול נוסף.',W/2,cy+92);
 }
 
 function drawCalDone(){const W=window.innerWidth,H=window.innerHeight;
@@ -1043,7 +1043,7 @@ function drawCalDone(){const W=window.innerWidth,H=window.innerHeight;
   calCtx.fillStyle='#FF0000';calCtx.font="700 28px HaimNum,HaimVariable";
   calCtx.fillText("מוכן!",W/2,H/2-8);
   calCtx.fillStyle='#FF0000';calCtx.font="300 13px HaimNum,HaimVariable";
-  calCtx.fillText('הכיול הושלם — עמוד הבית עומד להיפתח.',W/2,H/2+20);
+  calCtx.fillText('הכיול הושלם - עמוד הבית עומד להיפתח.',W/2,H/2+20);
 }
 
 function awaitDot(px,py,index){return new Promise(resolve=>{let progress=0,prevTs=null;const samples=[];function frame(ts){const dt=prevTs?Math.min((ts-prevTs)/1000,0.05):0;prevTs=ts;const s=eyeStab();progress+=s*CAL_FILL_RATE*dt;progress-=(1-s)*CAL_DRAIN_RATE*dt;progress=Math.max(0,Math.min(1,progress));if(s>0.45&&eyeValid)samples.push({ox:curEyeOffX,oy:curEyeOffY});const W=window.innerWidth,H=window.innerHeight;
@@ -1134,7 +1134,7 @@ function generateCode(){
   return code;
 }
 
-// ── Name/profile screen — shown AFTER image session ───────────────────
+// ── Name/profile screen - shown AFTER image session ───────────────────
 function showNameScreen(){
   return new Promise(resolve=>{
     const scr=document.getElementById('nameScreen');
@@ -1571,7 +1571,7 @@ document.getElementById('homeStartBtn').addEventListener('click', async ()=>{
   openGallery();
 });
 
-// ── BOOT — calibration happens immediately on page load ───────────────
+// ── BOOT - calibration happens immediately on page load ───────────────
 async function boot(){
   // Show splash first
   const splash = document.getElementById('splashScreen');
@@ -1629,7 +1629,7 @@ async function boot(){
   // ⑥ Start main gaze loop
   requestAnimationFrame(mainLoop);
 
-  // ⑦ Show home screen — sky video now controlled by eyes
+  // ⑦ Show home screen - sky video now controlled by eyes
   const skyV = document.getElementById('homeSkyVideo');
   skyV.style.display='block';
   skyV.pause();
@@ -1716,12 +1716,12 @@ function showAuthNav(){
 (function(){
   const RED = '#FF0000';
   const MODES = [
-    {name:'Gaze',num:'01 / 06',desc:'Raw gaze positions sampled continuously — every point where the eye looked, frame by frame.'},
+    {name:'Gaze',num:'01 / 06',desc:'Raw gaze positions sampled continuously - every point where the eye looked, frame by frame.'},
     {name:'Fixation',num:'02 / 06',desc:'Sustained gaze on a single region for ≥200ms. Indicates active cognitive processing.'},
     {name:'Saccade',num:'03 / 06',desc:'Rapid eye movements between fixations. Reveals how the eye explores and scans a scene.'},
-    {name:'Scan path',num:'04 / 06',desc:'The chronological sequence of fixations — the full visual journey across the image.'},
+    {name:'Scan path',num:'04 / 06',desc:'The chronological sequence of fixations - the full visual journey across the image.'},
     {name:'Heatmap',num:'05 / 06',desc:'Density map of visual attention. Hotter areas received more and longer fixations.'},
-    {name:'First fixation',num:'06 / 06',desc:'The very first region noticed — the pre-conscious entry point of visual attention.'}
+    {name:'First fixation',num:'06 / 06',desc:'The very first region noticed - the pre-conscious entry point of visual attention.'}
   ];
   window._MODES_REF = MODES;
 
@@ -2057,7 +2057,7 @@ function showAuthNav(){
 // ── Dashboard ─────────────────────────────────────────────────────────
 function openDashboard(){hideAllScreens();showSharedBg();setNavTheme('dark');navDashboardLink.classList.add('active');const scr=document.getElementById('dashboardScreen');scr.style.display='flex';if(allSessions.length===0){showEmptyState('dashboardScreen','התחל את הסשן הראשון שלך כדי לראות את לוח הבקרה.');}else{renderDashboard();}}
 
-function renderDashboard(){const container=document.getElementById('dashboardContent');container.innerHTML='';if(allSessions.length===0){container.innerHTML='<div style="padding:60px 0;text-align:center;font-size:11px;letter-spacing:0.25em;color:#FF0000;font-family:HaimNum,HaimVariable,Heebo,sans-serif;">אין סשנים עדיין</div>';return;}const latest=allSessions[allSessions.length-1];const totalFix=latest.fixationHistory.length;const totalSac=latest.saccadeHistory.length;const avgFixDur=totalFix?Math.round(latest.fixationHistory.reduce((s,f)=>s+f.duration,0)/totalFix):0;const sacAmp=totalSac?+(latest.saccadeHistory.reduce((s,f)=>s+Math.hypot(f.toX-f.fromX,f.toY-f.fromY),0)/totalSac*100).toFixed(1):0;const dur=latest.sessionDuration?(latest.sessionDuration/1000).toFixed(1):0;const ttff=latest.firstFix?((latest.firstFix.startTs-latest.firstFixModeTs)/1000).toFixed(2):null;const kpiSection=document.createElement('div');kpiSection.className='dash-section';kpiSection.innerHTML='<div class="dash-section-title">הסשן האחרון שלי — '+latest.user+'</div>';const kpiRow=document.createElement('div');kpiRow.className='dash-kpi-row';kpiRow.innerHTML=`<div class="dash-kpi accent"><div class="dash-kpi-label">קיבועים</div><div class="dash-kpi-val">${totalFix||'-'}</div><div class="dash-kpi-sub">נקודות מבט</div></div><div class="dash-kpi accent"><div class="dash-kpi-label">AVG FIXATION</div><div class="dash-kpi-val">${avgFixDur||'-'}<span class="dash-kpi-unit">ms</span></div><div class="dash-kpi-sub">זמן שהייה</div></div><div class="dash-kpi accent"><div class="dash-kpi-label">סקאדות</div><div class="dash-kpi-val">${totalSac||'-'}</div><div class="dash-kpi-sub">קפיצות עין</div></div><div class="dash-kpi accent"><div class="dash-kpi-label">SAC AMPLITUDE</div><div class="dash-kpi-val">${sacAmp||'-'}<span class="dash-kpi-unit">%</span></div><div class="dash-kpi-sub">מרחק ממוצע</div></div><div class="dash-kpi accent"><div class="dash-kpi-label">משך</div><div class="dash-kpi-val">${dur}<span class="dash-kpi-unit">s</span></div><div class="dash-kpi-sub">זמן צפייה</div></div><div class="dash-kpi accent"><div class="dash-kpi-label">TTFF</div><div class="dash-kpi-val">${ttff||'-'}<span class="dash-kpi-unit">${ttff?'s':''}</span></div><div class="dash-kpi-sub">זמן לקיבוע ראשון</div></div><div class="dash-kpi"><div class="dash-kpi-label">דגימות</div><div class="dash-kpi-val">${latest.gazeLog.length}</div><div class="dash-kpi-sub">נקודות מבט</div></div><div class="dash-kpi"><div class="dash-kpi-label">תמונה</div><div class="dash-kpi-val" style="font-size:13px">${latest.imageName}</div></div>`;kpiSection.appendChild(kpiRow);container.appendChild(kpiSection);}
+function renderDashboard(){const container=document.getElementById('dashboardContent');container.innerHTML='';if(allSessions.length===0){container.innerHTML='<div style="padding:60px 0;text-align:center;font-size:11px;letter-spacing:0.25em;color:#FF0000;font-family:HaimNum,HaimVariable,Heebo,sans-serif;">אין סשנים עדיין</div>';return;}const latest=allSessions[allSessions.length-1];const totalFix=latest.fixationHistory.length;const totalSac=latest.saccadeHistory.length;const avgFixDur=totalFix?Math.round(latest.fixationHistory.reduce((s,f)=>s+f.duration,0)/totalFix):0;const sacAmp=totalSac?+(latest.saccadeHistory.reduce((s,f)=>s+Math.hypot(f.toX-f.fromX,f.toY-f.fromY),0)/totalSac*100).toFixed(1):0;const dur=latest.sessionDuration?(latest.sessionDuration/1000).toFixed(1):0;const ttff=latest.firstFix?((latest.firstFix.startTs-latest.firstFixModeTs)/1000).toFixed(2):null;const kpiSection=document.createElement('div');kpiSection.className='dash-section';kpiSection.innerHTML='<div class="dash-section-title">הסשן האחרון שלי - '+latest.user+'</div>';const kpiRow=document.createElement('div');kpiRow.className='dash-kpi-row';kpiRow.innerHTML=`<div class="dash-kpi accent"><div class="dash-kpi-label">קיבועים</div><div class="dash-kpi-val">${totalFix||'-'}</div><div class="dash-kpi-sub">נקודות מבט</div></div><div class="dash-kpi accent"><div class="dash-kpi-label">AVG FIXATION</div><div class="dash-kpi-val">${avgFixDur||'-'}<span class="dash-kpi-unit">ms</span></div><div class="dash-kpi-sub">זמן שהייה</div></div><div class="dash-kpi accent"><div class="dash-kpi-label">סקאדות</div><div class="dash-kpi-val">${totalSac||'-'}</div><div class="dash-kpi-sub">קפיצות עין</div></div><div class="dash-kpi accent"><div class="dash-kpi-label">SAC AMPLITUDE</div><div class="dash-kpi-val">${sacAmp||'-'}<span class="dash-kpi-unit">%</span></div><div class="dash-kpi-sub">מרחק ממוצע</div></div><div class="dash-kpi accent"><div class="dash-kpi-label">משך</div><div class="dash-kpi-val">${dur}<span class="dash-kpi-unit">s</span></div><div class="dash-kpi-sub">זמן צפייה</div></div><div class="dash-kpi accent"><div class="dash-kpi-label">TTFF</div><div class="dash-kpi-val">${ttff||'-'}<span class="dash-kpi-unit">${ttff?'s':''}</span></div><div class="dash-kpi-sub">זמן לקיבוע ראשון</div></div><div class="dash-kpi"><div class="dash-kpi-label">דגימות</div><div class="dash-kpi-val">${latest.gazeLog.length}</div><div class="dash-kpi-sub">נקודות מבט</div></div><div class="dash-kpi"><div class="dash-kpi-label">תמונה</div><div class="dash-kpi-val" style="font-size:13px">${latest.imageName}</div></div>`;kpiSection.appendChild(kpiRow);container.appendChild(kpiSection);}
 
 // ── Profile ───────────────────────────────────────────────────────────
 function openProfile(){hideAllScreens();showSharedBg();setNavTheme('dark');navProfileLink.classList.add('active');document.getElementById('profileScreen').style.display='flex';renderProfile();}
@@ -2075,7 +2075,7 @@ async function renderProfile(){
   const totalFix=sessions.reduce((s,ss)=>s+(ss.fixation_count||0),0);
   const totalSac=sessions.reduce((s,ss)=>s+(ss.saccade_count||0),0);
   const avgDur=sessions.length?+(sessions.reduce((s,ss)=>s+(ss.session_duration||0),0)/sessions.length/1000).toFixed(1):0;
-  body.innerHTML=`<div style="max-width:800px;margin:0 auto;"><div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:32px;padding-bottom:20px;border-bottom:1px solid #e0e0e0;"><div><div style="font-size:9px;font-weight:700;letter-spacing:0.45em;color:#FF0000;margin-bottom:8px;font-family:HaimNum,HaimVariable,Heebo,sans-serif;">פרופיל</div><div style="font-size:28px;font-weight:700;color:#FF0000;font-family:HaimNum,HaimVariable,Heebo,sans-serif;">${profile.name}</div><div style="font-size:11px;font-weight:300;color:#FF0000;margin-top:4px;font-family:HaimNum,HaimVariable,Heebo,sans-serif;">${[profile.age?profile.age+'y':'',profile.gender||'',profile.location||''].filter(Boolean).join(' · ')}</div></div></div><div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:28px;">${[['סשנים',sessions.length,'סה"כ'],['קיבועים',totalFix,'עד כה'],['סקאדות',totalSac,'עד כה'],['משך ממוצע',avgDur+'s','לסשן'],].map(([label,val,sub])=>`<div style="background:#fff;border:1px solid #eee;border-radius:8px;padding:16px;"><div style="font-size:7px;font-weight:700;letter-spacing:0.35em;color:#FF0000;margin-bottom:8px;font-family:HaimNum,HaimVariable,Heebo,sans-serif;">${label}</div><div style="font-size:22px;font-weight:700;color:#FF0000;font-family:HaimNum,HaimVariable,Heebo,sans-serif;">${val}</div><div style="font-size:8px;color:#FF0000;margin-top:3px;font-family:HaimNum,HaimVariable,Heebo,sans-serif;">${sub}</div></div>`).join('')}</div>${sessions.length===0?'':sessions.slice().reverse().map(s=>`<div style="display:flex;align-items:center;justify-content:space-between;padding:12px 16px;background:#fff;border:1px solid #eee;border-radius:8px;margin-bottom:8px;font-family:HaimNum,HaimVariable,Heebo,sans-serif;"><div><div style="font-size:11px;font-weight:700;color:#FF0000;">${s.image_name||'—'}</div><div style="font-size:9px;color:#FF0000;margin-top:2px;">${new Date(s.timestamp||s.created_at).toLocaleString()}</div></div><div style="display:flex;gap:20px;text-align:right;"><div><div style="font-size:9px;color:#FF0000;">קיבועים</div><div style="font-size:13px;font-weight:700;color:#FF0000;">${s.fixation_count||0}</div></div><div><div style="font-size:9px;color:#FF0000;">סקאדות</div><div style="font-size:13px;font-weight:700;color:#FF0000;">${s.saccade_count||0}</div></div><div><div style="font-size:9px;color:#FF0000;">משך</div><div style="font-size:13px;font-weight:700;color:#FF0000;">${((s.session_duration||0)/1000).toFixed(1)}s</div></div></div></div>`).join('')}</div>`;
+  body.innerHTML=`<div style="max-width:800px;margin:0 auto;"><div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:32px;padding-bottom:20px;border-bottom:1px solid #e0e0e0;"><div><div style="font-size:9px;font-weight:700;letter-spacing:0.45em;color:#FF0000;margin-bottom:8px;font-family:HaimNum,HaimVariable,Heebo,sans-serif;">פרופיל</div><div style="font-size:28px;font-weight:700;color:#FF0000;font-family:HaimNum,HaimVariable,Heebo,sans-serif;">${profile.name}</div><div style="font-size:11px;font-weight:300;color:#FF0000;margin-top:4px;font-family:HaimNum,HaimVariable,Heebo,sans-serif;">${[profile.age?profile.age+'y':'',profile.gender||'',profile.location||''].filter(Boolean).join(' · ')}</div></div></div><div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:28px;">${[['סשנים',sessions.length,'סה"כ'],['קיבועים',totalFix,'עד כה'],['סקאדות',totalSac,'עד כה'],['משך ממוצע',avgDur+'s','לסשן'],].map(([label,val,sub])=>`<div style="background:#fff;border:1px solid #eee;border-radius:8px;padding:16px;"><div style="font-size:7px;font-weight:700;letter-spacing:0.35em;color:#FF0000;margin-bottom:8px;font-family:HaimNum,HaimVariable,Heebo,sans-serif;">${label}</div><div style="font-size:22px;font-weight:700;color:#FF0000;font-family:HaimNum,HaimVariable,Heebo,sans-serif;">${val}</div><div style="font-size:8px;color:#FF0000;margin-top:3px;font-family:HaimNum,HaimVariable,Heebo,sans-serif;">${sub}</div></div>`).join('')}</div>${sessions.length===0?'':sessions.slice().reverse().map(s=>`<div style="display:flex;align-items:center;justify-content:space-between;padding:12px 16px;background:#fff;border:1px solid #eee;border-radius:8px;margin-bottom:8px;font-family:HaimNum,HaimVariable,Heebo,sans-serif;"><div><div style="font-size:11px;font-weight:700;color:#FF0000;">${s.image_name||'-'}</div><div style="font-size:9px;color:#FF0000;margin-top:2px;">${new Date(s.timestamp||s.created_at).toLocaleString()}</div></div><div style="display:flex;gap:20px;text-align:right;"><div><div style="font-size:9px;color:#FF0000;">קיבועים</div><div style="font-size:13px;font-weight:700;color:#FF0000;">${s.fixation_count||0}</div></div><div><div style="font-size:9px;color:#FF0000;">סקאדות</div><div style="font-size:13px;font-weight:700;color:#FF0000;">${s.saccade_count||0}</div></div><div><div style="font-size:9px;color:#FF0000;">משך</div><div style="font-size:13px;font-weight:700;color:#FF0000;">${((s.session_duration||0)/1000).toFixed(1)}s</div></div></div></div>`).join('')}</div>`;
 }
 
 // ── About ─────────────────────────────────────────────────────────────
@@ -2091,7 +2091,7 @@ let toolbarCollapsed=false;
 const toolbarInnerEls=()=>Array.from(dataToolbar.children).filter(el=>el!==dataToolbarCollapseBtn);
 dataToolbarCollapseBtn.addEventListener('click',()=>{toolbarCollapsed=!toolbarCollapsed;toolbarInnerEls().forEach(el=>{el.style.display=toolbarCollapsed?'none':'';});const arrow=dataToolbarCollapseBtn.querySelector('.tcb-arrow');arrow.innerHTML=toolbarCollapsed?'&#9654;':'&#9660;';dataToolbarCollapseBtn.title=toolbarCollapsed?'Show toolbar':'Hide toolbar';dataToolbar.style.padding=toolbarCollapsed?'5px':'5px 10px';});
 
-// ── Statue video — pause at last frame ───────────────────────────────
+// ── Statue video - pause at last frame ───────────────────────────────
 // statue video removed
 
 // ── RTL language ──────────────────────────────────────────────────────
