@@ -963,12 +963,9 @@ function applyGaze(ts){
   sGX+=(rawGX-sGX)*GAZE_LERP;
   sGY+=(rawGY-sGY)*GAZE_LERP;
   const W=window.innerWidth,H=window.innerHeight;
-  // update gaze dot on image wrapper if visible
-  if(imgWrapper.style.display!=='none'){
-    const rect=imgWrapper.getBoundingClientRect();
-    gazeDot.style.left=(rect.left+sGX*W)+'px';
-    gazeDot.style.top=(rect.top+sGY*H)+'px';
-  }
+  // gaze dot always positioned relative to full window
+  gazeDot.style.left=(sGX*W)+'px';
+  gazeDot.style.top=(sGY*H)+'px';
   window._gazeHistory.push({x:sGX,y:sGY,ts});
   if(window._gazeHistory.length>90)window._gazeHistory.shift();
 
@@ -1442,47 +1439,43 @@ async function runFullSequence(){
     return new Promise(resolveAnim=>{
       const W=viewer.offsetWidth, H=viewer.offsetHeight;
       const cx=dotPos.x*W, cy=dotPos.y*H;
-      const FINAL_W=W, FINAL_H=H;
 
+      // Image covers full screen, transform-origin set to dot position
       const imgEl=document.createElement('img');
       imgEl.src=imgSrc;
-      // Start at dot center, size 0
+      const originX=(cx/W*100).toFixed(2)+'%';
+      const originY=(cy/H*100).toFixed(2)+'%';
       imgEl.style.cssText=`
-        position:absolute;z-index:3;object-fit:cover;
-        border-radius:50%;pointer-events:none;
-        left:${cx}px;top:${cy}px;
-        width:0px;height:0px;
-        transform:translate(-50%,-50%);
-        transform-origin:center center;
+        position:absolute;z-index:3;object-fit:cover;pointer-events:none;
+        left:0;top:0;width:100%;height:100%;
+        transform-origin:${originX} ${originY};
+        transform:scale(0);
+        border-radius:50%;
       `;
       viewer.appendChild(imgEl);
 
-      const EXPAND_MS=600;
+      const EXPAND_MS=700;
       const COLLAPSE_MS=600;
       const startTime=performance.now();
 
       function expandFrame(ts){
         const prog=Math.min(1,(ts-startTime)/EXPAND_MS);
         const ease=1-Math.pow(1-prog,3);
-        const w=FINAL_W*ease, h=FINAL_H*ease;
-        const borderR=(1-ease)*50;
-        imgEl.style.width=w+'px';
-        imgEl.style.height=h+'px';
+        const borderR=Math.max(0,(1-ease)*50);
+        imgEl.style.transform=`scale(${ease})`;
         imgEl.style.borderRadius=borderR+'%';
         if(prog<1){ requestAnimationFrame(expandFrame); }
         else{
-          imgEl.style.width=FINAL_W+'px';
-          imgEl.style.height=FINAL_H+'px';
+          imgEl.style.transform='scale(1)';
           imgEl.style.borderRadius='0%';
           setTimeout(()=>{
             const colStart=performance.now();
             function collapseFrame(ts2){
               const p=Math.min(1,(ts2-colStart)/COLLAPSE_MS);
               const ease2=Math.pow(p,3);
-              const w=FINAL_W*(1-ease2), h=FINAL_H*(1-ease2);
+              const scale=1-ease2;
               const borderR=ease2*50;
-              imgEl.style.width=w+'px';
-              imgEl.style.height=h+'px';
+              imgEl.style.transform=`scale(${scale})`;
               imgEl.style.borderRadius=borderR+'%';
               if(p<1){ requestAnimationFrame(collapseFrame); }
               else{
