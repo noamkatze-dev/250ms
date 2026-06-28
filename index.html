@@ -1405,9 +1405,7 @@ async function runFullSequence(){
   // Slow sky video to 50%
   skyVid.playbackRate=0.5;
   viewer.style.display='block';
-
-  // Gaze dot follows eyes on session viewer
-  gazeDot.style.display='block';
+  gazeDot.style.display='none'; // hidden by default, shown only during image
 
   // Resize canvas
   function resizeDots(){
@@ -1457,6 +1455,7 @@ async function runFullSequence(){
       const EXPAND_MS=700;
       const COLLAPSE_MS=600;
       const startTime=performance.now();
+      gazeDot.style.display='block'; // show during image
 
       function expandFrame(ts){
         const prog=Math.min(1,(ts-startTime)/EXPAND_MS);
@@ -1479,6 +1478,7 @@ async function runFullSequence(){
               imgEl.style.borderRadius=borderR+'%';
               if(p<1){ requestAnimationFrame(collapseFrame); }
               else{
+                gazeDot.style.display='none'; // hide when image gone
                 viewer.removeChild(imgEl);
                 resolveAnim();
               }
@@ -1638,7 +1638,7 @@ async function boot(){
   setNavTheme('dark');
   homeScreen.style.display='block';
   infoEl.style.display='block';
-  gazeDot.style.display='block';
+  gazeDot.style.display='none';
 }
 
 // ── Nav links ─────────────────────────────────────────────────────────
