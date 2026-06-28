@@ -138,12 +138,13 @@ body{
 }
 #briefingScreen::after{
   content:'';position:absolute;inset:0;
-  background:rgba(80,130,200,0.05);mix-blend-mode:screen;
+  background:rgba(255,255,255,0.15);
   z-index:1;pointer-events:none;
 }
 .briefing-inner{
   max-width:520px;width:90vw;display:flex;flex-direction:column;align-items:center;text-align:center;
   margin-top:-60px;
+  position:relative;z-index:2;isolation:isolate;
 }
 .briefing-label{
   font-size:9px;font-weight:700;letter-spacing:0.55em;color:#FF0000;
@@ -517,6 +518,16 @@ label,
   <div class="briefing-inner">
     <div class="briefing-label">מערכת ניתוח חזותי</div>
     <h2 class="briefing-title">עומד להתחיל סשן צפייה</h2>
+    <div class="briefing-divider"></div>
+    <p class="briefing-body">
+      תראה סדרה של <strong style="font-weight:700;">5 תמונות פוליטיות</strong>,
+      כל אחת למשך 5 שניות.<br>
+      הסתכל באופן טבעי — אין תשובות נכונות או שגויות.
+    </p>
+    <p class="briefing-note">
+      מצלמת הרשת עוקבת אחרי תנועות העיניים שלך בלבד.<br>
+      השאר את ראשך ללא תנועה ככל האפשר.
+    </p>
 
     <div class="briefing-steps">
       <div class="briefing-step">
