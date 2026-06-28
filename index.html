@@ -155,7 +155,7 @@ body{
   display:flex;gap:0;width:100%;margin-bottom:0;
 }
 .briefing-step{
-  flex:1;padding:16px 12px;border-left:1px solid rgba(255,0,0,0.2);
+  flex:1;padding:16px 12px;border-left:none;
   display:flex;flex-direction:column;align-items:center;gap:6px;
 }
 .briefing-step:first-child{border-left:none;}
@@ -230,11 +230,11 @@ body{
 
 #libraryScreen{background-attachment:fixed;}
 
-#calOverlay{position:fixed;inset:0;z-index:9800;background:#c8e8f5;overflow:hidden;}
-#calOverlay::before{content:'';position:absolute;inset:0;background:url('sky.png') center/cover no-repeat;filter:blur(22px);transform:scale(1.08);opacity:0.7;z-index:0;pointer-events:none;}
-#calOverlay::after{content:'';position:absolute;inset:0;background:rgba(80,130,200,0.05);mix-blend-mode:screen;z-index:1;pointer-events:none;}
+#calOverlay{position:fixed;inset:0;z-index:9800;background:#fff;}
+#calOverlay::before{display:none;}
+#calOverlay::after{display:none;}
 #calCanvas{position:absolute;inset:0;width:100%;height:100%;background:transparent;z-index:2;pointer-events:none;}
-#calStartBtn{position:absolute;top:63%;left:50%;transform:translateX(-50%);display:none;z-index:10;pointer-events:all;background:transparent !important;color:#FF0000 !important;border:1.5px solid #FF0000 !important;box-shadow:none !important;backdrop-filter:none !important;}
+#calStartBtn{position:absolute;top:72%;left:50%;transform:translateX(-50%);display:none;z-index:10;pointer-events:all;background:transparent !important;color:#FF0000 !important;border:1.5px solid #FF0000 !important;box-shadow:none !important;backdrop-filter:none !important;}
 
 .screen{display:none;position:fixed;inset:0;z-index:1100;flex-direction:column;align-items:center;justify-content:center;}
 .screen-title{font-size:9px;font-weight:300;letter-spacing:0.6em;color:#FF0000;margin-bottom:36px;}
@@ -289,7 +289,7 @@ body{
 .dab-name{font-size:9px;font-weight:300;color:rgba(255,255,255,0.4);}
 .dab-val{font-size:11px;font-weight:700;color:#FF0000;}
 .dab-unit{font-size:8px;font-weight:300;color:rgba(255,255,255,0.35);margin-left:2px;}
-#dataToolbar{position:absolute;top:14px;left:50%;transform:translateX(-50%);display:flex;flex-wrap:nowrap;align-items:center;gap:2px;background:rgba(0,0,0,0.72);backdrop-filter:blur(14px);padding:5px 10px;border:1px solid rgba(255,255,255,0.08);border-radius:100px;z-index:10;transition:opacity 0.2s;}
+#dataToolbar{position:absolute;top:14px;left:50%;transform:translateX(-50%);display:flex;flex-wrap:nowrap;align-items:center;gap:2px;background:rgba(255,255,255,0.45);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);padding:5px 10px;border:1px solid rgba(255,255,255,0.6);border-radius:100px;z-index:10;transition:opacity 0.2s;}
 #dataToolbar.collapsed .toolbar-inner-content{display:none;}
 .toolbar-sep{width:1px;height:16px;background:rgba(255,255,255,0.22);flex-shrink:0;margin:0 8px;}
 .layer-btn{font-family:HaimNum,HaimVariable,Heebo,sans-serif;font-size:7.5px;font-weight:400;letter-spacing:0.06em;color:#FF0000;background:transparent;border:1.5px solid transparent;padding:5px 9px;cursor:pointer;transition:color 0.15s,border-color 0.15s;white-space:nowrap;border-radius:100px;position:relative;}
@@ -340,7 +340,7 @@ body{
 .ns-form{display:flex;flex-direction:column;align-items:center;width:100%;max-width:320px;}
 .ns-field{width:100%;margin-bottom:30px;}
 .ns-field label{display:block;font-size:9px;font-weight:700;letter-spacing:0.3em;color:#FF0000;margin-bottom:12px;text-transform:uppercase;}
-.ns-field input,.ns-field select{background:#fff;border:1px solid rgba(255,255,255,0.7);color:#FF0000;font-family:HaimNum,HaimVariable,Heebo,sans-serif;font-size:16px;letter-spacing:0.08em;padding:12px 16px;width:100%;caret-color:#111;transition:border-color 0.15s;-webkit-appearance:none;border-radius:6px;outline:none;}
+.ns-field input,.ns-field select{background:rgba(255,255,255,0.5);border:1px solid rgba(255,255,255,0.7);color:#FF0000;font-family:HaimNum,HaimVariable,Heebo,sans-serif;font-size:16px;letter-spacing:0.08em;padding:12px 16px;width:100%;caret-color:#111;transition:border-color 0.15s;-webkit-appearance:none;border-radius:6px;outline:none;}
 .ns-field input:focus,.ns-field select:focus{border-color:rgba(178,224,243,0.8);outline:none;}
 .ns-field input::placeholder{color:#FF0000;font-size:14px;}
 .ns-field select{background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23aaa' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat right 14px center;}
@@ -499,32 +499,17 @@ label,
 <!-- BRIEFING SCREEN — shown after clicking "התחלה" -->
 <div id="briefingScreen">
   <div class="briefing-inner">
-    <div class="briefing-label">מערכת ניתוח חזותי · 250ms</div>
+    <div class="briefing-label">מערכת ניתוח חזותי</div>
     <h2 class="briefing-title">עומד להתחיל סשן צפייה</h2>
-    <div class="briefing-divider"></div>
-    <p class="briefing-body">
-      תראה סדרה של <strong style="color:#FF0000;font-weight:700;">5 תמונות פוליטיות</strong>,
-      כל אחת למשך 5 שניות.<br>
-      הסתכל באופן טבעי — אין תשובות נכונות או שגויות.
-    </p>
-    <p class="briefing-note">
-      מצלמת הרשת עוקבת אחרי תנועות העיניים שלך בלבד.<br>
-      השאר את ראשך ללא תנועה ככל האפשר.
-    </p>
+
     <div class="briefing-steps">
       <div class="briefing-step">
-        <div class="briefing-step-n">01</div>
-        <div class="briefing-step-icon">👁️</div>
         <div class="briefing-step-text">הסתכל באופן חופשי על כל תמונה</div>
       </div>
       <div class="briefing-step">
-        <div class="briefing-step-n">02</div>
-        <div class="briefing-step-icon">⏱️</div>
         <div class="briefing-step-text">כל תמונה תופיע למשך 5 שניות</div>
       </div>
       <div class="briefing-step">
-        <div class="briefing-step-n">03</div>
-        <div class="briefing-step-icon">📊</div>
         <div class="briefing-step-text">בסיום תראה את נתוני המבט שלך</div>
       </div>
     </div>
@@ -702,11 +687,17 @@ label,
         </select>
       </div>
     </div>
-    <div class="ns-field">
-      <label for="locationInput">מיקום מגורים</label>
-      <input id="locationInput" type="text" placeholder="עיר, מדינה"/>
+    <div class="ns-row">
+      <div class="ns-field">
+        <label for="cityInput">עיר</label>
+        <input id="cityInput" type="text" placeholder="תל אביב"/>
+      </div>
+      <div class="ns-field">
+        <label for="countryInput">מדינה</label>
+        <input id="countryInput" type="text" placeholder="ישראל"/>
+      </div>
     </div>
-    <button id="nameContinue" class="va-btn va-btn-primary">המשך לגלריה</button>
+    <button id="nameContinue" class="va-btn va-btn-primary">צפייה בנתונים</button>
   </div>
 
   <div id="nsFormStep2" style="display:none;"></div>
@@ -1013,34 +1004,22 @@ function resizeCal(){
 function drawCalIntro(){const W=window.innerWidth,H=window.innerHeight;
   calCtx.clearRect(0,0,W,H);
   calCtx.textAlign='center';
-  calCtx.fillStyle='rgba(255,0,0,0.7)';
+  const cy=H/2-60;
+  calCtx.fillStyle='rgba(255,0,0,0.6)';
   calCtx.font='700 11px HaimNum,HaimVariable';
-  calCtx.fillText('מערכת ניתוח חזותי',W/2,H/2-130);
+  calCtx.fillText('מערכת ניתוח חזותי',W/2,cy-70);
   calCtx.fillStyle='#FF0000';
   calCtx.font='700 28px HaimNum,HaimVariable';
-  calCtx.fillText('כיול מעקב עיניים',W/2,H/2-90);
-  calCtx.strokeStyle='rgba(255,0,0,0.25)';
-  calCtx.lineWidth=1;
-  calCtx.beginPath();
-  calCtx.moveTo(W/2-200,H/2-68);
-  calCtx.lineTo(W/2+200,H/2-68);
-  calCtx.stroke();
-  calCtx.fillStyle='#FF0000';
-  calCtx.font='300 14px HaimNum,HaimVariable';
-  calCtx.fillText('שמור על ראשך ללא תנועה — הזז רק את עינייך לכל נקודה',W/2,H/2-42);
-  calCtx.fillText('החזק את המבט עד שהטבעת תתמלא לחלוטין',W/2,H/2-18);
-  calCtx.strokeStyle='rgba(255,0,0,0.15)';
-  calCtx.beginPath();
-  calCtx.moveTo(W/2-200,H/2+4);
-  calCtx.lineTo(W/2+200,H/2+4);
-  calCtx.stroke();
+  calCtx.fillText('כיול מעקב עיניים',W/2,cy-38);
   calCtx.fillStyle='#FF0000';
   calCtx.font='300 13px HaimNum,HaimVariable';
-  calCtx.fillText('לאחר הכיול תגיע לעמוד הבית.',W/2,H/2+26);
-  calCtx.fillText('לחץ על "התחלה" כדי להתחיל את סשן הצפייה בתמונות.',W/2,H/2+48);
-  calCtx.fillStyle='#FF0000';
+  calCtx.fillText('שמור על ראשך ללא תנועה — הזז רק את עינייך לכל נקודה',W/2,cy+2);
+  calCtx.fillText('החזק את המבט עד שהטבעת תתמלא לחלוטין',W/2,cy+22);
+  calCtx.fillText('לאחר הכיול תגיע לעמוד הבית.',W/2,cy+50);
+  calCtx.fillText('לחץ על "התחלה" כדי להתחיל את סשן הצפייה בתמונות.',W/2,cy+70);
+  calCtx.fillStyle='rgba(255,0,0,0.5)';
   calCtx.font='300 11px HaimNum,HaimVariable';
-  calCtx.fillText('הכיול ישמש גם לצפייה בתמונות — אין צורך בכיול נוסף.',W/2,H/2+70);
+  calCtx.fillText('הכיול ישמש גם לצפייה בתמונות — אין צורך בכיול נוסף.',W/2,cy+92);
 }
 
 function drawCalDone(){const W=window.innerWidth,H=window.innerHeight;
@@ -1159,7 +1138,9 @@ function showNameScreen(){
     btn.onclick=()=>{
       const age=ageInp.value.trim();
       const gender=genderInp.value;
-      const locationVal=document.getElementById('locationInput').value.trim();
+      const cityVal=document.getElementById('cityInput')?.value.trim()||'';
+      const countryVal=document.getElementById('countryInput')?.value.trim()||'';
+      const locationVal=[cityVal,countryVal].filter(Boolean).join(', ');
       let valid=true;
       if(!age){ ageInp.style.borderColor='#FF0000'; valid=false; }
       else { ageInp.style.borderColor=''; }
@@ -1228,7 +1209,18 @@ function staticHeatmap(ctx,W,H,log,col='255,0,0'){ctx.clearRect(0,0,W,H);const h
 function staticFirstFix(ctx,W,H,fix,modeTs,col='255,0,0'){ctx.clearRect(0,0,W,H);if(!fix){ctx.fillStyle='rgba(255,0,0,0.7)';ctx.font='300 11px HaimNum,HaimVariable';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText('לא זוהה קיבוע ראשון',W/2,H/2);return;}const cx=fix.x*W,cy=fix.y*H,offset=modeTs?((fix.startTs-modeTs)/1000):0;ctx.beginPath();ctx.arc(cx,cy,14,0,Math.PI*2);ctx.fillStyle='rgba('+col+',1)';ctx.fill();ctx.textAlign='center';ctx.textBaseline='alphabetic';ctx.fillStyle='rgba('+col+',1)';ctx.font='700 11px HaimNum,HaimVariable';ctx.fillText('קיבוע ראשון',cx,cy-46);ctx.font='300 9px HaimNum,HaimVariable';ctx.fillText('+'+offset.toFixed(2)+'s',cx,cy-32);}
 
 function cancelAnimation(){if(currentAnimation){currentAnimation.cancel();currentAnimation=null;}}
-function getDataCanvas(){const dc=document.getElementById('dataCanvas'),area=document.getElementById('dataImgArea');dc.width=area.offsetWidth;dc.height=area.offsetHeight;return dc;}
+function getDataCanvas(){
+  const dc=document.getElementById('dataCanvas');
+  const area=document.getElementById('dataImgArea');
+  const dpr=window.devicePixelRatio||1;
+  dc.width=area.offsetWidth*dpr;
+  dc.height=area.offsetHeight*dpr;
+  dc.style.width=area.offsetWidth+'px';
+  dc.style.height=area.offsetHeight+'px';
+  const ctx=dc.getContext('2d');
+  ctx.setTransform(dpr,0,0,dpr,0,0);
+  return dc;
+}
 function animateGaze(ctx,W,H,log){let tid=null,cancelled=false;const pts=log.slice();let i=0;function step(){if(cancelled||i>=pts.length)return;const p=pts[i++];ctx.beginPath();ctx.arc(p.x*W,p.y*H,5,0,Math.PI*2);ctx.fillStyle='rgba(255,0,0,0.9)';ctx.fill();tid=setTimeout(step,50);}step();return{cancel:()=>{cancelled=true;clearTimeout(tid);}};}
 function animateFixation(ctx,W,H,history){let tid=null,rafId=null,cancelled=false;const fixes=history.slice();let i=0;const drawn=[];function redrawAll(){for(const fix of drawn){const cx=fix.x*W,cy=fix.y*H,r=Math.min(8+fix.duration/80,44);ctx.beginPath();ctx.arc(cx,cy,r,0,Math.PI*2);ctx.fillStyle='rgba(255,0,0,0.3)';ctx.fill();ctx.beginPath();ctx.arc(cx,cy,r,0,Math.PI*2);ctx.strokeStyle='rgba(255,0,0,1)';ctx.lineWidth=2.5;ctx.stroke();if(fix.duration>300){ctx.fillStyle='rgba(255,0,0,1)';ctx.font='700 10px HaimNum,HaimVariable';ctx.textAlign='center';ctx.textBaseline='alphabetic';ctx.fillText(Math.round(fix.duration)+'ms',cx,cy+r+13);}}}function next(){if(cancelled||i>=fixes.length)return;const fix=fixes[i++];const cx=fix.x*W,cy=fix.y*H,rFinal=Math.min(8+fix.duration/80,44);const start=performance.now();function grow(now){if(cancelled)return;const t=Math.min(1,(now-start)/300);ctx.clearRect(0,0,W,H);redrawAll();const r=rFinal*t;ctx.beginPath();ctx.arc(cx,cy,Math.max(1,r),0,Math.PI*2);ctx.fillStyle='rgba(255,0,0,0.3)';ctx.fill();ctx.beginPath();ctx.arc(cx,cy,Math.max(1,r),0,Math.PI*2);ctx.strokeStyle='rgba(255,0,0,1)';ctx.lineWidth=2.5;ctx.stroke();if(t<1){rafId=requestAnimationFrame(grow);}else{if(fix.duration>300){ctx.fillStyle='rgba(255,0,0,1)';ctx.font='700 10px HaimNum,HaimVariable';ctx.textAlign='center';ctx.textBaseline='alphabetic';ctx.fillText(Math.round(fix.duration)+'ms',cx,cy+rFinal+13);}drawn.push(fix);tid=setTimeout(next,600);}}rafId=requestAnimationFrame(grow);}next();return{cancel:()=>{cancelled=true;clearTimeout(tid);cancelAnimationFrame(rafId);}};}
 function animateSaccade(ctx,W,H,history){let tid=null,rafId=null,cancelled=false;const sacs=history.slice();let i=0;const drawn=[];function drawSacFull(sac){const fx=sac.fromX*W,fy=sac.fromY*H,tx=sac.toX*W,ty=sac.toY*H;ctx.beginPath();ctx.moveTo(fx,fy);ctx.lineTo(tx,ty);ctx.strokeStyle='rgba(255,0,0,1)';ctx.lineWidth=2.5;ctx.stroke();const a=Math.atan2(ty-fy,tx-fx),l=9;ctx.beginPath();ctx.moveTo(tx,ty);ctx.lineTo(tx-l*Math.cos(a-Math.PI/6),ty-l*Math.sin(a-Math.PI/6));ctx.lineTo(tx-l*Math.cos(a+Math.PI/6),ty-l*Math.sin(a+Math.PI/6));ctx.closePath();ctx.fillStyle='rgba(255,0,0,1)';ctx.fill();}function redrawAll(){for(const s of drawn)drawSacFull(s);}function next(){if(cancelled||i>=sacs.length)return;const sac=sacs[i++];const fx=sac.fromX*W,fy=sac.fromY*H,tx=sac.toX*W,ty=sac.toY*H;const start=performance.now();function anim(now){if(cancelled)return;const t=Math.min(1,(now-start)/200);ctx.clearRect(0,0,W,H);redrawAll();const ex=fx+(tx-fx)*t,ey=fy+(ty-fy)*t;ctx.beginPath();ctx.moveTo(fx,fy);ctx.lineTo(ex,ey);ctx.strokeStyle='rgba(255,0,0,1)';ctx.lineWidth=2.5;ctx.stroke();if(t<1){rafId=requestAnimationFrame(anim);}else{drawSacFull(sac);drawn.push(sac);tid=setTimeout(next,500);}}rafId=requestAnimationFrame(anim);}next();return{cancel:()=>{cancelled=true;clearTimeout(tid);cancelAnimationFrame(rafId);}};}
@@ -1414,7 +1406,7 @@ async function runFullSequence(){
     drawDots();
   }
 
-  const DOT_R=14;
+  const DOT_R=7;
   const TOTAL=shuffled.length;
 
   function drawDots(){
@@ -1473,9 +1465,8 @@ async function runFullSequence(){
               const p=Math.min(1,(ts2-colStart)/COLLAPSE_MS);
               const ease2=Math.pow(p,3);
               const scale=1-ease2;
-              const borderR=ease2*50;
               imgEl.style.transform=`scale(${scale})`;
-              imgEl.style.borderRadius=borderR+'%';
+              imgEl.style.borderRadius='0';
               if(p<1){ requestAnimationFrame(collapseFrame); }
               else{
                 gazeDot.style.display='none'; // hide when image gone
