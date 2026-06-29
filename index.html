@@ -368,22 +368,6 @@ body{
 .ns-field .num-arrows span{font-size:8px;color:#FF0000;line-height:1;cursor:pointer;pointer-events:all;user-select:none;opacity:0.7;transition:opacity 0.15s;}
 .ns-field .num-arrows span:hover{opacity:1;}
 .ns-field input[type="text"]::-webkit-calendar-picker-indicator{opacity:0;display:none;}
-.inline-ac-wrap{position:relative;width:100%;}
-.inline-ac-wrap input{width:100%;background:transparent;position:relative;z-index:2;}
-.inline-ac-ghost{
-  position:absolute;
-  top:0;left:0;
-  padding:12px 16px;
-  font-family:HaimNum,HaimVariable,Heebo,sans-serif;
-  font-size:9px;letter-spacing:0.3em;
-  color:rgba(255,0,0,0.3);
-  pointer-events:none;
-  white-space:nowrap;
-  z-index:1;
-  line-height:normal;
-  height:100%;
-  display:flex;align-items:center;
-}
 .ns-field select{background:rgba(255,255,255,0.45) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23FF0000' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat right 14px center;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);}
 [dir="rtl"] .ns-field select{-webkit-appearance:none;appearance:none;background:rgba(255,255,255,0.45) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23FF0000' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat 14px center;padding-left:36px;padding-right:16px;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);}
 .ns-field input:-webkit-autofill,
@@ -742,17 +726,11 @@ label,
     <div class="ns-row">
       <div class="ns-field">
         <label for="cityInput">עיר</label>
-        <div class="inline-ac-wrap" id="cityWrap">
-          <input id="cityInput" type="text" placeholder="תל אביב" autocomplete="off" spellcheck="false"/>
-          <span class="inline-ac-ghost" id="cityGhost"></span>
-        </div>
+        <input id="cityInput" type="text" autocomplete="off"/>
       </div>
       <div class="ns-field">
         <label for="countryInput">מדינה</label>
-        <div class="inline-ac-wrap" id="countryWrap">
-          <input id="countryInput" type="text" placeholder="ישראל" autocomplete="off" spellcheck="false"/>
-          <span class="inline-ac-ghost" id="countryGhost"></span>
-        </div>
+        <input id="countryInput" type="text" autocomplete="off"/>
       </div>
     </div>
     <button id="nameContinue" style="background:transparent;color:#FF0000;border:1.5px solid #FF0000;font-family:HaimNum,HaimVariable,Heebo,sans-serif;font-size:13px;font-weight:400;letter-spacing:0.22em;padding:14px 52px;cursor:pointer;transition:all 0.18s;border-radius:100px;margin-top:8px;">צפייה בנתונים</button>
@@ -1188,47 +1166,6 @@ function showNameScreen(){
 
     ageInp.style.borderColor='';
     genderInp.style.borderColor='';
-
-    // Inline ghost autocomplete
-    const CITIES=['תל אביב','ירושלים','חיפה','באר שבע','ראשון לציון','פתח תקווה','אשדוד','נתניה','בני ברק','רמת גן','הרצליה','רחובות','מודיעין','אילת','עכו','נצרת','Tel Aviv','Jerusalem','Haifa','New York','Los Angeles','London','Paris','Berlin','Amsterdam','Toronto','Sydney','Tokyo','Dubai','Hong Kong','Chicago','Miami','Barcelona','Rome','Vienna','Zurich','Stockholm','Copenhagen','Brussels','Warsaw','Budapest','Prague','Lisbon','Athens','Montreal','Melbourne','Singapore','Seoul','Mumbai','Shanghai'];
-    const COUNTRIES=['ישראל','ארצות הברית','בריטניה','גרמניה','צרפת','הולנד','אוסטרליה','קנדה','ספרד','איטליה','שוויץ','שוודיה','נורווגיה','דנמרק','פינלנד','בלגיה','אוסטריה','פולין','הונגריה','יוון','פורטוגל','Israel','United States','United Kingdom','Germany','France','Netherlands','Australia','Canada','Spain','Italy','Switzerland','Sweden','Norway','Denmark','Finland','Belgium','Austria','Poland','Hungary','Greece','Portugal','Japan','China','India','Brazil','Argentina','UAE','Singapore','South Korea','Mexico','South Africa','New Zealand'];
-
-    function setupInlineAC(inputEl, ghostEl, list){
-      let currentSuggestion='';
-      inputEl.addEventListener('input',()=>{
-        const val=inputEl.value;
-        if(!val){ghostEl.textContent='';currentSuggestion='';return;}
-        const match=list.find(item=>item.toLowerCase().startsWith(val.toLowerCase())&&item.toLowerCase()!==val.toLowerCase());
-        if(match){
-          currentSuggestion=match;
-          // show only the completion part as ghost — prefix matches typed text
-          ghostEl.textContent=val+match.slice(val.length);
-        } else {
-          ghostEl.textContent='';
-          currentSuggestion='';
-        }
-      });
-      inputEl.addEventListener('keydown',(e)=>{
-        if((e.key==='Tab'||e.key==='ArrowLeft'||e.key==='ArrowRight')&&currentSuggestion){
-          e.preventDefault();
-          inputEl.value=currentSuggestion;
-          ghostEl.textContent='';
-          currentSuggestion='';
-        }
-        if(e.key==='Escape'){
-          ghostEl.textContent='';
-          currentSuggestion='';
-        }
-      });
-      inputEl.addEventListener('blur',()=>{ghostEl.textContent='';});
-    }
-
-    const cityInp=document.getElementById('cityInput');
-    const cityGhost=document.getElementById('cityGhost');
-    const countryInp=document.getElementById('countryInput');
-    const countryGhost=document.getElementById('countryGhost');
-    if(cityInp&&cityGhost) setupInlineAC(cityInp,cityGhost,CITIES);
-    if(countryInp&&countryGhost) setupInlineAC(countryInp,countryGhost,COUNTRIES);
 
     // Custom age arrows
     const ageUp=document.getElementById('ageUp');
