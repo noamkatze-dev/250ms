@@ -1446,24 +1446,26 @@ async function runFullSequence(){
   const shuffled=shuffleArray(POLITICAL_IMAGES);
   document.getElementById('mainNav').style.display='none';
 
-  // Preload all images before starting
-  await Promise.all(shuffled.map(imgData=>new Promise(r=>{
-    const img=new Image(); img.onload=r; img.onerror=r; img.src=imgData.src;
-  })));
-
   // Setup session viewer
   const viewer=document.getElementById('sessionViewer');
   const skyVid=document.getElementById('sessionSkyVideo');
   const dotsCanvas=document.getElementById('sessionDotsCanvas');
   const dotsCtxS=dotsCanvas.getContext('2d');
 
-  // Preload sky video before showing viewer
+  // Preload images AND sky video in parallel
   skyVid.load();
-  await new Promise(r=>{
-    if(skyVid.readyState>=3){ r(); return; }
-    skyVid.addEventListener('canplay',r,{once:true});
-    setTimeout(r,800);
-  });
+  await Promise.all([
+    // preload all images
+    ...shuffled.map(imgData=>new Promise(r=>{
+      const img=new Image(); img.onload=r; img.onerror=r; img.src=imgData.src;
+    })),
+    // preload sky video
+    new Promise(r=>{
+      if(skyVid.readyState>=3){ r(); return; }
+      skyVid.addEventListener('canplay',r,{once:true});
+      setTimeout(r,800);
+    })
+  ]);
   skyVid.playbackRate=0.5;
   skyVid.play().catch(()=>{});
 
@@ -1604,6 +1606,9 @@ function showBriefing(){
   return new Promise(resolve=>{
     const scr=document.getElementById('briefingScreen');
     scr.style.display='flex';
+    // Preload images and sky video in background while user reads briefing
+    POLITICAL_IMAGES.forEach(imgData=>{ const img=new Image(); img.src=imgData.src; });
+    document.getElementById('sessionSkyVideo').load();
     document.getElementById('briefingStartBtn').onclick=()=>{
       scr.style.display='none';
       resolve();
