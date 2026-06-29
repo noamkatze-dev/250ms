@@ -19,7 +19,6 @@
   font-style: normal;
 }
 
-/* Haim Classic - digits only (0-9), selected by weight, size-adjusted to match surrounding text height */
 @font-face {
   font-family: 'HaimNum';
   src: url('haim-classic-light-fm.otf') format('opentype');
@@ -976,21 +975,17 @@ function applyGaze(ts){
   sGX+=(rawGX-sGX)*GAZE_LERP;
   sGY+=(rawGY-sGY)*GAZE_LERP;
   const W=window.innerWidth,H=window.innerHeight;
-  // gaze dot always positioned relative to full window
   gazeDot.style.left=(sGX*W)+'px';
   gazeDot.style.top=(sGY*H)+'px';
   window._gazeHistory.push({x:sGX,y:sGY,ts});
   if(window._gazeHistory.length>90)window._gazeHistory.shift();
 
-  // Drive sky video with eye position when home screen is visible
   if(homeScreen.style.display!=='none' && skyVideoReady){
     const skyV=document.getElementById('homeSkyVideo');
     if(skyV && skyV.duration && isFinite(skyV.duration)){
-      // double lerp: first smooth the eye X, then smooth the time
       skySmoothedX += (sGX - skySmoothedX) * SKY_LERP_X;
       skyTargetT = (1 - skySmoothedX) * skyV.duration;
       skyCurrentT += (skyTargetT - skyCurrentT) * SKY_LERP_T;
-      // only write to video every ~80ms to avoid jank
       const now = performance.now();
       if(now - lastSkyWrite > 80){
         skyV.currentTime = Math.max(0, Math.min(skyV.duration - 0.01, skyCurrentT));
@@ -1003,9 +998,9 @@ function applyGaze(ts){
 let skyVideoReady = false;
 let skyCurrentT = 0;
 let skyTargetT = 0;
-let skySmoothedX = 0.5; // extra-smoothed eye X just for sky
-const SKY_LERP_X = 0.015;  // very slow eye smoothing for sky
-const SKY_LERP_T = 0.06;   // time lerp per frame
+let skySmoothedX = 0.5;
+const SKY_LERP_X = 0.015;
+const SKY_LERP_T = 0.06;
 let lastSkyWrite = 0;
 
 function mainLoop(ts){applyGaze(ts);updateFixations(ts);updateSaccades(ts);updateHeatmap();updateFirstFix();drawFrame();requestAnimationFrame(mainLoop);}
@@ -1026,8 +1021,8 @@ function resizeCal(){
 function drawCalIntro(){const W=window.innerWidth,H=window.innerHeight;
   calCtx.clearRect(0,0,W,H);
   calCtx.textAlign='center';
-  const bodyY=H/2-60; // body text stays here
-  const titleY=H/2-200; // title and subtitle higher up
+  const bodyY=H/2-60;
+  const titleY=H/2-200;
   calCtx.fillStyle='rgba(255,0,0,0.6)';
   calCtx.font='700 11px HaimNum,HaimVariable';
   calCtx.fillText('מערכת ניתוח חזותי',W/2,titleY);
@@ -1128,7 +1123,7 @@ function enablePointerFallback(){
   document.addEventListener('touchmove',e=>{e.preventDefault();onMove(e.touches[0].clientX,e.touches[0].clientY);},{passive:false});
 }
 
-// ── Library helpers (kept for compatibility) ──────────────────────────
+// ── Library helpers ──────────────────────────────────────────────────
 function isImageViewed(i){return !!viewedImages[currentUser+'::'+i];}
 function markImageViewed(i){viewedImages[currentUser+'::'+i]=true;}
 function renderLib(){const grid=document.getElementById('libGrid');if(!grid)return;grid.innerHTML='';imageLibrary.forEach((img,i)=>{const viewed=isImageViewed(i);const card=document.createElement('div');card.className='lib-card'+(i===currentImageIdx&&!viewed?' selected':'')+(viewed?' viewed-once':'');card.innerHTML='<img src="'+img.src+'" alt="'+img.name+'"/><span class="lib-num">'+String(i+1).padStart(2,'0')+'</span>';if(!viewed){card.onclick=()=>{currentImageIdx=i;document.querySelectorAll('.lib-card').forEach(c=>c.classList.remove('selected'));card.classList.add('selected');updateBeginBtn();};}else{card.style.cursor='default';}grid.appendChild(card);});const add=document.createElement('div');add.className='lib-add';add.innerHTML='<span class="lib-add-plus">+</span><span class="lib-add-label">הוסף תמונה</span>';add.onclick=()=>document.getElementById('libFileInput').click();grid.appendChild(add);updateBeginBtn();}
@@ -1142,7 +1137,7 @@ function generateCode(){
   return code;
 }
 
-// ── Name/profile screen - shown AFTER image session ───────────────────
+// ── Name/profile screen ───────────────────────────────────────────────
 function showNameScreen(){
   return new Promise(resolve=>{
     const scr=document.getElementById('nameScreen');
@@ -1154,7 +1149,6 @@ function showNameScreen(){
     document.getElementById('mainNav').style.display='flex';
     scr.style.display='flex';
 
-    // reset any previous styling
     ageInp.style.borderColor='';
     genderInp.style.borderColor='';
 
@@ -1180,7 +1174,6 @@ function showNameScreen(){
   });
 }
 
-// pending sessions collected before name form
 let pendingSessions = [];
 
 function saveAllPendingSessions(){
@@ -1193,7 +1186,6 @@ function saveAllPendingSessions(){
     snap.age=currentAge; snap.gender=currentGender;
     saveProfile(snap);
   }
-  // also update allSessions with user info
   for(const s of allSessions){ s.age=currentAge; s.gender=currentGender; }
   pendingSessions=[];
 }
@@ -1260,7 +1252,6 @@ function playLayer(layer){
   ctx.clearRect(0,0,W,H);
   const rawSess=viewSession||{gazeLog,fixationHistory,saccadeHistory,scanPathHistory,firstFix,firstFixModeTs};
 
-  // Normalize gaze coords from window space → dataImgArea space
   const area=document.getElementById('dataImgArea');
   const rect=area.getBoundingClientRect();
   const wW=window.innerWidth, wH=window.innerHeight;
@@ -1433,7 +1424,6 @@ function runImageSession(imgData, imgIndex, totalImgs){
   });
 }
 
-// Dot positions for session viewer (5 images)
 const DOT_POSITIONS = [
   {x:0.20, y:0.35},
   {x:0.42, y:0.60},
@@ -1446,20 +1436,16 @@ async function runFullSequence(){
   const shuffled=shuffleArray(POLITICAL_IMAGES);
   document.getElementById('mainNav').style.display='none';
 
-  // Setup session viewer
   const viewer=document.getElementById('sessionViewer');
   const skyVid=document.getElementById('sessionSkyVideo');
   const dotsCanvas=document.getElementById('sessionDotsCanvas');
   const dotsCtxS=dotsCanvas.getContext('2d');
 
-  // Preload images AND sky video in parallel
   skyVid.load();
   await Promise.all([
-    // preload all images
     ...shuffled.map(imgData=>new Promise(r=>{
       const img=new Image(); img.onload=r; img.onerror=r; img.src=imgData.src;
     })),
-    // preload sky video
     new Promise(r=>{
       if(skyVid.readyState>=3){ r(); return; }
       skyVid.addEventListener('canplay',r,{once:true});
@@ -1472,7 +1458,6 @@ async function runFullSequence(){
   viewer.style.display='block';
   gazeDot.style.display='none';
 
-  // Resize canvas
   function resizeDots(){
     dotsCanvas.width=viewer.offsetWidth;
     dotsCanvas.height=viewer.offsetHeight;
@@ -1503,35 +1488,30 @@ async function runFullSequence(){
       const W=viewer.offsetWidth, H=viewer.offsetHeight;
       const cx=dotPos.x*W, cy=dotPos.y*H;
 
-      // Image covers full screen, transform-origin set to dot position
       const imgEl=document.createElement('img');
       imgEl.src=imgSrc;
-      const originX=(cx/W*100).toFixed(2)+'%';
-      const originY=(cy/H*100).toFixed(2)+'%';
+      const originX=(dotPos.x*100).toFixed(2)+'%';
+      const originY=(dotPos.y*100).toFixed(2)+'%';
       imgEl.style.cssText=`
         position:absolute;z-index:3;object-fit:cover;pointer-events:none;
         left:0;top:0;width:100%;height:100%;
         transform-origin:${originX} ${originY};
         transform:scale(0);
-        border-radius:50%;
       `;
       viewer.appendChild(imgEl);
 
       const EXPAND_MS=700;
       const COLLAPSE_MS=600;
       const startTime=performance.now();
-      gazeDot.style.display='block'; // show during image
+      gazeDot.style.display='block';
 
       function expandFrame(ts){
         const prog=Math.min(1,(ts-startTime)/EXPAND_MS);
         const ease=1-Math.pow(1-prog,3);
-        const borderR=Math.max(0,(1-ease)*50);
         imgEl.style.transform=`scale(${ease})`;
-        imgEl.style.borderRadius=borderR+'%';
         if(prog<1){ requestAnimationFrame(expandFrame); }
         else{
           imgEl.style.transform='scale(1)';
-          imgEl.style.borderRadius='0%';
           setTimeout(()=>{
             const colStart=performance.now();
             function collapseFrame(ts2){
@@ -1539,10 +1519,9 @@ async function runFullSequence(){
               const ease2=Math.pow(p,3);
               const scale=1-ease2;
               imgEl.style.transform=`scale(${scale})`;
-              imgEl.style.borderRadius='0';
               if(p<1){ requestAnimationFrame(collapseFrame); }
               else{
-                gazeDot.style.display='none'; // hide when image gone
+                gazeDot.style.display='none';
                 viewer.removeChild(imgEl);
                 resolveAnim();
               }
@@ -1555,14 +1534,12 @@ async function runFullSequence(){
     });
   }
 
-  // Pick random dot order
   const dotOrder=shuffleArray([...Array(TOTAL).keys()]);
 
   for(let i=0;i<shuffled.length;i++){
     const imgData=shuffled[i];
     const dotPos=DOT_POSITIONS[dotOrder[i]];
 
-    // Start gaze tracking
     mainImg.src=imgData.src;
     fixationHistory=[];currentFixation=null;scanPathHistory=[];saccadeHistory=[];
     saccadeActive=false;saccadeStart=null;gazeLog=[];firstFix=null;firstFixDone=false;
@@ -1606,7 +1583,6 @@ function showBriefing(){
   return new Promise(resolve=>{
     const scr=document.getElementById('briefingScreen');
     scr.style.display='flex';
-    // Preload images and sky video in background while user reads briefing
     POLITICAL_IMAGES.forEach(imgData=>{ const img=new Image(); img.src=imgData.src; });
     document.getElementById('sessionSkyVideo').load();
     document.getElementById('briefingStartBtn').onclick=()=>{
@@ -1621,59 +1597,46 @@ document.getElementById('homeStartBtn').addEventListener('click', async ()=>{
   homeScreen.style.display='none';
   document.getElementById('homeSkyVideo').style.display='none';
   document.getElementById('skyColorOverlay').style.display='none';
-  // Show briefing
   await showBriefing();
-  // Run image sessions
   await runFullSequence();
-  // Show name/age/gender form
   await showNameScreen();
   showAuthNav();
-  // Open gallery
   openGallery();
 });
 
-// ── BOOT - calibration happens immediately on page load ───────────────
+// ── BOOT ─────────────────────────────────────────────────────────────
 async function boot(){
-  // Show splash first
   const splash = document.getElementById('splashScreen');
   const splashText = document.getElementById('splashText');
-  // fade in text
   await new Promise(r=>setTimeout(r,100));
   splashText.style.opacity='1';
-  // hold for 1.8s then fade out whole splash
   await new Promise(r=>setTimeout(r,1900));
   splash.style.transition='opacity 0.7s ease';
   splash.style.opacity='0';
   await new Promise(r=>setTimeout(r,700));
   splash.style.display='none';
-  // Set up canvases
+
   dotCanvas.width=window.innerWidth; dotCanvas.height=window.innerHeight;
   window.addEventListener('resize',()=>{dotCanvas.width=window.innerWidth;dotCanvas.height=window.innerHeight;});
   heatCanvas=document.createElement('canvas');heatCanvas.width=W_HEAT;heatCanvas.height=H_HEAT;
   heatCtx2=heatCanvas.getContext('2d');
 
-  // Generate user code now (before session, consistent across all images)
   currentUser = generateCode();
 
-  // ① Show calibration screen immediately
   calOverlay.style.display='block';
   resizeCal();
   window.addEventListener('resize',resizeCal);
   drawCalIntro();
   calStartBtn.style.display='block';
 
-  // ② Load eye tracking in parallel while user reads instructions
   const eyePromise = startEyeTracking();
 
-  // ③ Wait for user to click "Start calibration"
   await new Promise(r=>calStartBtn.addEventListener('click',r,{once:true}));
   calStartBtn.style.display='none';
 
-  // ④ Wait for eye tracking to finish loading
   const ok = await eyePromise;
   if(!ok) enablePointerFallback();
 
-  // ⑤ Run calibration dots
   const calData=[];
   for(let i=0;i<CAL_PTS.length;i++){
     const[nx,ny]=CAL_PTS[i],px=nx*window.innerWidth,py=ny*window.innerHeight;
@@ -1687,14 +1650,11 @@ async function boot(){
   await new Promise(r=>setTimeout(r,900));
   calOverlay.style.display='none';
 
-  // ⑥ Start main gaze loop
   requestAnimationFrame(mainLoop);
 
-  // ⑦ Show home screen - sky video now controlled by eyes
   const skyV = document.getElementById('homeSkyVideo');
   skyV.style.display='block';
   skyV.pause();
-  // Wait for video to be ready
   if(skyV.readyState < 1){
     await new Promise(r=>{skyV.addEventListener('loadedmetadata',r,{once:true});skyV.load();});
   }
@@ -1787,7 +1747,6 @@ function showAuthNav(){
   window._MODES_REF = MODES;
 
   const gazeLog=[
-    // clusters around each fixation point
     {x:0.35,y:0.45},{x:0.34,y:0.46},{x:0.36,y:0.44},
     {x:0.52,y:0.22},{x:0.51,y:0.23},{x:0.53,y:0.21},
     {x:0.74,y:0.50},{x:0.73,y:0.51},{x:0.75,y:0.49},
@@ -1802,7 +1761,6 @@ function showAuthNav(){
     {x:0.36,y:0.68,duration:180},
     {x:0.61,y:0.78,duration:320}
   ];
-  // saccades connect exactly between fixation points
   const sacHist=[
     {fromX:0.35,fromY:0.45,toX:0.52,toY:0.22},
     {fromX:0.52,fromY:0.22,toX:0.74,toY:0.50},
@@ -2052,7 +2010,7 @@ function showAuthNav(){
   }
 
   function runFirstFix(){
-    const fix={x:fixHist[0].x,y:fixHist[0].y}; // exactly the first fixation point
+    const fix={x:fixHist[0].x,y:fixHist[0].y};
     let phase='flash',start=null;
     function draw(ts){
       if(stopFlag) return;
@@ -2151,9 +2109,6 @@ const dataToolbar=document.getElementById('dataToolbar');
 let toolbarCollapsed=false;
 const toolbarInnerEls=()=>Array.from(dataToolbar.children).filter(el=>el!==dataToolbarCollapseBtn);
 dataToolbarCollapseBtn.addEventListener('click',()=>{toolbarCollapsed=!toolbarCollapsed;toolbarInnerEls().forEach(el=>{el.style.display=toolbarCollapsed?'none':'';});const arrow=dataToolbarCollapseBtn.querySelector('.tcb-arrow');arrow.innerHTML=toolbarCollapsed?'&#9654;':'&#9660;';dataToolbarCollapseBtn.title=toolbarCollapsed?'Show toolbar':'Hide toolbar';dataToolbar.style.padding=toolbarCollapsed?'5px':'5px 10px';});
-
-// ── Statue video - pause at last frame ───────────────────────────────
-// statue video removed
 
 // ── RTL language ──────────────────────────────────────────────────────
 function applyLang(lang){
