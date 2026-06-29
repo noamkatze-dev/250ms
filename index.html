@@ -359,6 +359,15 @@ body{
 .ns-field input,.ns-field select{background:rgba(255,255,255,0.45);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,0.7);color:#FF0000;font-family:HaimNum,HaimVariable,Heebo,sans-serif;font-size:9px;letter-spacing:0.3em;padding:12px 16px;width:100%;caret-color:#111;transition:border-color 0.15s;-webkit-appearance:none;border-radius:6px;outline:none;}
 .ns-field input:focus,.ns-field select:focus{border-color:rgba(178,224,243,0.8);outline:none;}
 .ns-field input::placeholder{color:#FF0000;font-size:9px;letter-spacing:0.3em;}
+.ns-field input[type="number"]::-webkit-inner-spin-button,
+.ns-field input[type="number"]::-webkit-outer-spin-button{-webkit-appearance:none;margin:0;}
+.ns-field input[type="number"]{-moz-appearance:textfield;appearance:textfield;padding-right:28px;}
+.ns-field .num-wrap{position:relative;width:100%;}
+.ns-field .num-wrap input{width:100%;}
+.ns-field .num-arrows{position:absolute;left:8px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:1px;pointer-events:none;}
+.ns-field .num-arrows span{font-size:8px;color:#FF0000;line-height:1;cursor:pointer;pointer-events:all;user-select:none;opacity:0.7;transition:opacity 0.15s;}
+.ns-field .num-arrows span:hover{opacity:1;}
+.ns-field input[type="text"]::-webkit-calendar-picker-indicator{opacity:0;display:none;}
 .ns-field select{background:rgba(255,255,255,0.45) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23FF0000' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat right 14px center;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);}
 [dir="rtl"] .ns-field select{-webkit-appearance:none;appearance:none;background:rgba(255,255,255,0.45) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23FF0000' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat 14px center;padding-left:36px;padding-right:16px;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);}
 .ns-field input:-webkit-autofill,
@@ -696,7 +705,13 @@ label,
     <div class="ns-row">
       <div class="ns-field">
         <label for="ageInput">גיל</label>
-        <input id="ageInput" type="number" min="1" max="120" placeholder="-"/>
+        <div class="num-wrap">
+          <input id="ageInput" type="number" min="1" max="120" placeholder="-"/>
+          <div class="num-arrows">
+            <span id="ageUp">▲</span>
+            <span id="ageDown">▼</span>
+          </div>
+        </div>
       </div>
       <div class="ns-field">
         <label for="genderInput">מגדר</label>
@@ -711,11 +726,34 @@ label,
     <div class="ns-row">
       <div class="ns-field">
         <label for="cityInput">עיר</label>
-        <input id="cityInput" type="text" placeholder="תל אביב"/>
+        <input id="cityInput" type="text" placeholder="תל אביב" list="cityList" autocomplete="off"/>
+        <datalist id="cityList">
+          <option value="תל אביב"/><option value="ירושלים"/><option value="חיפה"/>
+          <option value="באר שבע"/><option value="ראשון לציון"/><option value="פתח תקווה"/>
+          <option value="אשדוד"/><option value="נתניה"/><option value="בני ברק"/>
+          <option value="רמת גן"/><option value="הרצליה"/><option value="רחובות"/>
+          <option value="Tel Aviv"/><option value="Jerusalem"/><option value="Haifa"/>
+          <option value="New York"/><option value="London"/><option value="Paris"/>
+          <option value="Berlin"/><option value="Amsterdam"/><option value="Los Angeles"/>
+          <option value="Chicago"/><option value="Toronto"/><option value="Sydney"/>
+          <option value="Dubai"/><option value="Hong Kong"/><option value="Tokyo"/>
+        </datalist>
       </div>
       <div class="ns-field">
         <label for="countryInput">מדינה</label>
-        <input id="countryInput" type="text" placeholder="ישראל"/>
+        <input id="countryInput" type="text" placeholder="ישראל" list="countryList" autocomplete="off"/>
+        <datalist id="countryList">
+          <option value="ישראל"/><option value="ארצות הברית"/><option value="בריטניה"/>
+          <option value="גרמניה"/><option value="צרפת"/><option value="הולנד"/>
+          <option value="אוסטרליה"/><option value="קנדה"/><option value="ספרד"/>
+          <option value="איטליה"/><option value="שוויץ"/><option value="שוודיה"/>
+          <option value="Israel"/><option value="United States"/><option value="United Kingdom"/>
+          <option value="Germany"/><option value="France"/><option value="Netherlands"/>
+          <option value="Australia"/><option value="Canada"/><option value="Spain"/>
+          <option value="Italy"/><option value="Switzerland"/><option value="Sweden"/>
+          <option value="Japan"/><option value="China"/><option value="India"/>
+          <option value="Brazil"/><option value="Argentina"/><option value="UAE"/>
+        </datalist>
       </div>
     </div>
     <button id="nameContinue" style="background:transparent;color:#FF0000;border:1.5px solid #FF0000;font-family:HaimNum,HaimVariable,Heebo,sans-serif;font-size:13px;font-weight:400;letter-spacing:0.22em;padding:14px 52px;cursor:pointer;transition:all 0.18s;border-radius:100px;margin-top:8px;">צפייה בנתונים</button>
@@ -1152,6 +1190,13 @@ function showNameScreen(){
     ageInp.style.borderColor='';
     genderInp.style.borderColor='';
 
+    // Custom age arrows
+    const ageUp=document.getElementById('ageUp');
+    const ageDown=document.getElementById('ageDown');
+    if(ageUp&&ageDown){
+      ageUp.addEventListener('click',()=>{const v=parseInt(ageInp.value)||0;if(v<120)ageInp.value=v+1;});
+      ageDown.addEventListener('click',()=>{const v=parseInt(ageInp.value)||0;if(v>1)ageInp.value=v-1;});
+    }
     btn.onclick=()=>{
       const age=ageInp.value.trim();
       const gender=genderInp.value;
