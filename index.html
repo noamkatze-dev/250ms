@@ -434,6 +434,11 @@ body{
 #dataToolbarCollapseBtn{width:22px;height:22px;padding:0;cursor:pointer;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:100px;color:rgba(255,255,255,0.7);flex-shrink:0;transition:color 0.15s,background 0.15s;}
 #dataToolbarCollapseBtn:hover{color:#FF0000;background:rgba(255,255,255,0.18);}
 #dataToolbarCollapseBtn .tcb-arrow{font-size:10px;font-weight:900;line-height:1;}
+#dataImgNav{position:absolute;inset:0;pointer-events:none;z-index:9;display:flex;align-items:center;justify-content:space-between;padding:0 16px;}
+.img-nav-btn{width:40px;height:40px;border-radius:50%;border:1.5px solid rgba(255,0,0,0.6);background:rgba(200,232,245,0.45);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);color:#FF0000;font-size:20px;cursor:pointer;pointer-events:all;display:flex;align-items:center;justify-content:center;transition:all 0.15s;user-select:none;line-height:1;}
+.img-nav-btn:hover{background:rgba(255,0,0,0.12);border-color:#FF0000;transform:scale(1.08);}
+.img-nav-btn:disabled{opacity:0.25;cursor:default;transform:none;}
+#dataImgCounter{position:absolute;bottom:80px;left:50%;transform:translateX(-50%);font-size:8px;font-weight:700;letter-spacing:0.35em;color:#FF0000;background:rgba(200,232,245,0.5);backdrop-filter:blur(8px);padding:4px 12px;border-radius:100px;border:1px solid rgba(255,255,255,0.5);z-index:9;pointer-events:none;}
 
 #homeScreen .hi-label,#homeScreen .hi-title,#homeScreen .hi-sub,
 #homeScreen .step-num,#homeScreen .step-title,#homeScreen .step-desc,
@@ -627,6 +632,11 @@ label,
         <img id="dataImg" src="" alt=""/>
         <canvas id="dataCanvas"></canvas>
 
+        <div id="dataImgNav">
+          <button class="img-nav-btn" id="imgPrevBtn">›</button>
+          <button class="img-nav-btn" id="imgNextBtn">‹</button>
+        </div>
+        <div id="dataImgCounter"></div>
         <div id="dataToolbar">
             <button class="view-tab active" id="sessionViewBtn">נתונים</button>
             <button class="view-tab" id="compareViewBtn">השוואה</button>
@@ -651,7 +661,7 @@ label,
             <button id="dataToolbarCollapseBtn" title="Hide toolbar"><span class="tcb-arrow">&#9660;</span></button>
           </div>
 
-        <div id="dataSessionBadge">
+        <div id="dataSessionBadge" style="display:none !important;">
           <div class="dsb-header" id="dsbHeader">
             <span class="dsb-header-label">מידע על הסשן</span>
             <span class="dsb-toggle" id="dsbToggle">&#9650;</span>
@@ -666,7 +676,7 @@ label,
           </div>
         </div>
 
-        <div id="dataAnalysisBadge">
+        <div id="dataAnalysisBadge" style="display:none !important;">
           <div class="dab-header" id="dabHeader">
             <span class="dab-header-label" id="dabHeaderLabel">ניתוח</span>
             <span class="dab-toggle" id="dabToggle">&#9650;</span>
@@ -1368,6 +1378,42 @@ function getFilteredSessions(){const user=document.getElementById('cf-user').val
 
 function renderCompareView(){populateCompareFilters();const grid=document.getElementById('compareGrid');grid.innerHTML='';const layer=document.getElementById('cf-layer').value||dataActiveLayer||'GAZE';const filteredSessions=getFilteredSessions();if(allSessions.length===0){grid.innerHTML='<div style="color:#FF0000;font-size:11px;letter-spacing:0.2em;text-align:center;padding:40px 0;grid-column:1/-1;">אין סשנים להשוואה עדיין</div>';return;}for(const sess of filteredSessions){const cell=document.createElement('div');cell.className='compare-panel';const ts=new Date(sess.timestamp).toLocaleTimeString();const dur=sess.sessionDuration?(sess.sessionDuration/1000).toFixed(1)+'s':'--';cell.innerHTML='<div class="compare-panel-header"><div><div class="cp-user">'+sess.user+'</div><div class="cp-meta">'+(sess.age?sess.age+' yrs':'')+((sess.age&&sess.gender)?' . ':'')+( sess.gender||'')+(sess.location?' . '+sess.location:'')+'</div></div><div style="text-align:right"><div class="cp-time">'+sess.imageName+'</div><div class="cp-time">'+ts+' . '+dur+'</div></div></div><div class="compare-canvas-wrap"><img class="cp-img" src="'+sess.imageSrc+'"><canvas class="cp-canvas"></canvas></div><div class="cp-stats">'+sess.fixationHistory.length+' fix . '+sess.saccadeHistory.length+' sac . '+sess.gazeLog.length+' samples</div>';grid.appendChild(cell);const wrap=cell.querySelector('.compare-canvas-wrap'),canvas=cell.querySelector('.cp-canvas');setTimeout(()=>{canvas.width=wrap.offsetWidth;canvas.height=wrap.offsetHeight;const ctx=canvas.getContext('2d');const W=canvas.width,H=canvas.height;const RC='255,0,0';switch(layer){case 'GAZE':staticGaze(ctx,W,H,sess.gazeLog,RC);break;case 'FIXATION':staticFixation(ctx,W,H,sess.fixationHistory,RC);break;case 'SACCADE':staticSaccade(ctx,W,H,sess.saccadeHistory,RC);break;case 'SCANPATH':staticScanPath(ctx,W,H,sess.scanPathHistory,RC);break;case 'HEATMAP':staticHeatmap(ctx,W,H,sess.gazeLog,RC);break;case 'FIRSTFIX':staticFirstFix(ctx,W,H,sess.firstFix,sess.firstFixModeTs,RC);break;}},60);}}
 
+// ── Image navigation arrows ──────────────────────────────────────────
+function updateImgNav(){
+  const prevBtn=document.getElementById('imgPrevBtn');
+  const nextBtn=document.getElementById('imgNextBtn');
+  const counter=document.getElementById('dataImgCounter');
+  if(!prevBtn||!nextBtn||!allSessions.length) return;
+  const idx=allSessions.indexOf(viewSession);
+  prevBtn.disabled = idx >= allSessions.length-1;
+  nextBtn.disabled = idx <= 0;
+  counter.textContent=(allSessions.length-idx)+' / '+allSessions.length;
+}
+
+document.getElementById('imgPrevBtn').addEventListener('click',()=>{
+  const idx=allSessions.indexOf(viewSession);
+  if(idx < allSessions.length-1){
+    viewSession=allSessions[idx+1];
+    document.getElementById('dataImg').src=viewSession.imageSrc;
+    document.getElementById('dataImg').style.opacity=showImg?'1':'0';
+    renderDataSessionBadge(viewSession);
+    playLayer(dataActiveLayer||'GAZE');
+    updateImgNav();
+  }
+});
+
+document.getElementById('imgNextBtn').addEventListener('click',()=>{
+  const idx=allSessions.indexOf(viewSession);
+  if(idx > 0){
+    viewSession=allSessions[idx-1];
+    document.getElementById('dataImg').src=viewSession.imageSrc;
+    document.getElementById('dataImg').style.opacity=showImg?'1':'0';
+    renderDataSessionBadge(viewSession);
+    playLayer(dataActiveLayer||'GAZE');
+    updateImgNav();
+  }
+});
+
 document.getElementById('cf-apply').addEventListener('click',renderCompareView);
 document.getElementById('cf-layer').addEventListener('change',renderCompareView);
 
@@ -1451,7 +1497,7 @@ async function saveProfile(session) {
   } catch (e) { console.warn('[profile:save]', e); }
 }
 
-function openData(pushNew=true){if(pushNew){const snap=captureSession();allSessions.push(snap);viewSession=snap;}const dataScreen=document.getElementById('dataScreen');const dataBody=document.getElementById('dataBody');const compareView=document.getElementById('compareView');dataScreen.style.display='flex';dataBody.style.display='flex';compareView.style.display='none';showSharedBg();setNavTheme('dark');document.getElementById('sessionViewBtn').classList.add('active');document.getElementById('compareViewBtn').classList.remove('active');document.getElementById('galleryScreen').style.display='none';document.getElementById('dataImg').src=viewSession.imageSrc;document.getElementById('dataImg').style.opacity=showImg?'1':'0';renderDataSessionBadge(viewSession);const activeBtn=document.querySelector('.layer-btn.active');const layer=activeBtn?activeBtn.dataset.layer:'GAZE';dataActiveLayer=layer;playLayer(layer);}
+function openData(pushNew=true){if(pushNew){const snap=captureSession();allSessions.push(snap);viewSession=snap;}const dataScreen=document.getElementById('dataScreen');const dataBody=document.getElementById('dataBody');const compareView=document.getElementById('compareView');dataScreen.style.display='flex';dataBody.style.display='flex';compareView.style.display='none';showSharedBg();setNavTheme('dark');document.getElementById('sessionViewBtn').classList.add('active');document.getElementById('compareViewBtn').classList.remove('active');document.getElementById('galleryScreen').style.display='none';document.getElementById('dataImg').src=viewSession.imageSrc;document.getElementById('dataImg').style.opacity=showImg?'1':'0';renderDataSessionBadge(viewSession);const activeBtn=document.querySelector('.layer-btn.active');const layer=activeBtn?activeBtn.dataset.layer:'GAZE';dataActiveLayer=layer;playLayer(layer);setTimeout(updateImgNav,50);}
 
 function captureSession(){return{user:currentUser||'Unknown',age:currentAge,gender:currentGender,location:userLocation,imageSrc:mainImg.src,imageName:imageLibrary[currentImageIdx]?.name||'image',timestamp:Date.now(),sessionDuration:sessionStartTs?Date.now()-sessionStartTs:0,gazeLog:gazeLog.slice(),fixationHistory:fixationHistory.slice(),saccadeHistory:saccadeHistory.slice(),scanPathHistory:scanPathHistory.slice(),firstFix,firstFixModeTs,sessionStartTs};}
 
