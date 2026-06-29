@@ -1800,8 +1800,7 @@ navCompareLink.addEventListener('click',()=>{
     dataScreen.style.display='flex';
     dataBody.style.display='none';
     compareView.style.display='flex';
-    document.getElementById('compareViewBtn').classList.add('active');
-    document.getElementById('sessionViewBtn').classList.remove('active');
+
     renderCompareView();
   }
 });
@@ -1831,28 +1830,8 @@ navDashboardLink.addEventListener('click',()=>openDashboard());
 navProfileLink.addEventListener('click',()=>openProfile());
 navAboutLink.addEventListener('click',()=>openAbout());
 
-document.getElementById('sessionViewBtn').addEventListener('click',()=>{
-  document.getElementById('sessionViewBtn').classList.add('active');
-  document.getElementById('compareViewBtn').classList.remove('active');
-  document.getElementById('dataBody').style.display='flex';
-  document.getElementById('compareView').style.display='none';
-  navSessionLink.classList.add('active');
-  document.getElementById('navCompareLink').classList.remove('active');
-  setTimeout(()=>{
-    const dc=document.getElementById('dataCanvas'),area=document.getElementById('dataImgArea');
-    dc.width=area.offsetWidth;dc.height=area.offsetHeight;
-    playLayer(dataActiveLayer);
-  },50);
-});
-document.getElementById('compareViewBtn').addEventListener('click',()=>{
-  document.getElementById('compareViewBtn').classList.add('active');
-  document.getElementById('sessionViewBtn').classList.remove('active');
-  document.getElementById('dataBody').style.display='none';
-  document.getElementById('compareView').style.display='flex';
-  document.getElementById('navCompareLink').classList.add('active');
-  navSessionLink.classList.remove('active');
-  renderCompareView();
-});
+// sessionViewBtn removed from DOM — handled via navSessionLink
+// compareViewBtn removed from DOM — handled via navCompareLink
 document.getElementById('animatedBtn').addEventListener('click',()=>{playMode='ANIMATED';document.getElementById('animatedBtn').classList.add('active');document.getElementById('staticBtn').classList.remove('active');playLayer(dataActiveLayer);});
 document.getElementById('staticBtn').addEventListener('click',()=>{playMode='STATIC';document.getElementById('staticBtn').classList.add('active');document.getElementById('animatedBtn').classList.remove('active');playLayer(dataActiveLayer);});
 document.getElementById('withImgBtn').addEventListener('click',()=>{showImg=true;document.getElementById('withImgBtn').classList.add('active');document.getElementById('withoutImgBtn').classList.remove('active');document.getElementById('dataImg').style.opacity='1';});
