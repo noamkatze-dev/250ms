@@ -1488,7 +1488,33 @@ async function saveProfile(session) {
   } catch (e) { console.warn('[profile:save]', e); }
 }
 
-function openData(pushNew=true){if(pushNew){const snap=captureSession();allSessions.push(snap);viewSession=snap;}const dataScreen=document.getElementById('dataScreen');const dataBody=document.getElementById('dataBody');const compareView=document.getElementById('compareView');dataScreen.style.display='flex';dataBody.style.display='flex';compareView.style.display='none';showSharedBg();setNavTheme('dark');document.getElementById('sessionViewBtn').classList.add('active');document.getElementById('compareViewBtn').classList.remove('active');document.getElementById('galleryScreen').style.display='none';document.getElementById('dataImg').src=viewSession.imageSrc;document.getElementById('dataImg').style.opacity=showImg?'1':'0';renderDataSessionBadge(viewSession);const activeBtn=document.querySelector('.layer-btn.active');const layer=activeBtn?activeBtn.dataset.layer:'GAZE';dataActiveLayer=layer;playLayer(layer);setTimeout(updateImgNav,50);}
+function openData(pushNew=true){
+  if(pushNew){const snap=captureSession();allSessions.push(snap);viewSession=snap;}
+  const dataScreen=document.getElementById('dataScreen');
+  const dataBody=document.getElementById('dataBody');
+  const compareView=document.getElementById('compareView');
+  dataScreen.style.display='flex';
+  dataBody.style.display='flex';
+  compareView.style.display='none';
+  showSharedBg();
+  setNavTheme('dark');
+  navSessionLink.classList.add('active');
+  document.getElementById('navCompareLink').classList.remove('active');
+  const dataImg=document.getElementById('dataImg');
+  dataImg.src=viewSession.imageSrc;
+  dataImg.style.opacity=showImg?'1':'0';
+  renderDataSessionBadge(viewSession);
+  const activeBtn=document.querySelector('.layer-btn.active');
+  const layer=activeBtn?activeBtn.dataset.layer:'GAZE';
+  dataActiveLayer=layer;
+  // wait for image to load before drawing
+  if(dataImg.complete){
+    playLayer(layer);
+    setTimeout(updateImgNav,50);
+  } else {
+    dataImg.onload=()=>{ playLayer(layer); setTimeout(updateImgNav,50); };
+  }
+}
 
 function captureSession(){return{user:currentUser||'Unknown',age:currentAge,gender:currentGender,location:userLocation,imageSrc:mainImg.src,imageName:imageLibrary[currentImageIdx]?.name||'image',timestamp:Date.now(),sessionDuration:sessionStartTs?Date.now()-sessionStartTs:0,gazeLog:gazeLog.slice(),fixationHistory:fixationHistory.slice(),saccadeHistory:saccadeHistory.slice(),scanPathHistory:scanPathHistory.slice(),firstFix,firstFixModeTs,sessionStartTs};}
 
