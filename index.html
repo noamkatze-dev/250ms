@@ -1275,19 +1275,8 @@ function playLayer(layer){
   ctx.clearRect(0,0,W,H);
   const rawSess=viewSession||{gazeLog,fixationHistory,saccadeHistory,scanPathHistory,firstFix,firstFixModeTs};
 
-  const area=document.getElementById('dataImgArea');
-  const rect=area.getBoundingClientRect();
-  const wW=window.innerWidth, wH=window.innerHeight;
-  const offX=rect.left/wW, offY=rect.top/wH;
-  const scaleX=rect.width/wW, scaleY=rect.height/wH;
-  function normLog(log){
-    if(!log||!log.length)return log;
-    return log.map(p=>({...p,
-      x:Math.max(0,Math.min(1,(p.x-offX)/scaleX)),
-      y:Math.max(0,Math.min(1,(p.y-offY)/scaleY))
-    }));
-  }
-  const sess={...rawSess, gazeLog:normLog(rawSess.gazeLog)};
+  // gazeLog coords are already 0-1 of full window; use them directly on the canvas
+  const sess={...rawSess};
 
   renderAnalysisBadge(layer,rawSess);
   if(playMode==='STATIC'){switch(layer){
