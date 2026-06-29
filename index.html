@@ -1441,6 +1441,13 @@ async function runFullSequence(){
   const dotsCanvas=document.getElementById('sessionDotsCanvas');
   const dotsCtxS=dotsCanvas.getContext('2d');
 
+  // הצג את ה-viewer מיד — הסקיי יופיע אפילו לפני שהתמונות טעונות
+  viewer.style.display='block';
+  gazeDot.style.display='none';
+  skyVid.playbackRate=0.5;
+  skyVid.play().catch(()=>{});
+
+  // טען תמונות ברקע — אם הן כבר מוכנות, ה-await יחזור מיד
   skyVid.load();
   await Promise.all([
     ...shuffled.map(imgData=>new Promise(r=>{
@@ -1452,11 +1459,6 @@ async function runFullSequence(){
       setTimeout(r,800);
     })
   ]);
-  skyVid.playbackRate=0.5;
-  skyVid.play().catch(()=>{});
-
-  viewer.style.display='block';
-  gazeDot.style.display='none';
 
   function resizeDots(){
     dotsCanvas.width=viewer.offsetWidth;
