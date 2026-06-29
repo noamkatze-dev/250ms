@@ -520,10 +520,11 @@ label,
   </div>
   <div id="navLinks">
     <span class="nav-link nav-authenticated" id="navSessionLink" style="display:none;">נתונים</span>
-    <span class="nav-link nav-authenticated" id="navGalleryLink" style="display:none;">גלריה</span>
-    <span class="nav-link nav-authenticated" id="navDashboardLink" style="display:none;">לוח בקרה</span>
-    <span class="nav-link nav-authenticated" id="navProfileLink" style="display:none;">פרופיל</span>
+    <span class="nav-link nav-authenticated" id="navCompareLink" style="display:none;">השוואה</span>
     <span class="nav-link" id="navAboutLink">אודות</span>
+    <span class="nav-link nav-authenticated" id="navGalleryLink" style="display:none;"></span>
+    <span class="nav-link nav-authenticated" id="navDashboardLink" style="display:none;"></span>
+    <span class="nav-link nav-authenticated" id="navProfileLink" style="display:none;"></span>
     <span class="nav-login" id="navSignupBtn" style="display:none;">הרשמה</span>
   </div>
 </nav>
@@ -1681,7 +1682,9 @@ document.getElementById('homeStartBtn').addEventListener('click', async ()=>{
   await runFullSequence();
   await showNameScreen();
   showAuthNav();
-  openGallery();
+  // open data screen on the last session
+  viewSession=allSessions[allSessions.length-1];
+  openData(false);
 });
 
 // ── BOOT ─────────────────────────────────────────────────────────────
@@ -1749,14 +1752,39 @@ async function boot(){
 }
 
 // ── Nav links ─────────────────────────────────────────────────────────
+navCompareLink.addEventListener('click',()=>{
+  if(allSessions.length>0){
+    hideAllScreens();
+    showSharedBg();
+    navCompareLink.classList.add('active');
+    const dataScreen=document.getElementById('dataScreen');
+    const dataBody=document.getElementById('dataBody');
+    const compareView=document.getElementById('compareView');
+    dataScreen.style.display='flex';
+    dataBody.style.display='none';
+    compareView.style.display='flex';
+    document.getElementById('compareViewBtn').classList.add('active');
+    document.getElementById('sessionViewBtn').classList.remove('active');
+    renderCompareView();
+  }
+});
 navSessionLink.addEventListener('click',()=>{
   if(allSessions.length>0){
     hideAllScreens();
     showSharedBg();
     navSessionLink.classList.add('active');
-    document.getElementById('dataScreen').style.display='flex';
+    document.getElementById('navCompareLink').classList.remove('active');
+    const dataScreen=document.getElementById('dataScreen');
+    const dataBody=document.getElementById('dataBody');
+    const compareView=document.getElementById('compareView');
+    dataScreen.style.display='flex';
+    dataBody.style.display='flex';
+    compareView.style.display='none';
+    document.getElementById('sessionViewBtn').classList.add('active');
+    document.getElementById('compareViewBtn').classList.remove('active');
     viewSession=allSessions[allSessions.length-1];
     document.getElementById('dataImg').src=viewSession.imageSrc;
+    document.getElementById('dataImg').style.opacity=showImg?'1':'0';
     renderDataSessionBadge(viewSession);
     playLayer(dataActiveLayer||'GAZE');
   }
@@ -1771,6 +1799,8 @@ document.getElementById('sessionViewBtn').addEventListener('click',()=>{
   document.getElementById('compareViewBtn').classList.remove('active');
   document.getElementById('dataBody').style.display='flex';
   document.getElementById('compareView').style.display='none';
+  navSessionLink.classList.add('active');
+  document.getElementById('navCompareLink').classList.remove('active');
   setTimeout(()=>{
     const dc=document.getElementById('dataCanvas'),area=document.getElementById('dataImgArea');
     dc.width=area.offsetWidth;dc.height=area.offsetHeight;
@@ -1782,6 +1812,8 @@ document.getElementById('compareViewBtn').addEventListener('click',()=>{
   document.getElementById('sessionViewBtn').classList.remove('active');
   document.getElementById('dataBody').style.display='none';
   document.getElementById('compareView').style.display='flex';
+  document.getElementById('navCompareLink').classList.add('active');
+  navSessionLink.classList.remove('active');
   renderCompareView();
 });
 document.getElementById('animatedBtn').addEventListener('click',()=>{playMode='ANIMATED';document.getElementById('animatedBtn').classList.add('active');document.getElementById('staticBtn').classList.remove('active');playLayer(dataActiveLayer);});
@@ -1806,11 +1838,14 @@ function hideAllScreens(){
   document.getElementById('nameScreen').style.display='none';
   document.getElementById('briefingScreen').style.display='none';
   document.querySelectorAll('.empty-state-overlay').forEach(el=>el.remove());
-  [navSessionLink,navGalleryLink,navDashboardLink,navProfileLink,navAboutLink,navHomeLink].forEach(l=>l.classList.remove('active'));
+  [navSessionLink,navGalleryLink,navDashboardLink,navProfileLink,navAboutLink,navHomeLink,document.getElementById('navCompareLink')].filter(Boolean).forEach(l=>l.classList.remove('active'));
 }
 
 function showAuthNav(){
   document.querySelectorAll('.nav-authenticated').forEach(el=>el.style.display='');
+  // hide the empty placeholder links
+  const hide=['navGalleryLink','navDashboardLink','navProfileLink'];
+  hide.forEach(id=>{ const el=document.getElementById(id); if(el) el.style.display='none'; });
 }
 
 // ── About screen mode carousel ────────────────────────────────────────
