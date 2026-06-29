@@ -361,6 +361,32 @@ body{
 .ns-field input::placeholder{color:rgba(255,0,0,0.5);font-size:9px;letter-spacing:0.3em;}
 .ns-field select option{background:#fff;color:#FF0000;}
 .ns-field select option:hover,.ns-field select option:focus,.ns-field select option:checked{background:#FF0000 !important;color:#fff !important;}
+.custom-select-wrap{position:relative;width:100%;}
+.custom-select-trigger{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:12px 16px;border:1px solid rgba(255,255,255,0.7);border-radius:6px;
+  background:transparent;color:#FF0000;cursor:pointer;
+  font-family:HaimNum,HaimVariable,Heebo,sans-serif;font-size:9px;letter-spacing:0.3em;
+  transition:border-color 0.15s;user-select:none;
+}
+.custom-select-trigger:hover{border-color:rgba(178,224,243,0.8);}
+.custom-select-trigger.open{border-color:rgba(178,224,243,0.8);}
+.custom-select-arrow{font-size:8px;color:#FF0000;transition:transform 0.2s;}
+.custom-select-trigger.open .custom-select-arrow{transform:rotate(180deg);}
+.custom-select-dropdown{
+  display:none;position:absolute;top:calc(100% + 4px);left:0;right:0;
+  background:rgba(200,232,245,0.95);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  border:1px solid rgba(255,255,255,0.7);border-radius:6px;overflow:hidden;
+  z-index:9999;
+}
+.custom-select-dropdown.open{display:block;}
+.custom-select-option{
+  padding:12px 16px;color:#FF0000;cursor:pointer;
+  font-family:HaimNum,HaimVariable,Heebo,sans-serif;font-size:9px;letter-spacing:0.3em;
+  transition:background 0.12s,color 0.12s;
+}
+.custom-select-option:hover{background:#FF0000;color:#fff;}
+.custom-select-option.selected{background:rgba(255,0,0,0.12);}
 
 .ns-field .num-wrap{position:relative;width:100%;}
 .ns-field .num-wrap input{width:100%;}
@@ -715,12 +741,18 @@ label,
       </div>
       <div class="ns-field">
         <label for="genderInput">מגדר</label>
-        <select id="genderInput">
-          <option value="" disabled selected id="genderSelectDefault">בחר</option>
-          <option value="Male">זכר</option>
-          <option value="Female">נקבה</option>
-          <option value="Other">אחר</option>
-        </select>
+        <div class="custom-select-wrap" id="genderWrap">
+          <div class="custom-select-trigger" id="genderTrigger">
+            <span id="genderLabel">-</span>
+            <span class="custom-select-arrow">▼</span>
+          </div>
+          <div class="custom-select-dropdown" id="genderDropdown">
+            <div class="custom-select-option" data-value="Male">זכר</div>
+            <div class="custom-select-option" data-value="Female">נקבה</div>
+            <div class="custom-select-option" data-value="Other">אחר</div>
+          </div>
+        </div>
+        <input type="hidden" id="genderInput" value=""/>
       </div>
     </div>
     <div class="ns-row">
@@ -1167,6 +1199,40 @@ function showNameScreen(){
     ageInp.style.borderColor='';
     genderInp.style.borderColor='';
 
+    // Custom gender dropdown
+    (function(){
+      const wrap=document.getElementById('genderWrap');
+      const trigger=document.getElementById('genderTrigger');
+      const dropdown=document.getElementById('genderDropdown');
+      const labelEl=document.getElementById('genderLabel');
+      const hiddenInput=document.getElementById('genderInput');
+      if(!wrap||!trigger||!dropdown) return;
+      trigger.addEventListener('click',(e)=>{
+        e.stopPropagation();
+        const isOpen=dropdown.classList.contains('open');
+        dropdown.classList.toggle('open',!isOpen);
+        trigger.classList.toggle('open',!isOpen);
+      });
+      dropdown.querySelectorAll('.custom-select-option').forEach(opt=>{
+        opt.addEventListener('click',()=>{
+          const val=opt.dataset.value;
+          const text=opt.textContent;
+          hiddenInput.value=val;
+          labelEl.textContent=text;
+          dropdown.querySelectorAll('.custom-select-option').forEach(o=>o.classList.remove('selected'));
+          opt.classList.add('selected');
+          dropdown.classList.remove('open');
+          trigger.classList.remove('open');
+          hiddenInput.style.borderColor='';
+          trigger.style.borderColor='';
+        });
+      });
+      document.addEventListener('click',()=>{
+        dropdown.classList.remove('open');
+        trigger.classList.remove('open');
+      });
+    })();
+
     // Custom age arrows
     const ageUp=document.getElementById('ageUp');
     const ageDown=document.getElementById('ageDown');
@@ -1184,8 +1250,8 @@ function showNameScreen(){
       let valid=true;
       if(!age){ ageInp.style.borderColor='#FF0000'; valid=false; }
       else { ageInp.style.borderColor=''; }
-      if(!gender){ genderInp.style.borderColor='#FF0000'; valid=false; }
-      else { genderInp.style.borderColor=''; }
+      if(!gender){ document.getElementById('genderTrigger').style.borderColor='#FF0000'; valid=false; }
+      else { document.getElementById('genderTrigger').style.borderColor=''; }
       if(!valid) return;
       currentAge=age;
       currentGender=gender;
