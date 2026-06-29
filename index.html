@@ -633,8 +633,8 @@ label,
         <canvas id="dataCanvas"></canvas>
 
         <div id="dataImgNav">
-          <button class="img-nav-btn" id="imgPrevBtn">›</button>
-          <button class="img-nav-btn" id="imgNextBtn">‹</button>
+          <button class="img-nav-btn" id="imgPrevBtn">‹</button>
+          <button class="img-nav-btn" id="imgNextBtn">›</button>
         </div>
         <div id="dataImgCounter"></div>
         <div id="dataToolbar">
@@ -1380,38 +1380,31 @@ function renderCompareView(){populateCompareFilters();const grid=document.getEle
 
 // ── Image navigation arrows ──────────────────────────────────────────
 function updateImgNav(){
-  const prevBtn=document.getElementById('imgPrevBtn');
-  const nextBtn=document.getElementById('imgNextBtn');
   const counter=document.getElementById('dataImgCounter');
-  if(!prevBtn||!nextBtn||!allSessions.length) return;
+  if(!counter||!allSessions.length) return;
   const idx=allSessions.indexOf(viewSession);
-  prevBtn.disabled = idx >= allSessions.length-1;
-  nextBtn.disabled = idx <= 0;
-  counter.textContent=(allSessions.length-idx)+' / '+allSessions.length;
+  counter.textContent=(idx+1)+' / '+allSessions.length;
+}
+
+function navigateToSession(sess){
+  viewSession=sess;
+  document.getElementById('dataImg').src=viewSession.imageSrc;
+  document.getElementById('dataImg').style.opacity=showImg?'1':'0';
+  renderDataSessionBadge(viewSession);
+  playLayer(dataActiveLayer||'GAZE');
+  updateImgNav();
 }
 
 document.getElementById('imgPrevBtn').addEventListener('click',()=>{
   const idx=allSessions.indexOf(viewSession);
-  if(idx < allSessions.length-1){
-    viewSession=allSessions[idx+1];
-    document.getElementById('dataImg').src=viewSession.imageSrc;
-    document.getElementById('dataImg').style.opacity=showImg?'1':'0';
-    renderDataSessionBadge(viewSession);
-    playLayer(dataActiveLayer||'GAZE');
-    updateImgNav();
-  }
+  const newIdx=(idx-1+allSessions.length)%allSessions.length;
+  navigateToSession(allSessions[newIdx]);
 });
 
 document.getElementById('imgNextBtn').addEventListener('click',()=>{
   const idx=allSessions.indexOf(viewSession);
-  if(idx > 0){
-    viewSession=allSessions[idx-1];
-    document.getElementById('dataImg').src=viewSession.imageSrc;
-    document.getElementById('dataImg').style.opacity=showImg?'1':'0';
-    renderDataSessionBadge(viewSession);
-    playLayer(dataActiveLayer||'GAZE');
-    updateImgNav();
-  }
+  const newIdx=(idx+1)%allSessions.length;
+  navigateToSession(allSessions[newIdx]);
 });
 
 document.getElementById('cf-apply').addEventListener('click',renderCompareView);
