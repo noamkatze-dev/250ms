@@ -1295,11 +1295,7 @@ function renderDataSessionBadge(sess){const dur=sess.sessionDuration?(sess.sessi
 
 const ANALYSIS_LAYERS=['FIXATION','SACCADE','SCANPATH','HEATMAP','FIRSTFIX'];
 function renderAnalysisBadge(layer,sess){
-  const badge=document.getElementById('dataAnalysisBadge');
-  const content=document.getElementById('dabContent');
-  const headerLabel=document.getElementById('dabHeaderLabel');
-  if(!ANALYSIS_LAYERS.includes(layer)){badge.style.display='none';return;}
-  badge.style.display='flex';content.innerHTML='';
+  return; // badges removed by user request
   const fh=sess.fixationHistory||[],sh=sess.saccadeHistory||[],sp=sess.scanPathHistory||[],ff=sess.firstFix,ft=sess.firstFixModeTs||0;
   function row(label,val,unit){const d=document.createElement('div');d.className='dab-row';d.innerHTML='<span class="dab-name">'+label+'</span><span><span class="dab-val">'+val+'</span>'+(unit?'<span class="dab-unit">'+unit+'</span>':'')+'</span>';return d;}
   if(layer==='FIXATION'){headerLabel.textContent='קיבוע';const fixC=fh.length,fixAvg=fixC?Math.round(fh.reduce((s,f)=>s+f.duration,0)/fixC):0,fixTotal=fh.reduce((s,f)=>s+f.duration,0);content.appendChild(row('ספירה',fixC||'--'));content.appendChild(row('משך ממוצע',fixAvg||'--','ms'));content.appendChild(row('סה"כ שהייה',fixTotal||'--','ms'));}
