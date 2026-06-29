@@ -143,19 +143,19 @@ body{
 }
 .briefing-inner{
   max-width:520px;width:90vw;display:flex;flex-direction:column;align-items:center;text-align:center;
-  margin-top:-120px;
+  margin-top:-60px;
   position:relative;z-index:2;isolation:isolate;
 }
 .briefing-label{
   font-size:9px;font-weight:700;letter-spacing:0.55em;color:#FF0000;
-  text-transform:uppercase;margin-bottom:12px;font-family:HaimNum,HaimVariable,Heebo,sans-serif;
+  text-transform:uppercase;margin-bottom:10px;font-family:HaimNum,HaimVariable,Heebo,sans-serif;
 }
 .briefing-title{
-  font-size:28px;font-weight:700;color:#FF0000;line-height:1.15;margin-bottom:12px;
+  font-size:28px;font-weight:700;color:#FF0000;line-height:1.15;margin-bottom:52px;
   font-family:HaimNum,HaimVariable,Heebo,sans-serif;
 }
 .briefing-divider{
-  width:48px;height:1px;background:#FF0000;margin:0 auto 32px;
+  display:none;
 }
 .briefing-body{
   font-size:13px;font-weight:300;color:#FF0000;line-height:1.8;
@@ -1026,22 +1026,23 @@ function resizeCal(){
 function drawCalIntro(){const W=window.innerWidth,H=window.innerHeight;
   calCtx.clearRect(0,0,W,H);
   calCtx.textAlign='center';
-  const cy=H/2-100;
+  const bodyY=H/2-60; // body text stays here
+  const titleY=H/2-200; // title and subtitle higher up
   calCtx.fillStyle='rgba(255,0,0,0.6)';
   calCtx.font='700 11px HaimNum,HaimVariable';
-  calCtx.fillText('מערכת ניתוח חזותי',W/2,cy-70);
+  calCtx.fillText('מערכת ניתוח חזותי',W/2,titleY);
   calCtx.fillStyle='#FF0000';
   calCtx.font='700 28px HaimNum,HaimVariable';
-  calCtx.fillText('כיול מעקב עיניים',W/2,cy-38);
+  calCtx.fillText('כיול מעקב עיניים',W/2,titleY+32);
   calCtx.fillStyle='#FF0000';
   calCtx.font='300 13px HaimNum,HaimVariable';
-  calCtx.fillText('שמור על ראשך ללא תנועה - הזז רק את עינייך לכל נקודה',W/2,cy+2);
-  calCtx.fillText('החזק את המבט עד שהטבעת תתמלא לחלוטין',W/2,cy+22);
-  calCtx.fillText('לאחר הכיול תגיע לעמוד הבית.',W/2,cy+50);
-  calCtx.fillText('לחץ על "התחלה" כדי להתחיל את סשן הצפייה בתמונות.',W/2,cy+70);
+  calCtx.fillText('שמור על ראשך ללא תנועה - הזז רק את עינייך לכל נקודה',W/2,bodyY);
+  calCtx.fillText('החזק את המבט עד שהטבעת תתמלא לחלוטין',W/2,bodyY+22);
+  calCtx.fillText('לאחר הכיול תגיע לעמוד הבית.',W/2,bodyY+52);
+  calCtx.fillText('לחץ על "התחלה" כדי להתחיל את סשן הצפייה בתמונות.',W/2,bodyY+72);
   calCtx.fillStyle='rgba(255,0,0,0.5)';
   calCtx.font='300 11px HaimNum,HaimVariable';
-  calCtx.fillText('הכיול ישמש גם לצפייה בתמונות - אין צורך בכיול נוסף.',W/2,cy+92);
+  calCtx.fillText('הכיול ישמש גם לצפייה בתמונות - אין צורך בכיול נוסף.',W/2,bodyY+94);
 }
 
 function drawCalDone(){const W=window.innerWidth,H=window.innerHeight;
