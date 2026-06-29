@@ -68,7 +68,7 @@ body{
 #eyeContainer{display:none;}
 #eyeBall{display:none;}
 .home-content{position:relative;z-index:1;}
-#mainNav{position:fixed;top:0;left:0;right:0;height:64px;background:transparent;backdrop-filter:none;-webkit-backdrop-filter:none;border-bottom:1px solid transparent;display:flex;align-items:center;justify-content:space-between;padding:12px 60px 0;z-index:9000;cursor:default;transition:background 0.3s,border-color 0.3s,backdrop-filter 0.3s;}
+#mainNav{position:fixed;top:0;left:0;right:0;height:64px;background:transparent;backdrop-filter:none;-webkit-backdrop-filter:none;border-bottom:1px solid transparent;display:flex;align-items:center;justify-content:space-between;padding:12px 60px 0;z-index:9600;cursor:default;transition:background 0.3s,border-color 0.3s,backdrop-filter 0.3s;}
 #navBrand{display:flex;align-items:center;gap:10px;}
 .nav-va{font-size:20px;font-weight:400;font-family:HaimNum,HaimVariable,Heebo,sans-serif;color:#FF0000;letter-spacing:0.06em;}
 .nav-va span:first-child{font-size:0.97em;}
@@ -718,7 +718,7 @@ label,
         <input id="countryInput" type="text" placeholder="ישראל"/>
       </div>
     </div>
-    <button id="nameContinue" class="va-btn va-btn-primary">צפייה בנתונים</button>
+    <button id="nameContinue" style="background:transparent;color:#FF0000;border:1.5px solid #FF0000;font-family:HaimNum,HaimVariable,Heebo,sans-serif;font-size:13px;font-weight:400;letter-spacing:0.22em;padding:14px 52px;cursor:pointer;transition:all 0.18s;border-radius:100px;margin-top:8px;">צפייה בנתונים</button>
   </div>
 
   <div id="nsFormStep2" style="display:none;"></div>
