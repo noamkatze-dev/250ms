@@ -217,7 +217,7 @@ body{
 
 .va-btn{font-family:HaimNum,HaimVariable,Heebo,sans-serif;letter-spacing:0.18em;cursor:pointer;transition:background 0.18s,color 0.18s,border-color 0.18s;border-radius:100px;}
 .va-btn-primary{background:rgba(255,255,255,0.35);color:#FF0000;border:1px solid rgba(255,255,255,0.6);font-size:13px;font-weight:400;padding:14px 48px;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:0 2px 16px rgba(178,224,243,0.25);}
-.va-btn-secondary{background:#fff;color:#FF0000;border:2px solid #111;font-size:12px;font-weight:400;padding:9px 24px;}
+.va-btn-secondary{background:#fff;color:#FF0000;border:2px solid #FF0000;font-size:12px;font-weight:400;padding:9px 24px;}
 
 #nameScreen,
 #libraryScreen,
@@ -336,7 +336,10 @@ body{
 #compareView{display:none;flex:1;overflow:hidden;flex-direction:column;}
 #compareFilters{background:rgba(255,255,255,0.45);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,0.4);padding:10px 60px;display:flex;flex-wrap:wrap;gap:8px;align-items:center;flex-shrink:0;}
 .cf-label{font-size:8px;font-weight:700;letter-spacing:0.3em;color:#FF0000;text-transform:uppercase;}
-.cf-select{font-family:HaimNum,HaimVariable,Heebo,sans-serif;font-size:10px;background:#fff;color:#FF0000;border:1.5px solid #ddd;padding:5px 10px;cursor:pointer;border-radius:100px;outline:none;-webkit-appearance:none;}
+.cf-select{font-family:HaimNum,HaimVariable,Heebo,sans-serif;font-size:10px;background:#fff;color:#FF0000;border:1.5px solid #ddd;padding:5px 10px;cursor:pointer;border-radius:100px;outline:none;-webkit-appearance:none;text-align:center;text-align-last:center;}
+.cf-select:focus{border-color:#FF0000;}
+.cf-select option{background:#fff;color:#FF0000;}
+.cf-select option:hover,.cf-select option:focus,.cf-select option:checked{background:#FF0000 !important;color:#fff !important;}
 .cf-select:focus{border-color:#555;}
 .cf-sep{width:1px;height:16px;background:#ddd;align-self:center;}
 #compareGrid-wrap{flex:1;overflow:auto;padding:16px 60px;}
