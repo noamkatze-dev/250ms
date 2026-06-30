@@ -334,7 +334,7 @@ body{
 .gallery-item-name{font-size:8px;font-weight:700;letter-spacing:0.1em;color:#FF0000;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 .gallery-item-stats{font-size:7px;font-weight:300;color:#FF0000;white-space:nowrap;}
 #compareView{display:none;flex:1;overflow:hidden;flex-direction:column;}
-#compareFilters{background:rgba(255,255,255,0.45);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,0.4);padding:10px 60px;display:flex;flex-wrap:wrap;gap:8px;align-items:center;flex-shrink:0;}
+#compareFilters{position:relative;z-index:500;background:rgba(255,255,255,0.45);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,0.4);padding:10px 60px;display:flex;flex-wrap:wrap;gap:8px;align-items:center;flex-shrink:0;}
 .cf-label{font-size:8px;font-weight:700;letter-spacing:0.3em;color:#FF0000;text-transform:uppercase;}
 .cf-select{font-family:HaimNum,HaimVariable,Heebo,sans-serif;font-size:10px;background:#fff;color:#FF0000;border:1.5px solid #ddd;padding:5px 10px;cursor:pointer;border-radius:100px;outline:none;-webkit-appearance:none;text-align:center;text-align-last:center;}
 .cf-select:focus{border-color:#FF0000;}
@@ -354,7 +354,7 @@ body{
 .cf-dropdown-list{
   display:none;position:absolute;top:calc(100% + 4px);left:0;right:0;min-width:160px;
   background:#fff;border:1.5px solid #ddd;border-radius:10px;overflow:hidden;
-  max-height:280px;overflow-y:auto;z-index:9999;
+  max-height:280px;overflow-y:auto;z-index:99999;
   box-shadow:0 8px 24px rgba(0,0,0,0.12);
 }
 .cf-dropdown.open .cf-dropdown-list{display:block;}
@@ -551,6 +551,28 @@ label,
    except the splash screen and home screen, where original weights remain. ── */
 body :not(#splashScreen):not(#splashScreen *):not(#homeScreen):not(#homeScreen *) {
   font-weight: 400 !important;
+}
+
+/* ── Global red scrollbar ── */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #FF0000 rgba(255,255,255,0.2);
+}
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+*::-webkit-scrollbar-track {
+  background: rgba(255,255,255,0.15);
+}
+*::-webkit-scrollbar-thumb {
+  background-color: #FF0000;
+  border-radius: 100px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+*::-webkit-scrollbar-thumb:hover {
+  background-color: #cc0000;
 }
 
 </style>
