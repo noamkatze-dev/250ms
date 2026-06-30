@@ -546,6 +546,13 @@ label,
 .layer-btn.active, .toggle-btn.active, .view-tab.active,
 #playBtn { color: #fff !important; }
 .layer-btn.active:hover, .toggle-btn.active:hover, .view-tab.active:hover { color: #FF0000 !important; }
+
+/* ── Global typography unification: force regular weight everywhere
+   except the splash screen and home screen, where original weights remain. ── */
+body :not(#splashScreen):not(#splashScreen *):not(#homeScreen):not(#homeScreen *) {
+  font-weight: 400 !important;
+}
+
 </style>
 </head>
 <body>
