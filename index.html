@@ -302,9 +302,9 @@ body{
 .dab-name{font-size:9px;font-weight:300;color:rgba(255,0,0,0.6);}
 .dab-val{font-size:11px;font-weight:700;color:#FF0000;}
 .dab-unit{font-size:8px;font-weight:300;color:rgba(255,0,0,0.5);margin-left:2px;}
-#dataToolbar{position:absolute;top:14px;left:50%;transform:translateX(-50%);display:flex;flex-wrap:nowrap;align-items:center;gap:2px;background:rgba(255,255,255,0.45);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);padding:5px 10px;border:1px solid rgba(255,255,255,0.6);border-radius:100px;z-index:10;transition:opacity 0.2s;}
+#dataToolbar{position:absolute;bottom:14px;right:14px;left:auto;top:auto;transform:none;display:flex;flex-direction:column;flex-wrap:nowrap;align-items:stretch;gap:2px;background:rgba(255,255,255,0.45);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);padding:10px 8px;border:1px solid rgba(255,255,255,0.6);border-radius:18px;z-index:10;transition:opacity 0.2s;max-height:calc(100% - 80px);overflow-y:auto;}
 #dataToolbar.collapsed .toolbar-inner-content{display:none;}
-.toolbar-sep{width:1px;height:16px;background:rgba(255,255,255,0.22);flex-shrink:0;margin:0 8px;}
+.toolbar-sep{width:24px;height:1px;background:rgba(255,255,255,0.4);flex-shrink:0;margin:6px auto;align-self:center;}
 .layer-btn{font-family:HaimNum,HaimVariable,Heebo,sans-serif;font-size:7.5px;font-weight:400;letter-spacing:0.06em;color:#FF0000;background:transparent;border:1.5px solid transparent;padding:5px 9px;cursor:pointer;transition:color 0.15s,border-color 0.15s;white-space:nowrap;border-radius:100px;position:relative;}
 .layer-btn.active{color:#FF0000;border-color:rgba(255,255,255,0.35);background:rgba(255,255,255,0.07);}
 .layer-btn[data-tooltip]::after{content:attr(data-tooltip);position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);background:rgba(0,0,0,0.88);color:#FF0000;font-size:9px;font-weight:300;letter-spacing:0.04em;white-space:nowrap;padding:5px 10px;border-radius:6px;pointer-events:none;opacity:0;transition:opacity 0.15s;border:1px solid rgba(255,255,255,0.08);z-index:100;}
