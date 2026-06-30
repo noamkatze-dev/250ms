@@ -1847,8 +1847,8 @@ navAboutLink.addEventListener('click',()=>openAbout());
 // compareViewBtn removed from DOM — handled via navCompareLink
 document.getElementById('animatedBtn').addEventListener('click',()=>{playMode='ANIMATED';document.getElementById('animatedBtn').classList.add('active');document.getElementById('staticBtn').classList.remove('active');playLayer(dataActiveLayer);});
 document.getElementById('staticBtn').addEventListener('click',()=>{playMode='STATIC';document.getElementById('staticBtn').classList.add('active');document.getElementById('animatedBtn').classList.remove('active');playLayer(dataActiveLayer);});
-document.getElementById('withImgBtn').addEventListener('click',()=>{showImg=true;document.getElementById('withImgBtn').classList.add('active');document.getElementById('withoutImgBtn').classList.remove('active');document.getElementById('dataImg').style.opacity='1';});
-document.getElementById('withoutImgBtn').addEventListener('click',()=>{showImg=false;document.getElementById('withoutImgBtn').classList.add('active');document.getElementById('withImgBtn').classList.remove('active');document.getElementById('dataImg').style.opacity='0';});
+document.getElementById('withImgBtn').addEventListener('click',()=>{showImg=true;document.getElementById('withImgBtn').classList.add('active');document.getElementById('withoutImgBtn').classList.remove('active');document.getElementById('dataImg').style.opacity='1';document.getElementById('dataImgArea').style.background='#eee';});
+document.getElementById('withoutImgBtn').addEventListener('click',()=>{showImg=false;document.getElementById('withoutImgBtn').classList.add('active');document.getElementById('withImgBtn').classList.remove('active');document.getElementById('dataImg').style.opacity='0';document.getElementById('dataImgArea').style.background='#1a1a1a';});
 document.querySelectorAll('.layer-btn').forEach(btn=>{btn.addEventListener('click',()=>{document.querySelectorAll('.layer-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');dataActiveLayer=btn.dataset.layer;playLayer(dataActiveLayer);});});
 // playBtn removed from DOM by user request
 
