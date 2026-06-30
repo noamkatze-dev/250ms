@@ -1024,7 +1024,7 @@ body :not(#splashScreen):not(#splashScreen *):not(#homeScreen):not(#homeScreen *
       <g id="spectrumTicks"></g>
       <!-- labels -->
       <text x="50" y="325" text-anchor="middle" font-size="13" font-weight="700" fill="#FF0000" letter-spacing="2">ימין</text>
-      <text x="300" y="55" text-anchor="middle" font-size="13" font-weight="700" fill="#FF0000" letter-spacing="2">מרכז</text>
+      <text x="300" y="35" text-anchor="middle" font-size="13" font-weight="700" fill="#FF0000" letter-spacing="2">מרכז</text>
       <text x="550" y="325" text-anchor="middle" font-size="13" font-weight="700" fill="#FF0000" letter-spacing="2">שמאל</text>
       <!-- user dot -->
       <circle id="spectrumUserDot" cx="300" cy="50" r="8" fill="#FF0000" stroke="#fff" stroke-width="2" opacity="0"/>
@@ -1033,8 +1033,6 @@ body :not(#splashScreen):not(#splashScreen *):not(#homeScreen):not(#homeScreen *
     <p style="font-size:11px;font-weight:300;color:#FF0000;text-align:center;max-width:480px;line-height:1.8;margin-top:32px;">
       המיקום שלך על הקשת נקבע באופן זמני. בעתיד, ניתוח דפוסי המבט שלך על דמויות פוליטיות יקבע את מיקומך באופן מדויק.
     </p>
-
-    <button id="spectrumContinueBtn" style="background:transparent;color:#FF0000;border:1.5px solid #FF0000;font-family:HaimNum,HaimVariable,Heebo,sans-serif;font-size:13px;letter-spacing:0.22em;padding:14px 52px;cursor:pointer;transition:all 0.18s;border-radius:100px;margin-top:40px;">המשך לנתונים</button>
   </div>
 </div>
 
@@ -1429,11 +1427,9 @@ function showSpectrumScreen(){
     vid.play().catch(()=>{});
     buildSpectrumTicks();
     placeSpectrumUserDot();
-    const btn=document.getElementById('spectrumContinueBtn');
-    btn.onclick=()=>{
-      scr.style.display='none';
-      resolve();
-    };
+    // auto-continue the onboarding flow after the dot animation settles;
+    // the screen itself remains reachable anytime via the top nav link.
+    setTimeout(resolve, 3500);
   });
 }
 
