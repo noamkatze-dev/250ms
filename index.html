@@ -307,9 +307,9 @@ body{
 .toolbar-sep{width:24px;height:1px;background:rgba(255,255,255,0.4);flex-shrink:0;margin:6px auto;align-self:center;}
 .layer-btn{font-family:HaimNum,HaimVariable,Heebo,sans-serif;font-size:7.5px;font-weight:400;letter-spacing:0.06em;color:#FF0000;background:transparent;border:1.5px solid transparent;padding:5px 9px;cursor:pointer;transition:color 0.15s,border-color 0.15s;white-space:nowrap;border-radius:100px;position:relative;}
 .layer-btn.active{color:#FF0000;border-color:rgba(255,255,255,0.35);background:rgba(255,255,255,0.07);}
-.layer-btn[data-tooltip]::after{content:attr(data-tooltip);position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);background:rgba(0,0,0,0.88);color:#FF0000;font-size:9px;font-weight:300;letter-spacing:0.04em;white-space:nowrap;padding:5px 10px;border-radius:6px;pointer-events:none;opacity:0;transition:opacity 0.15s;border:1px solid rgba(255,255,255,0.08);z-index:100;}
+.layer-btn[data-tooltip]::after{content:attr(data-tooltip);position:absolute;top:50%;right:calc(100% + 10px);left:auto;transform:translateY(-50%);background:rgba(0,0,0,0.88);color:#FF0000;font-size:9px;font-weight:300;letter-spacing:0.04em;white-space:nowrap;padding:5px 10px;border-radius:6px;pointer-events:none;opacity:0;transition:opacity 0.15s;border:1px solid rgba(255,255,255,0.08);z-index:100;}
 .layer-btn[data-tooltip]:hover::after{opacity:1;}
-.toggle-group{display:flex;gap:2px;}
+.toggle-group{display:flex;flex-direction:column;gap:2px;}
 .toggle-btn{font-family:HaimNum,HaimVariable,Heebo,sans-serif;font-size:7.5px;font-weight:400;letter-spacing:0.05em;padding:5px 8px;border:1.5px solid transparent;background:transparent;color:#FF0000;cursor:pointer;transition:all 0.15s,transform 0.15s;white-space:nowrap;border-radius:100px;}
 .toggle-btn.active{color:#FF0000;border-color:rgba(255,255,255,0.35);background:rgba(255,255,255,0.07);}
 #playBtn{font-family:HaimNum,HaimVariable,Heebo,sans-serif;font-size:7.5px;font-weight:400;letter-spacing:0.06em;color:#FF0000;background:#222;border:1.5px solid #3a3a3a;padding:5px 10px;cursor:pointer;transition:background 0.15s;flex-shrink:0;border-radius:100px;}
@@ -643,7 +643,6 @@ label,
             <button class="layer-btn" data-layer="HEATMAP" data-tooltip="מפת חום: קווי צפיפות תשומת לב">מפת חום</button>
             <button class="layer-btn" data-layer="FIRSTFIX" data-tooltip="קיבוע ראשון: האזור הראשון שנוצד">קיבוע ראשון</button>
             <span class="toolbar-sep"></span>
-            <button id="playBtn">הפעל מחדש</button>
             <div class="toggle-group">
               <button class="toggle-btn active" id="animatedBtn">אנימציה</button>
               <button class="toggle-btn" id="staticBtn">סטטי</button>
@@ -1850,7 +1849,7 @@ document.getElementById('staticBtn').addEventListener('click',()=>{playMode='STA
 document.getElementById('withImgBtn').addEventListener('click',()=>{showImg=true;document.getElementById('withImgBtn').classList.add('active');document.getElementById('withoutImgBtn').classList.remove('active');document.getElementById('dataImg').style.opacity='1';});
 document.getElementById('withoutImgBtn').addEventListener('click',()=>{showImg=false;document.getElementById('withoutImgBtn').classList.add('active');document.getElementById('withImgBtn').classList.remove('active');document.getElementById('dataImg').style.opacity='0';});
 document.querySelectorAll('.layer-btn').forEach(btn=>{btn.addEventListener('click',()=>{document.querySelectorAll('.layer-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');dataActiveLayer=btn.dataset.layer;playLayer(dataActiveLayer);});});
-document.getElementById('playBtn').addEventListener('click',()=>{playLayer(dataActiveLayer||'GAZE');});
+// playBtn removed from DOM by user request
 
 function hideAllScreens(){
   homeScreen.style.display='none';
