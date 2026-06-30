@@ -586,6 +586,7 @@ body :not(#splashScreen):not(#splashScreen *):not(#homeScreen):not(#homeScreen *
   <div id="navLinks">
     <span class="nav-link nav-authenticated" id="navSessionLink" style="display:none;">נתונים</span>
     <span class="nav-link nav-authenticated" id="navCompareLink" style="display:none;">השוואה</span>
+    <span class="nav-link nav-authenticated" id="navSpectrumLink" style="display:none;">הקשת הפוליטית</span>
     <span class="nav-link" id="navAboutLink">אודות</span>
     <span class="nav-link nav-authenticated" id="navGalleryLink" style="display:none;"></span>
     <span class="nav-link nav-authenticated" id="navDashboardLink" style="display:none;"></span>
@@ -1006,6 +1007,37 @@ body :not(#splashScreen):not(#splashScreen *):not(#homeScreen):not(#homeScreen *
   <div id="profileBody" style="flex:1;overflow-y:auto;padding:32px 60px;"></div>
 </div>
 
+<!-- POLITICAL SPECTRUM SCREEN -->
+<div id="spectrumScreen" style="display:none;position:fixed;inset:0;z-index:1700;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;background:#c8e8f5;">
+  <video id="spectrumSkyVideo" src="sky.mp4" muted playsinline loop autoplay
+    style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none;z-index:0;"></video>
+  <div style="position:absolute;inset:0;background:rgba(80,130,200,0.08);mix-blend-mode:screen;pointer-events:none;z-index:1;"></div>
+
+  <div style="position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;width:100%;max-width:900px;padding:0 40px;">
+    <div style="font-size:9px;font-weight:700;letter-spacing:0.5em;color:#FF0000;margin-bottom:10px;text-transform:uppercase;">תוצאת הסשן</div>
+    <h1 style="font-size:28px;font-weight:700;color:#FF0000;margin-bottom:48px;text-align:center;">הקשת הפוליטית שלך</h1>
+
+    <svg id="spectrumSvg" viewBox="0 0 600 340" style="width:100%;max-width:640px;overflow:visible;">
+      <!-- arc outline -->
+      <path d="M 50 300 A 250 250 0 0 1 550 300" fill="none" stroke="#FF0000" stroke-width="2"/>
+      <!-- tick marks -->
+      <g id="spectrumTicks"></g>
+      <!-- labels -->
+      <text x="50" y="325" text-anchor="middle" font-size="13" font-weight="700" fill="#FF0000" letter-spacing="2">ימין</text>
+      <text x="300" y="55" text-anchor="middle" font-size="13" font-weight="700" fill="#FF0000" letter-spacing="2">מרכז</text>
+      <text x="550" y="325" text-anchor="middle" font-size="13" font-weight="700" fill="#FF0000" letter-spacing="2">שמאל</text>
+      <!-- user dot -->
+      <circle id="spectrumUserDot" cx="300" cy="50" r="8" fill="#FF0000" stroke="#fff" stroke-width="2" opacity="0"/>
+    </svg>
+
+    <p style="font-size:11px;font-weight:300;color:#FF0000;text-align:center;max-width:480px;line-height:1.8;margin-top:32px;">
+      המיקום שלך על הקשת נקבע באופן זמני. בעתיד, ניתוח דפוסי המבט שלך על דמויות פוליטיות יקבע את מיקומך באופן מדויק.
+    </p>
+
+    <button id="spectrumContinueBtn" style="background:transparent;color:#FF0000;border:1.5px solid #FF0000;font-family:HaimNum,HaimVariable,Heebo,sans-serif;font-size:13px;letter-spacing:0.22em;padding:14px 52px;cursor:pointer;transition:all 0.18s;border-radius:100px;margin-top:40px;">המשך לנתונים</button>
+  </div>
+</div>
+
 <script type="module">
 'use strict';
 import { FaceLandmarker, FilesetResolver } from 'https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.14/vision_bundle.mjs';
@@ -1347,6 +1379,69 @@ function showNameScreen(){
     };
   });
 }
+
+// ── Political spectrum screen ───────────────────────────────────────
+function buildSpectrumTicks(){
+  const ticksG=document.getElementById('spectrumTicks');
+  if(!ticksG || ticksG.children.length) return; // build once
+  const cx=300, cy=300, R=250;
+  const majorTicks=11; // 0..10 across the arc (180deg to 0deg)
+  for(let i=0;i<=majorTicks;i++){
+    const angle=Math.PI - (Math.PI*i/majorTicks); // from 180deg (left/ימין side visually right) to 0deg
+    const isMajor = i%5===0;
+    const rOuter=R, rInner = isMajor ? R-14 : R-7;
+    const x1=cx+Math.cos(angle)*rOuter, y1=cy-Math.sin(angle)*rOuter;
+    const x2=cx+Math.cos(angle)*rInner, y2=cy-Math.sin(angle)*rInner;
+    const tick=document.createElementNS('http://www.w3.org/2000/svg','line');
+    tick.setAttribute('x1',x1); tick.setAttribute('y1',y1);
+    tick.setAttribute('x2',x2); tick.setAttribute('y2',y2);
+    tick.setAttribute('stroke','#FF0000');
+    tick.setAttribute('stroke-width', isMajor ? '2' : '1');
+    tick.setAttribute('opacity', isMajor ? '0.9' : '0.4');
+    ticksG.appendChild(tick);
+  }
+}
+
+function placeSpectrumUserDot(){
+  // TEMP: random placement along the arc until real gaze-based scoring is trained.
+  const cx=300, cy=300, R=250;
+  const t=Math.random(); // 0 = right(ימין) ... 1 = left(שמאל)
+  const angle=Math.PI - (Math.PI*t);
+  const x=cx+Math.cos(angle)*R, y=cy-Math.sin(angle)*R;
+  const dot=document.getElementById('spectrumUserDot');
+  dot.setAttribute('cx',x);
+  dot.setAttribute('cy',y);
+  dot.style.transition='opacity 0.6s ease';
+  dot.style.opacity='0';
+  requestAnimationFrame(()=>{ setTimeout(()=>{ dot.style.opacity='1'; },150); });
+}
+
+function showSpectrumScreen(){
+  return new Promise(resolve=>{
+    hideAllScreens();
+    document.getElementById('mainNav').style.display='flex';
+    setNavTheme('dark');
+    const navSpectrumLink=document.getElementById('navSpectrumLink');
+    if(navSpectrumLink) navSpectrumLink.classList.add('active');
+    const scr=document.getElementById('spectrumScreen');
+    scr.style.display='flex';
+    const vid=document.getElementById('spectrumSkyVideo');
+    vid.play().catch(()=>{});
+    buildSpectrumTicks();
+    placeSpectrumUserDot();
+    const btn=document.getElementById('spectrumContinueBtn');
+    btn.onclick=()=>{
+      scr.style.display='none';
+      resolve();
+    };
+  });
+}
+
+document.getElementById('navSpectrumLink').addEventListener('click',()=>{
+  showSpectrumScreen();
+});
+
+
 
 let pendingSessions = [];
 
@@ -1867,6 +1962,8 @@ document.getElementById('homeStartBtn').addEventListener('click', async ()=>{
   await runFullSequence();
   await showNameScreen();
   showAuthNav();
+  // show political spectrum result before data
+  await showSpectrumScreen();
   // open data screen on the last session
   viewSession=allSessions[allSessions.length-1];
   openData(false);
@@ -2001,8 +2098,9 @@ function hideAllScreens(){
   document.getElementById('imgWrapper').style.display='none';
   document.getElementById('nameScreen').style.display='none';
   document.getElementById('briefingScreen').style.display='none';
+  document.getElementById('spectrumScreen').style.display='none';
   document.querySelectorAll('.empty-state-overlay').forEach(el=>el.remove());
-  [navSessionLink,navGalleryLink,navDashboardLink,navProfileLink,navAboutLink,navHomeLink,document.getElementById('navCompareLink')].filter(Boolean).forEach(l=>l.classList.remove('active'));
+  [navSessionLink,navGalleryLink,navDashboardLink,navProfileLink,navAboutLink,navHomeLink,document.getElementById('navCompareLink'),document.getElementById('navSpectrumLink')].filter(Boolean).forEach(l=>l.classList.remove('active'));
 }
 
 function showAuthNav(){
