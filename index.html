@@ -434,10 +434,10 @@ body{
 #dataToolbarCollapseBtn{width:22px;height:22px;padding:0;cursor:pointer;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:100px;color:rgba(255,255,255,0.7);flex-shrink:0;transition:color 0.15s,background 0.15s;}
 #dataToolbarCollapseBtn:hover{color:#FF0000;background:rgba(255,255,255,0.18);}
 #dataToolbarCollapseBtn .tcb-arrow{font-size:10px;font-weight:900;line-height:1;}
-#dataImgNav{position:absolute;inset:0;pointer-events:none;z-index:9;display:flex;align-items:center;justify-content:space-between;padding:0 16px;}
-.img-nav-btn{width:40px;height:40px;border-radius:50%;border:1.5px solid rgba(255,0,0,0.6);background:rgba(200,232,245,0.45);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);color:#FF0000;font-size:20px;cursor:pointer;pointer-events:all;display:flex;align-items:center;justify-content:center;transition:all 0.15s;user-select:none;line-height:1;}
-.img-nav-btn:hover{background:rgba(255,0,0,0.12);border-color:#FF0000;transform:scale(1.08);}
-.img-nav-btn:disabled{opacity:0.25;cursor:default;transform:none;}
+#dataImgDots{position:absolute;bottom:18px;left:50%;transform:translateX(-50%);z-index:9;display:flex;gap:8px;align-items:center;pointer-events:all;background:rgba(200,232,245,0.4);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);padding:8px 14px;border-radius:100px;border:1px solid rgba(255,255,255,0.4);}
+.img-dot{width:7px;height:7px;border-radius:50%;background:rgba(255,0,0,0.3);cursor:pointer;transition:all 0.18s;border:none;padding:0;}
+.img-dot:hover{background:rgba(255,0,0,0.6);transform:scale(1.2);}
+.img-dot.active{background:#FF0000;transform:scale(1.3);}
 
 
 #homeScreen .hi-label,#homeScreen .hi-title,#homeScreen .hi-sub,
@@ -632,10 +632,7 @@ label,
         <img id="dataImg" src="" alt=""/>
         <canvas id="dataCanvas"></canvas>
 
-        <div id="dataImgNav">
-          <button class="img-nav-btn" id="imgPrevBtn">‹</button>
-          <button class="img-nav-btn" id="imgNextBtn">›</button>
-        </div>
+        <div id="dataImgDots"></div>
 
         <div id="dataToolbar">
 
@@ -1373,13 +1370,6 @@ function getFilteredSessions(){const user=document.getElementById('cf-user').val
 function renderCompareView(){populateCompareFilters();const grid=document.getElementById('compareGrid');grid.innerHTML='';const layer=document.getElementById('cf-layer').value||dataActiveLayer||'GAZE';const filteredSessions=getFilteredSessions();if(allSessions.length===0){grid.innerHTML='<div style="color:#FF0000;font-size:11px;letter-spacing:0.2em;text-align:center;padding:40px 0;grid-column:1/-1;">אין סשנים להשוואה עדיין</div>';return;}for(const sess of filteredSessions){const cell=document.createElement('div');cell.className='compare-panel';const ts=new Date(sess.timestamp).toLocaleTimeString();const dur=sess.sessionDuration?(sess.sessionDuration/1000).toFixed(1)+'s':'--';cell.innerHTML='<div class="compare-panel-header"><div><div class="cp-user">'+sess.user+'</div><div class="cp-meta">'+(sess.age?sess.age+' yrs':'')+((sess.age&&sess.gender)?' . ':'')+( sess.gender||'')+(sess.location?' . '+sess.location:'')+'</div></div><div style="text-align:right"><div class="cp-time">'+sess.imageName+'</div><div class="cp-time">'+ts+' . '+dur+'</div></div></div><div class="compare-canvas-wrap"><img class="cp-img" src="'+sess.imageSrc+'"><canvas class="cp-canvas"></canvas></div><div class="cp-stats">'+sess.fixationHistory.length+' fix . '+sess.saccadeHistory.length+' sac . '+sess.gazeLog.length+' samples</div>';grid.appendChild(cell);const wrap=cell.querySelector('.compare-canvas-wrap'),canvas=cell.querySelector('.cp-canvas');setTimeout(()=>{canvas.width=wrap.offsetWidth;canvas.height=wrap.offsetHeight;const ctx=canvas.getContext('2d');const W=canvas.width,H=canvas.height;const RC='255,0,0';switch(layer){case 'GAZE':staticGaze(ctx,W,H,sess.gazeLog,RC);break;case 'FIXATION':staticFixation(ctx,W,H,sess.fixationHistory,RC);break;case 'SACCADE':staticSaccade(ctx,W,H,sess.saccadeHistory,RC);break;case 'SCANPATH':staticScanPath(ctx,W,H,sess.scanPathHistory,RC);break;case 'HEATMAP':staticHeatmap(ctx,W,H,sess.gazeLog,RC);break;case 'FIRSTFIX':staticFirstFix(ctx,W,H,sess.firstFix,sess.firstFixModeTs,RC);break;}},60);}}
 
 // ── Image navigation arrows ──────────────────────────────────────────
-function updateImgNav(){
-  const counter=document.getElementById('dataImgCounter');
-  if(!counter||!allSessions.length) return;
-  const idx=allSessions.indexOf(viewSession);
-  counter.textContent=(idx+1)+' / '+allSessions.length;
-}
-
 function navigateToSession(sess){
   viewSession=sess;
   document.getElementById('dataImg').src=viewSession.imageSrc;
@@ -1389,17 +1379,18 @@ function navigateToSession(sess){
   updateImgNav();
 }
 
-document.getElementById('imgPrevBtn').addEventListener('click',()=>{
+function updateImgNav(){
+  const dotsWrap=document.getElementById('dataImgDots');
+  if(!dotsWrap||!allSessions.length) return;
   const idx=allSessions.indexOf(viewSession);
-  const newIdx=(idx-1+allSessions.length)%allSessions.length;
-  navigateToSession(allSessions[newIdx]);
-});
-
-document.getElementById('imgNextBtn').addEventListener('click',()=>{
-  const idx=allSessions.indexOf(viewSession);
-  const newIdx=(idx+1)%allSessions.length;
-  navigateToSession(allSessions[newIdx]);
-});
+  dotsWrap.innerHTML='';
+  allSessions.forEach((sess,i)=>{
+    const dot=document.createElement('button');
+    dot.className='img-dot'+(i===idx?' active':'');
+    dot.addEventListener('click',()=>navigateToSession(sess));
+    dotsWrap.appendChild(dot);
+  });
+}
 
 document.getElementById('cf-apply').addEventListener('click',renderCompareView);
 document.getElementById('cf-layer').addEventListener('change',renderCompareView);
