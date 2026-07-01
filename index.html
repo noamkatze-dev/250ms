@@ -1009,7 +1009,7 @@ body :not(#splashScreen):not(#splashScreen *):not(#homeScreen):not(#homeScreen *
 
 <!-- POLITICAL SPECTRUM SCREEN -->
 <div id="spectrumScreen" style="display:none;position:fixed;inset:0;z-index:1700;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;background:#c8e8f5;">
-  <video id="spectrumSkyVideo" src="sky.mp4" muted playsinline
+  <video id="spectrumSkyVideo" src="sky.mp4" muted playsinline preload="auto"
     style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none;z-index:0;"></video>
 
 
@@ -1121,6 +1121,10 @@ let eyeCalMap=null;
 window._gazeHistory=[];
 let currentAnimation=null,dataActiveLayer='GAZE',playMode='ANIMATED',showImg=true,viewSession=null;
 const allSessions=[];
+
+// ── Political spectrum sky video loop control ──────────────────────────
+let spectrumSkyRaf=null;
+function stopSpectrumSky(){ if(spectrumSkyRaf){ cancelAnimationFrame(spectrumSkyRaf); spectrumSkyRaf=null; } }
 
 function eyeStab(){const N=Math.min(eyeOffXBuf.length,20);if(N<8)return 0;const xs=eyeOffXBuf.slice(-N),ys=eyeOffYBuf.slice(-N);const mx=xs.reduce((a,b)=>a+b,0)/N,my=ys.reduce((a,b)=>a+b,0)/N;const vx=xs.reduce((a,b)=>a+(b-mx)**2,0)/N,vy=ys.reduce((a,b)=>a+(b-my)**2,0)/N;return Math.max(0,Math.min(1,1-(vx+vy)/CAL_VAR_THRESH));}
 
@@ -1426,20 +1430,38 @@ function showSpectrumScreen(){
     if(navSpectrumLink) navSpectrumLink.classList.add('active');
     const scr=document.getElementById('spectrumScreen');
     scr.style.display='flex';
+
+    // ── Sky video: manual ping-pong scrub instead of native play() ──
+    // (native play() can silently fail here because it's called after
+    //  several intervening awaits, well outside the original click's
+    //  "user gesture" window; the video would then just stay paused
+    //  and invisible-in-motion. Driving currentTime by hand avoids
+    //  the autoplay restriction entirely and lets us control speed
+    //  and direction precisely.)
     const vid=document.getElementById('spectrumSkyVideo');
-    vid.playbackRate=0.35;
-    vid.play().catch(()=>{});
-    // ping-pong: reverse direction at each end
+    stopSpectrumSky();
+    vid.pause();
+
+    const SKY_SPEED=0.18;        // lower = slower playback (previously ~0.35)
+    const STEP_PER_FRAME=0.016;  // seconds of video time advanced per rAF tick, before speed scaling
     let skyDir=1;
-    function skyStep(){
-      if(vid.paused) return;
-      vid.currentTime+=skyDir*0.033*vid.playbackRate;
-      if(vid.currentTime>=vid.duration-0.05){ skyDir=-1; }
-      else if(vid.currentTime<=0.05){ skyDir=1; }
-      requestAnimationFrame(skyStep);
+
+    function pingPongStep(){
+      if(vid.duration && isFinite(vid.duration)){
+        vid.currentTime += skyDir*STEP_PER_FRAME*SKY_SPEED;
+        if(vid.currentTime>=vid.duration-0.05){ vid.currentTime=vid.duration-0.05; skyDir=-1; }
+        else if(vid.currentTime<=0.05){ vid.currentTime=0.05; skyDir=1; }
+      }
+      spectrumSkyRaf=requestAnimationFrame(pingPongStep);
     }
-    vid.addEventListener('loadedmetadata',()=>{ skyStep(); },{once:true});
-    if(vid.readyState>=1) skyStep();
+
+    if(vid.readyState>=1){
+      pingPongStep();
+    }else{
+      vid.addEventListener('loadedmetadata',pingPongStep,{once:true});
+      vid.load();
+    }
+
     buildSpectrumTicks();
     placeSpectrumUserDot();
     // auto-continue the onboarding flow after the dot animation settles;
@@ -2110,6 +2132,7 @@ function hideAllScreens(){
   document.getElementById('nameScreen').style.display='none';
   document.getElementById('briefingScreen').style.display='none';
   document.getElementById('spectrumScreen').style.display='none';
+  stopSpectrumSky();
   document.querySelectorAll('.empty-state-overlay').forEach(el=>el.remove());
   [navSessionLink,navGalleryLink,navDashboardLink,navProfileLink,navAboutLink,navHomeLink,document.getElementById('navCompareLink'),document.getElementById('navSpectrumLink')].filter(Boolean).forEach(l=>l.classList.remove('active'));
 }
