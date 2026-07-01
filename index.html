@@ -1322,6 +1322,8 @@ function showNameScreen(){
       const labelEl=document.getElementById('genderLabel');
       const hiddenInput=document.getElementById('genderInput');
       if(!wrap||!trigger||!dropdown) return;
+      if(wrap._wired) return; // only wire once
+      wrap._wired=true;
       trigger.addEventListener('click',(e)=>{
         e.stopPropagation();
         const isOpen=dropdown.classList.contains('open');
