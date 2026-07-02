@@ -581,7 +581,14 @@ body :not(#splashScreen):not(#splashScreen *):not(#homeScreen):not(#homeScreen *
 
 <nav id="mainNav" style="display:none;">
   <div id="navBrand" style="cursor:pointer;">
-    <span class="nav-va"><span style="font-family:HaimNum,HaimVariable,sans-serif;font-weight:400;">250</span><span style="font-family:HaimVariable,sans-serif;font-weight:400;">ms</span></span>
+    <svg class="nav-va-svg" viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="250ms" style="height:22px;width:auto;display:block;">
+      <title>250ms</title>
+      <g fill="#FF0000">
+        <polyline points="1150.49 710.43 1247.05 710.43 1247.05 460.69 1276.01 460.72 1276.01 710.43 1371.82 710.43 1372.15 460.72 1401.14 460.72 1401.11 710.43 1497.44 710.43 1497.44 363.48 1150.49 363.48"/>
+        <polyline points="1896.18 488.93 1646.75 488.87 1646.85 459.89 1896.18 459.96 1896.15 363.48 1550 363.58 1550 584.82 1799.14 584.82 1799.14 613.8 1550 613.76 1549.87 710.43 1896.18 710.43"/>
+      </g>
+      <text x="0" y="710.55" fill="#FF0000" font-family="HaimNum,HaimVariable,Heebo,sans-serif" font-weight="700" font-size="578.42">250</text>
+    </svg>
   </div>
   <div id="navLinks">
     <span class="nav-link nav-authenticated" id="navSessionLink" style="display:none;">נתונים</span>
@@ -670,7 +677,16 @@ body :not(#splashScreen):not(#splashScreen *):not(#homeScreen):not(#homeScreen *
 <div id="splashScreen" style="position:fixed;inset:0;z-index:9900;background:#c8e8f5;overflow:hidden;display:flex;align-items:center;justify-content:center;">
   <div style="position:absolute;inset:0;background:url('sky.png') center/cover no-repeat;filter:blur(0px);transform:scale(1.08);"></div>
 
-  <div id="splashText" style="position:relative;z-index:2;font-size:27vw;font-weight:700;color:#FF0000;letter-spacing:0.04em;line-height:1;opacity:0;transition:opacity 0.6s ease;white-space:nowrap;"><span style="font-family:HaimNum,HaimVariable,Heebo,sans-serif;font-weight:700;">250</span><span style="font-family:HaimNum,HaimVariable,sans-serif;font-weight:700;">ms</span></div>
+  <div id="splashText" style="position:relative;z-index:2;opacity:0;transition:opacity 0.6s ease;display:flex;justify-content:center;">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="250ms" style="width:70vw;max-width:900px;height:auto;display:block;">
+      <title>250ms</title>
+      <g fill="#FF0000">
+        <polyline points="1150.49 710.43 1247.05 710.43 1247.05 460.69 1276.01 460.72 1276.01 710.43 1371.82 710.43 1372.15 460.72 1401.14 460.72 1401.11 710.43 1497.44 710.43 1497.44 363.48 1150.49 363.48"/>
+        <polyline points="1896.18 488.93 1646.75 488.87 1646.85 459.89 1896.18 459.96 1896.15 363.48 1550 363.58 1550 584.82 1799.14 584.82 1799.14 613.8 1550 613.76 1549.87 710.43 1896.18 710.43"/>
+      </g>
+      <text x="0" y="710.55" fill="#FF0000" font-family="HaimNum,HaimVariable,Heebo,sans-serif" font-weight="700" font-size="578.42">250</text>
+    </svg>
+  </div>
 </div>
 
 <div id="calOverlay">
