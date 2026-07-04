@@ -2568,7 +2568,7 @@ function showAuthNav(){
     document.getElementById('modeName').textContent=MODES[cur].name;
     document.getElementById('modeDesc').textContent=MODES[cur].desc;
     document.querySelectorAll('.mode-dot').forEach((d,i)=>{
-      d.style.background=i===cur?'#FF0000':'#ddd';
+      d.style.background=i===cur?'#FF0000':'rgba(255,0,0,0.25)';
       d.style.transform=i===cur?'scale(1.3)':'scale(1)';
     });
     startAnim(cur);
@@ -2581,7 +2581,7 @@ function showAuthNav(){
     for(let i=0;i<6;i++){
       const d=document.createElement('div');
       d.className='mode-dot';
-      d.style.cssText='width:6px;height:6px;border-radius:50%;background:#ddd;cursor:pointer;transition:all 0.2s;';
+      d.style.cssText='width:6px;height:6px;border-radius:50%;background:rgba(255,0,0,0.25);cursor:pointer;transition:all 0.2s;';
       d.onclick=()=>goTo(i);
       dotsEl.appendChild(d);
     }
