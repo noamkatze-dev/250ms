@@ -503,6 +503,9 @@ body{
   border-color:#FF0000 !important;
 }
 #homeScreen .mode-dot{background:#ddd !important;}
+.mode-arrow-tri{width:0;height:0;display:block;}
+.mode-arrow-tri.left{border-top:6px solid transparent;border-bottom:6px solid transparent;border-right:9px solid #FF0000;}
+.mode-arrow-tri.right{border-top:6px solid transparent;border-bottom:6px solid transparent;border-left:9px solid #FF0000;}
 #homeScreen .mode-dot[style*="111"]{background:#FF0000 !important;}
 
 #navSignupBtn, #navLoginBtn, #navAboutLink, .nav-va,
@@ -1046,8 +1049,8 @@ body :not(#splashScreen):not(#splashScreen *):not(#homeScreen):not(#homeScreen *
             </div>
           </div>
           <div style="display:flex;gap:12px;margin-top:28px;align-items:center;">
-            <button id="modePrev" style="width:44px;height:44px;border-radius:50%;border:1.5px solid #FF0000;background:transparent;cursor:pointer;font-size:22px;display:flex;align-items:center;justify-content:center;color:#FF0000;transition:all 0.15s;">◀</button>
-            <button id="modeNext" style="width:44px;height:44px;border-radius:50%;border:1.5px solid #FF0000;background:transparent;cursor:pointer;font-size:22px;display:flex;align-items:center;justify-content:center;color:#FF0000;transition:all 0.15s;">▶</button>
+            <button id="modePrev" style="width:44px;height:44px;border-radius:50%;border:1.5px solid #FF0000;background:transparent;cursor:pointer;display:flex;align-items:center;justify-content:center;color:#FF0000;transition:all 0.15s;"><span class="mode-arrow-tri right"></span></button>
+            <button id="modeNext" style="width:44px;height:44px;border-radius:50%;border:1.5px solid #FF0000;background:transparent;cursor:pointer;display:flex;align-items:center;justify-content:center;color:#FF0000;transition:all 0.15s;"><span class="mode-arrow-tri left"></span></button>
             <div id="modeDots" style="display:flex;gap:6px;margin-left:24px;margin-right:24px;"></div>
           </div>
         </div>
