@@ -137,7 +137,7 @@ body{
 #briefingScreen{
   display:none;position:fixed;inset:0;z-index:9100;
   flex-direction:column;align-items:center;justify-content:center;
-  background:#c8e8f5;overflow:hidden;
+  background:#c8e8f5;overflow-y:auto;overflow-x:hidden;
 }
 #briefingScreen::before{
   content:'';position:absolute;inset:0;
@@ -153,7 +153,7 @@ body{
 }
 .briefing-inner{
   max-width:520px;width:90vw;display:flex;flex-direction:column;align-items:center;text-align:center;
-  margin-top:-60px;
+  margin-top:0;
   position:relative;z-index:2;isolation:isolate;
 }
 .briefing-label{
@@ -176,15 +176,14 @@ body{
   margin-bottom:32px;font-family:Ratzif22,Heebo,sans-serif;
 }
 .briefing-steps{
-  display:flex;gap:0;width:100%;margin-bottom:0;
+  display:flex;flex-direction:column;align-items:center;gap:22px;width:100%;margin-bottom:0;
 }
 .briefing-step{
-  flex:1;padding:16px 12px;border-left:none;
   display:flex;flex-direction:column;align-items:center;gap:6px;
 }
 .briefing-step:first-child{border-left:none;}
 .briefing-step-n{
-  font-size:8px;font-weight:700;letter-spacing:0.35em;color:#FF0000;
+  font-size:16px;font-weight:700;letter-spacing:0.1em;color:#FF0000;
   font-family:Ratzif22,Heebo,sans-serif;
 }
 .briefing-step-icon{font-size:20px;line-height:1;}
@@ -722,18 +721,24 @@ body :not(#splashScreen):not(#splashScreen *):not(#homeScreen):not(#homeScreen *
     <h2 class="briefing-title">עומד להתחיל סשן צפייה</h2>
     <div class="briefing-divider"></div>
     <p class="briefing-note">
-      מצלמת הרשת עוקבת אחרי תנועות העיניים שלך בלבד.<br>
-      השאר את ראשך ללא תנועה ככל האפשר.
+      מצלמת הרשת עוקבת אחרי תנועות העיניים שלך בלבד.
     </p>
 
     <div class="briefing-steps">
       <div class="briefing-step">
+        <div class="briefing-step-n">1</div>
+        <div class="briefing-step-text">השאר את ראשך ללא תנועה ככל האפשר.</div>
+      </div>
+      <div class="briefing-step">
+        <div class="briefing-step-n">2</div>
         <div class="briefing-step-text">הסתכל באופן חופשי על כל תמונה</div>
       </div>
       <div class="briefing-step">
+        <div class="briefing-step-n">3</div>
         <div class="briefing-step-text">כל תמונה תופיע למשך 3 שניות</div>
       </div>
       <div class="briefing-step">
+        <div class="briefing-step-n">4</div>
         <div class="briefing-step-text">בסיום תראה את נתוני המבט שלך</div>
       </div>
     </div>
