@@ -137,7 +137,7 @@ body{
 #briefingScreen{
   display:none;position:fixed;inset:0;z-index:9100;
   flex-direction:column;align-items:center;justify-content:center;
-  background:#c8e8f5;overflow-y:auto;overflow-x:hidden;
+  background:#c8e8f5;overflow:hidden;
 }
 #briefingScreen::before{
   content:'';position:absolute;inset:0;
@@ -2140,14 +2140,18 @@ async function boot(){
 
   calOverlay.style.display='block';
   resizeCal();
-  window.addEventListener('resize',resizeCal);
+  let lastStaticCalDraw=null;
+  window.addEventListener('resize',()=>{resizeCal();if(lastStaticCalDraw)lastStaticCalDraw();});
+  await document.fonts.ready;
   drawCalIntro();
+  lastStaticCalDraw=drawCalIntro;
   calStartBtn.style.display='block';
 
   const eyePromise = startEyeTracking();
 
   await new Promise(r=>calStartBtn.addEventListener('click',r,{once:true}));
   calStartBtn.style.display='none';
+  lastStaticCalDraw=null;
 
   const ok = await eyePromise;
   if(!ok) enablePointerFallback();
@@ -2162,7 +2166,9 @@ async function boot(){
   if(calData.length>=4)eyeCalMap=fitAffine(calData);
 
   drawCalDone();
+  lastStaticCalDraw=drawCalDone;
   await new Promise(r=>setTimeout(r,900));
+  lastStaticCalDraw=null;
   calOverlay.style.display='none';
 
   requestAnimationFrame(mainLoop);
