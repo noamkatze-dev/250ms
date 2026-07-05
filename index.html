@@ -290,7 +290,7 @@ body{
 #dataImgArea{position:relative;flex:1;overflow:hidden;background:#eee;}
 #dataImg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;}
 #dataCanvas{position:absolute;inset:0;pointer-events:none;z-index:2;}
-#dataSessionBadge{position:absolute;bottom:14px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:stretch;background:rgba(255,255,255,0.45);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,0.7);border-radius:12px;z-index:8;pointer-events:all;min-width:380px;overflow:hidden;}
+#dataSessionBadge{position:absolute;bottom:14px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:stretch;background:transparent;border:1px solid rgba(255,255,255,0.7);border-radius:12px;z-index:8;pointer-events:all;min-width:380px;overflow:hidden;}
 .dsb-header{display:flex;align-items:center;justify-content:space-between;padding:7px 14px;cursor:pointer;user-select:none;}
 .dsb-header-label{font-size:7px;font-weight:700;letter-spacing:0.35em;color:rgba(255,0,0,0.6);text-transform:uppercase;}
 .dsb-toggle{font-size:13px;color:#FF0000;transition:transform 0.2s;line-height:1;font-weight:900;}
@@ -301,7 +301,7 @@ body{
 .dsb-item:last-child{border-right:none;}
 .dsb-label{font-size:7px;font-weight:700;letter-spacing:0.3em;color:#FF0000;text-transform:uppercase;}
 .dsb-val{font-size:11px;font-weight:700;color:#FF0000;}
-#dataAnalysisBadge{position:absolute;bottom:14px;right:14px;display:none;flex-direction:column;background:rgba(255,255,255,0.45);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,0.7);border-radius:12px;z-index:8;pointer-events:all;min-width:170px;overflow:hidden;}
+#dataAnalysisBadge{position:absolute;bottom:14px;right:14px;display:none;flex-direction:column;background:transparent;border:1px solid rgba(255,255,255,0.7);border-radius:12px;z-index:8;pointer-events:all;min-width:170px;overflow:hidden;}
 .dab-header{display:flex;align-items:center;justify-content:space-between;padding:7px 12px;cursor:pointer;user-select:none;border-bottom:1px solid rgba(255,0,0,0.15);}
 .dab-header-label{font-size:7px;font-weight:700;letter-spacing:0.35em;color:#FF0000;text-transform:uppercase;}
 .dab-toggle{font-size:13px;color:#FF0000;transition:transform 0.2s;line-height:1;font-weight:900;}
@@ -312,8 +312,8 @@ body{
 .dab-name{font-size:9px;font-weight:300;color:rgba(255,0,0,0.6);}
 .dab-val{font-size:11px;font-weight:700;color:#FF0000;}
 .dab-unit{font-size:8px;font-weight:300;color:rgba(255,0,0,0.5);margin-left:2px;}
-#dataToolbar{position:absolute;bottom:14px;right:14px;left:auto;top:auto;transform:none;display:flex;flex-direction:column;flex-wrap:nowrap;align-items:stretch;gap:2px;background:rgba(255,255,255,0.45);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);padding:8px 6px;border:1px solid rgba(255,255,255,0.6);border-radius:14px;z-index:10;transition:opacity 0.2s,background 0.2s,border-color 0.2s;width:92px;}
-#dataToolbar.dark-bg{background:rgba(20,20,20,0.55);border-color:rgba(255,255,255,0.15);}
+#dataToolbar{position:absolute;bottom:14px;right:14px;left:auto;top:auto;transform:none;display:flex;flex-direction:column;flex-wrap:nowrap;align-items:stretch;gap:2px;background:transparent;padding:8px 6px;border:1px solid rgba(255,255,255,0.6);border-radius:14px;z-index:10;transition:opacity 0.2s,border-color 0.2s;width:92px;}
+#dataToolbar.dark-bg{background:transparent;border-color:rgba(255,255,255,0.15);}
 #dataToolbar.collapsed .toolbar-inner-content{display:none;}
 .toolbar-inner-content{display:flex;flex-direction:column;gap:2px;}
 .toolbar-sep{width:24px;height:1px;background:rgba(255,255,255,0.4);flex-shrink:0;margin:6px auto;align-self:center;}
@@ -474,8 +474,8 @@ body{
 #dataToolbarCollapseBtn{width:22px;height:22px;padding:0;cursor:pointer;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:100px;color:rgba(255,255,255,0.7);flex-shrink:0;transition:color 0.15s,background 0.15s;align-self:center;margin-bottom:4px;}
 #dataToolbarCollapseBtn:hover{color:#FF0000;background:rgba(255,255,255,0.18);}
 #dataToolbarCollapseBtn .tcb-arrow{font-size:8px;font-weight:400;line-height:1;color:#FF0000;}
-#dataImgDots{position:absolute;bottom:18px;left:50%;transform:translateX(-50%);z-index:9;display:flex;gap:8px;align-items:center;pointer-events:all;background:rgba(255,255,255,0.45);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);padding:8px 14px;border-radius:100px;border:1px solid rgba(255,255,255,0.6);transition:background 0.2s,border-color 0.2s;}
-#dataImgDots.dark-bg{background:rgba(20,20,20,0.55);border-color:rgba(255,255,255,0.15);}
+#dataImgDots{position:absolute;bottom:18px;left:50%;transform:translateX(-50%);z-index:9;display:flex;gap:8px;align-items:center;pointer-events:all;background:transparent;padding:8px 14px;border-radius:100px;border:1px solid rgba(255,255,255,0.6);transition:background 0.2s,border-color 0.2s;}
+#dataImgDots.dark-bg{background:transparent;border-color:rgba(255,255,255,0.15);}
 .img-dot{width:7px;height:7px;border-radius:50%;background:rgba(255,0,0,0.3);cursor:pointer;transition:all 0.18s;border:none;padding:0;}
 .img-dot:hover{background:rgba(255,0,0,0.6);transform:scale(1.2);}
 .img-dot.active{background:#FF0000;transform:scale(1.3);}
@@ -1144,7 +1144,6 @@ import { FaceLandmarker, FilesetResolver } from 'https://cdn.jsdelivr.net/npm/@m
 const homeScreen=document.getElementById('homeScreen');
 const navHomeLink={classList:{add:()=>{},remove:()=>{}}};
 const navSessionLink=document.getElementById('navSessionLink');
-const navCompareLink=document.getElementById('navCompareLink'); /* FIX: was missing, caused ReferenceError before boot() ran */
 const navGalleryLink=document.getElementById('navGalleryLink');
 const navDashboardLink=document.getElementById('navDashboardLink');
 const navProfileLink=document.getElementById('navProfileLink');
@@ -1220,7 +1219,6 @@ let rawGX=0.5,rawGY=0.5,sGX=0.5,sGY=0.5,gazeOn=false,lastGazeTs=0;
 let curOffX=0.5,curOffY=0.5,curEyeOffX=0.5,curEyeOffY=0.5,eyeValid=false;
 const offXBuf=[],offYBuf=[],eyeOffXBuf=[],eyeOffYBuf=[];
 let eyeCalMap=null;
-let usingFallback=false; /* true when webcam/eye-tracking was denied or unavailable, and we fell back to mouse control */
 window._gazeHistory=[];
 let currentAnimation=null,dataActiveLayer='GAZE',playMode='ANIMATED',showImg=true,viewSession=null;
 const allSessions=[];
@@ -1334,19 +1332,6 @@ function drawCalDone(){const W=window.innerWidth,H=window.innerHeight;
   calCtx.fillText("מוכן!",W/2,H/2-8);
   calCtx.fillStyle='#FF0000';calCtx.font="400 17px Ratzif22,Heebo";
   calCtx.fillText('הכיול הושלם - עמוד הבית עומד להיפתח.',W/2,H/2+20);
-}
-
-// Shown instead of the 9-point calibration when the camera was denied/unavailable
-// and we fell back to mouse tracking. The mouse already maps 1:1 to screen
-// coordinates, so there is nothing to calibrate - we just inform the user.
-function drawFallbackNotice(){const W=window.innerWidth,H=window.innerHeight;
-  calCtx.clearRect(0,0,W,H);
-  calCtx.textAlign="center";
-  calCtx.fillStyle='#FF0000';calCtx.font="700 32px HaimNum,HaimVariable";
-  calCtx.fillText('מצלמה לא זמינה',W/2,H/2-16);
-  calCtx.fillStyle='#FF0000';calCtx.font="400 17px Ratzif22,Heebo";
-  calCtx.fillText('ממשיכים במצב עכבר במקום מעקב עיניים.',W/2,H/2+16);
-  calCtx.fillText('הזז את העכבר כדי לדמות מבט - עמוד הבית עומד להיפתח.',W/2,H/2+40);
 }
 
 function awaitDot(px,py,index){return new Promise(resolve=>{let progress=0,prevTs=null;const samples=[];function frame(ts){const dt=prevTs?Math.min((ts-prevTs)/1000,0.05):0;prevTs=ts;const s=eyeStab();progress+=s*CAL_FILL_RATE*dt;progress-=(1-s)*CAL_DRAIN_RATE*dt;progress=Math.max(0,Math.min(1,progress));if(s>0.45&&eyeValid)samples.push({ox:curEyeOffX,oy:curEyeOffY});const W=window.innerWidth,H=window.innerHeight;
@@ -2175,34 +2160,20 @@ async function boot(){
   lastStaticCalDraw=null;
 
   const ok = await eyePromise;
-  if(!ok){
-    enablePointerFallback();
-    usingFallback=true;
-  }
+  if(!ok) enablePointerFallback();
 
-  if(!usingFallback){
-    const calData=[];
-    for(let i=0;i<CAL_PTS.length;i++){
-      const[nx,ny]=CAL_PTS[i],px=nx*window.innerWidth,py=ny*window.innerHeight;
-      if(i>0)await new Promise(r=>setTimeout(r,320));
-      const{ox,oy}=await awaitDot(px,py,i);
-      calData.push({sx:nx,sy:ny,ox,oy});
-    }
-    if(calData.length>=4)eyeCalMap=fitAffine(calData);
-
-    drawCalDone();
-    lastStaticCalDraw=drawCalDone;
-    await new Promise(r=>setTimeout(r,900));
-  } else {
-    // No webcam: the 9-point calibration relies entirely on eyeStab(),
-    // which is fed by the webcam tracking loop and never runs in this
-    // mode, so the dots would never fill and boot() would hang forever.
-    // Mouse position already maps 1:1 to screen coordinates, so skip
-    // calibration entirely and just show a short explanatory message.
-    drawFallbackNotice();
-    lastStaticCalDraw=drawFallbackNotice;
-    await new Promise(r=>setTimeout(r,1800));
+  const calData=[];
+  for(let i=0;i<CAL_PTS.length;i++){
+    const[nx,ny]=CAL_PTS[i],px=nx*window.innerWidth,py=ny*window.innerHeight;
+    if(i>0)await new Promise(r=>setTimeout(r,320));
+    const{ox,oy}=await awaitDot(px,py,i);
+    calData.push({sx:nx,sy:ny,ox,oy});
   }
+  if(calData.length>=4)eyeCalMap=fitAffine(calData);
+
+  drawCalDone();
+  lastStaticCalDraw=drawCalDone;
+  await new Promise(r=>setTimeout(r,900));
   lastStaticCalDraw=null;
   calOverlay.style.display='none';
 
