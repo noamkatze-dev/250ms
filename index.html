@@ -312,18 +312,18 @@ body{
 .dab-name{font-size:9px;font-weight:300;color:rgba(255,0,0,0.6);}
 .dab-val{font-size:11px;font-weight:700;color:#FF0000;}
 .dab-unit{font-size:8px;font-weight:300;color:rgba(255,0,0,0.5);margin-left:2px;}
-#dataToolbar{position:absolute;bottom:14px;right:14px;left:auto;top:auto;transform:none;display:flex;flex-direction:column;flex-wrap:nowrap;align-items:stretch;gap:2px;background:transparent;padding:8px 6px;border:1px solid rgba(255,255,255,0.6);border-radius:14px;z-index:10;transition:opacity 0.2s,border-color 0.2s;width:92px;}
-#dataToolbar.dark-bg{background:transparent;border-color:rgba(255,255,255,0.15);}
+#dataToolbar{position:absolute;bottom:14px;right:14px;left:auto;top:auto;transform:none;display:flex;flex-direction:column;flex-wrap:nowrap;align-items:stretch;gap:2px;background:transparent;padding:8px 6px;border:1.5px solid #FF0000;border-radius:14px;z-index:10;transition:opacity 0.2s;width:120px;}
+#dataToolbar.dark-bg{background:transparent;border-color:#FF0000;}
 #dataToolbar.collapsed .toolbar-inner-content{display:none;}
 .toolbar-inner-content{display:flex;flex-direction:column;gap:2px;}
 .toolbar-sep{width:24px;height:1px;background:rgba(255,255,255,0.4);flex-shrink:0;margin:6px auto;align-self:center;}
-.layer-btn{font-family:Ratzif22,Heebo,sans-serif;font-size:7.5px;font-weight:400;letter-spacing:0.06em;color:#FF0000;background:transparent;border:1.5px solid transparent;padding:5px 9px;cursor:pointer;transition:color 0.15s,border-color 0.15s;white-space:nowrap;border-radius:100px;position:relative;}
-.layer-btn.active{color:#FF0000;border-color:rgba(255,255,255,0.35);background:rgba(255,255,255,0.07);}
+.layer-btn{font-family:'Ratzif22',Heebo,sans-serif;font-size:7.5px;font-weight:400;letter-spacing:0.06em;color:#FF0000;background:transparent;border:1.5px solid transparent;padding:5px 6px;cursor:pointer;transition:color 0.15s,border-color 0.15s;white-space:nowrap;border-radius:8px;position:relative;width:100%;box-sizing:border-box;text-align:center;}
+.layer-btn.active{color:#FF0000;border-color:#FF0000;background:transparent;}
 .layer-btn[data-tooltip]::after{content:attr(data-tooltip);position:absolute;top:50%;right:calc(100% + 10px);left:auto;transform:translateY(-50%);background:rgba(0,0,0,0.88);color:#FF0000;font-size:9px;font-weight:300;letter-spacing:0.04em;white-space:nowrap;padding:5px 10px;border-radius:6px;pointer-events:none;opacity:0;transition:opacity 0.15s;border:1px solid rgba(255,255,255,0.08);z-index:100;}
 .layer-btn[data-tooltip]:hover::after{opacity:1;}
 .toggle-group{display:flex;flex-direction:column;gap:2px;}
-.toggle-btn{font-family:Ratzif22,Heebo,sans-serif;font-size:7.5px;font-weight:400;letter-spacing:0.05em;padding:5px 8px;border:1.5px solid transparent;background:transparent;color:#FF0000;cursor:pointer;transition:all 0.15s,transform 0.15s;white-space:nowrap;border-radius:100px;}
-.toggle-btn.active{color:#FF0000;border-color:rgba(255,255,255,0.35);background:rgba(255,255,255,0.07);}
+.toggle-btn{font-family:'Ratzif22',Heebo,sans-serif;font-size:7.5px;font-weight:400;letter-spacing:0.05em;padding:5px 6px;border:1.5px solid transparent;background:transparent;color:#FF0000;cursor:pointer;transition:all 0.15s,transform 0.15s;white-space:nowrap;border-radius:8px;width:100%;box-sizing:border-box;text-align:center;}
+.toggle-btn.active{color:#FF0000;border-color:#FF0000;background:transparent;}
 #playBtn{font-family:Ratzif22,Heebo,sans-serif;font-size:7.5px;font-weight:400;letter-spacing:0.06em;color:#FF0000;background:#222;border:1.5px solid #3a3a3a;padding:5px 10px;cursor:pointer;transition:background 0.15s;flex-shrink:0;border-radius:100px;}
 .view-tab{font-family:Ratzif22,Heebo,sans-serif;font-size:7.5px;font-weight:400;letter-spacing:0.06em;padding:5px 9px;border:1.5px solid transparent;background:transparent;color:#FF0000;cursor:pointer;transition:all 0.15s;border-radius:100px;}
 .view-tab.active{background:rgba(255,255,255,0.07);color:#FF0000;border-color:rgba(255,255,255,0.35);}
@@ -471,8 +471,8 @@ body{
 .dash-user-stat-label{font-size:7px;font-weight:700;letter-spacing:0.25em;color:#FF0000;text-transform:uppercase;margin-bottom:3px;}
 .dash-user-stat-val{font-size:13px;font-weight:700;color:#FF0000;}
 .dash-empty{color:#FF0000;font-size:11px;letter-spacing:0.2em;text-align:center;padding:60px 0;}
-#dataToolbarCollapseBtn{width:22px;height:22px;padding:0;cursor:pointer;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:100px;color:rgba(255,255,255,0.7);flex-shrink:0;transition:color 0.15s,background 0.15s;align-self:center;margin-bottom:4px;}
-#dataToolbarCollapseBtn:hover{color:#FF0000;background:rgba(255,255,255,0.18);}
+#dataToolbarCollapseBtn{width:22px;height:22px;padding:0;cursor:pointer;display:flex;align-items:center;justify-content:center;background:transparent;border:1.5px solid #FF0000;border-radius:100px;color:#FF0000;flex-shrink:0;transition:color 0.15s,background 0.15s;align-self:center;margin-bottom:4px;}
+#dataToolbarCollapseBtn:hover{color:#FF0000;background:rgba(255,0,0,0.1);}
 #dataToolbarCollapseBtn .tcb-arrow{font-size:8px;font-weight:400;line-height:1;color:#FF0000;}
 #dataImgDots{position:absolute;bottom:18px;left:50%;transform:translateX(-50%);z-index:9;display:flex;gap:8px;align-items:center;pointer-events:all;background:transparent;padding:8px 14px;border-radius:100px;border:1px solid rgba(255,255,255,0.6);transition:background 0.2s,border-color 0.2s;}
 #dataImgDots.dark-bg{background:transparent;border-color:rgba(255,255,255,0.15);}
@@ -581,7 +581,7 @@ label,
 }
 
 .layer-btn.active, .toggle-btn.active, .view-tab.active,
-#playBtn { color: #fff !important; }
+#playBtn { color: #FF0000 !important; }
 .layer-btn.active:hover, .toggle-btn.active:hover, .view-tab.active:hover { color: #FF0000 !important; }
 
 /* ── Global typography unification: force regular weight everywhere
@@ -1131,7 +1131,7 @@ body :not(#splashScreen):not(#splashScreen *):not(#homeScreen):not(#homeScreen *
       <circle id="spectrumUserDot" cx="300" cy="50" r="8" fill="#FF0000" stroke="#fff" stroke-width="2" opacity="0"/>
     </svg>
 
-    <p style="font-size:11px;font-weight:300;color:#FF0000;text-align:center;white-space:nowrap;line-height:1.8;margin-top:64px;">
+    <p style="font-size:11px;font-weight:300;color:#FF0000;text-align:center;white-space:nowrap;line-height:1.8;margin-top:120px;">
       המיקום שלך על הקשת נקבע באופן זמני. בעתיד, ניתוח דפוסי המבט שלך על דמויות פוליטיות יקבע את מיקומך באופן מדויק.
     </p>
   </div>
