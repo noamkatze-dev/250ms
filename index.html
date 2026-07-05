@@ -907,6 +907,10 @@ body :not(#splashScreen):not(#splashScreen *):not(#homeScreen):not(#homeScreen *
         <div class="cf-dropdown-trigger"><span class="cf-dropdown-label">כל המיקומים</span><span class="cf-dropdown-arrow">▼</span></div>
         <div class="cf-dropdown-list"><div class="cf-dropdown-option selected" data-value="">כל המיקומים</div></div>
       </div>
+      <div class="cf-dropdown" id="cf-image-wrap" data-target="cf-image">
+        <div class="cf-dropdown-trigger"><span class="cf-dropdown-label">כל התמונות</span><span class="cf-dropdown-arrow">▼</span></div>
+        <div class="cf-dropdown-list"><div class="cf-dropdown-option selected" data-value="">כל התמונות</div></div>
+      </div>
       <span class="cf-sep"></span>
       <span class="cf-label">מיון לפי</span>
       <div class="cf-dropdown" id="cf-sort-wrap" data-target="cf-sort">
@@ -943,6 +947,7 @@ body :not(#splashScreen):not(#splashScreen *):not(#homeScreen):not(#homeScreen *
       <input type="hidden" id="cf-user" value=""/>
       <input type="hidden" id="cf-gender" value=""/>
       <input type="hidden" id="cf-location" value=""/>
+      <input type="hidden" id="cf-image" value=""/>
       <input type="hidden" id="cf-sort" value=""/>
       <input type="hidden" id="cf-layer" value="GAZE"/>
       <button id="cf-apply" class="va-btn va-btn-secondary" style="margin-left:4px;font-size:10px;padding:6px 18px;">החל</button>
@@ -1710,7 +1715,7 @@ function setupCfDropdown(wrapId){
   });
 }
 document.addEventListener('click',()=>{ document.querySelectorAll('.cf-dropdown.open').forEach(d=>d.classList.remove('open')); });
-['cf-user-wrap','cf-gender-wrap','cf-location-wrap','cf-sort-wrap','cf-layer-wrap'].forEach(setupCfDropdown);
+['cf-user-wrap','cf-gender-wrap','cf-location-wrap','cf-image-wrap','cf-sort-wrap','cf-layer-wrap'].forEach(setupCfDropdown);
 
 function rebuildCfDropdownOptions(wrapId, optionsHtml, defaultLabel){
   const wrap=document.getElementById(wrapId);
@@ -1733,12 +1738,13 @@ function rebuildCfDropdownOptions(wrapId, optionsHtml, defaultLabel){
   }
 }
 
-function populateCompareFilters(){const GENDER_HE={'Male':'זכר','Female':'נקבה','Other':'אחר'};const users=[...new Set(allSessions.map(s=>s.user))];const genders=[...new Set(allSessions.map(s=>s.gender).filter(Boolean))];const locations=[...new Set(allSessions.map(s=>s.location).filter(Boolean))];
+function populateCompareFilters(){const GENDER_HE={'Male':'זכר','Female':'נקבה','Other':'אחר'};const users=[...new Set(allSessions.map(s=>s.user))];const genders=[...new Set(allSessions.map(s=>s.gender).filter(Boolean))];const locations=[...new Set(allSessions.map(s=>s.location).filter(Boolean))];const images=[...new Set(allSessions.map(s=>s.imageName).filter(Boolean))];
   rebuildCfDropdownOptions('cf-user-wrap','<div class="cf-dropdown-option selected" data-value="">כל המשתמשים</div>'+users.map(u=>'<div class="cf-dropdown-option" data-value="'+u+'">'+u+'</div>').join(''),'כל המשתמשים');
   rebuildCfDropdownOptions('cf-gender-wrap','<div class="cf-dropdown-option selected" data-value="">כל המגדרים</div>'+genders.map(g=>'<div class="cf-dropdown-option" data-value="'+g+'">'+(GENDER_HE[g]||g)+'</div>').join(''),'כל המגדרים');
   rebuildCfDropdownOptions('cf-location-wrap','<div class="cf-dropdown-option selected" data-value="">כל המיקומים</div>'+locations.map(l=>'<div class="cf-dropdown-option" data-value="'+l+'">'+l+'</div>').join(''),'כל המיקומים');
+  rebuildCfDropdownOptions('cf-image-wrap','<div class="cf-dropdown-option selected" data-value="">כל התמונות</div>'+images.map(i=>'<div class="cf-dropdown-option" data-value="'+i+'">'+i+'</div>').join(''),'כל התמונות');
 }
-function getFilteredSessions(){const user=document.getElementById('cf-user').value,gender=document.getElementById('cf-gender').value,location=document.getElementById('cf-location').value,sort=document.getElementById('cf-sort').value;let list=allSessions.filter(s=>(!user||s.user===user)&&(!gender||s.gender===gender)&&(!location||s.location===location));if(sort){const[key,dir]=sort.split('_');const asc=dir==='asc';const getVal=(s)=>{switch(key){case 'fixations':return s.fixationHistory?.length||0;case 'saccades':return s.saccadeHistory?.length||0;case 'duration':return s.sessionDuration||0;case 'samples':return s.gazeLog?.length||0;case 'ttff':return s.firstFix?(s.firstFix.startTs-s.firstFixModeTs):Infinity;case 'sacAmp':{const sh=s.saccadeHistory||[];return sh.length?sh.reduce((a,f)=>a+Math.hypot(f.toX-f.fromX,f.toY-f.fromY),0)/sh.length:0;}case 'age':return parseInt(s.age)||0;default:return 0;}};list.sort((a,b)=>asc?getVal(a)-getVal(b):getVal(b)-getVal(a));}return list;}
+function getFilteredSessions(){const user=document.getElementById('cf-user').value,gender=document.getElementById('cf-gender').value,location=document.getElementById('cf-location').value,image=document.getElementById('cf-image').value,sort=document.getElementById('cf-sort').value;let list=allSessions.filter(s=>(!user||s.user===user)&&(!gender||s.gender===gender)&&(!location||s.location===location)&&(!image||s.imageName===image));if(sort){const[key,dir]=sort.split('_');const asc=dir==='asc';const getVal=(s)=>{switch(key){case 'fixations':return s.fixationHistory?.length||0;case 'saccades':return s.saccadeHistory?.length||0;case 'duration':return s.sessionDuration||0;case 'samples':return s.gazeLog?.length||0;case 'ttff':return s.firstFix?(s.firstFix.startTs-s.firstFixModeTs):Infinity;case 'sacAmp':{const sh=s.saccadeHistory||[];return sh.length?sh.reduce((a,f)=>a+Math.hypot(f.toX-f.fromX,f.toY-f.fromY),0)/sh.length:0;}case 'age':return parseInt(s.age)||0;default:return 0;}};list.sort((a,b)=>asc?getVal(a)-getVal(b):getVal(b)-getVal(a));}return list;}
 
 function renderCompareView(){populateCompareFilters();const GENDER_HE={'Male':'זכר','Female':'נקבה','Other':'אחר'};const grid=document.getElementById('compareGrid');grid.innerHTML='';const layer=document.getElementById('cf-layer').value||dataActiveLayer||'GAZE';const filteredSessions=getFilteredSessions();if(allSessions.length===0){grid.innerHTML='<div style="color:#FF0000;font-size:11px;letter-spacing:0.2em;text-align:center;padding:40px 0;grid-column:1/-1;">אין סשנים להשוואה עדיין</div>';return;}for(const sess of filteredSessions){const cell=document.createElement('div');cell.className='compare-panel';const ts=new Date(sess.timestamp).toLocaleTimeString();const dur=sess.sessionDuration?(sess.sessionDuration/1000).toFixed(1)+'s':'--';const genderLabel=GENDER_HE[sess.gender]||sess.gender||'';cell.innerHTML='<div class="compare-panel-header"><div><div class="cp-user">'+sess.user+'</div><div class="cp-meta">'+(sess.age?sess.age:'')+((sess.age&&sess.gender)?' . ':'')+genderLabel+(sess.location?' . '+sess.location:'')+'</div></div><div style="text-align:right"><div class="cp-time">'+sess.imageName+'</div><div class="cp-time">'+ts+' . '+dur+'</div></div></div><div class="compare-canvas-wrap"><img class="cp-img" src="'+sess.imageSrc+'"><canvas class="cp-canvas"></canvas></div><div class="cp-stats">'+sess.fixationHistory.length+' fix . '+sess.saccadeHistory.length+' sac . '+sess.gazeLog.length+' samples</div>';grid.appendChild(cell);const wrap=cell.querySelector('.compare-canvas-wrap'),canvas=cell.querySelector('.cp-canvas');setTimeout(()=>{canvas.width=wrap.offsetWidth;canvas.height=wrap.offsetHeight;const ctx=canvas.getContext('2d');const W=canvas.width,H=canvas.height;const RC='255,0,0';switch(layer){case 'GAZE':staticGaze(ctx,W,H,sess.gazeLog,RC);break;case 'FIXATION':staticFixation(ctx,W,H,sess.fixationHistory,RC);break;case 'SACCADE':staticSaccade(ctx,W,H,sess.saccadeHistory,RC);break;case 'SCANPATH':staticScanPath(ctx,W,H,sess.scanPathHistory,RC);break;case 'HEATMAP':staticHeatmap(ctx,W,H,sess.gazeLog,RC);break;case 'FIRSTFIX':staticFirstFix(ctx,W,H,sess.firstFix,sess.firstFixModeTs,RC);break;}},60);}}
 
