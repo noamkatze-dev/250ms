@@ -11,6 +11,16 @@
 :root{--grid-cell: calc(100vh / 6);}
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
 
+@keyframes spectrumPulse{
+  0%,100%{transform:scale(1);}
+  50%{transform:scale(1.35);}
+}
+#spectrumUserDot,#spectrumUserDotRing{
+  transform-box:fill-box;
+  transform-origin:center;
+  animation:spectrumPulse 1.4s ease-in-out infinite;
+}
+
 @font-face {
   font-family: 'HaimVariable';
   src: url('HaimVariable-VF-TRIAL.ttf') format('truetype-variations'),
