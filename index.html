@@ -1150,8 +1150,7 @@ body :not(#splashScreen):not(#splashScreen *):not(#homeScreen):not(#homeScreen *
 
 <!-- POLITICAL SPECTRUM SCREEN -->
 <div id="spectrumScreen" style="display:none;position:fixed;inset:0;z-index:1700;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;background:#c8e8f5;padding-top:80px;box-sizing:border-box;">
-  <video id="spectrumSkyVideo" src="sky.mp4" muted playsinline preload="auto"
-    style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none;z-index:0;"></video>
+  <img src="sky.png" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none;z-index:0;filter:blur(22px);transform:scale(1.08);">
   <div id="spectrumGridOverlay" style="position:absolute;inset:0;z-index:1;pointer-events:none;"></div>
 
 
@@ -1615,37 +1614,6 @@ function showSpectrumScreen(){
     if(navSpectrumLink) navSpectrumLink.classList.add('active');
     const scr=document.getElementById('spectrumScreen');
     scr.style.display='flex';
-
-    // ── Sky video: manual ping-pong scrub instead of native play() ──
-    // (native play() can silently fail here because it's called after
-    //  several intervening awaits, well outside the original click's
-    //  "user gesture" window; the video would then just stay paused
-    //  and invisible-in-motion. Driving currentTime by hand avoids
-    //  the autoplay restriction entirely and lets us control speed
-    //  and direction precisely.)
-    const vid=document.getElementById('spectrumSkyVideo');
-    stopSpectrumSky();
-    vid.pause();
-
-    const SKY_SPEED=1.0;         // normal real-time playback speed, forward and reverse
-    const STEP_PER_FRAME=0.016;  // seconds of video time advanced per rAF tick, before speed scaling
-    let skyDir=1;
-
-    function pingPongStep(){
-      if(vid.duration && isFinite(vid.duration)){
-        vid.currentTime += skyDir*STEP_PER_FRAME*SKY_SPEED;
-        if(vid.currentTime>=vid.duration-0.05){ vid.currentTime=vid.duration-0.05; skyDir=-1; }
-        else if(vid.currentTime<=0.05){ vid.currentTime=0.05; skyDir=1; }
-      }
-      spectrumSkyRaf=requestAnimationFrame(pingPongStep);
-    }
-
-    if(vid.readyState>=1){
-      pingPongStep();
-    }else{
-      vid.addEventListener('loadedmetadata',pingPongStep,{once:true});
-      vid.load();
-    }
 
     buildSpectrumTicks();
     placeSpectrumUserDot();
