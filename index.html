@@ -528,6 +528,7 @@ body{
 .splash-grid-top{position:absolute;top:4%;left:6%;right:6%;display:grid;grid-template-columns:1fr 1fr;row-gap:9px;align-items:center;}
 .splash-grid-top .full{grid-column:1 / 3;}
 .splash-grid-top .end{justify-self:end;}
+.splash-desc{font-family:Ratzif22,Heebo,sans-serif;font-size:5.5pt !important;font-weight:300;letter-spacing:0.08em;color:#FF0000;text-align:center;line-height:1.6;margin:0;opacity:0.85;}
 .splash-grid-bottom{position:absolute;bottom:4%;left:6%;right:6%;display:grid;grid-template-columns:repeat(3,1fr);row-gap:9px;column-gap:16px;align-items:center;}
 .splash-grid-bottom .full{grid-column:1 / 4;}
 .splash-grid-bottom .end{justify-self:end;}
@@ -789,21 +790,22 @@ body :not(#splashScreen):not(#splashScreen *):not(#homeScreen):not(#homeScreen *
       <span class="splash-minilogo">0.25</span>
       <span class="splash-minilogo end">0.25</span>
       <div class="splash-statline full">
-        <span class="num">00.25</span><span class="line"></span><span class="label">6 MODES · 30.0S</span><span class="line"></span><span class="num">00.25</span>
+        <span class="num">00.25</span><span class="line"></span><span class="label"><span class="cnt" data-target="6" data-format="int">0</span> MODES · <span class="cnt" data-target="30.0" data-format="dec1">0.0</span>S</span><span class="line"></span><span class="num">00.25</span>
       </div>
-      <span class="splash-tiny">478 LANDMARKS</span>
+      <p class="splash-desc full">REAL-TIME WEBCAM EYE TRACKING · 478-POINT FACIAL LANDMARK DETECTION · AFFINE GAZE CALIBRATION</p>
+      <span class="splash-tiny"><span class="cnt" data-target="478" data-format="int">0</span> LANDMARKS</span>
       <span class="splash-tiny end">MEDIAPIPE</span>
     </div>
 
     <div class="splash-grid-bottom">
-      <div class="splash-row"><span class="idx">01</span><span class="lbl">Gaze</span><span class="val">00.25</span></div>
-      <div class="splash-row"><span class="idx">02</span><span class="lbl">Fixation</span><span class="val">00.18</span></div>
-      <div class="splash-row"><span class="idx">03</span><span class="lbl">Saccade</span><span class="val">00.09</span></div>
-      <div class="splash-row"><span class="idx">04</span><span class="lbl">Scan path</span><span class="val">00.31</span></div>
-      <div class="splash-row"><span class="idx">05</span><span class="lbl">Heatmap</span><span class="val">00.22</span></div>
-      <div class="splash-row"><span class="idx">06</span><span class="lbl">First fixation</span><span class="val">00.14</span></div>
+      <div class="splash-row"><span class="idx">01</span><span class="lbl">Gaze</span><span class="val cnt" data-target="0.25" data-format="dec2pad">00.00</span></div>
+      <div class="splash-row"><span class="idx">02</span><span class="lbl">Fixation</span><span class="val cnt" data-target="0.18" data-format="dec2pad">00.00</span></div>
+      <div class="splash-row"><span class="idx">03</span><span class="lbl">Saccade</span><span class="val cnt" data-target="0.09" data-format="dec2pad">00.00</span></div>
+      <div class="splash-row"><span class="idx">04</span><span class="lbl">Scan path</span><span class="val cnt" data-target="0.31" data-format="dec2pad">00.00</span></div>
+      <div class="splash-row"><span class="idx">05</span><span class="lbl">Heatmap</span><span class="val cnt" data-target="0.22" data-format="dec2pad">00.00</span></div>
+      <div class="splash-row"><span class="idx">06</span><span class="lbl">First fixation</span><span class="val cnt" data-target="0.14" data-format="dec2pad">00.00</span></div>
       <span class="splash-tiny thin">I-DT / I-VT</span>
-      <span class="splash-tiny thin end" style="grid-column:3;">60 FPS</span>
+      <span class="splash-tiny thin end" style="grid-column:3;"><span class="cnt" data-target="60" data-format="int">0</span> FPS</span>
       <div class="splash-statline full">
         <span class="num">00.25</span><span class="line"></span><span class="label">9-PT CALIBRATION · EYE TRACKING SYSTEM</span><span class="line"></span><span class="num">00.25</span>
       </div>
@@ -1110,7 +1112,7 @@ body :not(#splashScreen):not(#splashScreen *):not(#homeScreen):not(#homeScreen *
 </div>
 
 <!-- POLITICAL SPECTRUM SCREEN -->
-<div id="spectrumScreen" style="display:none;position:fixed;inset:0;z-index:1700;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;background:#c8e8f5;">
+<div id="spectrumScreen" style="display:none;position:fixed;inset:0;z-index:1700;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;background:#c8e8f5;padding-top:80px;box-sizing:border-box;">
   <video id="spectrumSkyVideo" src="sky.mp4" muted playsinline preload="auto"
     style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none;z-index:0;"></video>
   <div id="spectrumGridOverlay" style="position:absolute;inset:0;z-index:1;pointer-events:none;"></div>
@@ -1134,7 +1136,7 @@ body :not(#splashScreen):not(#splashScreen *):not(#homeScreen):not(#homeScreen *
       <circle id="spectrumUserDot" cx="300" cy="50" r="8" fill="#FF0000" opacity="0"/>
     </svg>
 
-    <p style="font-size:11px;font-weight:300;color:#FF0000;text-align:center;white-space:nowrap;line-height:1.8;margin-top:120px;">
+    <p style="font-size:11px;font-weight:300;color:#FF0000;text-align:center;white-space:nowrap;line-height:1.8;margin-top:56px;">
       המיקום שלך על הקשת נקבע באופן זמני. בעתיד, ניתוח דפוסי המבט שלך על דמויות פוליטיות יקבע את מיקומך באופן מדויק.
     </p>
   </div>
@@ -2153,6 +2155,28 @@ document.getElementById('homeStartBtn').addEventListener('click', async ()=>{
 });
 
 // ── BOOT ─────────────────────────────────────────────────────────────
+function formatCount(val, fmt){
+  if(fmt==='dec1') return val.toFixed(1);
+  if(fmt==='dec2pad') return val.toFixed(2).padStart(5,'0');
+  return Math.round(val).toString();
+}
+function countUpEl(el, duration){
+  const target=parseFloat(el.dataset.target);
+  const fmt=el.dataset.format||'int';
+  const start=performance.now();
+  function step(now){
+    const t=Math.min(1,(now-start)/duration);
+    const eased=1-Math.pow(1-t,3);
+    el.textContent=formatCount(target*eased,fmt);
+    if(t<1) requestAnimationFrame(step);
+    else el.textContent=formatCount(target,fmt);
+  }
+  requestAnimationFrame(step);
+}
+function startSplashCounters(duration){
+  document.querySelectorAll('#splashDataOverlay .cnt').forEach(el=>countUpEl(el,duration));
+}
+
 async function boot(){
   const splash = document.getElementById('splashScreen');
   const splashText = document.getElementById('splashText');
@@ -2160,8 +2184,8 @@ async function boot(){
   await new Promise(r=>setTimeout(r,100));
   splashText.style.opacity='1';
   await new Promise(r=>setTimeout(r,300));
-  if(splashDataOverlay) splashDataOverlay.style.opacity='1';
-  await new Promise(r=>setTimeout(r,1600));
+  if(splashDataOverlay){ splashDataOverlay.style.opacity='1'; startSplashCounters(1500); }
+  await new Promise(r=>setTimeout(r,1900));
   splash.style.transition='opacity 0.7s ease';
   splash.style.opacity='0';
   await new Promise(r=>setTimeout(r,700));
