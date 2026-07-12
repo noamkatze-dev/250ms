@@ -1233,7 +1233,7 @@ fetchLocation();
 // ── Constants ─────────────────────────────────────────────────────────
 const FIX_DISPERSION=0.04,FIX_MIN_DURATION=150,SAC_VELOCITY=0.8,SAC_MIN_AMP=0.03;
 const W_HEAT=200,H_HEAT=112,HEAT_SIGMA=0.07,HEAT_WEIGHT=0.18,HEAT_DECAY=0.9975,GAZE_LERP=0.08;
-const CAL_PTS=[[-2,1/6],[0,1/6],[2,1/6],[2,0.5],[0,0.5],[-2,0.5],[-2,5/6],[0,5/6],[2,5/6]];
+const CAL_PTS=[[0.1,0.1],[0.5,0.1],[0.9,0.1],[0.9,0.5],[0.5,0.5],[0.1,0.5],[0.1,0.9],[0.5,0.9],[0.9,0.9]];
 const CAL_VAR_THRESH=0.0012,CAL_FILL_RATE=0.6,CAL_DRAIN_RATE=0.8,BUF_MAX=30;
 
 const mainImg=document.getElementById('mainImg'),imgWrapper=document.getElementById('imgWrapper');
@@ -2251,13 +2251,16 @@ async function boot(){
 
   const calData=[];
   const cellPx = window.innerHeight/6;
-  const centerX = window.innerWidth/2;
+  const centerX = window.innerWidth/2, centerY = window.innerHeight/2;
   for(let i=0;i<CAL_PTS.length;i++){
-    const[cellOffsetX,ny]=CAL_PTS[i];
-    const rawPx=centerX+cellOffsetX*cellPx;
-    const px=Math.max(window.innerWidth*0.06, Math.min(window.innerWidth*0.94, rawPx));
-    const py=ny*window.innerHeight;
-    const nx=px/window.innerWidth;
+    const[fx,fy]=CAL_PTS[i];
+    const targetPx=fx*window.innerWidth, targetPy=fy*window.innerHeight;
+    // Snap to the nearest actual grid line instead of the raw fraction,
+    // moving each point as little as possible.
+    const kx=Math.round((targetPx-centerX)/cellPx);
+    const ky=Math.round((targetPy-centerY)/cellPx);
+    const px=centerX+kx*cellPx, py=centerY+ky*cellPx;
+    const nx=px/window.innerWidth, ny=py/window.innerHeight;
     if(i>0)await new Promise(r=>setTimeout(r,320));
     const{ox,oy}=await awaitDot(px,py,i);
     calData.push({sx:nx,sy:ny,ox,oy});
