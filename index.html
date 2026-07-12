@@ -1627,7 +1627,7 @@ function showSpectrumScreen(){
     stopSpectrumSky();
     vid.pause();
 
-    const SKY_SPEED=0.26;        // lower = slower playback (previously ~0.35, then 0.18)
+    const SKY_SPEED=1.0;         // normal real-time playback speed, forward and reverse
     const STEP_PER_FRAME=0.016;  // seconds of video time advanced per rAF tick, before speed scaling
     let skyDir=1;
 
