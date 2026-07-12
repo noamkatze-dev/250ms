@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@200;300;400;500;600;700;800;900&family=Heebo:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
+:root{--grid-cell: calc(100vh / 6);}
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
 
 @font-face {
@@ -1043,23 +1044,23 @@ body :not(#splashScreen):not(#splashScreen *):not(#homeScreen):not(#homeScreen *
 
     <h1 style="font-size:36px;font-weight:900;color:#FF0000;margin:0 0 12px;line-height:1.1;font-family:HaimNum,HaimVariable,Heebo,sans-serif;text-align:center;">250 אלפיות השנייה</h1>
 
-    <p style="font-size:15px;color:#FF0000;margin-top:0;margin-right:40px;margin-bottom:48px;margin-left:380px;line-height:1.8;font-family:Ratzif22,Heebo,sans-serif;text-align:justify;">
+    <p style="font-size:15px;color:#FF0000;margin-top:0;margin-right:calc(var(--grid-cell)*0.3);margin-bottom:calc(var(--grid-cell)*0.35);margin-left:calc(var(--grid-cell)*2.85);line-height:1.8;font-family:Ratzif22,Heebo,sans-serif;text-align:justify;">
       0.25 שניות היא מערכת מעקב עיניים מבוססת דפדפן לניתוח תשומת לב חזותית על תמונות פוליטיות. היא מודדת לאן מסתכלים הצופים, מה הם מבחינים בו ראשון, וכיצד המבט שלהם נע על פני תמונה - ללא חומרה כלשהי מלבד מצלמת רשת רגילה.
     </p>
 
     <div style="padding-top:36px;margin-bottom:36px;">
       <p id="about-label-system" style="font-size:9px;font-weight:700;letter-spacing:0.4em;color:#FF0000;margin:0 0 16px;font-family:Ratzif22,Heebo,sans-serif;text-align:center;">המערכת</p>
-      <p style="font-size:15px;color:#FF0000;line-height:1.8;margin-top:35px;margin-right:120px;margin-bottom:14px;margin-left:280px;font-family:Ratzif22,Heebo,sans-serif;text-align:justify;">
+      <p style="font-size:15px;color:#FF0000;line-height:1.8;margin-top:calc(var(--grid-cell)*0.25);margin-right:calc(var(--grid-cell)*0.9);margin-bottom:calc(var(--grid-cell)*0.1);margin-left:calc(var(--grid-cell)*2.1);font-family:Ratzif22,Heebo,sans-serif;text-align:justify;">
         המערכת משתמשת ב-MediaPipe לזיהוי 478 נקודות ציון פנים בכל פריים, תוך בידוד מיקום האיריס בזמן אמת. כיול אפיני של 9 נקודות ממפה את תנועת העין לקואורדינטות המסך, ודגימות המבט מסווגות לקיבועים, סקאדות, מסלולי סריקה ומפות חום באמצעות אלגוריתמי I-DT ו-I-VT.
       </p>
-      <p style="font-size:15px;color:#FF0000;line-height:1.8;margin-top:15px;margin-right:300px;margin-bottom:0;margin-left:60px;font-family:Ratzif22,Heebo,sans-serif;text-align:justify;">
+      <p style="font-size:15px;color:#FF0000;line-height:1.8;margin-top:calc(var(--grid-cell)*0.1);margin-right:calc(var(--grid-cell)*2.25);margin-bottom:0;margin-left:calc(var(--grid-cell)*0.45);font-family:Ratzif22,Heebo,sans-serif;text-align:justify;">
         המערכת תוכננה לחקור דפוסי תשומת לב חזותית על תמונות פוליטיות - בוחנת אילו אזורים מושכים את העין ראשונים, כמה זמן שוהה המבט באזורים שונים, ואם צצים דפוסי צפייה שונים בקרב משקיפים שונים.
       </p>
     </div>
 
     <div style="padding-top:36px;margin-bottom:36px;">
       <p id="about-label-research" style="font-size:9px;font-weight:700;letter-spacing:0.4em;color:#FF0000;margin:0 0 16px;font-family:Ratzif22,Heebo,sans-serif;text-align:center;">מוקד המחקר</p>
-      <p style="font-size:15px;color:#FF0000;line-height:1.8;margin-top:50px;margin-right:60px;margin-bottom:0;margin-left:340px;font-family:Ratzif22,Heebo,sans-serif;text-align:justify;">
+      <p style="font-size:15px;color:#FF0000;line-height:1.8;margin-top:calc(var(--grid-cell)*0.35);margin-right:calc(var(--grid-cell)*0.45);margin-bottom:0;margin-left:calc(var(--grid-cell)*2.55);font-family:Ratzif22,Heebo,sans-serif;text-align:justify;">
         כל סשן מקושר לפרופיל בעל שם הכולל גיל, מגדר ומיקום מזוהה. ההשתתפות היא וולונטרית והנתונים משמשים למטרות מחקר בלבד.
       </p>
     </div>
@@ -1099,7 +1100,7 @@ body :not(#splashScreen):not(#splashScreen *):not(#homeScreen):not(#homeScreen *
 
     <div style="padding-top:36px;padding-bottom:60px;">
       <p id="about-label-credits" style="font-size:9px;font-weight:700;letter-spacing:0.4em;color:#FF0000;margin:0 0 20px;font-family:Ratzif22,Heebo,sans-serif;text-align:center;">קרדיטים לתמונות</p>
-      <p style="font-size:12px;font-weight:300;color:#FF0000;line-height:1.8;margin-top:10px;margin-right:220px;margin-bottom:20px;margin-left:180px;font-family:Ratzif22,Heebo,sans-serif;text-align:justify;">
+      <p style="font-size:12px;font-weight:300;color:#FF0000;line-height:1.8;margin-top:calc(var(--grid-cell)*0.07);margin-right:calc(var(--grid-cell)*1.65);margin-bottom:calc(var(--grid-cell)*0.15);margin-left:calc(var(--grid-cell)*1.35);font-family:Ratzif22,Heebo,sans-serif;text-align:justify;">
         כל התמונות באדיבות לשכת העיתונות הממשלתית של ישראל.
       </p>
       <div style="display:flex;flex-direction:column;gap:8px;">
