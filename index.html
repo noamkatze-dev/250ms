@@ -349,7 +349,7 @@ body{
 .gallery-item-name{font-size:8px;font-weight:700;letter-spacing:0.1em;color:#FF0000;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 .gallery-item-stats{font-size:7px;font-weight:300;color:#FF0000;white-space:nowrap;}
 #compareView{display:none;flex:1;overflow:hidden;flex-direction:column;}
-#compareFilters{position:relative;z-index:500;background:rgba(255,255,255,0.45);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,0.4);padding:10px 60px;display:flex;flex-wrap:wrap;gap:8px;align-items:center;flex-shrink:0;}
+#compareFilters{position:relative;z-index:500;background:transparent;border-bottom:1px solid #FF0000;padding:10px 60px;display:flex;flex-wrap:wrap;gap:8px;align-items:center;flex-shrink:0;}
 .cf-label{font-size:8px;font-weight:700;letter-spacing:0.3em;color:#FF0000;text-transform:uppercase;}
 .cf-select{font-family:Ratzif22,Heebo,sans-serif;font-size:10px;background:transparent;color:#FF0000;border:1.5px solid #FF0000;padding:5px 10px;cursor:pointer;border-radius:100px;outline:none;-webkit-appearance:none;text-align:center;text-align-last:center;}
 .cf-select:focus{border-color:#FF0000;}
@@ -383,8 +383,8 @@ body{
 .cf-sep{width:1px;height:16px;background:#ddd;align-self:center;}
 #compareGrid-wrap{flex:1;overflow:auto;padding:16px 60px;}
 #compareGrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px;}
-.compare-panel{background:#fff;border:1px solid #e0e0e0;overflow:hidden;border-radius:4px;}
-.compare-panel-header{display:flex;justify-content:space-between;align-items:flex-start;padding:7px 10px;border-bottom:1px solid #eee;flex-wrap:wrap;gap:3px;}
+.compare-panel{background:#fff;border:none;overflow:hidden;border-radius:4px;}
+.compare-panel-header{display:flex;justify-content:space-between;align-items:flex-start;padding:7px 10px;border-bottom:none;flex-wrap:wrap;gap:3px;}
 .cp-user{font-size:10px;font-weight:700;letter-spacing:0.1em;color:#FF0000;}
 .cp-meta{font-size:7px;font-weight:300;color:#FF0000;line-height:1.4;}
 .cp-time{font-size:8px;font-weight:300;color:#FF0000;}
@@ -1233,7 +1233,7 @@ fetchLocation();
 // ── Constants ─────────────────────────────────────────────────────────
 const FIX_DISPERSION=0.04,FIX_MIN_DURATION=150,SAC_VELOCITY=0.8,SAC_MIN_AMP=0.03;
 const W_HEAT=200,H_HEAT=112,HEAT_SIGMA=0.07,HEAT_WEIGHT=0.18,HEAT_DECAY=0.9975,GAZE_LERP=0.08;
-const CAL_PTS=[[0.1,0.1],[0.5,0.1],[0.9,0.1],[0.9,0.5],[0.5,0.5],[0.1,0.5],[0.1,0.9],[0.5,0.9],[0.9,0.9]];
+const CAL_PTS=[[-2,1/6],[0,1/6],[2,1/6],[2,0.5],[0,0.5],[-2,0.5],[-2,5/6],[0,5/6],[2,5/6]];
 const CAL_VAR_THRESH=0.0012,CAL_FILL_RATE=0.6,CAL_DRAIN_RATE=0.8,BUF_MAX=30;
 
 const mainImg=document.getElementById('mainImg'),imgWrapper=document.getElementById('imgWrapper');
@@ -2250,8 +2250,14 @@ async function boot(){
   if(!ok) enablePointerFallback();
 
   const calData=[];
+  const cellPx = window.innerHeight/6;
+  const centerX = window.innerWidth/2;
   for(let i=0;i<CAL_PTS.length;i++){
-    const[nx,ny]=CAL_PTS[i],px=nx*window.innerWidth,py=ny*window.innerHeight;
+    const[cellOffsetX,ny]=CAL_PTS[i];
+    const rawPx=centerX+cellOffsetX*cellPx;
+    const px=Math.max(window.innerWidth*0.06, Math.min(window.innerWidth*0.94, rawPx));
+    const py=ny*window.innerHeight;
+    const nx=px/window.innerWidth;
     if(i>0)await new Promise(r=>setTimeout(r,320));
     const{ox,oy}=await awaitDot(px,py,i);
     calData.push({sx:nx,sy:ny,ox,oy});
