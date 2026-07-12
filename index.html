@@ -180,7 +180,7 @@ body{
 }
 .briefing-step{
   display:flex;flex-direction:column;align-items:center;gap:6px;
-  opacity:0;transform:translateY(8px);transition:opacity 0.5s ease,transform 0.5s ease;
+  opacity:0;transform:translateY(8px);transition:opacity 0.8s ease,transform 0.8s ease;
 }
 .briefing-step.visible{opacity:1;transform:translateY(0);}
 .briefing-step:first-child{border-left:none;}
@@ -974,7 +974,7 @@ body :not(#splashScreen):not(#splashScreen *):not(#homeScreen):not(#homeScreen *
       <label for="ageInput">שנת לידה</label>
       <input id="ageInput" type="text" inputmode="numeric" pattern="[0-9]*" placeholder="-"/>
     </div>
-    <div class="ns-field" id="nsFieldGender" style="display:none;opacity:0;transition:opacity 0.45s ease;">
+    <div class="ns-field" id="nsFieldGender" style="visibility:hidden;opacity:0;transition:opacity 0.45s ease;">
       <label for="genderInput">מגדר</label>
       <div class="custom-select-wrap" id="genderWrap">
         <div class="custom-select-trigger" id="genderTrigger">
@@ -989,7 +989,7 @@ body :not(#splashScreen):not(#splashScreen *):not(#homeScreen):not(#homeScreen *
       </div>
       <input type="hidden" id="genderInput" value=""/>
     </div>
-    <div class="ns-field" id="nsFieldCity" style="display:none;opacity:0;transition:opacity 0.45s ease;">
+    <div class="ns-field" id="nsFieldCity" style="visibility:hidden;opacity:0;transition:opacity 0.45s ease;">
       <label for="cityInput">יישוב</label>
       <input id="cityInput" type="text" autocomplete="off" placeholder="-"/>
     </div>
@@ -1443,14 +1443,14 @@ function showNameScreen(){
     function revealField(id){
       const el=document.getElementById(id);
       if(!el||el.style.opacity==='1') return;
-      el.style.display='block';
+      el.style.visibility='visible';
       requestAnimationFrame(()=>{ requestAnimationFrame(()=>{ el.style.opacity='1'; }); });
     }
     // Reset progressive reveal state each time this screen opens
     const fieldGender=document.getElementById('nsFieldGender');
     const fieldCity=document.getElementById('nsFieldCity');
-    if(fieldGender){ fieldGender.style.display='none'; fieldGender.style.opacity='0'; }
-    if(fieldCity){ fieldCity.style.display='none'; fieldCity.style.opacity='0'; }
+    if(fieldGender){ fieldGender.style.visibility='hidden'; fieldGender.style.opacity='0'; }
+    if(fieldCity){ fieldCity.style.visibility='hidden'; fieldCity.style.opacity='0'; }
 
     // Custom gender dropdown
     (function(){
@@ -2128,7 +2128,7 @@ function showBriefing(){
     document.getElementById('sessionSkyVideo').load();
     const stepEls=scr.querySelectorAll('.briefing-step');
     stepEls.forEach(el=>el.classList.remove('visible'));
-    stepEls.forEach((el,i)=>{ setTimeout(()=>el.classList.add('visible'), 300+i*400); });
+    stepEls.forEach((el,i)=>{ setTimeout(()=>el.classList.add('visible'), 500+i*750); });
     document.getElementById('briefingStartBtn').onclick=()=>{
       scr.style.display='none';
       resolve();
