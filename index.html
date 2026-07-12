@@ -1224,7 +1224,7 @@ fetchLocation();
 // ── Constants ─────────────────────────────────────────────────────────
 const FIX_DISPERSION=0.04,FIX_MIN_DURATION=150,SAC_VELOCITY=0.8,SAC_MIN_AMP=0.03;
 const W_HEAT=200,H_HEAT=112,HEAT_SIGMA=0.07,HEAT_WEIGHT=0.18,HEAT_DECAY=0.9975,GAZE_LERP=0.08;
-const CAL_PTS=[[-2,-2],[0,-2],[2,-2],[2,0],[0,0],[-2,0],[-2,2],[0,2],[2,2]];
+const CAL_PTS=[[0.1,0.1],[0.5,0.1],[0.9,0.1],[0.9,0.5],[0.5,0.5],[0.1,0.5],[0.1,0.9],[0.5,0.9],[0.9,0.9]];
 const CAL_VAR_THRESH=0.0012,CAL_FILL_RATE=0.6,CAL_DRAIN_RATE=0.8,BUF_MAX=30;
 
 const mainImg=document.getElementById('mainImg'),imgWrapper=document.getElementById('imgWrapper');
@@ -2241,16 +2241,8 @@ async function boot(){
   if(!ok) enablePointerFallback();
 
   const calData=[];
-  const cellPx = window.innerHeight/6;
-  const centerX = window.innerWidth/2, centerY = window.innerHeight/2;
   for(let i=0;i<CAL_PTS.length;i++){
-    const[cx,cy]=CAL_PTS[i];
-    const rawPx=centerX+cx*cellPx, rawPy=centerY+cy*cellPx;
-    // Clamp to a safe on-screen margin in case the grid cell size would push
-    // a point past the viewport edge on narrow/short screens.
-    const px=Math.max(window.innerWidth*0.08, Math.min(window.innerWidth*0.92, rawPx));
-    const py=Math.max(window.innerHeight*0.08, Math.min(window.innerHeight*0.92, rawPy));
-    const nx=px/window.innerWidth, ny=py/window.innerHeight;
+    const[nx,ny]=CAL_PTS[i],px=nx*window.innerWidth,py=ny*window.innerHeight;
     if(i>0)await new Promise(r=>setTimeout(r,320));
     const{ox,oy}=await awaitDot(px,py,i);
     calData.push({sx:nx,sy:ny,ox,oy});
