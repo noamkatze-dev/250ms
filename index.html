@@ -616,12 +616,31 @@ body :not(#splashScreen):not(#splashScreen *):not(#homeScreen):not(#homeScreen *
 }
 
 /* ── Unified button border width (1.5px everywhere) + halved padding ── */
+[lang="he"] .nav-login,
+[lang="he"] .va-btn-primary,
+[lang="he"] .va-btn-secondary,
+[lang="he"] #homeStartBtn,
+[lang="he"] #briefingStartBtn,
+[lang="he"] #nameContinue,
+[lang="he"] #calStartBtn,
+[lang="he"] #playBtn,
+[lang="he"] .view-tab,
 [lang="he"] .layer-btn,
-[lang="he"] .toggle-btn{
+[lang="he"] .toggle-btn,
+[lang="he"] .custom-select-trigger,
+[lang="he"] .cf-select,
+[lang="he"] .cf-dropdown-trigger{
   font-size:10pt !important;
   font-family:'Ratzif22',Heebo,sans-serif !important;
   font-weight:400 !important;
 }
+
+.nav-login           { padding: 3px 8px !important; }
+#homeStartBtn         { padding: 5px 18px !important; }
+#briefingStartBtn     { padding: 5px 20px !important; }
+.va-btn-primary       { padding: 5px 18px !important; }
+.va-btn-secondary     { padding: 4px 9px !important; }
+#nameContinue         { padding: 5px 20px !important; }
 .nav-login,
 #homeStartBtn,
 #briefingStartBtn,
@@ -641,12 +660,6 @@ body :not(#splashScreen):not(#splashScreen *):not(#homeScreen):not(#homeScreen *
   border-width: 1.5px !important;
 }
 
-.nav-login           { padding: 4px 11px !important; }
-#homeStartBtn         { padding: 7px 24px !important; }
-#briefingStartBtn     { padding: 7px 26px !important; }
-.va-btn-primary       { padding: 7px 24px !important; }
-.va-btn-secondary     { padding: 5px 12px !important; }
-#nameContinue         { padding: 7px 26px !important; }
 .layer-btn            { padding: 2.5px 4.5px !important; }
 .toggle-btn           { padding: 2.5px 4px !important; }
 #playBtn              { padding: 2.5px 5px !important; }
