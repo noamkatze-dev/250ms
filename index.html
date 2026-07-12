@@ -180,7 +180,9 @@ body{
 }
 .briefing-step{
   display:flex;flex-direction:column;align-items:center;gap:6px;
+  opacity:0;transform:translateY(8px);transition:opacity 0.5s ease,transform 0.5s ease;
 }
+.briefing-step.visible{opacity:1;transform:translateY(0);}
 .briefing-step:first-child{border-left:none;}
 .briefing-step-n{
   font-size:16px;font-weight:700;letter-spacing:0.1em;color:#FF0000;
@@ -398,7 +400,7 @@ body{
 .ns-field label{display:block;font-size:9px;font-weight:700;letter-spacing:0.3em;color:#FF0000;margin-bottom:12px;text-transform:uppercase;text-align:center;}
 .ns-field input,.ns-field select{background:transparent;border:none;border-bottom:1.5px solid #FF0000;color:#FF0000;font-family:Ratzif22,Heebo,sans-serif;font-size:9px;letter-spacing:0.3em;padding:12px 16px;width:100%;text-align:center;caret-color:#FF0000;transition:border-color 0.15s;-webkit-appearance:none;border-radius:0;outline:none;}
 .ns-field input:focus,.ns-field select:focus{border-bottom-color:#FF0000;outline:none;}
-.ns-field input::placeholder{color:rgba(255,0,0,0.5);font-size:9px;letter-spacing:0.3em;}
+.ns-field input::placeholder{color:#FF0000;font-size:9px;letter-spacing:0.3em;}
 .ns-field select option{background:#fff;color:#FF0000;}
 .ns-field select option:hover,.ns-field select option:focus,.ns-field select option:checked{background:#FF0000 !important;color:#fff !important;}
 .custom-select-wrap{position:relative;width:100%;}
@@ -415,7 +417,7 @@ body{
 .custom-select-trigger.open .custom-select-arrow{transform:translateY(-50%) rotate(180deg);}
 .custom-select-dropdown{
   display:none;position:absolute;top:calc(100% + 4px);left:0;right:0;
-  background:#fff;
+  background:#ffe3e3;
   border:1.5px solid #FF0000;border-radius:6px;overflow:hidden;
   z-index:9999;
 }
@@ -968,11 +970,11 @@ body :not(#splashScreen):not(#splashScreen *):not(#homeScreen):not(#homeScreen *
   <div class="ns-title">כמה פרטים קטנים</div>
 
   <div class="ns-form" id="nsFormStep1">
-    <div class="ns-field">
+    <div class="ns-field" id="nsFieldAge">
       <label for="ageInput">שנת לידה</label>
       <input id="ageInput" type="text" inputmode="numeric" pattern="[0-9]*" placeholder="-"/>
     </div>
-    <div class="ns-field">
+    <div class="ns-field" id="nsFieldGender" style="display:none;opacity:0;transition:opacity 0.45s ease;">
       <label for="genderInput">מגדר</label>
       <div class="custom-select-wrap" id="genderWrap">
         <div class="custom-select-trigger" id="genderTrigger">
@@ -987,11 +989,11 @@ body :not(#splashScreen):not(#splashScreen *):not(#homeScreen):not(#homeScreen *
       </div>
       <input type="hidden" id="genderInput" value=""/>
     </div>
-    <div class="ns-field">
+    <div class="ns-field" id="nsFieldCity" style="display:none;opacity:0;transition:opacity 0.45s ease;">
       <label for="cityInput">יישוב</label>
       <input id="cityInput" type="text" autocomplete="off" placeholder="-"/>
     </div>
-    <button id="nameContinue" style="background:transparent;color:#FF0000;border:1.5px solid #FF0000;font-family:Ratzif22,Heebo,sans-serif;font-size:13px;font-weight:400;letter-spacing:0.22em;padding:14px 52px;cursor:pointer;transition:all 0.18s;border-radius:100px;margin-top:8px;">צפייה בנתונים</button>
+    <button id="nameContinue" style="background:transparent;color:#FF0000;border:1.5px solid #FF0000;font-family:Ratzif22,Heebo,sans-serif;font-size:13px;font-weight:400;letter-spacing:0.22em;padding:14px 30px;white-space:nowrap;cursor:pointer;transition:all 0.18s;border-radius:100px;margin-top:8px;">צפייה בנתונים</button>
   </div>
 
   <div id="nsFormStep2" style="display:none;"></div>
@@ -1438,6 +1440,18 @@ function showNameScreen(){
     ageInp.style.borderBottomWidth='';
     genderInp.style.borderBottomWidth='';
 
+    function revealField(id){
+      const el=document.getElementById(id);
+      if(!el||el.style.opacity==='1') return;
+      el.style.display='block';
+      requestAnimationFrame(()=>{ requestAnimationFrame(()=>{ el.style.opacity='1'; }); });
+    }
+    // Reset progressive reveal state each time this screen opens
+    const fieldGender=document.getElementById('nsFieldGender');
+    const fieldCity=document.getElementById('nsFieldCity');
+    if(fieldGender){ fieldGender.style.display='none'; fieldGender.style.opacity='0'; }
+    if(fieldCity){ fieldCity.style.display='none'; fieldCity.style.opacity='0'; }
+
     // Custom gender dropdown
     (function(){
       const wrap=document.getElementById('genderWrap');
@@ -1466,6 +1480,7 @@ function showNameScreen(){
           trigger.classList.remove('open');
           hiddenInput.style.borderColor='';
           trigger.style.borderColor='';
+          revealField('nsFieldCity');
         });
       });
       document.addEventListener('click',()=>{
@@ -1483,6 +1498,12 @@ function showNameScreen(){
       ageDown.addEventListener('click',()=>{const v=parseInt(ageInp.value)||CURRENT_YEAR-30;if(v>1900)ageInp.value=v-1;});
       ageInp.addEventListener('input',()=>{ageInp.value=ageInp.value.replace(/[^0-9]/g,'').slice(0,4);});
     }
+    ageInp.addEventListener('input',()=>{
+      if(ageInp.value.length===4) revealField('nsFieldGender');
+    });
+    ageInp.addEventListener('blur',()=>{
+      if(ageInp.value.trim().length>0) revealField('nsFieldGender');
+    });
     btn.onclick=()=>{
       const age=ageInp.value.trim();
       const gender=genderInp.value;
@@ -2105,6 +2126,9 @@ function showBriefing(){
     scr.style.display='flex';
     POLITICAL_IMAGES.forEach(imgData=>{ const img=new Image(); img.src=imgData.src; });
     document.getElementById('sessionSkyVideo').load();
+    const stepEls=scr.querySelectorAll('.briefing-step');
+    stepEls.forEach(el=>el.classList.remove('visible'));
+    stepEls.forEach((el,i)=>{ setTimeout(()=>el.classList.add('visible'), 300+i*400); });
     document.getElementById('briefingStartBtn').onclick=()=>{
       scr.style.display='none';
       resolve();
