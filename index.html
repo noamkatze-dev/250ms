@@ -2154,6 +2154,12 @@ async function boot(){
   resizeCal();
   let lastStaticCalDraw=null;
   window.addEventListener('resize',()=>{resizeCal();if(lastStaticCalDraw)lastStaticCalDraw();});
+  try{
+    await Promise.all([
+      document.fonts.load("700 40px HaimVariable"),
+      document.fonts.load("400 17px Ratzif22")
+    ]);
+  }catch(e){}
   await document.fonts.ready;
   drawCalIntro();
   lastStaticCalDraw=drawCalIntro;
