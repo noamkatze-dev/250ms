@@ -62,7 +62,7 @@
 [lang="he"] body,[lang="he"] input,[lang="he"] select,[lang="he"] label,[lang="he"] span,[lang="he"] p,[lang="he"] div,[lang="he"] button,[lang="he"] .nav-link,[lang="he"] .nav-login,[lang="he"] .va-btn,[lang="he"] .layer-btn,[lang="he"] .toggle-btn,[lang="he"] .view-tab,[lang="he"] #playBtn,[lang="he"] #homeStartBtn,[lang="he"] #homeStartBtn2,[lang="he"] #nameContinue,[lang="he"] #nsCodeContinue,[lang="he"] #nsLoginBtn,[lang="he"] #libBeginBtn,[lang="he"] #calStartBtn,[lang="he"] .nav-va{font-family:'Ratzif22',Heebo,sans-serif;font-weight:400 !important;font-size:13pt !important;letter-spacing:normal !important;}
 [lang="he"] button,[lang="he"] .nav-link,[lang="he"] .nav-login,[lang="he"] .va-btn,[lang="he"] .layer-btn,[lang="he"] .toggle-btn,[lang="he"] .view-tab,[lang="he"] #playBtn,[lang="he"] #homeStartBtn,[lang="he"] #homeStartBtn2,[lang="he"] #nameContinue,[lang="he"] #nsCodeContinue,[lang="he"] #nsLoginBtn,[lang="he"] #libBeginBtn,[lang="he"] #calStartBtn,[lang="he"] .nav-va,
 [lang="he"] .home-eyebrow,[lang="he"] .briefing-label,[lang="he"] .hi-label,[lang="he"] .screen-title,[lang="he"] .dash-section-title,[lang="he"] .cf-label,[lang="he"] .gallery-user-name,[lang="he"] #about-label-title,[lang="he"] #about-label-system,[lang="he"] #about-label-research,[lang="he"] #about-label-measure,[lang="he"] #about-label-built,[lang="he"] #about-label-credits,[lang="he"] .dsb-header-label,[lang="he"] .dab-header-label,[lang="he"] .dsb-label,[lang="he"] .lib-add-label,[lang="he"] .dash-kpi-label,[lang="he"] .dash-user-stat-label{letter-spacing:0.18em !important;}
-[lang="he"] h1,[lang="he"] h2,[lang="he"] .home-heading{font-family:HaimNum,HaimVariable,Heebo,sans-serif;font-weight:300;font-size:30pt !important;}
+[lang="he"] h1,[lang="he"] h2,[lang="he"] .home-heading{font-family:HaimNum,HaimVariable,Heebo,sans-serif;font-weight:300;font-size:25pt !important;}
 [lang="he"] button,[lang="he"] .nav-link,[lang="he"] .nav-login,[lang="he"] .va-btn,[lang="he"] .layer-btn,[lang="he"] .toggle-btn,[lang="he"] .view-tab,[lang="he"] #playBtn,[lang="he"] #homeStartBtn,[lang="he"] #homeStartBtn2,[lang="he"] #nameContinue,[lang="he"] #nsCodeContinue,[lang="he"] #nsLoginBtn,[lang="he"] #libBeginBtn,[lang="he"] #calStartBtn,[lang="he"] .nav-va{font-family:HaimNum,HaimVariable,Heebo,sans-serif !important;font-weight:300 !important;}
 [lang="he"] *{color:#FF0000 !important;}
 [lang="he"] .home-heading{font-family:HaimNum,HaimVariable,Heebo,sans-serif;font-weight:400;}
@@ -314,11 +314,11 @@ body{
 .dab-name{font-size:9px;font-weight:300;color:rgba(255,0,0,0.6);}
 .dab-val{font-size:11px;font-weight:700;color:#FF0000;}
 .dab-unit{font-size:8px;font-weight:300;color:rgba(255,0,0,0.5);margin-left:2px;}
-#dataToolbar{position:absolute;bottom:14px;right:14px;left:auto;top:auto;transform:none;display:flex;flex-direction:column;flex-wrap:nowrap;align-items:stretch;gap:2px;background:transparent;padding:8px 6px;border:1.5px solid #FF0000;border-radius:14px;z-index:10;transition:opacity 0.2s;width:120px;}
+#dataToolbar{position:absolute;bottom:14px;right:14px;left:auto;top:auto;transform:none;display:flex;flex-direction:column;flex-wrap:nowrap;align-items:stretch;gap:2px;background:transparent;padding:8px 6px;border:1.5px solid #FF0000;border-radius:14px;z-index:10;transition:opacity 0.2s;width:150px;}
 #dataToolbar.dark-bg{background:transparent;border-color:#FF0000;}
 #dataToolbar.collapsed .toolbar-inner-content{display:none;}
 .toolbar-inner-content{display:flex;flex-direction:column;gap:2px;}
-.toolbar-sep{width:24px;height:1px;background:rgba(255,255,255,0.4);flex-shrink:0;margin:6px auto;align-self:center;}
+.toolbar-sep{width:24px;height:1px;background:rgba(255,0,0,0.5);flex-shrink:0;margin:6px auto;align-self:center;}
 .layer-btn{font-family:'Ratzif22',Heebo,sans-serif;font-size:7.5px;font-weight:400;letter-spacing:0.06em;color:#FF0000;background:transparent;border:1.5px solid transparent;padding:5px 6px;cursor:pointer;transition:color 0.15s,border-color 0.15s;white-space:nowrap;border-radius:8px;position:relative;width:100%;box-sizing:border-box;text-align:center;}
 .layer-btn.active{color:#FF0000;border-color:#FF0000;background:transparent;}
 .layer-btn[data-tooltip]::after{content:attr(data-tooltip);position:absolute;top:50%;right:calc(100% + 10px);left:auto;transform:translateY(-50%);background:rgba(0,0,0,0.88);color:#FF0000;font-size:9px;font-weight:300;letter-spacing:0.04em;white-space:nowrap;padding:5px 10px;border-radius:6px;pointer-events:none;opacity:0;transition:opacity 0.15s;border:1px solid rgba(255,255,255,0.08);z-index:100;}
@@ -394,7 +394,7 @@ body{
 #nameScreen::before{content:'';position:absolute;inset:0;background:url('sky.png') center/cover no-repeat;filter:blur(22px);transform:scale(1.08);z-index:0;pointer-events:none;}
 #nameScreen::after{content:'';position:absolute;inset:0;background:transparent;z-index:1;pointer-events:none;}
 .ns-title,.ns-form{position:relative;z-index:2;}
-[lang="he"] .ns-title{font-size:36px !important;letter-spacing:normal;color:#FF0000;margin-bottom:52px;font-family:HaimNum,HaimVariable,Heebo,sans-serif;line-height:1.15;}
+[lang="he"] .ns-title{font-size:25pt !important;letter-spacing:normal;color:#FF0000;margin-bottom:52px;font-family:HaimNum,HaimVariable,Heebo,sans-serif;line-height:1.15;}
 .ns-form{display:flex;flex-direction:column;align-items:center;width:100%;max-width:170px;}
 .ns-field{width:100%;margin-bottom:30px;}
 .ns-field label{display:block;font-size:9px;font-weight:700;letter-spacing:0.3em;color:#FF0000;margin-bottom:12px;text-transform:uppercase;text-align:center;}
@@ -618,7 +618,7 @@ body :not(#splashScreen):not(#splashScreen *):not(#homeScreen):not(#homeScreen *
 /* ── Unified button border width (1.5px everywhere) + halved padding ── */
 [lang="he"] .layer-btn,
 [lang="he"] .toggle-btn{
-  font-size:6.5px !important;
+  font-size:10pt !important;
   font-family:'Ratzif22',Heebo,sans-serif !important;
   font-weight:400 !important;
 }
