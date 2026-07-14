@@ -2715,6 +2715,7 @@ function showAuthNav(){
     });
     startAnim(cur);
   }
+  window.refreshModeCanvas=()=>{ startAnim(cur); };
 
   function init(){
     const dotsEl=document.getElementById('modeDots');
@@ -2760,7 +2761,7 @@ async function renderProfile(){
 }
 
 // ── About ─────────────────────────────────────────────────────────────
-function openAbout(){hideAllScreens();showSharedBg();setNavTheme('dark');navAboutLink.classList.add('active');document.getElementById('aboutScreen').style.display='flex';}
+function openAbout(){hideAllScreens();showSharedBg();setNavTheme('dark');navAboutLink.classList.add('active');document.getElementById('aboutScreen').style.display='flex';if(window.refreshModeCanvas) setTimeout(window.refreshModeCanvas,50);}
 
 // ── Empty state ───────────────────────────────────────────────────────
 function showEmptyState(screenId,msg){const scr=document.getElementById(screenId);scr.style.display='flex';const existing=document.querySelector('.empty-state-overlay');if(existing)existing.remove();const overlay=document.createElement('div');overlay.className='empty-state-overlay';overlay.style.cssText='position:fixed;inset:0;top:52px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;z-index:8990;pointer-events:all;';overlay.innerHTML=`<div style="font-size:9px;font-weight:700;letter-spacing:0.45em;color:#FF0000;font-family:Ratzif22,Heebo,sans-serif;margin-bottom:4px;">אין סשנים עדיין</div><div style="font-size:13px;font-weight:300;color:#FF0000;font-family:Ratzif22,Heebo,sans-serif;margin-bottom:16px;">${msg}</div>`;document.body.appendChild(overlay);}
