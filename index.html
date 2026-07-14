@@ -2435,7 +2435,12 @@ function showAuthNav(){
     const dpr=window.devicePixelRatio||1;
     W=right.offsetWidth||300; H=right.offsetHeight||200;
     canvas.width=W*dpr; canvas.height=H*dpr;
-    canvas.style.width=W+'px'; canvas.style.height=H+'px';
+    // Do NOT set canvas.style.width/height here - the canvas already has
+    // responsive width:100%;height:100% via its own inline CSS. Overwriting
+    // it with a fixed pixel value baked in at measurement time caused the
+    // drawing to be pinned to whatever size was measured (sometimes stale,
+    // before the widened About page layout had settled), leaving the rest
+    // of the now-larger box empty until the canvas was re-measured later.
     ctx=canvas.getContext('2d',{alpha:true});
     ctx.setTransform(dpr,0,0,dpr,0,0);
     ctx.clearRect(0,0,W,H);
