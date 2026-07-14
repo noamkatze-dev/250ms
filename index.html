@@ -1088,32 +1088,25 @@ body :not(#splashScreen):not(#splashScreen *):not(#homeScreen):not(#homeScreen *
 
     </div>
 
-    <div id="modesSection" style="padding:0;overflow:hidden;margin:0 -60px;">
-      <div style="display:grid;grid-template-columns:1fr 1fr;align-items:stretch;">
-        <div style="padding:72px 60px;display:flex;flex-direction:column;justify-content:space-between;">
-          <div>
-            <div class="hi-label" style="text-align:center;">מצבי ניתוח</div>
-            <h2 class="hi-title" style="text-align:center;">שש דרכים לקרוא תשומת לב חזותית.</h2>
-            <p class="hi-sub" style="text-align:justify;">עברו בין מצבים בזמן אמת כדי לחקור ממדים שונים של האופן שבו צופה סורק תמונה.</p>
-            <div style="margin-top:40px;">
-              <div id="modeNum" style="font-size:9px;font-weight:700;letter-spacing:0.4em;color:#FF0000;margin-bottom:12px;direction:ltr;unicode-bidi:isolate;">01 / 06</div>
-              <div id="modeName" style="font-size:28px;font-weight:600;color:#FF0000;margin-bottom:12px;line-height:1.1;"></div>
-              <div id="modeDesc" style="font-size:14px;font-weight:300;color:#FF0000;line-height:1.7;"></div>
-            </div>
-          </div>
-          <div style="display:flex;gap:12px;margin-top:28px;align-items:center;">
-            <button id="modePrev" style="width:44px;height:44px;border-radius:50%;border:1.5px solid #FF0000;background:transparent;cursor:pointer;display:flex;align-items:center;justify-content:center;color:#FF0000;transition:all 0.15s;"><span class="mode-arrow-tri right"></span></button>
-            <button id="modeNext" style="width:44px;height:44px;border-radius:50%;border:1.5px solid #FF0000;background:transparent;cursor:pointer;display:flex;align-items:center;justify-content:center;color:#FF0000;transition:all 0.15s;"><span class="mode-arrow-tri left"></span></button>
-            <div id="modeDots" style="display:flex;gap:6px;margin-left:24px;margin-right:24px;"></div>
-          </div>
+    <div id="modesSection" style="padding:72px 60px;overflow:hidden;">
+      <div style="max-width:700px;margin:0 auto;text-align:center;">
+        <div class="hi-label" style="text-align:center;">מצבי ניתוח</div>
+        <h2 class="hi-title" style="text-align:center;">שש דרכים לקרוא תשומת לב חזותית.</h2>
+        <div id="modeName" style="font-size:28px;font-weight:600;color:#FF0000;margin-top:28px;margin-bottom:12px;line-height:1.1;"></div>
+        <div id="modeDesc" style="font-size:14px;font-weight:300;color:#FF0000;line-height:1.7;max-width:520px;margin:0 auto;"></div>
+      </div>
+
+      <div style="max-width:960px;margin:44px auto 0;">
+        <div style="position:relative;width:100%;aspect-ratio:16/9;overflow:hidden;">
+          <img src="sky.png" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" alt="sky"/>
+          <canvas id="modeCanvas" style="width:100%;height:100%;display:block;background:transparent;position:relative;z-index:2;"></canvas>
         </div>
-        <div style="display:flex;align-items:stretch;padding:72px 60px 72px 0;position:relative;" id="modeVideoCol">
-          <div style="position:relative;width:100%;border-radius:0;overflow:hidden;">
-            <img src="sky.png" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" alt="sky"/>
-            <div style="position:absolute;inset:0;background:transparent;pointer-events:none;z-index:1;"></div>
-            <canvas id="modeCanvas" style="width:100%;height:100%;display:block;background:transparent;position:relative;z-index:2;"></canvas>
-          </div>
-        </div>
+      </div>
+
+      <div style="display:flex;gap:12px;margin-top:28px;align-items:center;justify-content:center;">
+        <button id="modePrev" style="width:44px;height:44px;border-radius:50%;border:1.5px solid #FF0000;background:transparent;cursor:pointer;display:flex;align-items:center;justify-content:center;color:#FF0000;transition:all 0.15s;"><span class="mode-arrow-tri right"></span></button>
+        <button id="modeNext" style="width:44px;height:44px;border-radius:50%;border:1.5px solid #FF0000;background:transparent;cursor:pointer;display:flex;align-items:center;justify-content:center;color:#FF0000;transition:all 0.15s;"><span class="mode-arrow-tri left"></span></button>
+        <div id="modeDots" style="display:flex;gap:6px;margin-left:24px;margin-right:24px;"></div>
       </div>
     </div>
 
@@ -2706,7 +2699,6 @@ function showAuthNav(){
   function goTo(n){
     cur=(n+6)%6;
     window._modeCur=cur;
-    document.getElementById('modeNum').textContent=MODES[cur].num;
     document.getElementById('modeName').textContent=MODES[cur].name;
     document.getElementById('modeDesc').textContent=MODES[cur].desc;
     document.querySelectorAll('.mode-dot').forEach((d,i)=>{
@@ -2778,7 +2770,7 @@ function applyLang(lang){
   document.documentElement.setAttribute('lang', lang);
   document.body.style.direction = 'rtl';
   document.body.setAttribute('dir', 'rtl');
-  const modeVideoCol = document.getElementById('modeVideoCol');
+  const modeVideoCol = document.getElementById('modeVideoCol'); // legacy no-op, element removed
   if(modeVideoCol) modeVideoCol.style.padding='72px 0 72px 60px';
 }
 applyLang('he');
