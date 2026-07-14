@@ -1096,16 +1096,16 @@ body :not(#splashScreen):not(#splashScreen *):not(#homeScreen):not(#homeScreen *
         <div id="modeDesc" style="font-size:14px;font-weight:300;color:#FF0000;line-height:1.7;white-space:nowrap;text-align:center;"></div>
       </div>
 
-      <div style="max-width:960px;margin:44px auto 0;position:relative;">
-        <button id="modePrev" style="position:absolute;top:50%;right:12px;transform:translateY(-50%);z-index:3;width:44px;height:44px;border-radius:50%;border:1.5px solid #FF0000;background:transparent;cursor:pointer;display:flex;align-items:center;justify-content:center;color:#FF0000;transition:all 0.15s;"><span class="mode-arrow-tri right"></span></button>
-        <button id="modeNext" style="position:absolute;top:50%;left:12px;transform:translateY(-50%);z-index:3;width:44px;height:44px;border-radius:50%;border:1.5px solid #FF0000;background:transparent;cursor:pointer;display:flex;align-items:center;justify-content:center;color:#FF0000;transition:all 0.15s;"><span class="mode-arrow-tri left"></span></button>
-        <div style="position:relative;width:100%;aspect-ratio:16/9;overflow:hidden;">
+      <div style="max-width:1080px;margin:14px auto 0;display:flex;align-items:center;justify-content:center;gap:14px;">
+        <button id="modePrev" style="flex-shrink:0;width:44px;height:44px;border-radius:50%;border:1.5px solid #FF0000;background:transparent;cursor:pointer;display:flex;align-items:center;justify-content:center;color:#FF0000;transition:all 0.15s;"><span class="mode-arrow-tri right"></span></button>
+        <div style="flex:1;min-width:0;max-width:900px;position:relative;aspect-ratio:16/9;overflow:hidden;">
           <img src="sky.png" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" alt="sky"/>
           <canvas id="modeCanvas" style="width:100%;height:100%;display:block;background:transparent;position:relative;z-index:2;"></canvas>
         </div>
+        <button id="modeNext" style="flex-shrink:0;width:44px;height:44px;border-radius:50%;border:1.5px solid #FF0000;background:transparent;cursor:pointer;display:flex;align-items:center;justify-content:center;color:#FF0000;transition:all 0.15s;"><span class="mode-arrow-tri left"></span></button>
       </div>
 
-      <div id="modeDots" style="display:flex;gap:6px;justify-content:center;margin-top:28px;"></div>
+      <div id="modeDots" style="display:flex;gap:6px;justify-content:center;margin-top:14px;"></div>
     </div>
 
     <div style="max-width:1160px;margin:0 auto;padding:0;">
