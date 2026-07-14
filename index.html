@@ -697,7 +697,6 @@ body :not(#splashScreen):not(#splashScreen *):not(#homeScreen):not(#homeScreen *
 #calOverlay::after,
 #sharedBgOverlay,
 #spectrumGridOverlay,
-#spectrumSelfGridOverlay,
 #splashGridOverlay {
   background-image:
     linear-gradient(to right, rgba(255,0,0,0.10) 0.5px, transparent 0.5px),
@@ -1172,51 +1171,11 @@ body :not(#splashScreen):not(#splashScreen *):not(#homeScreen):not(#homeScreen *
       <!-- gaze-based dot (filled) -->
       <circle id="spectrumUserDotRing" cx="300" cy="50" r="13" fill="none" stroke="#FF0000" stroke-width="1.5" opacity="0"/>
       <circle id="spectrumUserDot" cx="300" cy="50" r="8" fill="#FF0000" opacity="0"/>
-      <!-- self-reported dot (hollow) -->
-      <circle id="spectrumSelfDotFinal" cx="300" cy="50" r="10" fill="none" stroke="#FF0000" stroke-width="2.5" stroke-dasharray="3,3" opacity="0"/>
     </svg>
-
-    <div id="spectrumLegend" style="display:flex;gap:28px;align-items:center;justify-content:center;margin-top:20px;opacity:0;transition:opacity 0.6s ease;">
-      <div style="display:flex;align-items:center;gap:8px;">
-        <span style="width:11px;height:11px;border-radius:50%;background:#FF0000;display:inline-block;"></span>
-        <span style="font-size:10px;color:#FF0000;letter-spacing:0.05em;">מה שהמבט מעיד</span>
-      </div>
-      <div style="display:flex;align-items:center;gap:8px;">
-        <span style="width:11px;height:11px;border-radius:50%;border:2px dashed #FF0000;display:inline-block;box-sizing:border-box;"></span>
-        <span style="font-size:10px;color:#FF0000;letter-spacing:0.05em;">הדיווח העצמי שלך</span>
-      </div>
-    </div>
 
     <p style="font-size:11px;font-weight:300;color:#FF0000;text-align:center;white-space:nowrap;line-height:1.8;margin-top:32px;">
       בעתיד, ניתוח דפוסי המבט שלך על דמויות פוליטיות יקבע את מיקומך באופן מדויק יותר.
     </p>
-  </div>
-</div>
-
-<!-- POLITICAL SPECTRUM SELF-PLACEMENT SCREEN (before the image session) -->
-<div id="spectrumSelfScreen" style="display:none;position:fixed;inset:0;z-index:1700;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;background:#c8e8f5;padding-top:80px;box-sizing:border-box;">
-  <img src="sky.png" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none;z-index:0;filter:blur(22px);transform:scale(1.08);">
-  <div id="spectrumSelfGridOverlay" style="position:absolute;inset:0;z-index:1;pointer-events:none;"></div>
-
-  <div style="position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;width:100%;max-width:900px;padding:0 40px;">
-    <div style="font-size:9px;font-weight:700;letter-spacing:0.5em;color:#FF0000;margin-bottom:10px;text-transform:uppercase;">לפני שנתחיל</div>
-    <h1 style="font-size:28px;font-weight:700;color:#FF0000;margin-bottom:20px;text-align:center;">הקשת הפוליטית</h1>
-    <p style="font-size:12px;font-weight:300;color:#FF0000;text-align:center;line-height:1.8;margin-bottom:40px;max-width:480px;">
-      לחץ או גרור על הקשת כדי לסמן היכן אתה ממקם את עצמך פוליטית.
-    </p>
-
-    <svg id="spectrumSelfSvg" viewBox="0 0 600 340" style="width:100%;max-width:640px;overflow:visible;cursor:pointer;touch-action:none;">
-      <!-- arc outline (wider invisible hit area + visible line) -->
-      <path d="M 50 300 A 250 250 0 0 1 550 300" fill="none" stroke="transparent" stroke-width="40" id="spectrumSelfHitArea"/>
-      <path d="M 50 300 A 250 250 0 0 1 550 300" fill="none" stroke="#FF0000" stroke-width="2" style="pointer-events:none;"/>
-      <g id="spectrumSelfTicks" style="pointer-events:none;"></g>
-      <text x="550" y="325" text-anchor="middle" font-size="13" font-weight="700" fill="#FF0000" letter-spacing="2" style="pointer-events:none;">ימין</text>
-      <text x="300" y="35" text-anchor="middle" font-size="13" font-weight="700" fill="#FF0000" letter-spacing="2" style="pointer-events:none;">מרכז</text>
-      <text x="50" y="325" text-anchor="middle" font-size="13" font-weight="700" fill="#FF0000" letter-spacing="2" style="pointer-events:none;">שמאל</text>
-      <circle id="spectrumSelfDot" cx="300" cy="50" r="9" fill="#FF0000" opacity="0" style="pointer-events:none;"/>
-    </svg>
-
-    <button id="spectrumSelfContinueBtn" class="va-btn va-btn-primary" style="margin-top:40px;opacity:0.4;pointer-events:none;transition:opacity 0.25s ease;">המשך</button>
   </div>
 </div>
 
@@ -1628,11 +1587,6 @@ function buildSpectrumTicks(targetId='spectrumTicks'){
   }
 }
 
-// Self-reported spectrum position (0 = right/ימין ... 1 = left/שמאל), set by the user
-// on the self-placement screen before the viewing session. Gaze-based position is
-// still a random placeholder until real gaze-based scoring is trained.
-let selfSpectrumT = null;
-
 function tToXY(t){
   const cx=300, cy=300, R=250;
   const angle=Math.PI - (Math.PI*t);
@@ -1651,70 +1605,6 @@ function placeSpectrumUserDot(){
   ring.style.transition='opacity 0.6s ease';
   dot.style.opacity='0'; ring.style.opacity='0';
   requestAnimationFrame(()=>{ setTimeout(()=>{ dot.style.opacity='1'; ring.style.opacity='1'; },150); });
-
-  const selfDot=document.getElementById('spectrumSelfDotFinal');
-  const legend=document.getElementById('spectrumLegend');
-  if(selfDot && selfSpectrumT!==null){
-    const p=tToXY(selfSpectrumT);
-    selfDot.setAttribute('cx',p.x); selfDot.setAttribute('cy',p.y);
-    selfDot.style.transition='opacity 0.6s ease';
-    selfDot.style.opacity='0';
-    requestAnimationFrame(()=>{ setTimeout(()=>{ selfDot.style.opacity='1'; if(legend) legend.style.opacity='1'; },400); });
-  }
-}
-
-function showSpectrumSelfScreen(){
-  return new Promise(resolve=>{
-    hideAllScreens();
-    document.getElementById('mainNav').style.display='none';
-    const scr=document.getElementById('spectrumSelfScreen');
-    scr.style.display='flex';
-
-    buildSpectrumTicks('spectrumSelfTicks');
-
-    const svg=document.getElementById('spectrumSelfSvg');
-    const dot=document.getElementById('spectrumSelfDot');
-    const btn=document.getElementById('spectrumSelfContinueBtn');
-    let placed=false;
-
-    function clampT(t){ return Math.max(0,Math.min(1,t)); }
-
-    function updateFromClient(clientX,clientY){
-      const rect=svg.getBoundingClientRect();
-      // Convert client coords to the SVG's internal 600x340 viewBox space.
-      const scale=600/rect.width;
-      const svgX=(clientX-rect.left)*scale;
-      const svgY=(clientY-rect.top)*scale;
-      const cx=300, cy=300;
-      let angle=Math.atan2(-(svgY-cy),svgX-cx);
-      if(angle<0) angle=0;
-      if(angle>Math.PI) angle=Math.PI;
-      const t=clampT((Math.PI-angle)/Math.PI);
-      selfSpectrumT=t;
-      const p=tToXY(t);
-      dot.setAttribute('cx',p.x);
-      dot.setAttribute('cy',p.y);
-      if(!placed){
-        placed=true;
-        dot.style.transition='opacity 0.3s ease';
-        dot.style.opacity='1';
-        btn.style.opacity='1';
-        btn.style.pointerEvents='all';
-      }
-    }
-
-    let dragging=false;
-    svg.addEventListener('pointerdown',e=>{ dragging=true; updateFromClient(e.clientX,e.clientY); });
-    window.addEventListener('pointermove',e=>{ if(dragging) updateFromClient(e.clientX,e.clientY); });
-    window.addEventListener('pointerup',()=>{ dragging=false; });
-
-    btn.onclick=()=>{
-      if(!placed) return;
-      scr.style.display='none';
-      document.getElementById('mainNav').style.display='flex';
-      resolve();
-    };
-  });
 }
 
 function showSpectrumScreen(){
@@ -2263,10 +2153,9 @@ document.getElementById('homeStartBtn').addEventListener('click', async ()=>{
   document.getElementById('skyColorOverlay').style.display='none';
   await showNameScreen();
   showAuthNav();
-  await showSpectrumSelfScreen();
   await showBriefing();
   await runFullSequence();
-  // show political spectrum result (gaze vs. self-report) before data
+  // show political spectrum result before data
   await showSpectrumScreen();
   // open data screen on the last session
   viewSession=allSessions[allSessions.length-1];
@@ -2449,7 +2338,6 @@ function hideAllScreens(){
   document.getElementById('nameScreen').style.display='none';
   document.getElementById('briefingScreen').style.display='none';
   document.getElementById('spectrumScreen').style.display='none';
-  document.getElementById('spectrumSelfScreen').style.display='none';
   stopSpectrumSky();
   document.querySelectorAll('.empty-state-overlay').forEach(el=>el.remove());
   [navSessionLink,navGalleryLink,navDashboardLink,navProfileLink,navAboutLink,navHomeLink,document.getElementById('navCompareLink'),document.getElementById('navSpectrumLink')].filter(Boolean).forEach(l=>l.classList.remove('active'));
