@@ -2132,6 +2132,11 @@ async function runFullSequence(){
 // ── Show briefing screen ──────────────────────────────────────────────
 function showBriefing(){
   return new Promise(resolve=>{
+    // The details screen (now shown earlier in the flow) leaves the shared
+    // blurred background overlay on. It sits above the session viewer's
+    // z-index, so it must be cleared here or it silently hides the images.
+    document.getElementById('sharedBg').style.display='none';
+    document.getElementById('sharedBgOverlay').style.display='none';
     const scr=document.getElementById('briefingScreen');
     scr.style.display='flex';
     POLITICAL_IMAGES.forEach(imgData=>{ const img=new Image(); img.src=imgData.src; });
