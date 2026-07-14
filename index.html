@@ -2189,9 +2189,9 @@ document.getElementById('homeStartBtn').addEventListener('click', async ()=>{
   document.getElementById('homeSkyVideo').style.display='none';
   document.getElementById('skyColorOverlay').style.display='none';
   await showNameScreen();
-  showAuthNav();
   await showBriefing();
   await runFullSequence();
+  showAuthNav();
   // brief disclaimer that this is an artistic interpretation, not science
   await showSpectrumIntro();
   // show political spectrum result before data
