@@ -2058,8 +2058,12 @@ async function runFullSequence(){
   ]);
 
   function resizeDots(){
-    dotsCanvas.width=viewer.offsetWidth;
-    dotsCanvas.height=viewer.offsetHeight;
+    const dpr=window.devicePixelRatio||1;
+    dotsCanvas.width=viewer.offsetWidth*dpr;
+    dotsCanvas.height=viewer.offsetHeight*dpr;
+    dotsCanvas.style.width=viewer.offsetWidth+'px';
+    dotsCanvas.style.height=viewer.offsetHeight+'px';
+    dotsCtxS.setTransform(dpr,0,0,dpr,0,0);
     drawDots();
   }
 
@@ -2072,8 +2076,8 @@ async function runFullSequence(){
   dotOrder.forEach((posIdx,imgIdx)=>{ positionToImage[posIdx]=shuffled[imgIdx]; });
 
   function drawDots(){
-    dotsCtxS.clearRect(0,0,dotsCanvas.width,dotsCanvas.height);
-    const W=dotsCanvas.width, H=dotsCanvas.height;
+    const W=viewer.offsetWidth, H=viewer.offsetHeight;
+    dotsCtxS.clearRect(0,0,W,H);
     for(let i=0;i<TOTAL;i++){
       const pos=DOT_POSITIONS[i];
       const cx=pos.x*W, cy=pos.y*H;
@@ -2084,7 +2088,7 @@ async function runFullSequence(){
       const imgData=positionToImage[i];
       if(imgData && imgData.credit){
         dotsCtxS.font='300 8px Ratzif22,Heebo';
-        dotsCtxS.fillStyle='rgba(255,0,0,0.85)';
+        dotsCtxS.fillStyle='#FF0000';
         dotsCtxS.textAlign='center';
         dotsCtxS.direction='rtl';
         dotsCtxS.fillText(imgData.credit, cx, cy+DOT_R+12);
