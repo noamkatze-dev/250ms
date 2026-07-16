@@ -2241,6 +2241,29 @@ spectrumT: 0.62 },
 
 };
 
+// Natural (unscaled) pixel dimensions of each image, captured at preload time.
+// Needed because fixationHistory coordinates are normalized to the browser
+// viewport, while the annotated region polygons are normalized to the raw
+// image — and the displayed image is cropped by object-fit:cover whenever
+// its aspect ratio doesn't match the viewport's, so the two spaces don't
+// line up without this correction.
+const IMAGE_NATURAL_SIZE = {};
+
+// #sessionViewer is `position:fixed;inset:0`, so it exactly fills the
+// viewport — meaning fixation x/y (already normalized to window.innerWidth/
+// innerHeight) are equivalently normalized to the viewer's own box.
+function viewportFracToImageFrac(vx, vy, imageSrc){
+  const nat = IMAGE_NATURAL_SIZE[imageSrc];
+  if(!nat || !nat.w || !nat.h) return {x:vx, y:vy}; // no size known yet - fall back to identity
+  const Cw = window.innerWidth, Ch = window.innerHeight;
+  const Iw = nat.w, Ih = nat.h;
+  const scale = Math.max(Cw/Iw, Ch/Ih); // matches CSS object-fit:cover
+  const dispW = Iw*scale, dispH = Ih*scale;
+  const offsetX = (dispW-Cw)/2, offsetY = (dispH-Ch)/2;
+  const dispPxX = vx*Cw + offsetX, dispPxY = vy*Ch + offsetY;
+  return { x: dispPxX/dispW, y: dispPxY/dispH };
+}
+
 // Standard ray-casting point-in-polygon test. x,y and all points are in the
 // same 0-1 normalized image-coordinate space as fixationHistory entries.
 function pointInPolygon(x, y, points){
@@ -2259,14 +2282,25 @@ function pointInPolygon(x, y, points){
 // spectrumT values of the regions actually looked at. Returns null if this
 // image has no annotated regions yet, or the person never fixated on any
 // annotated person in it.
+// Extracts just the filename (with extension) from a possibly-absolute URL,
+// e.g. 'https://site.com/D1108-035.JPG' -> 'D1108-035.JPG'. Needed because
+// session.imageSrc is the browser's fully-resolved URL, while both
+// IMAGE_REGIONS and IMAGE_NATURAL_SIZE are keyed by the bare filename (the
+// same format as POLITICAL_IMAGES[].src).
+function bareFilename(url){
+  return url.split('/').pop().split('?')[0];
+}
+
 function computeSessionGazeScore(session){
-  const regions = IMAGE_REGIONS[session.imageName];
+  const filename = bareFilename(session.imageSrc);
+  const regions = IMAGE_REGIONS[filename];
   if(!regions || regions.length===0) return null;
   let weightedSum=0, totalWeight=0;
   const fixations = session.fixationHistory || [];
   for(const fix of fixations){
+    const p = viewportFracToImageFrac(fix.x, fix.y, filename);
     for(const region of regions){
-      if(pointInPolygon(fix.x, fix.y, region.points)){
+      if(pointInPolygon(p.x, p.y, region.points)){
         const w = fix.duration || 1;
         weightedSum += region.spectrumT * w;
         totalWeight += w;
@@ -2374,7 +2408,10 @@ async function runFullSequence(){
   skyVid.load();
   await Promise.all([
     ...shuffled.map(imgData=>new Promise(r=>{
-      const img=new Image(); img.onload=r; img.onerror=r; img.src=imgData.src;
+      const img=new Image();
+      img.onload=()=>{ IMAGE_NATURAL_SIZE[imgData.src]={w:img.naturalWidth,h:img.naturalHeight}; r(); };
+      img.onerror=r;
+      img.src=imgData.src;
     })),
     new Promise(r=>{
       if(skyVid.readyState>=3){ r(); return; }
