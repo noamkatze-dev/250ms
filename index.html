@@ -400,7 +400,7 @@ body{
   font-family:Ratzif22,Heebo,sans-serif;font-size:10px;
   transition:background 0.12s,color 0.12s;white-space:nowrap;
 }
-.cf-dropdown-option:hover{background:#FF0000;color:#FFDADA !important;}
+.cf-dropdown-option:hover{background:rgba(255,0,0,0.15);}
 .cf-dropdown-option.selected{background:rgba(255,0,0,0.1);}
 .cf-select:focus{border-color:#555;}
 .cf-sep{width:1px;height:16px;background:#FF0000;align-self:center;}
@@ -967,12 +967,12 @@ body :not(#splashScreen):not(#splashScreen *):not(#homeScreen):not(#homeScreen *
   <div id="compareView">
     <div id="compareFilters">
       <span class="cf-label">סינון</span>
-      <div class="cf-dropdown" id="cf-gender-wrap" data-target="cf-gender" data-multi="1" data-default-label="כל המגדרים">
-        <div class="cf-dropdown-trigger"><span class="cf-dropdown-label">כל המגדרים</span><span class="cf-dropdown-arrow"></span></div>
+      <div class="cf-dropdown" id="cf-gender-wrap" data-target="cf-gender" data-multi="1" data-default-label="מגדר">
+        <div class="cf-dropdown-trigger"><span class="cf-dropdown-label">מגדר</span><span class="cf-dropdown-arrow"></span></div>
         <div class="cf-dropdown-list" id="cf-gender-list"></div>
       </div>
-      <div class="cf-dropdown" id="cf-location-wrap" data-target="cf-location" data-multi="1" data-default-label="כל המיקומים">
-        <div class="cf-dropdown-trigger"><span class="cf-dropdown-label">כל המיקומים</span><span class="cf-dropdown-arrow"></span></div>
+      <div class="cf-dropdown" id="cf-location-wrap" data-target="cf-location" data-multi="1" data-default-label="יישוב">
+        <div class="cf-dropdown-trigger"><span class="cf-dropdown-label">יישוב</span><span class="cf-dropdown-arrow"></span></div>
         <div class="cf-dropdown-list" id="cf-location-list"></div>
       </div>
       <span class="cf-sep"></span>
@@ -1737,18 +1737,24 @@ function setupCfDropdown(wrapId){
     wrap.classList.toggle('open');
   });
   if(multi){
+    function syncMultiState(){
+      const checked=[...list.querySelectorAll('.cf-opt-check:checked')].map(c=>c.closest('.cf-dropdown-option').dataset.value);
+      hiddenInput.value=checked.join(',');
+      wrap.classList.toggle('active', checked.length>0);
+    }
     list.addEventListener('click',(e)=>{
       const opt=e.target.closest('.cf-dropdown-option');
       if(!opt) return;
       e.stopPropagation(); // keep the dropdown open for further multi-selection
       const cb=opt.querySelector('.cf-opt-check');
       if(e.target!==cb) cb.checked=!cb.checked;
-      const checked=[...list.querySelectorAll('.cf-opt-check:checked')].map(c=>c.closest('.cf-dropdown-option').dataset.value);
-      hiddenInput.value=checked.join(',');
-      label.textContent = checked.length===0 ? wrap.dataset.defaultLabel
-        : checked.length===1 ? opt.querySelector('span').textContent
-        : checked.length+' נבחרו';
-      wrap.classList.toggle('active', checked.length>0);
+      syncMultiState();
+    });
+    list.addEventListener('mouseover',(e)=>{
+      const cb=e.target.closest('.cf-opt-check');
+      if(!cb||cb.checked) return;
+      cb.checked=true;
+      syncMultiState();
     });
   } else {
     list.addEventListener('click',(e)=>{
@@ -1769,7 +1775,6 @@ function buildCfMultiOptions(listId, hiddenId, values, labelFn){
   const list=document.getElementById(listId);
   const hiddenInput=document.getElementById(hiddenId);
   const wrap=list.closest('.cf-dropdown');
-  const label=wrap.querySelector('.cf-dropdown-label');
   const currentlyChecked=new Set((hiddenInput.value||'').split(',').filter(Boolean));
   // drop any previously-checked values that no longer exist in the current session set
   const stillValid=[...currentlyChecked].filter(v=>values.includes(v));
@@ -1778,9 +1783,6 @@ function buildCfMultiOptions(listId, hiddenId, values, labelFn){
     const checked = currentlyChecked.has(v) ? 'checked' : '';
     return '<div class="cf-dropdown-option" data-value="'+v+'"><input type="checkbox" class="cf-opt-check" '+checked+'><span>'+labelFn(v)+'</span></div>';
   }).join('');
-  label.textContent = stillValid.length===0 ? wrap.dataset.defaultLabel
-    : stillValid.length===1 ? labelFn(stillValid[0])
-    : stillValid.length+' נבחרו';
   wrap.classList.toggle('active', stillValid.length>0);
 }
 
