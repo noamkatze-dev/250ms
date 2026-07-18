@@ -72,7 +72,8 @@
 
 [lang="he"] body,[lang="he"] input,[lang="he"] select,[lang="he"] label,[lang="he"] span,[lang="he"] p,[lang="he"] div,[lang="he"] button,[lang="he"] .nav-link,[lang="he"] .nav-login,[lang="he"] .va-btn,[lang="he"] .layer-btn,[lang="he"] .toggle-btn,[lang="he"] .view-tab,[lang="he"] #playBtn,[lang="he"] #homeStartBtn,[lang="he"] #homeStartBtn2,[lang="he"] #nameContinue,[lang="he"] #nsCodeContinue,[lang="he"] #nsLoginBtn,[lang="he"] #libBeginBtn,[lang="he"] #calStartBtn,[lang="he"] .nav-va{font-family:'Ratzif22',Heebo,sans-serif;font-weight:400 !important;font-size:13pt !important;letter-spacing:normal !important;}
 [lang="he"] button,[lang="he"] .nav-link,[lang="he"] .nav-login,[lang="he"] .va-btn,[lang="he"] .layer-btn,[lang="he"] .toggle-btn,[lang="he"] .view-tab,[lang="he"] #playBtn,[lang="he"] #homeStartBtn,[lang="he"] #homeStartBtn2,[lang="he"] #nameContinue,[lang="he"] #nsCodeContinue,[lang="he"] #nsLoginBtn,[lang="he"] #libBeginBtn,[lang="he"] #calStartBtn,[lang="he"] .nav-va,
-[lang="he"] .home-eyebrow,[lang="he"] .briefing-label,[lang="he"] .hi-label,[lang="he"] .screen-title,[lang="he"] .dash-section-title,[lang="he"] .cf-label,[lang="he"] .gallery-user-name,[lang="he"] #about-label-title,[lang="he"] #about-label-system,[lang="he"] #about-label-research,[lang="he"] #about-label-measure,[lang="he"] #about-label-built,[lang="he"] .dsb-header-label,[lang="he"] .dab-header-label,[lang="he"] .dsb-label,[lang="he"] .lib-add-label,[lang="he"] .dash-kpi-label,[lang="he"] .dash-user-stat-label{letter-spacing:0.18em !important;}
+[lang="he"] .home-eyebrow,[lang="he"] .briefing-label,[lang="he"] .hi-label,[lang="he"] .screen-title,[lang="he"] .dash-section-title,[lang="he"] .gallery-user-name,[lang="he"] #about-label-title,[lang="he"] #about-label-system,[lang="he"] #about-label-research,[lang="he"] #about-label-measure,[lang="he"] #about-label-built,[lang="he"] .dsb-header-label,[lang="he"] .dab-header-label,[lang="he"] .dsb-label,[lang="he"] .lib-add-label,[lang="he"] .dash-kpi-label,[lang="he"] .dash-user-stat-label{letter-spacing:0.18em !important;}
+[lang="he"] .cf-label{letter-spacing:normal !important;}
 [lang="he"] h1,[lang="he"] h2,[lang="he"] .home-heading{font-family:HaimNum,HaimVariable,Heebo,sans-serif;font-weight:300;font-size:24pt !important;}
 [lang="he"] button,[lang="he"] .nav-link,[lang="he"] .nav-login,[lang="he"] .va-btn,[lang="he"] .layer-btn,[lang="he"] .toggle-btn,[lang="he"] .view-tab,[lang="he"] #playBtn,[lang="he"] #homeStartBtn,[lang="he"] #homeStartBtn2,[lang="he"] #nameContinue,[lang="he"] #nsCodeContinue,[lang="he"] #nsLoginBtn,[lang="he"] #libBeginBtn,[lang="he"] #calStartBtn,[lang="he"] .nav-va{font-family:HaimNum,HaimVariable,Heebo,sans-serif !important;font-weight:300 !important;}
 [lang="he"] *{color:#FF0000 !important;}
@@ -361,9 +362,14 @@ body{
 .gallery-item-stats{font-size:7px;font-weight:300;color:#FF0000;white-space:nowrap;}
 #compareView{display:none;flex:1;overflow:hidden;flex-direction:column;}
 #compareFilters{position:relative;z-index:500;background:transparent;padding:82px 60px 10px;display:flex;flex-wrap:wrap;gap:8px;align-items:center;flex-shrink:0;}
-.cf-label{font-size:8px;font-weight:700;letter-spacing:0.3em;color:#FF0000;text-transform:uppercase;}
-.cf-filter-group{display:flex;align-items:center;gap:5px;}
-.cf-enable-check{accent-color:#FF0000;cursor:pointer;width:13px;height:13px;flex-shrink:0;}
+.cf-label{font-size:8px;font-weight:700;color:#FF0000;text-transform:uppercase;}
+.cf-dropdown-option{display:flex;align-items:center;justify-content:center;gap:8px;}
+.cf-opt-check{
+  appearance:none;-webkit-appearance:none;width:13px;height:13px;flex-shrink:0;
+  border:1.5px solid #FF0000;border-radius:3px;background:transparent;cursor:pointer;
+  position:relative;margin:0;
+}
+.cf-opt-check:checked{background:#FF0000;}
 .cf-select{font-family:Ratzif22,Heebo,sans-serif;font-size:10px;background:transparent;color:#FF0000;border:1.5px solid #FF0000;padding:5px 10px;cursor:pointer;border-radius:100px;outline:none;-webkit-appearance:none;text-align:center;text-align-last:center;}
 .cf-select:focus{border-color:#FF0000;}
 .cf-select option{background:#fff;color:#FF0000;}
@@ -404,6 +410,7 @@ body{
   white-space:nowrap;transition:border-color 0.15s;box-sizing:border-box;
 }
 .cf-reset-btn.active{border-color:#FF0000;}
+[lang="he"] #cf-reset-image{font-family:'Ratzif22',Heebo,sans-serif !important;font-size:10px !important;}
 .cp-img[data-tooltip]{position:relative;cursor:pointer;}
 .cp-img[data-tooltip]::after{
   content:attr(data-tooltip);position:absolute;bottom:calc(100% + 8px);left:50%;
@@ -960,24 +967,18 @@ body :not(#splashScreen):not(#splashScreen *):not(#homeScreen):not(#homeScreen *
   <div id="compareView">
     <div id="compareFilters">
       <span class="cf-label">סינון</span>
-      <div class="cf-filter-group">
-        <input type="checkbox" class="cf-enable-check" id="cf-gender-enable">
-        <div class="cf-dropdown" id="cf-gender-wrap" data-target="cf-gender">
-          <div class="cf-dropdown-trigger"><span class="cf-dropdown-arrow"></span><span class="cf-dropdown-label">כל המגדרים</span></div>
-          <div class="cf-dropdown-list"><div class="cf-dropdown-option selected" data-value="">כל המגדרים</div></div>
-        </div>
+      <div class="cf-dropdown" id="cf-gender-wrap" data-target="cf-gender" data-multi="1" data-default-label="כל המגדרים">
+        <div class="cf-dropdown-trigger"><span class="cf-dropdown-label">כל המגדרים</span><span class="cf-dropdown-arrow"></span></div>
+        <div class="cf-dropdown-list" id="cf-gender-list"></div>
       </div>
-      <div class="cf-filter-group">
-        <input type="checkbox" class="cf-enable-check" id="cf-location-enable">
-        <div class="cf-dropdown" id="cf-location-wrap" data-target="cf-location">
-          <div class="cf-dropdown-trigger"><span class="cf-dropdown-arrow"></span><span class="cf-dropdown-label">כל המיקומים</span></div>
-          <div class="cf-dropdown-list"><div class="cf-dropdown-option selected" data-value="">כל המיקומים</div></div>
-        </div>
+      <div class="cf-dropdown" id="cf-location-wrap" data-target="cf-location" data-multi="1" data-default-label="כל המיקומים">
+        <div class="cf-dropdown-trigger"><span class="cf-dropdown-label">כל המיקומים</span><span class="cf-dropdown-arrow"></span></div>
+        <div class="cf-dropdown-list" id="cf-location-list"></div>
       </div>
       <span class="cf-sep"></span>
       <span class="cf-label">נתונים</span>
       <div class="cf-dropdown" id="cf-layer-wrap" data-target="cf-layer">
-        <div class="cf-dropdown-trigger"><span class="cf-dropdown-arrow"></span><span class="cf-dropdown-label">מבט</span></div>
+        <div class="cf-dropdown-trigger"><span class="cf-dropdown-label">מבט</span><span class="cf-dropdown-arrow"></span></div>
         <div class="cf-dropdown-list">
           <div class="cf-dropdown-option selected" data-value="GAZE">מבט</div>
           <div class="cf-dropdown-option" data-value="FIXATION">קיבוע</div>
@@ -988,7 +989,7 @@ body :not(#splashScreen):not(#splashScreen *):not(#homeScreen):not(#homeScreen *
         </div>
       </div>
       <span class="cf-sep"></span>
-      <button id="cf-reset-image" class="cf-reset-btn">כל התמונות</button>
+      <button id="cf-reset-image" class="cf-reset-btn" style="display:none;">כל התמונות</button>
       <input type="hidden" id="cf-gender" value=""/>
       <input type="hidden" id="cf-location" value=""/>
       <input type="hidden" id="cf-image" value=""/>
@@ -1725,6 +1726,7 @@ function setupCfDropdown(wrapId){
   if(!wrap||wrap._wired) return;
   wrap._wired=true;
   const targetId=wrap.dataset.target;
+  const multi=wrap.dataset.multi==='1';
   const hiddenInput=document.getElementById(targetId);
   const trigger=wrap.querySelector('.cf-dropdown-trigger');
   const label=wrap.querySelector('.cf-dropdown-label');
@@ -1734,65 +1736,75 @@ function setupCfDropdown(wrapId){
     document.querySelectorAll('.cf-dropdown.open').forEach(d=>{ if(d!==wrap) d.classList.remove('open'); });
     wrap.classList.toggle('open');
   });
-  list.addEventListener('click',(e)=>{
-    const opt=e.target.closest('.cf-dropdown-option');
-    if(!opt) return;
-    hiddenInput.value=opt.dataset.value;
-    label.textContent=opt.textContent;
-    list.querySelectorAll('.cf-dropdown-option').forEach(o=>o.classList.remove('selected'));
-    opt.classList.add('selected');
-    wrap.classList.remove('open');
-  });
+  if(multi){
+    list.addEventListener('click',(e)=>{
+      const opt=e.target.closest('.cf-dropdown-option');
+      if(!opt) return;
+      e.stopPropagation(); // keep the dropdown open for further multi-selection
+      const cb=opt.querySelector('.cf-opt-check');
+      if(e.target!==cb) cb.checked=!cb.checked;
+      const checked=[...list.querySelectorAll('.cf-opt-check:checked')].map(c=>c.closest('.cf-dropdown-option').dataset.value);
+      hiddenInput.value=checked.join(',');
+      label.textContent = checked.length===0 ? wrap.dataset.defaultLabel
+        : checked.length===1 ? opt.querySelector('span').textContent
+        : checked.length+' נבחרו';
+      wrap.classList.toggle('active', checked.length>0);
+    });
+  } else {
+    list.addEventListener('click',(e)=>{
+      const opt=e.target.closest('.cf-dropdown-option');
+      if(!opt) return;
+      hiddenInput.value=opt.dataset.value;
+      label.textContent=opt.textContent;
+      list.querySelectorAll('.cf-dropdown-option').forEach(o=>o.classList.remove('selected'));
+      opt.classList.add('selected');
+      wrap.classList.remove('open');
+    });
+  }
 }
 document.addEventListener('click',()=>{ document.querySelectorAll('.cf-dropdown.open').forEach(d=>d.classList.remove('open')); });
 ['cf-gender-wrap','cf-location-wrap','cf-layer-wrap'].forEach(setupCfDropdown);
 
-function rebuildCfDropdownOptions(wrapId, optionsHtml, defaultLabel){
-  const wrap=document.getElementById(wrapId);
-  if(!wrap) return;
-  const list=wrap.querySelector('.cf-dropdown-list');
+function buildCfMultiOptions(listId, hiddenId, values, labelFn){
+  const list=document.getElementById(listId);
+  const hiddenInput=document.getElementById(hiddenId);
+  const wrap=list.closest('.cf-dropdown');
   const label=wrap.querySelector('.cf-dropdown-label');
-  const hiddenInput=document.getElementById(wrap.dataset.target);
-  const currentVal=hiddenInput.value;
-  list.innerHTML=optionsHtml;
-  const match=list.querySelector('[data-value="'+CSS.escape(currentVal)+'"]');
-  if(match){
-    list.querySelectorAll('.cf-dropdown-option').forEach(o=>o.classList.remove('selected'));
-    match.classList.add('selected');
-    label.textContent=match.textContent;
-  } else {
-    hiddenInput.value='';
-    label.textContent=defaultLabel;
-    const def=list.querySelector('[data-value=""]');
-    if(def) def.classList.add('selected');
-  }
+  const currentlyChecked=new Set((hiddenInput.value||'').split(',').filter(Boolean));
+  // drop any previously-checked values that no longer exist in the current session set
+  const stillValid=[...currentlyChecked].filter(v=>values.includes(v));
+  hiddenInput.value=stillValid.join(',');
+  list.innerHTML = values.map(v=>{
+    const checked = currentlyChecked.has(v) ? 'checked' : '';
+    return '<div class="cf-dropdown-option" data-value="'+v+'"><input type="checkbox" class="cf-opt-check" '+checked+'><span>'+labelFn(v)+'</span></div>';
+  }).join('');
+  label.textContent = stillValid.length===0 ? wrap.dataset.defaultLabel
+    : stillValid.length===1 ? labelFn(stillValid[0])
+    : stillValid.length+' נבחרו';
+  wrap.classList.toggle('active', stillValid.length>0);
 }
 
 function populateCompareFilters(){const GENDER_HE={'Male':'זכר','Female':'נקבה','Other':'אחר'};const genders=[...new Set(allSessions.map(s=>s.gender).filter(Boolean))];const locations=[...new Set(allSessions.map(s=>s.location).filter(Boolean))];
-  rebuildCfDropdownOptions('cf-gender-wrap','<div class="cf-dropdown-option selected" data-value="">כל המגדרים</div>'+genders.map(g=>'<div class="cf-dropdown-option" data-value="'+g+'">'+(GENDER_HE[g]||g)+'</div>').join(''),'כל המגדרים');
-  rebuildCfDropdownOptions('cf-location-wrap','<div class="cf-dropdown-option selected" data-value="">כל המיקומים</div>'+locations.map(l=>'<div class="cf-dropdown-option" data-value="'+l+'">'+l+'</div>').join(''),'כל המיקומים');
+  buildCfMultiOptions('cf-gender-list','cf-gender',genders,g=>GENDER_HE[g]||g);
+  buildCfMultiOptions('cf-location-list','cf-location',locations,l=>l);
 }
 function getFilteredSessions(){
-  const genderOn=document.getElementById('cf-gender-enable').checked;
-  const locationOn=document.getElementById('cf-location-enable').checked;
-  const gender=genderOn?document.getElementById('cf-gender').value:'';
-  const location=locationOn?document.getElementById('cf-location').value:'';
+  const genderVals=(document.getElementById('cf-gender').value||'').split(',').filter(Boolean);
+  const locationVals=(document.getElementById('cf-location').value||'').split(',').filter(Boolean);
   const image=document.getElementById('cf-image').value;
-  return allSessions.filter(s=>(!gender||s.gender===gender)&&(!location||s.location===location)&&(!image||s.imageName===image));
+  return allSessions.filter(s=>
+    (genderVals.length===0||genderVals.includes(s.gender))&&
+    (locationVals.length===0||locationVals.includes(s.location))&&
+    (!image||s.imageName===image)
+  );
 }
-document.getElementById('cf-gender-enable').addEventListener('change',(e)=>{
-  document.getElementById('cf-gender-wrap').classList.toggle('active',e.target.checked);
-});
-document.getElementById('cf-location-enable').addEventListener('change',(e)=>{
-  document.getElementById('cf-location-wrap').classList.toggle('active',e.target.checked);
-});
 document.getElementById('cf-reset-image').addEventListener('click',()=>{
   document.getElementById('cf-image').value='';
   document.getElementById('cf-reset-image').classList.remove('active');
   renderCompareView();
 });
 
-function renderCompareView(){populateCompareFilters();const GENDER_HE={'Male':'זכר','Female':'נקבה','Other':'אחר'};const grid=document.getElementById('compareGrid');grid.innerHTML='';const layer=document.getElementById('cf-layer').value||dataActiveLayer||'GAZE';document.getElementById('cf-reset-image').classList.toggle('active',!!document.getElementById('cf-image').value);const filteredSessions=getFilteredSessions();if(allSessions.length===0){grid.innerHTML='<div style="color:#FF0000;font-size:11px;letter-spacing:0.2em;text-align:center;padding:40px 0;grid-column:1/-1;">אין סשנים להשוואה עדיין</div>';return;}for(const sess of filteredSessions){const cell=document.createElement('div');cell.className='compare-panel';const genderLabel=GENDER_HE[sess.gender]||sess.gender||'';cell.innerHTML='<div class="compare-panel-header"><div class="cp-user">'+sess.user+'</div><div class="cp-meta">'+(sess.age?sess.age:'')+((sess.age&&sess.gender)?' . ':'')+genderLabel+(sess.location?' . '+sess.location:'')+'</div></div><div class="compare-canvas-wrap"><img class="cp-img" src="'+sess.imageSrc+'" data-tooltip="לחצו לסינון לפי תמונה זו"><canvas class="cp-canvas"></canvas></div><div class="cp-imgname">'+sess.imageName+'</div>';grid.appendChild(cell);const cpImg=cell.querySelector('.cp-img');cpImg.addEventListener('click',()=>{document.getElementById('cf-image').value=sess.imageName;renderCompareView();});const wrap=cell.querySelector('.compare-canvas-wrap'),canvas=cell.querySelector('.cp-canvas');setTimeout(()=>{canvas.width=wrap.offsetWidth;canvas.height=wrap.offsetHeight;const ctx=canvas.getContext('2d');const W=canvas.width,H=canvas.height;const RC='255,0,0';switch(layer){case 'GAZE':staticGaze(ctx,W,H,sess.gazeLog,RC);break;case 'FIXATION':staticFixation(ctx,W,H,sess.fixationHistory,RC);break;case 'SACCADE':staticSaccade(ctx,W,H,sess.saccadeHistory,RC);break;case 'SCANPATH':staticScanPath(ctx,W,H,sess.scanPathHistory,RC);break;case 'HEATMAP':staticHeatmap(ctx,W,H,sess.gazeLog,RC);break;case 'FIRSTFIX':staticFirstFix(ctx,W,H,sess.firstFix,sess.firstFixModeTs,RC);break;}},60);}}
+function renderCompareView(){populateCompareFilters();const GENDER_HE={'Male':'זכר','Female':'נקבה','Other':'אחר'};const grid=document.getElementById('compareGrid');grid.innerHTML='';const layer=document.getElementById('cf-layer').value||dataActiveLayer||'GAZE';const hasImageFilter=!!document.getElementById('cf-image').value;const resetBtn=document.getElementById('cf-reset-image');resetBtn.style.display=hasImageFilter?'':'none';resetBtn.classList.toggle('active',hasImageFilter);const filteredSessions=getFilteredSessions();if(allSessions.length===0){grid.innerHTML='<div style="color:#FF0000;font-size:11px;letter-spacing:0.2em;text-align:center;padding:40px 0;grid-column:1/-1;">אין סשנים להשוואה עדיין</div>';return;}for(const sess of filteredSessions){const cell=document.createElement('div');cell.className='compare-panel';const genderLabel=GENDER_HE[sess.gender]||sess.gender||'';cell.innerHTML='<div class="compare-panel-header"><div class="cp-user">'+sess.user+'</div><div class="cp-meta">'+(sess.age?sess.age:'')+((sess.age&&sess.gender)?' . ':'')+genderLabel+(sess.location?' . '+sess.location:'')+'</div></div><div class="compare-canvas-wrap"><img class="cp-img" src="'+sess.imageSrc+'" data-tooltip="לחצו לסינון לפי תמונה זו"><canvas class="cp-canvas"></canvas></div><div class="cp-imgname">'+sess.imageName+'</div>';grid.appendChild(cell);const cpImg=cell.querySelector('.cp-img');cpImg.addEventListener('click',()=>{document.getElementById('cf-image').value=sess.imageName;renderCompareView();});const wrap=cell.querySelector('.compare-canvas-wrap'),canvas=cell.querySelector('.cp-canvas');setTimeout(()=>{canvas.width=wrap.offsetWidth;canvas.height=wrap.offsetHeight;const ctx=canvas.getContext('2d');const W=canvas.width,H=canvas.height;const RC='255,0,0';switch(layer){case 'GAZE':staticGaze(ctx,W,H,sess.gazeLog,RC);break;case 'FIXATION':staticFixation(ctx,W,H,sess.fixationHistory,RC);break;case 'SACCADE':staticSaccade(ctx,W,H,sess.saccadeHistory,RC);break;case 'SCANPATH':staticScanPath(ctx,W,H,sess.scanPathHistory,RC);break;case 'HEATMAP':staticHeatmap(ctx,W,H,sess.gazeLog,RC);break;case 'FIRSTFIX':staticFirstFix(ctx,W,H,sess.firstFix,sess.firstFixModeTs,RC);break;}},60);}}
 
 // ── Image navigation arrows ──────────────────────────────────────────
 function navigateToSession(sess){
