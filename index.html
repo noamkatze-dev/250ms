@@ -2650,9 +2650,13 @@ document.getElementById('homeStartBtn').addEventListener('click', async ()=>{
   showAuthNav();
   // show political spectrum result before data (disclaimer now lives under the arc itself)
   await showSpectrumScreen();
-  // open data screen on the last session
-  viewSession=allSessions[allSessions.length-1];
-  openData(false);
+  // open data screen on the last session — but only if the user hasn't
+  // already navigated elsewhere manually while this was pending (e.g.
+  // clicked "השוואה" during/after the spectrum screen's own delay)
+  if(!window.__userNavigatedManually){
+    viewSession=allSessions[allSessions.length-1];
+    openData(false);
+  }
 });
 
 // ── BOOT ─────────────────────────────────────────────────────────────
@@ -2767,6 +2771,7 @@ async function boot(){
 
 // ── Nav links ─────────────────────────────────────────────────────────
 navCompareLink.addEventListener('click',()=>{
+  window.__userNavigatedManually=true;
   if(allSessions.length>0){
     hideAllScreens();
     showSharedBg();
@@ -2782,6 +2787,7 @@ navCompareLink.addEventListener('click',()=>{
   }
 });
 navSessionLink.addEventListener('click',()=>{
+  window.__userNavigatedManually=true;
   if(allSessions.length>0){
     hideAllScreens();
     showSharedBg();
@@ -2802,10 +2808,10 @@ navSessionLink.addEventListener('click',()=>{
     playLayer(dataActiveLayer||'GAZE');
   }
 });
-navGalleryLink.addEventListener('click',()=>openGallery());
-navDashboardLink.addEventListener('click',()=>openDashboard());
-navProfileLink.addEventListener('click',()=>openProfile());
-navAboutLink.addEventListener('click',()=>openAbout());
+navGalleryLink.addEventListener('click',()=>{window.__userNavigatedManually=true;openGallery();});
+navDashboardLink.addEventListener('click',()=>{window.__userNavigatedManually=true;openDashboard();});
+navProfileLink.addEventListener('click',()=>{window.__userNavigatedManually=true;openProfile();});
+navAboutLink.addEventListener('click',()=>{window.__userNavigatedManually=true;openAbout();});
 
 // sessionViewBtn removed from DOM — handled via navSessionLink
 // compareViewBtn removed from DOM — handled via navCompareLink
