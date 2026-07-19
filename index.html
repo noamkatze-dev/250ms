@@ -1009,7 +1009,6 @@ body :not(#splashScreen):not(#splashScreen *):not(#homeScreen):not(#homeScreen *
       <input type="hidden" id="cf-location" value=""/>
       <input type="hidden" id="cf-image" value=""/>
       <input type="hidden" id="cf-layer" value="GAZE"/>
-      <button id="cf-apply" class="va-btn va-btn-secondary" style="margin-left:4px;font-size:10px;line-height:1;padding:6px 18px;display:inline-flex;align-items:center;justify-content:center;">החל</button>
     </div>
     <div id="compareGrid-wrap">
       <div id="compareGrid"></div>
@@ -1800,6 +1799,7 @@ function setupCfDropdown(wrapId){
       const cb=opt.querySelector('.cf-opt-check');
       if(e.target!==cb) cb.checked=!cb.checked;
       syncMultiState();
+      renderCompareView();
     });
   } else {
     list.addEventListener('click',(e)=>{
@@ -1810,6 +1810,7 @@ function setupCfDropdown(wrapId){
       list.querySelectorAll('.cf-dropdown-option').forEach(o=>o.classList.remove('selected'));
       opt.classList.add('selected');
       wrap.classList.remove('open');
+      renderCompareView();
     });
   }
 }
@@ -1882,7 +1883,6 @@ function updateImgNav(){
   });
 }
 
-document.getElementById('cf-apply').addEventListener('click',renderCompareView);
 // cf-layer is now a custom dropdown; trigger compare re-render when it changes
 (function(){
   const layerList=document.querySelector('#cf-layer-wrap .cf-dropdown-list');
