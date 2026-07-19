@@ -2724,10 +2724,17 @@ function startSplashCounters(duration){
   document.querySelectorAll('#splashDataOverlay .cnt').forEach(el=>countUpEl(el,duration));
 }
 
-async function boot(){
+async function playSplashScreen(){
   const splash = document.getElementById('splashScreen');
   const splashText = document.getElementById('splashText');
   const splashDataOverlay = document.getElementById('splashDataOverlay');
+  // reset to initial (pre-animation) state in case it's being replayed
+  splash.style.transition='none';
+  splash.style.display='flex';
+  splash.style.opacity='1';
+  splashText.style.opacity='0';
+  if(splashDataOverlay) splashDataOverlay.style.opacity='0';
+  void splash.offsetWidth; // force reflow so the reset above applies before animating in
   await new Promise(r=>setTimeout(r,100));
   splashText.style.opacity='1';
   await new Promise(r=>setTimeout(r,300));
@@ -2737,6 +2744,10 @@ async function boot(){
   splash.style.opacity='0';
   await new Promise(r=>setTimeout(r,700));
   splash.style.display='none';
+}
+
+async function boot(){
+  await playSplashScreen();
 
   dotCanvas.width=window.innerWidth; dotCanvas.height=window.innerHeight;
   window.addEventListener('resize',()=>{dotCanvas.width=window.innerWidth;dotCanvas.height=window.innerHeight;});
@@ -3354,7 +3365,10 @@ document.getElementById('idleStartBtn').addEventListener('click',(e)=>{
   e.stopPropagation();
   idleScreenEl.style.display='none';
   resetIdleTimer();
-  startOnboardingFlow();
+  (async ()=>{
+    await playSplashScreen();
+    await startOnboardingFlow();
+  })();
 });
 idleScreenEl.addEventListener('click',hideIdleScreen);
 resetIdleTimer();
