@@ -1013,8 +1013,22 @@ body :not(#splashScreen):not(#splashScreen *):not(#homeScreen):not(#homeScreen *
 
   <div class="ns-form" id="nsFormStep1">
     <div class="ns-field" id="nsFieldAge">
-      <label for="ageInput">שנת לידה</label>
-      <input id="ageInput" type="text" inputmode="numeric" pattern="[0-9]*" placeholder="-"/>
+      <label for="ageInput">טווח גיל</label>
+      <div class="custom-select-wrap" id="ageWrap">
+        <div class="custom-select-trigger" id="ageTrigger">
+          <span id="ageLabel">-</span>
+          <span class="custom-select-arrow">▼</span>
+        </div>
+        <div class="custom-select-dropdown" id="ageDropdown">
+          <div class="custom-select-option" data-value="18-24">24-18</div>
+          <div class="custom-select-option" data-value="25-34">34-25</div>
+          <div class="custom-select-option" data-value="35-44">44-35</div>
+          <div class="custom-select-option" data-value="45-54">54-45</div>
+          <div class="custom-select-option" data-value="55-64">64-55</div>
+          <div class="custom-select-option" data-value="65+">+65</div>
+        </div>
+      </div>
+      <input type="hidden" id="ageInput" value=""/>
     </div>
     <div class="ns-field" id="nsFieldGender" style="visibility:hidden;opacity:0;transition:opacity 0.45s ease;">
       <label for="genderInput">מגדר</label>
@@ -1468,8 +1482,8 @@ function showNameScreen(){
     document.getElementById('mainNav').style.display='flex';
     scr.style.display='flex';
 
-    ageInp.style.borderBottomWidth='';
-    genderInp.style.borderBottomWidth='';
+    document.getElementById('ageTrigger').style.borderBottomWidth='';
+    document.getElementById('genderTrigger').style.borderBottomWidth='';
 
     function revealField(id){
       const el=document.getElementById(id);
@@ -1520,29 +1534,51 @@ function showNameScreen(){
       });
     })();
 
-    // Custom age arrows
-    const ageUp=document.getElementById('ageUp');
-    const ageDown=document.getElementById('ageDown');
-    const CURRENT_YEAR=new Date().getFullYear();
-    if(ageUp&&ageDown){
-      ageUp.addEventListener('click',()=>{const v=parseInt(ageInp.value)||CURRENT_YEAR-30;if(v<CURRENT_YEAR)ageInp.value=v+1;});
-      ageDown.addEventListener('click',()=>{const v=parseInt(ageInp.value)||CURRENT_YEAR-30;if(v>1900)ageInp.value=v-1;});
-      ageInp.addEventListener('input',()=>{ageInp.value=ageInp.value.replace(/[^0-9]/g,'').slice(0,4);});
-    }
-    ageInp.addEventListener('input',()=>{
-      if(ageInp.value.length===4) revealField('nsFieldGender');
-    });
-    ageInp.addEventListener('blur',()=>{
-      if(ageInp.value.trim().length>0) revealField('nsFieldGender');
-    });
+    // Custom age-range dropdown
+    (function(){
+      const wrap=document.getElementById('ageWrap');
+      const trigger=document.getElementById('ageTrigger');
+      const dropdown=document.getElementById('ageDropdown');
+      const labelEl=document.getElementById('ageLabel');
+      const hiddenInput=document.getElementById('ageInput');
+      if(!wrap||!trigger||!dropdown) return;
+      if(wrap._wired) return;
+      wrap._wired=true;
+      trigger.addEventListener('click',(e)=>{
+        e.stopPropagation();
+        const isOpen=dropdown.classList.contains('open');
+        dropdown.classList.toggle('open',!isOpen);
+        trigger.classList.toggle('open',!isOpen);
+      });
+      dropdown.querySelectorAll('.custom-select-option').forEach(opt=>{
+        opt.addEventListener('click',()=>{
+          const val=opt.dataset.value;
+          const text=opt.textContent;
+          hiddenInput.value=val;
+          labelEl.textContent=text;
+          dropdown.querySelectorAll('.custom-select-option').forEach(o=>o.classList.remove('selected'));
+          opt.classList.add('selected');
+          dropdown.classList.remove('open');
+          trigger.classList.remove('open');
+          hiddenInput.style.borderColor='';
+          trigger.style.borderColor='';
+          revealField('nsFieldGender');
+        });
+      });
+      document.addEventListener('click',()=>{
+        dropdown.classList.remove('open');
+        trigger.classList.remove('open');
+      });
+    })();
+
     btn.onclick=()=>{
       const age=ageInp.value.trim();
       const gender=genderInp.value;
       const cityVal=document.getElementById('cityInput')?.value.trim()||'';
       const locationVal=cityVal;
       let valid=true;
-      if(!age){ ageInp.style.borderBottomWidth='3px'; valid=false; }
-      else { ageInp.style.borderBottomWidth=''; }
+      if(!age){ document.getElementById('ageTrigger').style.borderBottomWidth='3px'; valid=false; }
+      else { document.getElementById('ageTrigger').style.borderBottomWidth=''; }
       if(!gender){ document.getElementById('genderTrigger').style.borderBottomWidth='3px'; valid=false; }
       else { document.getElementById('genderTrigger').style.borderBottomWidth=''; }
       if(!valid) return;
