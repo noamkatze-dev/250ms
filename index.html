@@ -371,8 +371,9 @@ body{
   position:relative;margin:0;
 }
 .cf-opt-check:checked::after{
-  content:'';position:absolute;left:4.5px;top:3px;width:4px;height:7px;
-  border:solid #FF0000;border-width:0 1.5px 1.5px 0;transform:rotate(45deg);
+  content:'';position:absolute;left:0;right:0;top:0;bottom:0;margin:auto;width:8px;height:8px;
+  background:#FF0000;
+  clip-path:polygon(14% 44%,0% 65%,50% 100%,100% 16%,80% 0%,43% 62%);
 }
 .cf-select{font-family:Ratzif22,Heebo,sans-serif;font-size:10px;background:transparent;color:#FF0000;border:1.5px solid #FF0000;padding:5px 10px;cursor:pointer;border-radius:100px;outline:none;-webkit-appearance:none;text-align:center;text-align-last:center;}
 .cf-select:focus{border-color:#FF0000;}
@@ -1032,11 +1033,11 @@ body :not(#splashScreen):not(#splashScreen *):not(#homeScreen):not(#homeScreen *
           <span class="custom-select-arrow"></span>
         </div>
         <div class="custom-select-dropdown" id="ageDropdown">
-          <div class="custom-select-option" data-value="18-24">24-18</div>
-          <div class="custom-select-option" data-value="25-34">34-25</div>
-          <div class="custom-select-option" data-value="35-44">44-35</div>
-          <div class="custom-select-option" data-value="45-54">54-45</div>
-          <div class="custom-select-option" data-value="55-64">64-55</div>
+          <div class="custom-select-option" data-value="18-24">18-24</div>
+          <div class="custom-select-option" data-value="25-34">25-34</div>
+          <div class="custom-select-option" data-value="35-44">35-44</div>
+          <div class="custom-select-option" data-value="45-54">45-54</div>
+          <div class="custom-select-option" data-value="55-64">55-64</div>
           <div class="custom-select-option" data-value="65+">+65</div>
         </div>
       </div>
