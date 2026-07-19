@@ -364,14 +364,14 @@ body{
 #compareView{display:none;flex:1;overflow:hidden;flex-direction:column;}
 #compareFilters{position:relative;z-index:500;background:transparent;padding:82px 60px 10px;display:flex;flex-wrap:wrap;gap:8px;align-items:center;flex-shrink:0;}
 .cf-label{font-size:8px;font-weight:700;color:#FF0000;text-transform:uppercase;}
-.cf-dropdown-option{display:flex;align-items:center;justify-content:center;gap:8px;}
+.cf-dropdown-option{display:flex;align-items:center;justify-content:center;gap:8px;line-height:1;}
 .cf-opt-check{
   appearance:none;-webkit-appearance:none;width:13px;height:13px;flex-shrink:0;
   border:1.5px solid #FF0000;border-radius:3px;background:transparent;cursor:pointer;
   position:relative;margin:0;
 }
 .cf-opt-check:checked::after{
-  content:'';position:absolute;left:3.5px;top:1px;width:4px;height:7px;
+  content:'';position:absolute;left:4.5px;top:3px;width:4px;height:7px;
   border:solid #FF0000;border-width:0 1.5px 1.5px 0;transform:rotate(45deg);
 }
 .cf-select{font-family:Ratzif22,Heebo,sans-serif;font-size:10px;background:transparent;color:#FF0000;border:1.5px solid #FF0000;padding:5px 10px;cursor:pointer;border-radius:100px;outline:none;-webkit-appearance:none;text-align:center;text-align-last:center;}
@@ -381,7 +381,7 @@ body{
 .cf-dropdown{position:relative;min-width:110px;}
 .cf-dropdown-trigger{
   display:flex;align-items:center;justify-content:center;gap:8px;
-  font-family:Ratzif22,Heebo,sans-serif;font-size:10px;
+  font-family:Ratzif22,Heebo,sans-serif;font-size:10px;line-height:1;
   background:transparent;color:#FF0000;border:1.5px solid transparent;padding:5px 14px;
   cursor:pointer;border-radius:100px;user-select:none;transition:border-color 0.15s;white-space:nowrap;
   box-sizing:border-box;
@@ -410,7 +410,7 @@ body{
 .cf-sep{width:1px;height:16px;background:#FF0000;align-self:center;}
 .cf-reset-btn{
   display:inline-flex;align-items:center;justify-content:center;
-  font-family:Ratzif22,Heebo,sans-serif;font-size:10px;background:transparent;color:#FF0000;
+  font-family:Ratzif22,Heebo,sans-serif;font-size:10px;line-height:1;background:transparent;color:#FF0000;
   border:1.5px solid transparent;padding:5px 14px;cursor:pointer;border-radius:100px;
   white-space:nowrap;transition:border-color 0.15s;box-sizing:border-box;
 }
@@ -1006,7 +1006,7 @@ body :not(#splashScreen):not(#splashScreen *):not(#homeScreen):not(#homeScreen *
       <input type="hidden" id="cf-location" value=""/>
       <input type="hidden" id="cf-image" value=""/>
       <input type="hidden" id="cf-layer" value="GAZE"/>
-      <button id="cf-apply" class="va-btn va-btn-secondary" style="margin-left:4px;font-size:10px;padding:6px 18px;display:inline-flex;align-items:center;justify-content:center;">החל</button>
+      <button id="cf-apply" class="va-btn va-btn-secondary" style="margin-left:4px;font-size:10px;line-height:1;padding:6px 18px;display:inline-flex;align-items:center;justify-content:center;">החל</button>
     </div>
     <div id="compareGrid-wrap">
       <div id="compareGrid"></div>
