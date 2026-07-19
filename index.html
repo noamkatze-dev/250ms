@@ -329,8 +329,8 @@ body{
 .dab-name{font-size:9px;font-weight:300;color:rgba(255,0,0,0.6);}
 .dab-val{font-size:11px;font-weight:700;color:#FF0000;}
 .dab-unit{font-size:8px;font-weight:300;color:rgba(255,0,0,0.5);margin-left:2px;}
-#dataToolbar{position:absolute;bottom:14px;right:14px;left:auto;top:auto;transform:none;display:flex;flex-direction:column;flex-wrap:nowrap;align-items:stretch;gap:2px;background:transparent;padding:8px 6px;border:1.5px solid #FF0000;border-radius:14px;z-index:10;transition:opacity 0.2s;width:150px;}
-#dataToolbar.dark-bg{background:transparent;border-color:#FF0000;}
+#dataToolbar{position:absolute;bottom:14px;right:14px;left:auto;top:auto;transform:none;display:flex;flex-direction:column;flex-wrap:nowrap;align-items:stretch;gap:2px;background:rgba(255,0,0,0.1);padding:8px 6px;border:1.5px solid #FF0000;border-radius:14px;z-index:10;transition:opacity 0.2s;width:150px;}
+#dataToolbar.dark-bg{background:rgba(255,0,0,0.1);border-color:#FF0000;}
 #dataToolbar.collapsed .toolbar-inner-content{display:none;}
 .toolbar-inner-content{display:flex;flex-direction:column;gap:2px;}
 .toolbar-sep{width:24px;height:1px;background:rgba(255,0,0,0.5);flex-shrink:0;margin:6px auto;align-self:center;}
@@ -517,8 +517,8 @@ body{
 #dataToolbarCollapseBtn{width:22px;height:22px;padding:0;cursor:pointer;display:flex;align-items:center;justify-content:center;background:transparent;border:1.5px solid #FF0000;border-radius:100px;color:#FF0000;flex-shrink:0;transition:color 0.15s,background 0.15s;align-self:center;margin-bottom:4px;}
 #dataToolbarCollapseBtn:hover{color:#FF0000;background:rgba(255,0,0,0.1);}
 #dataToolbarCollapseBtn .tcb-arrow{font-size:8px;font-weight:400;line-height:1;color:#FF0000;}
-#dataImgDots{position:absolute;bottom:18px;left:50%;transform:translateX(-50%);z-index:9;display:flex;gap:8px;align-items:center;pointer-events:all;background:transparent;padding:8px 14px;border-radius:100px;border:1px solid #FF0000;transition:background 0.2s;}
-#dataImgDots.dark-bg{background:transparent;border-color:#FF0000;}
+#dataImgDots{position:absolute;bottom:18px;left:50%;transform:translateX(-50%);z-index:9;display:flex;gap:8px;align-items:center;pointer-events:all;background:rgba(255,0,0,0.1);padding:8px 14px;border-radius:100px;border:1px solid #FF0000;transition:background 0.2s;}
+#dataImgDots.dark-bg{background:rgba(255,0,0,0.1);border-color:#FF0000;}
 .img-dot{width:7px;height:7px;border-radius:50%;background:#FFDADA;cursor:pointer;transition:all 0.18s;border:none;padding:0;}
 .img-dot:hover{background:#FF6B6B;transform:scale(1.2);}
 .img-dot.active{background:#FF0000;transform:scale(1.3);}
@@ -971,6 +971,10 @@ body :not(#splashScreen):not(#splashScreen *):not(#homeScreen):not(#homeScreen *
         <div class="cf-dropdown-trigger"><span class="cf-dropdown-label">מגדר</span><span class="cf-dropdown-arrow"></span></div>
         <div class="cf-dropdown-list" id="cf-gender-list"></div>
       </div>
+      <div class="cf-dropdown" id="cf-age-wrap" data-target="cf-age" data-multi="1" data-default-label="טווח גיל">
+        <div class="cf-dropdown-trigger"><span class="cf-dropdown-label">טווח גיל</span><span class="cf-dropdown-arrow"></span></div>
+        <div class="cf-dropdown-list" id="cf-age-list"></div>
+      </div>
       <div class="cf-dropdown" id="cf-location-wrap" data-target="cf-location" data-multi="1" data-default-label="יישוב">
         <div class="cf-dropdown-trigger"><span class="cf-dropdown-label">יישוב</span><span class="cf-dropdown-arrow"></span></div>
         <div class="cf-dropdown-list" id="cf-location-list"></div>
@@ -991,6 +995,7 @@ body :not(#splashScreen):not(#splashScreen *):not(#homeScreen):not(#homeScreen *
       <span class="cf-sep"></span>
       <button id="cf-reset-image" class="cf-reset-btn" style="display:none;">כל התמונות</button>
       <input type="hidden" id="cf-gender" value=""/>
+      <input type="hidden" id="cf-age" value=""/>
       <input type="hidden" id="cf-location" value=""/>
       <input type="hidden" id="cf-image" value=""/>
       <input type="hidden" id="cf-layer" value="GAZE"/>
@@ -1178,11 +1183,11 @@ body :not(#splashScreen):not(#splashScreen *):not(#homeScreen):not(#homeScreen *
       <circle id="spectrumUserDotRing" cx="300" cy="50" r="13" fill="none" stroke="#FF0000" stroke-width="1.5" opacity="0"/>
       <circle id="spectrumUserDot" cx="300" cy="50" r="8" fill="#FF0000" opacity="0"/>
     </svg>
-
-    <p style="font-size:11px;font-weight:300;color:#FF0000;text-align:center;white-space:nowrap;line-height:1.8;margin-top:80px;">
-      זוהי פרשנות אמנותית וקונספטואלית בלבד - לא כלי מדע, לא מדידה מדויקת, והמיקום על הקשת אינו נשמר בשום מקום.
-    </p>
   </div>
+
+  <p style="position:absolute;left:50%;bottom:18px;transform:translateX(-50%);z-index:2;width:90%;max-width:900px;padding:0 40px;box-sizing:border-box;font-size:11px;font-weight:300;color:#FF0000;text-align:center;white-space:nowrap;line-height:1.8;margin:0;">
+    זוהי פרשנות אמנותית וקונספטואלית בלבד - לא כלי מדע, לא מדידה מדויקת, והמיקום על הקשת אינו נשמר בשום מקום.
+  </p>
 </div>
 
 <script type="module">
@@ -1805,7 +1810,7 @@ function setupCfDropdown(wrapId){
   }
 }
 document.addEventListener('click',()=>{ document.querySelectorAll('.cf-dropdown.open').forEach(d=>d.classList.remove('open')); });
-['cf-gender-wrap','cf-location-wrap','cf-layer-wrap'].forEach(setupCfDropdown);
+['cf-gender-wrap','cf-age-wrap','cf-location-wrap','cf-layer-wrap'].forEach(setupCfDropdown);
 
 function buildCfMultiOptions(listId, hiddenId, values, labelFn){
   const list=document.getElementById(listId);
@@ -1822,16 +1827,19 @@ function buildCfMultiOptions(listId, hiddenId, values, labelFn){
   wrap.classList.toggle('active', stillValid.length>0);
 }
 
-function populateCompareFilters(){const GENDER_HE={'Male':'זכר','Female':'נקבה','Other':'אחר'};const genders=[...new Set(allSessions.map(s=>s.gender).filter(Boolean))];const locations=[...new Set(allSessions.map(s=>s.location).filter(Boolean))];
+function populateCompareFilters(){const GENDER_HE={'Male':'זכר','Female':'נקבה','Other':'אחר'};const AGE_ORDER=['18-24','25-34','35-44','45-54','55-64','65+'];const genders=[...new Set(allSessions.map(s=>s.gender).filter(Boolean))];const locations=[...new Set(allSessions.map(s=>s.location).filter(Boolean))];const ages=[...new Set(allSessions.map(s=>s.age).filter(Boolean))].sort((a,b)=>{const ia=AGE_ORDER.indexOf(a),ib=AGE_ORDER.indexOf(b);if(ia===-1&&ib===-1)return a.localeCompare(b);if(ia===-1)return 1;if(ib===-1)return -1;return ia-ib;});
   buildCfMultiOptions('cf-gender-list','cf-gender',genders,g=>GENDER_HE[g]||g);
+  buildCfMultiOptions('cf-age-list','cf-age',ages,a=>a);
   buildCfMultiOptions('cf-location-list','cf-location',locations,l=>l);
 }
 function getFilteredSessions(){
   const genderVals=(document.getElementById('cf-gender').value||'').split(',').filter(Boolean);
+  const ageVals=(document.getElementById('cf-age').value||'').split(',').filter(Boolean);
   const locationVals=(document.getElementById('cf-location').value||'').split(',').filter(Boolean);
   const image=document.getElementById('cf-image').value;
   return allSessions.filter(s=>
     (genderVals.length===0||genderVals.includes(s.gender))&&
+    (ageVals.length===0||ageVals.includes(s.age))&&
     (locationVals.length===0||locationVals.includes(s.location))&&
     (!image||s.imageName===image)
   );
