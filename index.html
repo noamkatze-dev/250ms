@@ -737,7 +737,8 @@ body :not(#splashScreen):not(#splashScreen *):not(#homeScreen):not(#homeScreen *
 #calOverlay::after,
 #sharedBgOverlay,
 #spectrumGridOverlay,
-#splashGridOverlay {
+#splashGridOverlay,
+#idleGridOverlay {
   background-image:
     linear-gradient(to right, rgba(255,0,0,0.10) 0.5px, transparent 0.5px),
     linear-gradient(to bottom, rgba(255,0,0,0.10) 0.5px, transparent 0.5px) !important;
@@ -746,6 +747,34 @@ body :not(#splashScreen):not(#splashScreen *):not(#homeScreen):not(#homeScreen *
   background-repeat: repeat !important;
   background-color: rgba(0,0,0,0.05) !important;
 }
+
+/* ── Idle / screensaver screen ─────────────────────────────────────────
+   Appears after 60s of no user activity, on top of everything else. ── */
+#idleScreen{
+  position:fixed;inset:0;z-index:999999;display:none;
+  align-items:center;justify-content:center;flex-direction:column;
+  overflow:hidden;background:#c8e8f5;cursor:pointer;
+}
+#idleBgVideo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;}
+#idleGridOverlay{position:absolute;inset:0;z-index:1;pointer-events:none;}
+#idleDotsLayer{position:absolute;inset:0;z-index:2;pointer-events:none;}
+.idle-dot{
+  position:absolute;left:var(--x);top:var(--y);width:9px;height:9px;
+  margin:-4.5px 0 0 -4.5px;border-radius:50%;background:#FF0000;opacity:0;
+  animation:idleDotPulse var(--dur,3.4s) ease-in-out infinite;
+  animation-delay:var(--delay,0s);
+}
+@keyframes idleDotPulse{
+  0%{opacity:0;} 18%{opacity:0;} 20%{opacity:1;} 55%{opacity:1;} 80%{opacity:0;} 100%{opacity:0;}
+}
+#idleStartBtn{
+  position:relative;z-index:3;
+  background:transparent;color:#FF0000;border:1.5px solid #FF0000;
+  font-family:HaimNum,HaimVariable,Heebo,sans-serif;font-weight:300;font-size:13.3333px;
+  letter-spacing:2.4px;padding:5px 18px;cursor:pointer;transition:all 0.18s;
+  border-radius:100px;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+}
+#idleStartBtn:hover{transform:scale(1.06);}
 
 </style>
 </head>
@@ -1197,6 +1226,16 @@ body :not(#splashScreen):not(#splashScreen *):not(#homeScreen):not(#homeScreen *
   <p style="position:absolute;left:50%;bottom:6px;transform:translateX(-50%);z-index:2;width:90%;max-width:900px;padding:0 40px;box-sizing:border-box;font-size:11px;font-weight:300;color:#FF0000;text-align:center;white-space:nowrap;line-height:1.8;margin:0;">
     זוהי פרשנות אמנותית וקונספטואלית בלבד - לא כלי מדע, לא מדידה מדויקת, והמיקום על הקשת אינו נשמר בשום מקום.
   </p>
+</div>
+
+<!-- IDLE / SCREENSAVER SCREEN -->
+<div id="idleScreen">
+  <video id="idleBgVideo" autoplay muted loop playsinline>
+    <source src="https://video.wixstatic.com/video/cd7757_4dda56ebc7d24d2788c3ff92061c591d/720p/mp4/file.mp4" type="video/mp4">
+  </video>
+  <div id="idleGridOverlay"></div>
+  <div id="idleDotsLayer"></div>
+  <button id="idleStartBtn">התחלה</button>
 </div>
 
 <script type="module">
@@ -2640,7 +2679,9 @@ function showBriefing(){
 }
 
 // ── HOME: start btn → briefing → session → name form → gallery ────────
-document.getElementById('homeStartBtn').addEventListener('click', async ()=>{
+async function startOnboardingFlow(){
+  window.__userNavigatedManually=false;
+  hideAllScreens();
   homeScreen.style.display='none';
   document.getElementById('homeSkyVideo').style.display='none';
   document.getElementById('skyColorOverlay').style.display='none';
@@ -2657,7 +2698,8 @@ document.getElementById('homeStartBtn').addEventListener('click', async ()=>{
     viewSession=allSessions[allSessions.length-1];
     openData(false);
   }
-});
+}
+document.getElementById('homeStartBtn').addEventListener('click', startOnboardingFlow);
 
 // ── BOOT ─────────────────────────────────────────────────────────────
 function formatCount(val, fmt){
@@ -3244,6 +3286,78 @@ applyLang('he');
 // ── Sky video preload ─────────────────────────────────────────────────
 const homeSkyVid = document.getElementById('homeSkyVideo');
 homeSkyVid.load();
+
+// ── Screen Wake Lock — keep the display on for as long as the app is open ──
+let wakeLock=null;
+async function requestWakeLock(){
+  try{
+    if('wakeLock' in navigator){
+      wakeLock=await navigator.wakeLock.request('screen');
+      wakeLock.addEventListener('release',()=>{ wakeLock=null; });
+    }
+  }catch(err){ console.warn('[wakeLock]',err); }
+}
+document.addEventListener('visibilitychange',()=>{
+  if(wakeLock===null && document.visibilityState==='visible') requestWakeLock();
+});
+requestWakeLock();
+
+// ── Idle / screensaver screen — shows after 60s with no user activity ──
+const IDLE_TIMEOUT_MS=60000;
+let idleTimer=null;
+const idleScreenEl=document.getElementById('idleScreen');
+const idleBgVideoEl=document.getElementById('idleBgVideo');
+
+function buildIdleDots(){
+  const layer=document.getElementById('idleDotsLayer');
+  if(!layer||layer.childElementCount>0) return; // build once
+  const DOT_COUNT=40,MIN_DUR=2.5,MAX_DUR=5.5,MAX_DELAY=5;
+  const frag=document.createDocumentFragment();
+  for(let i=0;i<DOT_COUNT;i++){
+    const dot=document.createElement('span');
+    dot.className='idle-dot';
+    dot.style.setProperty('--x',(Math.random()*100).toFixed(2)+'%');
+    dot.style.setProperty('--y',(Math.random()*100).toFixed(2)+'%');
+    dot.style.setProperty('--delay',(Math.random()*MAX_DELAY).toFixed(2)+'s');
+    dot.style.setProperty('--dur',(MIN_DUR+Math.random()*(MAX_DUR-MIN_DUR)).toFixed(2)+'s');
+    frag.appendChild(dot);
+  }
+  layer.appendChild(frag);
+}
+function slowIdleVideo(){ idleBgVideoEl.playbackRate=0.6; }
+idleBgVideoEl.addEventListener('loadedmetadata',slowIdleVideo);
+idleBgVideoEl.addEventListener('play',slowIdleVideo);
+
+function showIdleScreen(){
+  buildIdleDots();
+  idleScreenEl.style.display='flex';
+  slowIdleVideo();
+  idleBgVideoEl.play().catch(()=>{});
+  requestWakeLock();
+}
+function hideIdleScreen(){
+  idleScreenEl.style.display='none';
+  resetIdleTimer();
+}
+function resetIdleTimer(){
+  if(idleTimer) clearTimeout(idleTimer);
+  idleTimer=setTimeout(showIdleScreen,IDLE_TIMEOUT_MS);
+}
+function handleUserActivity(){
+  if(idleScreenEl.style.display==='flex') return; // idle screen dismissal is handled by its own click listeners below
+  resetIdleTimer();
+}
+['mousemove','mousedown','keydown','touchstart','scroll','wheel'].forEach(evt=>{
+  document.addEventListener(evt,handleUserActivity,{passive:true});
+});
+document.getElementById('idleStartBtn').addEventListener('click',(e)=>{
+  e.stopPropagation();
+  idleScreenEl.style.display='none';
+  resetIdleTimer();
+  startOnboardingFlow();
+});
+idleScreenEl.addEventListener('click',hideIdleScreen);
+resetIdleTimer();
 
 // ── START ─────────────────────────────────────────────────────────────
 boot();
