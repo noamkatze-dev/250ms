@@ -897,7 +897,7 @@ body :not(#splashScreen):not(#splashScreen *):not(#homeScreen):not(#homeScreen *
       <span class="splash-minilogo">0.25</span>
       <span class="splash-minilogo end">0.25</span>
       <div class="splash-statline full">
-        <span class="num">00.25</span><span class="line"></span><span class="label"><span class="cnt" data-target="6" data-format="int">0</span> MODES · <span class="cnt" data-target="30.0" data-format="dec1">0.0</span>S</span><span class="line"></span><span class="num">00.25</span>
+        <span class="num">00.25</span><span class="line"></span><span class="label"><span class="cnt" data-target="6" data-format="int">0</span> MODES · <span class="cnt" data-target="16" data-format="int">0</span> IMAGES · <span class="cnt" data-target="3.0" data-format="dec1">0.0</span>S</span><span class="line"></span><span class="num">00.25</span>
       </div>
       <p class="splash-desc full">REAL-TIME WEBCAM EYE TRACKING · 478-POINT FACIAL LANDMARK DETECTION · AFFINE GAZE CALIBRATION</p>
       <span class="splash-tiny"><span class="cnt" data-target="478" data-format="int">0</span> LANDMARKS</span>
@@ -905,12 +905,12 @@ body :not(#splashScreen):not(#splashScreen *):not(#homeScreen):not(#homeScreen *
     </div>
 
     <div class="splash-grid-bottom">
-      <div class="splash-row"><span class="idx">01</span><span class="lbl">Gaze</span><span class="val cnt" data-target="0.25" data-format="dec2pad">00.00</span></div>
-      <div class="splash-row"><span class="idx">02</span><span class="lbl">Fixation</span><span class="val cnt" data-target="0.18" data-format="dec2pad">00.00</span></div>
-      <div class="splash-row"><span class="idx">03</span><span class="lbl">Saccade</span><span class="val cnt" data-target="0.09" data-format="dec2pad">00.00</span></div>
-      <div class="splash-row"><span class="idx">04</span><span class="lbl">Scan path</span><span class="val cnt" data-target="0.31" data-format="dec2pad">00.00</span></div>
-      <div class="splash-row"><span class="idx">05</span><span class="lbl">Heatmap</span><span class="val cnt" data-target="0.22" data-format="dec2pad">00.00</span></div>
-      <div class="splash-row"><span class="idx">06</span><span class="lbl">First fixation</span><span class="val cnt" data-target="0.14" data-format="dec2pad">00.00</span></div>
+      <div class="splash-row"><span class="idx">01</span><span class="lbl">Gaze</span></div>
+      <div class="splash-row"><span class="idx">02</span><span class="lbl">Fixation</span></div>
+      <div class="splash-row"><span class="idx">03</span><span class="lbl">Saccade</span></div>
+      <div class="splash-row"><span class="idx">04</span><span class="lbl">Scan path</span></div>
+      <div class="splash-row"><span class="idx">05</span><span class="lbl">Heatmap</span></div>
+      <div class="splash-row"><span class="idx">06</span><span class="lbl">First fixation</span></div>
       <span class="splash-tiny thin">I-DT / I-VT</span>
       <span class="splash-tiny thin end" style="grid-column:3;"><span class="cnt" data-target="60" data-format="int">0</span> FPS</span>
       <div class="splash-statline full">
@@ -1302,6 +1302,7 @@ fetchLocation();
 // ── Constants ─────────────────────────────────────────────────────────
 const FIX_DISPERSION=0.04,FIX_MIN_DURATION=150,SAC_VELOCITY=0.8,SAC_MIN_AMP=0.03;
 const W_HEAT=200,H_HEAT=112,HEAT_SIGMA=0.07,HEAT_WEIGHT=0.18,HEAT_DECAY=0.9975,GAZE_LERP=0.08;
+const FIXATION_VAR_THRESH=0.0004,FIXATION_LERP=0.02;
 const CAL_PTS=[[0.1,0.1],[0.5,0.1],[0.9,0.1],[0.9,0.5],[0.5,0.5],[0.1,0.5],[0.1,0.9],[0.5,0.9],[0.9,0.9]];
 const CAL_VAR_THRESH=0.0012,CAL_FILL_RATE=0.6,CAL_DRAIN_RATE=0.8,BUF_MAX=30;
 
@@ -1319,6 +1320,7 @@ let firstFix=null,firstFixDone=false,firstFixModeTs=0,sessionStartTs=0,gazeLog=[
 let rawGX=0.5,rawGY=0.5,sGX=0.5,sGY=0.5,gazeOn=false,lastGazeTs=0;
 let curOffX=0.5,curOffY=0.5,curEyeOffX=0.5,curEyeOffY=0.5,eyeValid=false;
 const offXBuf=[],offYBuf=[],eyeOffXBuf=[],eyeOffYBuf=[];
+const liveSmoothBufX=[],liveSmoothBufY=[],LIVE_SMOOTH_N=10;
 let eyeCalMap=null;
 window._gazeHistory=[];
 let currentAnimation=null,dataActiveLayer='GAZE',playMode='ANIMATED',showImg=true,viewSession=null;
@@ -1340,8 +1342,18 @@ function drawFrame(){dotCtx.clearRect(0,0,dotCanvas.width,dotCanvas.height);}
 
 function applyGaze(ts){
   lastGazeTs=ts;
-  sGX+=(rawGX-sGX)*GAZE_LERP;
-  sGY+=(rawGY-sGY)*GAZE_LERP;
+  liveSmoothBufX.push(rawGX);if(liveSmoothBufX.length>LIVE_SMOOTH_N)liveSmoothBufX.shift();
+  liveSmoothBufY.push(rawGY);if(liveSmoothBufY.length>LIVE_SMOOTH_N)liveSmoothBufY.shift();
+  const meanX=liveSmoothBufX.reduce((a,b)=>a+b,0)/liveSmoothBufX.length;
+  const varX=liveSmoothBufX.reduce((a,b)=>a+(b-meanX)**2,0)/liveSmoothBufX.length;
+  const meanY=liveSmoothBufY.reduce((a,b)=>a+b,0)/liveSmoothBufY.length;
+  const varY=liveSmoothBufY.reduce((a,b)=>a+(b-meanY)**2,0)/liveSmoothBufY.length;
+  // when the recent window is nearly still (a fixation), smooth much more
+  // aggressively to remove tremor; during genuine eye movement, fall back
+  // to the original responsive smoothing so tracking never feels laggy.
+  const lerp=(varX+varY)<FIXATION_VAR_THRESH?FIXATION_LERP:GAZE_LERP;
+  sGX+=(rawGX-sGX)*lerp;
+  sGY+=(rawGY-sGY)*lerp;
   const W=window.innerWidth,H=window.innerHeight;
   gazeDot.style.left=(sGX*W)+'px';
   gazeDot.style.top=(sGY*H)+'px';
