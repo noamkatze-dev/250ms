@@ -75,6 +75,7 @@
 [lang="he"] .home-eyebrow,[lang="he"] .briefing-label,[lang="he"] .hi-label,[lang="he"] .screen-title,[lang="he"] .dash-section-title,[lang="he"] .gallery-user-name,[lang="he"] #about-label-title,[lang="he"] #about-label-system,[lang="he"] #about-label-research,[lang="he"] #about-label-measure,[lang="he"] #about-label-built,[lang="he"] .dsb-header-label,[lang="he"] .dab-header-label,[lang="he"] .dsb-label,[lang="he"] .lib-add-label,[lang="he"] .dash-kpi-label,[lang="he"] .dash-user-stat-label{letter-spacing:0.18em !important;}
 [lang="he"] .cf-label{letter-spacing:0.18em !important;font-family:HaimNum,HaimVariable,Heebo,sans-serif !important;font-size:10pt !important;}
 [lang="he"] .cp-tooltip{font-size:7px !important;letter-spacing:0.03em !important;font-weight:400 !important;}
+[lang="he"] #dataImgCredit{font-size:9px !important;letter-spacing:0.05em !important;font-weight:300 !important;}
 [lang="he"] h1,[lang="he"] h2,[lang="he"] .home-heading{font-family:HaimNum,HaimVariable,Heebo,sans-serif;font-weight:300;font-size:24pt !important;}
 [lang="he"] button,[lang="he"] .nav-link,[lang="he"] .nav-login,[lang="he"] .va-btn,[lang="he"] .layer-btn,[lang="he"] .toggle-btn,[lang="he"] .view-tab,[lang="he"] #playBtn,[lang="he"] #homeStartBtn,[lang="he"] #homeStartBtn2,[lang="he"] #nameContinue,[lang="he"] #nsCodeContinue,[lang="he"] #nsLoginBtn,[lang="he"] #libBeginBtn,[lang="he"] #calStartBtn,[lang="he"] .nav-va{font-family:HaimNum,HaimVariable,Heebo,sans-serif !important;font-weight:300 !important;}
 [lang="he"] *{color:#FF0000 !important;}
@@ -270,7 +271,7 @@ body{
 
 #libraryScreen{background-attachment:fixed;}
 
-#calOverlay{position:fixed;inset:0;z-index:9800;background:#c8e8f5;overflow:hidden;}
+#calOverlay{position:fixed;inset:0;z-index:9800;background:#c8e8f5;overflow:hidden;cursor:none;}
 #calOverlay::before{content:'';position:absolute;inset:0;background:url('sky.png') center/cover no-repeat;filter:blur(22px);transform:scale(1.08);z-index:0;pointer-events:none;}
 #calOverlay::after{content:'';position:absolute;inset:0;background:transparent;z-index:1;pointer-events:none;}
 #calCanvas{position:absolute;inset:0;width:100%;height:100%;background:transparent;z-index:2;pointer-events:none;}
@@ -309,6 +310,7 @@ body{
 #dataImgArea{position:relative;flex:1;overflow:hidden;background:#eee;}
 #dataImg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;}
 #dataCanvas{position:absolute;inset:0;pointer-events:none;z-index:2;}
+#dataImgCredit{position:absolute;top:14px;right:14px;z-index:8;background:transparent;border:1px solid rgba(255,255,255,0.7);border-radius:100px;padding:6px 14px;font-family:Ratzif22,Heebo,sans-serif;font-size:9px;font-weight:300;letter-spacing:0.05em;color:#FF0000;pointer-events:none;white-space:nowrap;}
 #dataSessionBadge{position:absolute;bottom:14px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:stretch;background:transparent;border:1px solid rgba(255,255,255,0.7);border-radius:12px;z-index:8;pointer-events:all;min-width:380px;overflow:hidden;}
 .dsb-header{display:flex;align-items:center;justify-content:space-between;padding:7px 14px;cursor:pointer;user-select:none;}
 .dsb-header-label{font-size:7px;font-weight:700;letter-spacing:0.35em;color:rgba(255,0,0,0.6);text-transform:uppercase;}
@@ -435,6 +437,7 @@ body{
 [lang="he"] .cp-meta{font-size:7.5pt !important;font-weight:300;color:#FF0000;line-height:1.4;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 .cp-time{font-size:8px;font-weight:300;color:#FF0000;}
 [lang="he"] .cp-imgname{font-size:8pt !important;font-weight:400;letter-spacing:0.08em;color:#FF0000;text-align:center;padding:6px 10px;}
+[lang="he"] .cp-credit{font-size:7pt !important;font-weight:300;opacity:0.65;letter-spacing:0.04em;}
 .compare-canvas-wrap{position:relative;aspect-ratio:16/9;background:#000;overflow:hidden;}
 .cp-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;}
 .cp-canvas{position:absolute;inset:0;pointer-events:none;}
@@ -860,7 +863,7 @@ body :not(#splashScreen):not(#splashScreen *):not(#homeScreen):not(#homeScreen *
 <div id="sessionCountdown"></div>
 
 <!-- SESSION VIEWER - sky video + dots + images -->
-<div id="sessionViewer" style="display:none;position:fixed;inset:0;z-index:500;overflow:hidden;">
+<div id="sessionViewer" style="display:none;position:fixed;inset:0;z-index:500;overflow:hidden;cursor:none;">
   <video id="sessionSkyVideo" src="sky.mp4" muted playsinline loop
     style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none;"></video>
   <canvas id="sessionDotsCanvas" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:2;"></canvas>
@@ -953,6 +956,7 @@ body :not(#splashScreen):not(#splashScreen *):not(#homeScreen):not(#homeScreen *
         <img id="dataImg" src="" alt=""/>
         <canvas id="dataCanvas"></canvas>
 
+        <div id="dataImgCredit" style="display:none;"></div>
         <div id="dataImgDots"></div>
 
         <div id="dataToolbar">
@@ -1745,7 +1749,12 @@ function saveAllPendingSessions(){
 function startSessionInfoOverlay(){}
 function stopSessionInfoOverlay(){}
 
-function renderDataSessionBadge(sess){const dur=sess.sessionDuration?(sess.sessionDuration/1000).toFixed(1)+'s':'--';document.getElementById('dsb-samples').textContent=sess.gazeLog?.length||'--';document.getElementById('dsb-duration').textContent=dur;document.getElementById('dsb-location').textContent=sess.location||'--';document.getElementById('dsb-name').textContent=sess.user||'--';document.getElementById('dsb-age').textContent=sess.age||'--';document.getElementById('dsb-gender').textContent=sess.gender||'--';document.getElementById('dsbContent').classList.remove('collapsed');document.getElementById('dsbToggle').classList.remove('collapsed');}
+function getImageCredit(imageName){
+  const img = POLITICAL_IMAGES.find(p=>p.name===imageName);
+  return img ? img.credit : '';
+}
+
+function renderDataSessionBadge(sess){const dur=sess.sessionDuration?(sess.sessionDuration/1000).toFixed(1)+'s':'--';document.getElementById('dsb-samples').textContent=sess.gazeLog?.length||'--';document.getElementById('dsb-duration').textContent=dur;document.getElementById('dsb-location').textContent=sess.location||'--';document.getElementById('dsb-name').textContent=sess.user||'--';document.getElementById('dsb-age').textContent=sess.age||'--';document.getElementById('dsb-gender').textContent=sess.gender||'--';document.getElementById('dsbContent').classList.remove('collapsed');document.getElementById('dsbToggle').classList.remove('collapsed');const creditEl=document.getElementById('dataImgCredit');if(creditEl){const credit=getImageCredit(sess.imageName);creditEl.textContent=credit;creditEl.style.display=credit?'':'none';}}
 
 const ANALYSIS_LAYERS=['FIXATION','SACCADE','SCANPATH','HEATMAP','FIRSTFIX'];
 function renderAnalysisBadge(layer,sess){
@@ -1908,7 +1917,7 @@ document.getElementById('cf-reset-image').addEventListener('click',()=>{
   renderCompareView();
 });
 
-function renderCompareView(){populateCompareFilters();const GENDER_HE={'Male':'זכר','Female':'נקבה','Other':'אחר'};const grid=document.getElementById('compareGrid');grid.innerHTML='';const layer=document.getElementById('cf-layer').value||dataActiveLayer||'GAZE';const hasImageFilter=!!document.getElementById('cf-image').value;const resetBtn=document.getElementById('cf-reset-image');const hasAnyFilter=!!(document.getElementById('cf-gender').value||document.getElementById('cf-age').value||document.getElementById('cf-location').value||document.getElementById('cf-image').value);resetBtn.classList.toggle('active',hasAnyFilter);const filteredSessions=getFilteredSessions();if(allSessions.length===0){grid.innerHTML='<div style="color:#FF0000;font-size:11px;letter-spacing:0.2em;text-align:center;padding:40px 0;grid-column:1/-1;">אין סשנים להשוואה עדיין</div>';return;}for(const sess of filteredSessions){const cell=document.createElement('div');cell.className='compare-panel';const genderLabel=GENDER_HE[sess.gender]||sess.gender||'';cell.innerHTML='<div class="compare-panel-header"><div class="cp-user">'+sess.user+'</div><div class="cp-meta">'+(sess.age?sess.age:'')+((sess.age&&sess.gender)?' . ':'')+genderLabel+(sess.location?' . '+sess.location:'')+'</div></div><div class="compare-canvas-wrap"><img class="cp-img" src="'+sess.imageSrc+'"><canvas class="cp-canvas"></canvas></div><div class="cp-imgname">'+sess.imageName+'</div>';grid.appendChild(cell);const cpImg=cell.querySelector('.cp-img');const wrap=cell.querySelector('.compare-canvas-wrap'),canvas=cell.querySelector('.cp-canvas');if(!hasImageFilter){const tip=document.createElement('div');tip.className='cp-tooltip';tip.textContent='לחצו כדי להציג את כל הצפיות בתמונה זו';wrap.appendChild(tip);wrap.addEventListener('mouseenter',()=>tip.classList.add('visible'));wrap.addEventListener('mouseleave',()=>tip.classList.remove('visible'));wrap.addEventListener('mousemove',(e)=>{const rect=wrap.getBoundingClientRect();tip.style.left=(e.clientX-rect.left+10)+'px';tip.style.top=(e.clientY-rect.top+10)+'px';});}cpImg.addEventListener('click',()=>{document.getElementById('cf-image').value=sess.imageName;renderCompareView();});setTimeout(()=>{canvas.width=wrap.offsetWidth;canvas.height=wrap.offsetHeight;const ctx=canvas.getContext('2d');const W=canvas.width,H=canvas.height;const RC='255,0,0';switch(layer){case 'GAZE':staticGaze(ctx,W,H,sess.gazeLog,RC);break;case 'FIXATION':staticFixation(ctx,W,H,sess.fixationHistory,RC);break;case 'SACCADE':staticSaccade(ctx,W,H,sess.saccadeHistory,RC);break;case 'SCANPATH':staticScanPath(ctx,W,H,sess.scanPathHistory,RC);break;case 'HEATMAP':staticHeatmap(ctx,W,H,sess.gazeLog,RC);break;case 'FIRSTFIX':staticFirstFix(ctx,W,H,sess.firstFix,sess.firstFixModeTs,RC);break;}},60);}}
+function renderCompareView(){populateCompareFilters();const GENDER_HE={'Male':'זכר','Female':'נקבה','Other':'אחר'};const grid=document.getElementById('compareGrid');grid.innerHTML='';const layer=document.getElementById('cf-layer').value||dataActiveLayer||'GAZE';const hasImageFilter=!!document.getElementById('cf-image').value;const resetBtn=document.getElementById('cf-reset-image');const hasAnyFilter=!!(document.getElementById('cf-gender').value||document.getElementById('cf-age').value||document.getElementById('cf-location').value||document.getElementById('cf-image').value);resetBtn.classList.toggle('active',hasAnyFilter);const filteredSessions=getFilteredSessions();if(allSessions.length===0){grid.innerHTML='<div style="color:#FF0000;font-size:11px;letter-spacing:0.2em;text-align:center;padding:40px 0;grid-column:1/-1;">אין סשנים להשוואה עדיין</div>';return;}for(const sess of filteredSessions){const cell=document.createElement('div');cell.className='compare-panel';const genderLabel=GENDER_HE[sess.gender]||sess.gender||'';const credit=getImageCredit(sess.imageName);cell.innerHTML='<div class="compare-panel-header"><div class="cp-user">'+sess.user+'</div><div class="cp-meta">'+(sess.age?sess.age:'')+((sess.age&&sess.gender)?' . ':'')+genderLabel+(sess.location?' . '+sess.location:'')+'</div></div><div class="compare-canvas-wrap"><img class="cp-img" src="'+sess.imageSrc+'"><canvas class="cp-canvas"></canvas></div><div class="cp-imgname">'+sess.imageName+(credit?'<span class="cp-credit"> · '+credit+'</span>':'')+'</div>';grid.appendChild(cell);const cpImg=cell.querySelector('.cp-img');const wrap=cell.querySelector('.compare-canvas-wrap'),canvas=cell.querySelector('.cp-canvas');if(!hasImageFilter){const tip=document.createElement('div');tip.className='cp-tooltip';tip.textContent='לחצו כדי להציג את כל הצפיות בתמונה זו';wrap.appendChild(tip);wrap.addEventListener('mouseenter',()=>tip.classList.add('visible'));wrap.addEventListener('mouseleave',()=>tip.classList.remove('visible'));wrap.addEventListener('mousemove',(e)=>{const rect=wrap.getBoundingClientRect();tip.style.left=(e.clientX-rect.left+10)+'px';tip.style.top=(e.clientY-rect.top+10)+'px';});}cpImg.addEventListener('click',()=>{document.getElementById('cf-image').value=sess.imageName;renderCompareView();});setTimeout(()=>{canvas.width=wrap.offsetWidth;canvas.height=wrap.offsetHeight;const ctx=canvas.getContext('2d');const W=canvas.width,H=canvas.height;const RC='255,0,0';switch(layer){case 'GAZE':staticGaze(ctx,W,H,sess.gazeLog,RC);break;case 'FIXATION':staticFixation(ctx,W,H,sess.fixationHistory,RC);break;case 'SACCADE':staticSaccade(ctx,W,H,sess.saccadeHistory,RC);break;case 'SCANPATH':staticScanPath(ctx,W,H,sess.scanPathHistory,RC);break;case 'HEATMAP':staticHeatmap(ctx,W,H,sess.gazeLog,RC);break;case 'FIRSTFIX':staticFirstFix(ctx,W,H,sess.firstFix,sess.firstFixModeTs,RC);break;}},60);}}
 
 // ── Image navigation arrows ──────────────────────────────────────────
 function navigateToSession(sess){
@@ -3337,14 +3346,34 @@ function slowIdleVideo(){ idleBgVideoEl.playbackRate=0.6; }
 idleBgVideoEl.addEventListener('loadedmetadata',slowIdleVideo);
 idleBgVideoEl.addEventListener('play',slowIdleVideo);
 
+const IDLE_AUTO_RESET_DELAY_MS=3000;
+let idleAutoResetTimer=null;
+
 function showIdleScreen(){
   buildIdleDots();
   idleScreenEl.style.display='flex';
   slowIdleVideo();
   idleBgVideoEl.play().catch(()=>{});
   requestWakeLock();
+  // if nobody interacts within a few seconds of the idle screen appearing,
+  // fully reset the system back to the splash + home screen, ready for a new visitor.
+  if(idleAutoResetTimer) clearTimeout(idleAutoResetTimer);
+  idleAutoResetTimer=setTimeout(autoResetToHome,IDLE_AUTO_RESET_DELAY_MS);
+}
+async function autoResetToHome(){
+  if(idleAutoResetTimer){ clearTimeout(idleAutoResetTimer); idleAutoResetTimer=null; }
+  idleScreenEl.style.display='none';
+  hideAllScreens();
+  // fresh identity for whoever approaches next
+  currentUser=generateCode();
+  currentAge='';
+  currentGender='';
+  await playSplashScreen();
+  showHome();
+  resetIdleTimer();
 }
 function hideIdleScreen(){
+  if(idleAutoResetTimer){ clearTimeout(idleAutoResetTimer); idleAutoResetTimer=null; }
   idleScreenEl.style.display='none';
   resetIdleTimer();
 }
@@ -3361,6 +3390,7 @@ function handleUserActivity(){
 });
 document.getElementById('idleStartBtn').addEventListener('click',(e)=>{
   e.stopPropagation();
+  if(idleAutoResetTimer){ clearTimeout(idleAutoResetTimer); idleAutoResetTimer=null; }
   idleScreenEl.style.display='none';
   resetIdleTimer();
   (async ()=>{
