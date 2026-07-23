@@ -2481,6 +2481,7 @@ const DOT_POSITIONS = [
 ];
 
 async function runFullSequence(){
+  pauseIdleDetection();
   const shuffled=shuffleArray(POLITICAL_IMAGES);
   document.getElementById('mainNav').style.display='none';
 
@@ -2661,6 +2662,7 @@ async function runFullSequence(){
   viewer.style.display='none';
   gazeDot.style.display='none';
   document.getElementById('mainNav').style.display='flex';
+  resumeIdleDetection();
 }
 
 // ── Show briefing screen ──────────────────────────────────────────────
@@ -2754,6 +2756,7 @@ async function playSplashScreen(){
 }
 
 async function boot(){
+  pauseIdleDetection();
   await playSplashScreen();
 
   dotCanvas.width=window.innerWidth; dotCanvas.height=window.innerHeight;
@@ -2829,6 +2832,7 @@ async function boot(){
   homeScreen.style.display='block';
   infoEl.style.display='block';
   gazeDot.style.display='none';
+  resumeIdleDetection();
 }
 
 // ── Nav links ─────────────────────────────────────────────────────────
@@ -3325,6 +3329,8 @@ requestWakeLock();
 // ── Idle / screensaver screen — shows after 60s with no user activity ──
 const IDLE_TIMEOUT_MS=60000;
 let idleTimer=null;
+let idleDetectionPaused=false; // true during calibration & the passive image-viewing session,
+                                // where the user deliberately isn't touching mouse/keyboard
 const idleScreenEl=document.getElementById('idleScreen');
 const idleBgVideoEl=document.getElementById('idleBgVideo');
 
@@ -3381,7 +3387,16 @@ function hideIdleScreen(){
 }
 function resetIdleTimer(){
   if(idleTimer) clearTimeout(idleTimer);
+  if(idleDetectionPaused) return; // don't schedule while a hands-free process is active
   idleTimer=setTimeout(showIdleScreen,IDLE_TIMEOUT_MS);
+}
+function pauseIdleDetection(){
+  idleDetectionPaused=true;
+  if(idleTimer){ clearTimeout(idleTimer); idleTimer=null; }
+}
+function resumeIdleDetection(){
+  idleDetectionPaused=false;
+  resetIdleTimer();
 }
 function handleUserActivity(){
   if(idleScreenEl.style.display==='flex') return; // idle screen dismissal is handled by its own click listeners below
