@@ -271,7 +271,7 @@ body{
 
 #libraryScreen{background-attachment:fixed;}
 
-#calOverlay{position:fixed;inset:0;z-index:9800;background:#c8e8f5;overflow:hidden;cursor:none;}
+#calOverlay{position:fixed;inset:0;z-index:9800;background:#c8e8f5;overflow:hidden;}
 #calOverlay::before{content:'';position:absolute;inset:0;background:url('sky.png') center/cover no-repeat;filter:blur(22px);transform:scale(1.08);z-index:0;pointer-events:none;}
 #calOverlay::after{content:'';position:absolute;inset:0;background:transparent;z-index:1;pointer-events:none;}
 #calCanvas{position:absolute;inset:0;width:100%;height:100%;background:transparent;z-index:2;pointer-events:none;}
@@ -2790,6 +2790,7 @@ async function boot(){
   const calData=[];
   const cellPx = window.innerHeight/6;
   const centerX = window.innerWidth/2, centerY = window.innerHeight/2;
+  calOverlay.style.cursor='none';
   for(let i=0;i<CAL_PTS.length;i++){
     const[fx,fy]=CAL_PTS[i];
     const targetPx=fx*window.innerWidth, targetPy=fy*window.innerHeight;
@@ -2803,6 +2804,7 @@ async function boot(){
     const{ox,oy}=await awaitDot(px,py,i);
     calData.push({sx:nx,sy:ny,ox,oy});
   }
+  calOverlay.style.cursor='';
   if(calData.length>=4)eyeCalMap=fitAffine(calData);
 
   drawCalDone();
