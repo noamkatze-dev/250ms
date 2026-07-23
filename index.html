@@ -1733,11 +1733,8 @@ document.getElementById('navSpectrumLink').addEventListener('click',()=>{
 let pendingSessions = [];
 
 function saveAllPendingSessions(){
-  sbFetch('profiles?on_conflict=name',{
-    method:'POST',
-    headers:{'Prefer':'resolution=merge-duplicates,return=minimal'},
-    body:JSON.stringify({name:currentUser,age:currentAge,gender:currentGender,location:userLocation})
-  }).catch(()=>{});
+  sbFetchWithFallback('profiles?on_conflict=name', 'resolution=merge-duplicates,return=minimal',
+    {name:currentUser,age:currentAge,gender:currentGender,location:userLocation});
   for(const snap of pendingSessions){
     snap.age=currentAge; snap.gender=currentGender; snap.location=userLocation;
     saveProfile(snap);
@@ -1979,9 +1976,76 @@ async function sbFetch(path, options={}) {
       ...(options.headers||{})
     }
   });
-  if (!res.ok) throw new Error(await res.text());
+  if (!res.ok) throw new Error(`${res.status} ${res.statusText}: ${await res.text()}`);
   return res.json();
 }
+
+// ── Local safety net ─────────────────────────────────────────────────
+// If a save to Supabase fails for any reason (project paused, network
+// hiccup, etc.), the write is queued in localStorage and retried
+// automatically in the background until it succeeds. Nothing the user
+// does is ever lost — it just waits quietly until the cloud is reachable.
+const LS_QUEUE_KEY = '0.25s_pending_saves';
+const LS_QUEUE_MAX = 500; // safety cap so a long outage can't grow this unbounded
+
+function getSaveQueue(){
+  try{ return JSON.parse(localStorage.getItem(LS_QUEUE_KEY) || '[]'); }
+  catch(e){ return []; }
+}
+function setSaveQueue(q){
+  try{ localStorage.setItem(LS_QUEUE_KEY, JSON.stringify(q.slice(-LS_QUEUE_MAX))); }
+  catch(e){ console.warn('[local-queue] could not persist queue', e); }
+}
+function queueSave(path, prefer, body){
+  const q = getSaveQueue();
+  q.push({ path, prefer, body, ts: Date.now() });
+  setSaveQueue(q);
+}
+let flushInProgress = false;
+async function flushSaveQueue(){
+  if (flushInProgress) return;
+  const q = getSaveQueue();
+  if (!q.length) return;
+  flushInProgress = true;
+  const stillPending = [];
+  for (const item of q){
+    try{
+      await sbFetch(item.path, {
+        method: 'POST',
+        headers: { 'Prefer': item.prefer },
+        body: JSON.stringify(item.body)
+      });
+    }catch(e){
+      stillPending.push(item); // still unreachable — keep it queued for next attempt
+    }
+  }
+  setSaveQueue(stillPending);
+  flushInProgress = false;
+  if (stillPending.length < q.length) console.info(`[local-queue] flushed ${q.length-stillPending.length} pending save(s), ${stillPending.length} still waiting`);
+}
+async function sbFetchWithFallback(path, prefer, body){
+  try{
+    await sbFetch(path, { method:'POST', headers:{ 'Prefer': prefer }, body: JSON.stringify(body) });
+  }catch(e){
+    console.warn('[save] cloud save failed, queued locally:', e.message);
+    queueSave(path, prefer, body);
+  }
+}
+// retry on an interval, whenever the tab regains focus, and whenever the network comes back
+setInterval(flushSaveQueue, 20000);
+document.addEventListener('visibilitychange', ()=>{ if(document.visibilityState==='visible') flushSaveQueue(); });
+window.addEventListener('online', flushSaveQueue);
+
+// ── Keep-alive ping ───────────────────────────────────────────────────
+// Supabase's free tier auto-pauses a project after a period of no API
+// activity. As long as this kiosk is left running, a lightweight ping
+// keeps the project active so it's never paused when someone approaches.
+async function pingSupabaseKeepAlive(){
+  try{ await sbFetch('profiles?select=name&limit=1'); }
+  catch(e){ console.warn('[keep-alive] ping failed (project may be paused/unreachable):', e.message); }
+}
+pingSupabaseKeepAlive();
+setInterval(pingSupabaseKeepAlive, 6*60*60*1000); // every 6 hours
 
 async function loadProfile(name) {
   try {
@@ -1991,41 +2055,31 @@ async function loadProfile(name) {
     const sessions = await sbFetch(`sessions?user_name=eq.${encodeURIComponent(name)}&select=*&order=created_at.asc`);
     profile.sessions = sessions || [];
     return profile;
-  } catch (e) { console.warn('[profile:load]', e); return null; }
+  } catch (e) { console.warn('[profile:load]', e.message); return null; }
 }
 
 async function saveProfile(session) {
-  try {
-    await sbFetch('profiles?on_conflict=name', {
-      method: 'POST',
-      headers: { 'Prefer': 'resolution=merge-duplicates,return=minimal' },
-      body: JSON.stringify({
-        name: currentUser,
-        age: currentAge,
-        gender: currentGender,
-        location: userLocation
-      })
-    });
-    await sbFetch('sessions', {
-      method: 'POST',
-      headers: { 'Prefer': 'return=minimal' },
-      body: JSON.stringify({
-        user_name: currentUser,
-        image_name: session.imageName,
-        image_src: session.imageSrc,
-        timestamp: session.timestamp,
-        session_duration: session.sessionDuration,
-        fixation_count: session.fixationHistory ? session.fixationHistory.length : 0,
-        saccade_count: session.saccadeHistory ? session.saccadeHistory.length : 0,
-        gaze_count: session.gazeLog ? session.gazeLog.length : 0,
-        first_fix: session.firstFix || null,
-        fixation_history: session.fixationHistory || [],
-        saccade_history: session.saccadeHistory || [],
-        scan_path_history: session.scanPathHistory || [],
-        gaze_log: session.gazeLog || []
-      })
-    });
-  } catch (e) { console.warn('[profile:save]', e); }
+  await sbFetchWithFallback('profiles?on_conflict=name', 'resolution=merge-duplicates,return=minimal', {
+    name: currentUser,
+    age: currentAge,
+    gender: currentGender,
+    location: userLocation
+  });
+  await sbFetchWithFallback('sessions', 'return=minimal', {
+    user_name: currentUser,
+    image_name: session.imageName,
+    image_src: session.imageSrc,
+    timestamp: session.timestamp,
+    session_duration: session.sessionDuration,
+    fixation_count: session.fixationHistory ? session.fixationHistory.length : 0,
+    saccade_count: session.saccadeHistory ? session.saccadeHistory.length : 0,
+    gaze_count: session.gazeLog ? session.gazeLog.length : 0,
+    first_fix: session.firstFix || null,
+    fixation_history: session.fixationHistory || [],
+    saccade_history: session.saccadeHistory || [],
+    scan_path_history: session.scanPathHistory || [],
+    gaze_log: session.gazeLog || []
+  });
 }
 
 function openData(pushNew=true){
