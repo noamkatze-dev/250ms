@@ -3421,15 +3421,24 @@ function slowIdleVideo(){ idleBgVideoEl.playbackRate=0.6; }
 idleBgVideoEl.addEventListener('loadedmetadata',slowIdleVideo);
 idleBgVideoEl.addEventListener('play',slowIdleVideo);
 
+let idleWakeLockInterval=null;
 function showIdleScreen(){
   buildIdleDots();
   idleScreenEl.style.display='flex';
   slowIdleVideo();
   idleBgVideoEl.play().catch(()=>{});
   requestWakeLock();
+  // keep re-asserting the wake lock for as long as this screen stays up —
+  // it can run indefinitely now (no auto-timeout), so don't rely on a single request.
+  if(idleWakeLockInterval) clearInterval(idleWakeLockInterval);
+  idleWakeLockInterval=setInterval(requestWakeLock,60000);
+}
+function stopIdleWakeLockRefresh(){
+  if(idleWakeLockInterval){ clearInterval(idleWakeLockInterval); idleWakeLockInterval=null; }
 }
 function hideIdleScreen(){
   idleScreenEl.style.display='none';
+  stopIdleWakeLockRefresh();
   resetIdleTimer();
 }
 function resetIdleTimer(){
@@ -3455,6 +3464,7 @@ function handleUserActivity(){
 document.getElementById('idleStartBtn').addEventListener('click',(e)=>{
   e.stopPropagation();
   idleScreenEl.style.display='none';
+  stopIdleWakeLockRefresh();
   resetIdleTimer();
   (async ()=>{
     await playSplashScreen();
