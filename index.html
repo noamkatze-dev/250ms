@@ -2751,6 +2751,14 @@ async function startOnboardingFlow(){
   currentUser=generateCode();
   currentAge='';
   currentGender='';
+  // reset the "image on/off" toggle so a previous person's choice (or a
+  // tester's) never silently leaves the next person's data view blank
+  showImg=true;
+  document.getElementById('dataImg')?.style.setProperty('opacity','1');
+  document.getElementById('withImgBtn')?.classList.add('active');
+  document.getElementById('withoutImgBtn')?.classList.remove('active');
+  document.getElementById('dataToolbar')?.classList.remove('dark-bg');
+  document.getElementById('dataImgDots')?.classList.remove('dark-bg');
   if(calibrationIsFresh){
     calibrationIsFresh=false; // consume it — next person after this one needs their own
   } else {
