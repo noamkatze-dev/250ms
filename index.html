@@ -2748,6 +2748,10 @@ async function startOnboardingFlow(){
   homeScreen.style.display='none';
   document.getElementById('homeSkyVideo').style.display='none';
   document.getElementById('skyColorOverlay').style.display='none';
+  currentUser=generateCode();
+  currentAge='';
+  currentGender='';
+  await runCalibration(null);
   await showNameScreen();
   await showBriefing();
   await runFullSequence();
@@ -2809,21 +2813,13 @@ async function playSplashScreen(){
   splash.style.display='none';
 }
 
-async function boot(){
+async function runCalibration(eyePromise){
   pauseIdleDetection();
-  await playSplashScreen();
-
-  dotCanvas.width=window.innerWidth; dotCanvas.height=window.innerHeight;
-  window.addEventListener('resize',()=>{dotCanvas.width=window.innerWidth;dotCanvas.height=window.innerHeight;});
-  heatCanvas=document.createElement('canvas');heatCanvas.width=W_HEAT;heatCanvas.height=H_HEAT;
-  heatCtx2=heatCanvas.getContext('2d');
-
-  currentUser = generateCode();
-
   calOverlay.style.display='block';
   resizeCal();
   let lastStaticCalDraw=null;
-  window.addEventListener('resize',()=>{resizeCal();if(lastStaticCalDraw)lastStaticCalDraw();});
+  const resizeHandler=()=>{resizeCal();if(lastStaticCalDraw)lastStaticCalDraw();};
+  window.addEventListener('resize',resizeHandler);
   try{
     await Promise.all([
       document.fonts.load("700 40px HaimVariable"),
@@ -2835,14 +2831,14 @@ async function boot(){
   lastStaticCalDraw=drawCalIntro;
   calStartBtn.style.display='block';
 
-  const eyePromise = startEyeTracking();
-
   await new Promise(r=>calStartBtn.addEventListener('click',r,{once:true}));
   calStartBtn.style.display='none';
   lastStaticCalDraw=null;
 
-  const ok = await eyePromise;
-  if(!ok) enablePointerFallback();
+  if(eyePromise){
+    const ok = await eyePromise;
+    if(!ok) enablePointerFallback();
+  }
 
   const calData=[];
   const cellPx = window.innerHeight/6;
@@ -2869,6 +2865,23 @@ async function boot(){
   await new Promise(r=>setTimeout(r,900));
   lastStaticCalDraw=null;
   calOverlay.style.display='none';
+  window.removeEventListener('resize',resizeHandler);
+  resumeIdleDetection();
+}
+
+async function boot(){
+  pauseIdleDetection();
+  await playSplashScreen();
+
+  dotCanvas.width=window.innerWidth; dotCanvas.height=window.innerHeight;
+  window.addEventListener('resize',()=>{dotCanvas.width=window.innerWidth;dotCanvas.height=window.innerHeight;});
+  heatCanvas=document.createElement('canvas');heatCanvas.width=W_HEAT;heatCanvas.height=H_HEAT;
+  heatCtx2=heatCanvas.getContext('2d');
+
+  currentUser = generateCode();
+
+  const eyePromise = startEyeTracking();
+  await runCalibration(eyePromise);
 
   requestAnimationFrame(mainLoop);
 
@@ -3408,34 +3421,14 @@ function slowIdleVideo(){ idleBgVideoEl.playbackRate=0.6; }
 idleBgVideoEl.addEventListener('loadedmetadata',slowIdleVideo);
 idleBgVideoEl.addEventListener('play',slowIdleVideo);
 
-const IDLE_AUTO_RESET_DELAY_MS=3000;
-let idleAutoResetTimer=null;
-
 function showIdleScreen(){
   buildIdleDots();
   idleScreenEl.style.display='flex';
   slowIdleVideo();
   idleBgVideoEl.play().catch(()=>{});
   requestWakeLock();
-  // if nobody interacts within a few seconds of the idle screen appearing,
-  // fully reset the system back to the splash + home screen, ready for a new visitor.
-  if(idleAutoResetTimer) clearTimeout(idleAutoResetTimer);
-  idleAutoResetTimer=setTimeout(autoResetToHome,IDLE_AUTO_RESET_DELAY_MS);
-}
-async function autoResetToHome(){
-  if(idleAutoResetTimer){ clearTimeout(idleAutoResetTimer); idleAutoResetTimer=null; }
-  idleScreenEl.style.display='none';
-  hideAllScreens();
-  // fresh identity for whoever approaches next
-  currentUser=generateCode();
-  currentAge='';
-  currentGender='';
-  await playSplashScreen();
-  showHome();
-  resetIdleTimer();
 }
 function hideIdleScreen(){
-  if(idleAutoResetTimer){ clearTimeout(idleAutoResetTimer); idleAutoResetTimer=null; }
   idleScreenEl.style.display='none';
   resetIdleTimer();
 }
@@ -3461,7 +3454,6 @@ function handleUserActivity(){
 });
 document.getElementById('idleStartBtn').addEventListener('click',(e)=>{
   e.stopPropagation();
-  if(idleAutoResetTimer){ clearTimeout(idleAutoResetTimer); idleAutoResetTimer=null; }
   idleScreenEl.style.display='none';
   resetIdleTimer();
   (async ()=>{
