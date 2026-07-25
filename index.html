@@ -2751,7 +2751,11 @@ async function startOnboardingFlow(){
   currentUser=generateCode();
   currentAge='';
   currentGender='';
-  await runCalibration(null);
+  if(calibrationIsFresh){
+    calibrationIsFresh=false; // consume it — next person after this one needs their own
+  } else {
+    await runCalibration(null);
+  }
   await showNameScreen();
   await showBriefing();
   await runFullSequence();
@@ -2813,6 +2817,11 @@ async function playSplashScreen(){
   splash.style.display='none';
 }
 
+// true right after a calibration has just completed and hasn't been used
+// for a session yet — lets the very first "התחלה" click after boot() reuse
+// the calibration boot() just did, instead of redundantly calibrating twice.
+let calibrationIsFresh=false;
+
 async function runCalibration(eyePromise){
   pauseIdleDetection();
   calOverlay.style.display='block';
@@ -2859,6 +2868,7 @@ async function runCalibration(eyePromise){
   }
   calOverlay.style.cursor='';
   if(calData.length>=4)eyeCalMap=fitAffine(calData);
+  calibrationIsFresh=true;
 
   drawCalDone();
   lastStaticCalDraw=drawCalDone;
@@ -3428,6 +3438,7 @@ function showIdleScreen(){
   slowIdleVideo();
   idleBgVideoEl.play().catch(()=>{});
   requestWakeLock();
+  calibrationIsFresh=false; // 60s of no activity — assume whoever calibrated has left
   // keep re-asserting the wake lock for as long as this screen stays up —
   // it can run indefinitely now (no auto-timeout), so don't rely on a single request.
   if(idleWakeLockInterval) clearInterval(idleWakeLockInterval);
