@@ -1260,9 +1260,12 @@ import { FaceLandmarker, FilesetResolver } from 'https://cdn.jsdelivr.net/npm/@m
 // this only affects how big things visually render, not where anything
 // is positioned.
 const UI_SCALE_REF_W = 1366, UI_SCALE_REF_H = 768;
+let uiScale = 1; // canvas content (calibration text/dots) is drawn at fixed
+                  // pixel sizes and doesn't participate in CSS zoom scaling,
+                  // so drawing code multiplies sizes by this directly.
 function updateUiScale(){
-  const scale = Math.max(1, Math.min(window.innerWidth/UI_SCALE_REF_W, window.innerHeight/UI_SCALE_REF_H));
-  document.documentElement.style.zoom = scale;
+  uiScale = Math.max(1, Math.min(window.innerWidth/UI_SCALE_REF_W, window.innerHeight/UI_SCALE_REF_H));
+  document.documentElement.style.zoom = uiScale;
   document.documentElement.style.setProperty('--real-grid-cell', (window.innerHeight/6)+'px');
 }
 window.addEventListener('resize', updateUiScale);
@@ -1440,40 +1443,40 @@ function fillTextSpacedRTL(ctx, text, cx, y, spacing){
   ctx.textAlign = prevAlign;
 }
 
-function drawCalIntro(){const W=window.innerWidth,H=window.innerHeight;
+function drawCalIntro(){const W=window.innerWidth,H=window.innerHeight;const s=uiScale;
   calCtx.clearRect(0,0,W,H);
   calCtx.textAlign='center';
-  const bodyY=H/2+10;
-  const titleY=H/2-110;
+  const bodyY=H/2+10*s;
+  const titleY=H/2-110*s;
   calCtx.fillStyle='#FF0000';
-  calCtx.font='400 17px Ratzif22,Heebo';
-  fillTextSpacedRTL(calCtx,'מערכת ניתוח חזותי',W/2,titleY,3);
+  calCtx.font=`400 ${17*s}px Ratzif22,Heebo`;
+  fillTextSpacedRTL(calCtx,'מערכת ניתוח חזותי',W/2,titleY,3*s);
   calCtx.fillStyle='#FF0000';
-  calCtx.font='700 24pt HaimNum,HaimVariable';
-  calCtx.fillText('כיול מעקב עיניים',W/2,titleY+40);
+  calCtx.font=`700 ${24*s}pt HaimNum,HaimVariable`;
+  calCtx.fillText('כיול מעקב עיניים',W/2,titleY+40*s);
   calCtx.fillStyle='#FF0000';
-  calCtx.font='400 17px Ratzif22,Heebo';
+  calCtx.font=`400 ${17*s}px Ratzif22,Heebo`;
   calCtx.fillText('שמור על ראשך ללא תנועה - הזז רק את עינייך לכל נקודה',W/2,bodyY);
-  calCtx.fillText('החזק את המבט עד שהטבעת תתמלא לחלוטין',W/2,bodyY+22);
-  calCtx.fillText('לאחר הכיול תגיע לעמוד הבית.',W/2,bodyY+52);
-  calCtx.fillText('לחץ על "התחלה" כדי להתחיל את סשן הצפייה בתמונות.',W/2,bodyY+72);
+  calCtx.fillText('החזק את המבט עד שהטבעת תתמלא לחלוטין',W/2,bodyY+22*s);
+  calCtx.fillText('לאחר הכיול תגיע לעמוד הבית.',W/2,bodyY+52*s);
+  calCtx.fillText('לחץ על "התחלה" כדי להתחיל את סשן הצפייה בתמונות.',W/2,bodyY+72*s);
   calCtx.fillStyle='#FF0000';
-  calCtx.font='400 17px Ratzif22,Heebo';
-  calCtx.fillText('הכיול ישמש גם לצפייה בתמונות - אין צורך בכיול נוסף.',W/2,bodyY+94);
+  calCtx.font=`400 ${17*s}px Ratzif22,Heebo`;
+  calCtx.fillText('הכיול ישמש גם לצפייה בתמונות - אין צורך בכיול נוסף.',W/2,bodyY+94*s);
 }
 
-function drawCalDone(){const W=window.innerWidth,H=window.innerHeight;
+function drawCalDone(){const W=window.innerWidth,H=window.innerHeight;const s=uiScale;
   calCtx.clearRect(0,0,W,H);
   calCtx.textAlign="center";
-  calCtx.fillStyle='#FF0000';calCtx.font="700 24pt HaimNum,HaimVariable";
-  calCtx.fillText("מוכן!",W/2,H/2-8);
-  calCtx.fillStyle='#FF0000';calCtx.font="400 17px Ratzif22,Heebo";
-  calCtx.fillText('הכיול הושלם - עמוד הבית עומד להיפתח.',W/2,H/2+20);
+  calCtx.fillStyle='#FF0000';calCtx.font=`700 ${24*s}pt HaimNum,HaimVariable`;
+  calCtx.fillText("מוכן!",W/2,H/2-8*s);
+  calCtx.fillStyle='#FF0000';calCtx.font=`400 ${17*s}px Ratzif22,Heebo`;
+  calCtx.fillText('הכיול הושלם - עמוד הבית עומד להיפתח.',W/2,H/2+20*s);
 }
 
-function awaitDot(px,py,index){return new Promise(resolve=>{let progress=0,prevTs=null;const samples=[];function frame(ts){const dt=prevTs?Math.min((ts-prevTs)/1000,0.05):0;prevTs=ts;const s=eyeStab();progress+=s*CAL_FILL_RATE*dt;progress-=(1-s)*CAL_DRAIN_RATE*dt;progress=Math.max(0,Math.min(1,progress));if(s>0.45&&eyeValid)samples.push({ox:curEyeOffX,oy:curEyeOffY});const W=window.innerWidth,H=window.innerHeight;
+function awaitDot(px,py,index){return new Promise(resolve=>{let progress=0,prevTs=null;const samples=[];function frame(ts){const dt=prevTs?Math.min((ts-prevTs)/1000,0.05):0;prevTs=ts;const s=eyeStab();progress+=s*CAL_FILL_RATE*dt;progress-=(1-s)*CAL_DRAIN_RATE*dt;progress=Math.max(0,Math.min(1,progress));if(s>0.45&&eyeValid)samples.push({ox:curEyeOffX,oy:curEyeOffY});const W=window.innerWidth,H=window.innerHeight;const us=uiScale;
   calCtx.clearRect(0,0,W,H);
-  calCtx.textAlign='right';calCtx.fillStyle='#FF0000';calCtx.font='400 17px Ratzif22,Heebo';calCtx.direction='ltr';calCtx.fillText((index+1)+'  /  '+CAL_PTS.length,W-45,36);calCtx.direction='rtl';calCtx.beginPath();calCtx.arc(px,py,22,0,Math.PI*2);calCtx.strokeStyle='rgba(178,224,243,0.5)';calCtx.lineWidth=1.5;calCtx.stroke();if(progress>0){calCtx.beginPath();calCtx.arc(px,py,22,-Math.PI/2,-Math.PI/2+progress*Math.PI*2);calCtx.strokeStyle='rgba(255,0,0,'+(0.35+s*0.65)+')';calCtx.lineWidth=2;calCtx.stroke();}const r=3.5+s*2.5;calCtx.beginPath();calCtx.arc(px,py,r,0,Math.PI*2);calCtx.fillStyle='rgba(255,0,0,'+(0.2+s*0.8)+')';calCtx.fill();if(progress>=1){calCtx.beginPath();calCtx.arc(px,py,22,0,Math.PI*2);calCtx.strokeStyle='rgba(255,0,0,0.9)';calCtx.lineWidth=2;calCtx.stroke();const n=samples.length||1;setTimeout(()=>resolve({ox:samples.reduce((a,v)=>a+v.ox,0)/n,oy:samples.reduce((a,v)=>a+v.oy,0)/n}),280);}else requestAnimationFrame(frame);}requestAnimationFrame(frame);});}
+  calCtx.textAlign='right';calCtx.fillStyle='#FF0000';calCtx.font=`400 ${17*us}px Ratzif22,Heebo`;calCtx.direction='ltr';calCtx.fillText((index+1)+'  /  '+CAL_PTS.length,W-45*us,36*us);calCtx.direction='rtl';calCtx.beginPath();calCtx.arc(px,py,22*us,0,Math.PI*2);calCtx.strokeStyle='rgba(178,224,243,0.5)';calCtx.lineWidth=1.5*us;calCtx.stroke();if(progress>0){calCtx.beginPath();calCtx.arc(px,py,22*us,-Math.PI/2,-Math.PI/2+progress*Math.PI*2);calCtx.strokeStyle='rgba(255,0,0,'+(0.35+s*0.65)+')';calCtx.lineWidth=2*us;calCtx.stroke();}const r=(3.5+s*2.5)*us;calCtx.beginPath();calCtx.arc(px,py,r,0,Math.PI*2);calCtx.fillStyle='rgba(255,0,0,'+(0.2+s*0.8)+')';calCtx.fill();if(progress>=1){calCtx.beginPath();calCtx.arc(px,py,22*us,0,Math.PI*2);calCtx.strokeStyle='rgba(255,0,0,0.9)';calCtx.lineWidth=2*us;calCtx.stroke();const n=samples.length||1;setTimeout(()=>resolve({ox:samples.reduce((a,v)=>a+v.ox,0)/n,oy:samples.reduce((a,v)=>a+v.oy,0)/n}),280);}else requestAnimationFrame(frame);}requestAnimationFrame(frame);});}
 
 async function startEyeTracking(){
   let fl;
@@ -1808,7 +1811,12 @@ function getDataCanvas(){
   dc.style.width=area.offsetWidth+'px';
   dc.style.height=area.offsetHeight+'px';
   const ctx=dc.getContext('2d');
-  ctx.setTransform(dpr,0,0,dpr,0,0);
+  // uiScale here grows all the fixed-pixel markers (dot radii, line widths,
+  // font sizes) that every static/animate*() drawing function below uses,
+  // without needing to touch any of their individual constants. Callers
+  // must correspondingly pass W/H divided by uiScale (see playLayer) so
+  // that normalized positions (p.x*W etc.) still land in the right place.
+  ctx.setTransform(dpr*uiScale,0,0,dpr*uiScale,0,0);
   return dc;
 }
 function animateGaze(ctx,W,H,log){let tid=null,cancelled=false;const pts=log.slice();let i=0;function step(){if(cancelled||i>=pts.length)return;const p=pts[i++];ctx.beginPath();ctx.arc(p.x*W,p.y*H,5,0,Math.PI*2);ctx.fillStyle='rgba(255,0,0,0.9)';ctx.fill();tid=setTimeout(step,50);}step();return{cancel:()=>{cancelled=true;clearTimeout(tid);}};}
@@ -1822,8 +1830,8 @@ function playLayer(layer){
   cancelAnimation();
   const dc=getDataCanvas();
   const ctx=dc.getContext('2d');
-  const W=parseInt(dc.style.width)||dc.width;
-  const H=parseInt(dc.style.height)||dc.height;
+  const W=(parseInt(dc.style.width)||dc.width)/uiScale;
+  const H=(parseInt(dc.style.height)||dc.height)/uiScale;
   ctx.clearRect(0,0,W,H);
   const rawSess=viewSession||{gazeLog,fixationHistory,saccadeHistory,scanPathHistory,firstFix,firstFixModeTs};
 
@@ -1935,7 +1943,7 @@ document.getElementById('cf-reset-image').addEventListener('click',()=>{
   renderCompareView();
 });
 
-function renderCompareView(){populateCompareFilters();const GENDER_HE={'Male':'זכר','Female':'נקבה','Other':'אחר'};const grid=document.getElementById('compareGrid');grid.innerHTML='';const layer=document.getElementById('cf-layer').value||dataActiveLayer||'GAZE';const hasImageFilter=!!document.getElementById('cf-image').value;const resetBtn=document.getElementById('cf-reset-image');const hasAnyFilter=!!(document.getElementById('cf-gender').value||document.getElementById('cf-age').value||document.getElementById('cf-location').value||document.getElementById('cf-image').value);resetBtn.classList.toggle('active',hasAnyFilter);const filteredSessions=getFilteredSessions();if(allSessions.length===0){grid.innerHTML='<div style="color:#FF0000;font-size:11px;letter-spacing:0.2em;text-align:center;padding:40px 0;grid-column:1/-1;">אין סשנים להשוואה עדיין</div>';return;}for(const sess of filteredSessions){const cell=document.createElement('div');cell.className='compare-panel';const genderLabel=GENDER_HE[sess.gender]||sess.gender||'';const credit=getImageCredit(sess.imageName);cell.innerHTML='<div class="compare-panel-header"><div class="cp-user">'+sess.user+'</div><div class="cp-meta">'+(sess.age?sess.age:'')+((sess.age&&sess.gender)?' . ':'')+genderLabel+(sess.location?' . '+sess.location:'')+'</div></div><div class="compare-canvas-wrap"><img class="cp-img" src="'+sess.imageSrc+'"><canvas class="cp-canvas"></canvas></div><div class="cp-imgname">'+sess.imageName+(credit?'<span class="cp-credit"> · '+credit+'</span>':'')+'</div>';grid.appendChild(cell);const cpImg=cell.querySelector('.cp-img');const wrap=cell.querySelector('.compare-canvas-wrap'),canvas=cell.querySelector('.cp-canvas');if(!hasImageFilter){const tip=document.createElement('div');tip.className='cp-tooltip';tip.textContent='לחצו כדי להציג את כל הצפיות בתמונה זו';wrap.appendChild(tip);wrap.addEventListener('mouseenter',()=>tip.classList.add('visible'));wrap.addEventListener('mouseleave',()=>tip.classList.remove('visible'));wrap.addEventListener('mousemove',(e)=>{const rect=wrap.getBoundingClientRect();tip.style.left=(e.clientX-rect.left+10)+'px';tip.style.top=(e.clientY-rect.top+10)+'px';});}cpImg.addEventListener('click',()=>{document.getElementById('cf-image').value=sess.imageName;renderCompareView();});setTimeout(()=>{canvas.width=wrap.offsetWidth;canvas.height=wrap.offsetHeight;const ctx=canvas.getContext('2d');const W=canvas.width,H=canvas.height;const RC='255,0,0';switch(layer){case 'GAZE':staticGaze(ctx,W,H,sess.gazeLog,RC);break;case 'FIXATION':staticFixation(ctx,W,H,sess.fixationHistory,RC);break;case 'SACCADE':staticSaccade(ctx,W,H,sess.saccadeHistory,RC);break;case 'SCANPATH':staticScanPath(ctx,W,H,sess.scanPathHistory,RC);break;case 'HEATMAP':staticHeatmap(ctx,W,H,sess.gazeLog,RC);break;case 'FIRSTFIX':staticFirstFix(ctx,W,H,sess.firstFix,sess.firstFixModeTs,RC);break;}},60);}}
+function renderCompareView(){populateCompareFilters();const GENDER_HE={'Male':'זכר','Female':'נקבה','Other':'אחר'};const grid=document.getElementById('compareGrid');grid.innerHTML='';const layer=document.getElementById('cf-layer').value||dataActiveLayer||'GAZE';const hasImageFilter=!!document.getElementById('cf-image').value;const resetBtn=document.getElementById('cf-reset-image');const hasAnyFilter=!!(document.getElementById('cf-gender').value||document.getElementById('cf-age').value||document.getElementById('cf-location').value||document.getElementById('cf-image').value);resetBtn.classList.toggle('active',hasAnyFilter);const filteredSessions=getFilteredSessions();if(allSessions.length===0){grid.innerHTML='<div style="color:#FF0000;font-size:11px;letter-spacing:0.2em;text-align:center;padding:40px 0;grid-column:1/-1;">אין סשנים להשוואה עדיין</div>';return;}for(const sess of filteredSessions){const cell=document.createElement('div');cell.className='compare-panel';const genderLabel=GENDER_HE[sess.gender]||sess.gender||'';const credit=getImageCredit(sess.imageName);cell.innerHTML='<div class="compare-panel-header"><div class="cp-user">'+sess.user+'</div><div class="cp-meta">'+(sess.age?sess.age:'')+((sess.age&&sess.gender)?' . ':'')+genderLabel+(sess.location?' . '+sess.location:'')+'</div></div><div class="compare-canvas-wrap"><img class="cp-img" src="'+sess.imageSrc+'"><canvas class="cp-canvas"></canvas></div><div class="cp-imgname">'+sess.imageName+(credit?'<span class="cp-credit"> · '+credit+'</span>':'')+'</div>';grid.appendChild(cell);const cpImg=cell.querySelector('.cp-img');const wrap=cell.querySelector('.compare-canvas-wrap'),canvas=cell.querySelector('.cp-canvas');if(!hasImageFilter){const tip=document.createElement('div');tip.className='cp-tooltip';tip.textContent='לחצו כדי להציג את כל הצפיות בתמונה זו';wrap.appendChild(tip);wrap.addEventListener('mouseenter',()=>tip.classList.add('visible'));wrap.addEventListener('mouseleave',()=>tip.classList.remove('visible'));wrap.addEventListener('mousemove',(e)=>{const rect=wrap.getBoundingClientRect();tip.style.left=(e.clientX-rect.left+10)+'px';tip.style.top=(e.clientY-rect.top+10)+'px';});}cpImg.addEventListener('click',()=>{document.getElementById('cf-image').value=sess.imageName;renderCompareView();});setTimeout(()=>{canvas.width=wrap.offsetWidth;canvas.height=wrap.offsetHeight;const ctx=canvas.getContext('2d');ctx.setTransform(uiScale,0,0,uiScale,0,0);const W=canvas.width/uiScale,H=canvas.height/uiScale;const RC='255,0,0';switch(layer){case 'GAZE':staticGaze(ctx,W,H,sess.gazeLog,RC);break;case 'FIXATION':staticFixation(ctx,W,H,sess.fixationHistory,RC);break;case 'SACCADE':staticSaccade(ctx,W,H,sess.saccadeHistory,RC);break;case 'SCANPATH':staticScanPath(ctx,W,H,sess.scanPathHistory,RC);break;case 'HEATMAP':staticHeatmap(ctx,W,H,sess.gazeLog,RC);break;case 'FIRSTFIX':staticFirstFix(ctx,W,H,sess.firstFix,sess.firstFixModeTs,RC);break;}},60);}}
 
 // ── Image navigation arrows ──────────────────────────────────────────
 function navigateToSession(sess){
