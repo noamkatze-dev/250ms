@@ -1419,8 +1419,6 @@ function resizeCal(){
   const dpr=window.devicePixelRatio||1;
   calCanvas.width=window.innerWidth*dpr;
   calCanvas.height=window.innerHeight*dpr;
-  calCanvas.style.width=window.innerWidth+'px';
-  calCanvas.style.height=window.innerHeight+'px';
   calCtx.setTransform(dpr,0,0,dpr,0,0);
 }
 
