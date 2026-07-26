@@ -130,7 +130,7 @@ body{
 #homeHeroSection{
   position:relative;
   width:100%;
-  height:100vh;
+  height:100%;
   display:flex;
   flex-direction:column;
   align-items:center;
@@ -1383,7 +1383,7 @@ function applyGaze(ts){
   const lerp=(varX+varY)<FIXATION_VAR_THRESH?FIXATION_LERP:GAZE_LERP;
   sGX+=(rawGX-sGX)*lerp;
   sGY+=(rawGY-sGY)*lerp;
-  const W=window.innerWidth,H=window.innerHeight;
+  const W=window.innerWidth/uiScale,H=window.innerHeight/uiScale;
   gazeDot.style.left=(sGX*W)+'px';
   gazeDot.style.top=(sGY*H)+'px';
   window._gazeHistory.push({x:sGX,y:sGY,ts});
