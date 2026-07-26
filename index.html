@@ -1811,12 +1811,7 @@ function getDataCanvas(){
   dc.style.width=area.offsetWidth+'px';
   dc.style.height=area.offsetHeight+'px';
   const ctx=dc.getContext('2d');
-  // uiScale here grows all the fixed-pixel markers (dot radii, line widths,
-  // font sizes) that every static/animate*() drawing function below uses,
-  // without needing to touch any of their individual constants. Callers
-  // must correspondingly pass W/H divided by uiScale (see playLayer) so
-  // that normalized positions (p.x*W etc.) still land in the right place.
-  ctx.setTransform(dpr*uiScale,0,0,dpr*uiScale,0,0);
+  ctx.setTransform(dpr,0,0,dpr,0,0);
   return dc;
 }
 function animateGaze(ctx,W,H,log){let tid=null,cancelled=false;const pts=log.slice();let i=0;function step(){if(cancelled||i>=pts.length)return;const p=pts[i++];ctx.beginPath();ctx.arc(p.x*W,p.y*H,5,0,Math.PI*2);ctx.fillStyle='rgba(255,0,0,0.9)';ctx.fill();tid=setTimeout(step,50);}step();return{cancel:()=>{cancelled=true;clearTimeout(tid);}};}
@@ -1830,8 +1825,8 @@ function playLayer(layer){
   cancelAnimation();
   const dc=getDataCanvas();
   const ctx=dc.getContext('2d');
-  const W=(parseInt(dc.style.width)||dc.width)/uiScale;
-  const H=(parseInt(dc.style.height)||dc.height)/uiScale;
+  const W=parseInt(dc.style.width)||dc.width;
+  const H=parseInt(dc.style.height)||dc.height;
   ctx.clearRect(0,0,W,H);
   const rawSess=viewSession||{gazeLog,fixationHistory,saccadeHistory,scanPathHistory,firstFix,firstFixModeTs};
 
@@ -2619,7 +2614,7 @@ async function runFullSequence(){
     drawDots();
   }
 
-  const DOT_R=7*uiScale;
+  const DOT_R=7;
   const TOTAL=shuffled.length;
   // Decide up-front which image will appear at which dot position, so the
   // credit label under each dot can be shown before that image actually opens.
@@ -2639,11 +2634,11 @@ async function runFullSequence(){
       dotsCtxS.fill();
       const imgData=positionToImage[i];
       if(imgData && imgData.credit){
-        dotsCtxS.font=`300 ${8*uiScale}px Ratzif22,Heebo`;
+        dotsCtxS.font='300 8px Ratzif22,Heebo';
         dotsCtxS.fillStyle='#FF0000';
         dotsCtxS.textAlign='center';
         dotsCtxS.direction='rtl';
-        dotsCtxS.fillText(imgData.credit, cx, cy+DOT_R+12*uiScale);
+        dotsCtxS.fillText(imgData.credit, cx, cy+DOT_R+12);
       }
     }
   }
