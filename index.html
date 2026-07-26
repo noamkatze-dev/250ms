@@ -1245,6 +1245,27 @@ body :not(#splashScreen):not(#splashScreen *):not(#homeScreen):not(#homeScreen *
 'use strict';
 import { FaceLandmarker, FilesetResolver } from 'https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.14/vision_bundle.mjs';
 
+// ── Screen-size adaptive UI scale ────────────────────────────────────
+// The UI was designed around a modest laptop-size screen. On much larger
+// displays (e.g. a TV), every element would otherwise stay pinned to its
+// small fixed pixel size, looking tiny relative to the screen.
+//
+// `zoom` scales all rendered CSS (fonts, padding, borders, gaps) uniformly,
+// but — unlike `transform` — does NOT change what window.innerWidth/
+// innerHeight report, and does NOT change the containing block for
+// position:fixed elements. That means every gaze-tracking / calibration
+// calculation in this file (all of which work in fractions of
+// window.innerWidth/innerHeight) stays exactly as accurate as before —
+// this only affects how big things visually render, not where anything
+// is positioned.
+const UI_SCALE_REF_W = 1366, UI_SCALE_REF_H = 768;
+function updateUiScale(){
+  const scale = Math.max(1, Math.min(window.innerWidth/UI_SCALE_REF_W, window.innerHeight/UI_SCALE_REF_H));
+  document.documentElement.style.zoom = scale;
+}
+window.addEventListener('resize', updateUiScale);
+updateUiScale();
+
 const homeScreen=document.getElementById('homeScreen');
 const navHomeLink={classList:{add:()=>{},remove:()=>{}}};
 const navSessionLink=document.getElementById('navSessionLink');
@@ -2018,6 +2039,10 @@ async function flushSaveQueue(){
         body: JSON.stringify(item.body)
       });
     }catch(e){
+      if(String(e.message).includes('23505')){
+        // already saved under a previous attempt — drop it, nothing to retry
+        continue;
+      }
       stillPending.push(item); // still unreachable — keep it queued for next attempt
     }
   }
@@ -2029,6 +2054,12 @@ async function sbFetchWithFallback(path, prefer, body){
   try{
     await sbFetch(path, { method:'POST', headers:{ 'Prefer': prefer }, body: JSON.stringify(body) });
   }catch(e){
+    if(String(e.message).includes('23505')){
+      // unique_violation — this exact record already exists in the database,
+      // so the data isn't actually missing. Nothing to retry.
+      console.info('[save] already saved (duplicate skipped):', path);
+      return;
+    }
     console.warn('[save] cloud save failed, queued locally:', e.message);
     queueSave(path, prefer, body);
   }
