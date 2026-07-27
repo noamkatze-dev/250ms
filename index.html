@@ -2831,13 +2831,19 @@ resumeIdleDetection();
 }
 async function boot(){
 pauseIdleDetection();
+// Start the camera + face-tracking model download, and preload all 15 study
+// images, right away — in parallel with the ~4s splash animation below —
+// instead of waiting until after it. By the time the person reaches the
+// calibration screen (and later the image session), this work has often
+// already finished in the background instead of only starting right then.
+const eyePromise = startEyeTracking();
+POLITICAL_IMAGES.forEach(imgData=>{ const img=new Image(); img.src=imgData.src; });
 await playSplashScreen();
 dotCanvas.width=window.innerWidth; dotCanvas.height=window.innerHeight;
 window.addEventListener('resize',()=>{dotCanvas.width=window.innerWidth;dotCanvas.height=window.innerHeight;});
 heatCanvas=document.createElement('canvas');heatCanvas.width=W_HEAT;heatCanvas.height=H_HEAT;
 heatCtx2=heatCanvas.getContext('2d');
 currentUser = generateCode();
-const eyePromise = startEyeTracking();
 await runCalibration(eyePromise);
 requestAnimationFrame(mainLoop);
 const skyV = document.getElementById('homeSkyVideo');
