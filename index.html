@@ -1332,6 +1332,15 @@ let eyeCalMap=null;
 window._gazeHistory=[];
 let currentAnimation=null,dataActiveLayer='GAZE',playMode='ANIMATED',showImg=true,viewSession=null;
 const allSessions=[];
+// Separate from `allSessions` (this tab's own local session log, used by the
+// Data/Gallery/Dashboard views) — this array holds the full cross-user
+// history pulled from the cloud, used only by the Compare page. Keeping it
+// separate matters: earlier this reused `allSessions` directly, which meant
+// opening Compare replaced the local log with hundreds of other visitors'
+// sessions — so afterward the Data page's per-image dot navigator (which
+// walks `allSessions`) would show everyone's images mixed together instead
+// of just the current visitor's own 15.
+const compareSessions=[];
 // ── Political spectrum sky video loop control ──────────────────────────
 let spectrumSkyRaf=null;
 function stopSpectrumSky(){ if(spectrumSkyRaf){ cancelAnimationFrame(spectrumSkyRaf); spectrumSkyRaf=null; } }
@@ -1722,10 +1731,13 @@ let pendingSessions = [];
 function saveAllPendingSessions(){
 sbFetchWithFallback('profiles?on_conflict=name', 'resolution=merge-duplicates,return=minimal',
 {name:currentUser,age:currentAge,gender:currentGender,location:userLocation});
-for(const snap of pendingSessions){
-snap.age=currentAge; snap.gender=currentGender; snap.location=userLocation;
-saveProfile(snap);
-}
+// NOTE: sessions are already saved individually, in real time, as each image
+// is viewed (see the saveProfile(snap) call inside runFullSequence). Do NOT
+// re-save pendingSessions here too — this used to loop back over them and
+// call saveProfile(snap) again, but since this function only runs when the
+// *next* visitor submits their own details screen, currentUser had already
+// moved on to them by then, silently re-inserting the *previous* visitor's
+// 15 sessions under the new visitor's profile as duplicates.
 for(const s of allSessions){ s.age=currentAge; s.gender=currentGender; s.location=userLocation; }
 pendingSessions=[];
 }
@@ -1888,7 +1900,7 @@ document.getElementById('compareFilters').style.display='flex';
 document.getElementById('compareGrid-wrap').style.display='block';
 renderCompareView();
 }
-function populateCompareFilters(){const GENDER_HE={'Male':'זכר','Female':'נקבה','Other':'אחר'};const AGE_ORDER=['18-24','25-34','35-44','45-54','55-64','65+'];const genders=[...new Set(allSessions.map(s=>s.gender).filter(Boolean))];const locations=[...new Set(allSessions.map(s=>s.location).filter(Boolean))];const ages=[...new Set(allSessions.map(s=>s.age).filter(Boolean))].sort((a,b)=>{const ia=AGE_ORDER.indexOf(a),ib=AGE_ORDER.indexOf(b);if(ia===-1&&ib===-1)return a.localeCompare(b);if(ia===-1)return 1;if(ib===-1)return -1;return ia-ib;});
+function populateCompareFilters(){const GENDER_HE={'Male':'זכר','Female':'נקבה','Other':'אחר'};const AGE_ORDER=['18-24','25-34','35-44','45-54','55-64','65+'];const genders=[...new Set(compareSessions.map(s=>s.gender).filter(Boolean))];const locations=[...new Set(compareSessions.map(s=>s.location).filter(Boolean))];const ages=[...new Set(compareSessions.map(s=>s.age).filter(Boolean))].sort((a,b)=>{const ia=AGE_ORDER.indexOf(a),ib=AGE_ORDER.indexOf(b);if(ia===-1&&ib===-1)return a.localeCompare(b);if(ia===-1)return 1;if(ib===-1)return -1;return ia-ib;});
 buildCfMultiOptions('cf-gender-list','cf-gender',genders,g=>GENDER_HE[g]||g);
 buildCfMultiOptions('cf-age-list','cf-age',ages,a=>a);
 buildCfMultiOptions('cf-location-list','cf-location',locations,l=>l);
@@ -1898,7 +1910,7 @@ const genderVals=(document.getElementById('cf-gender').value||'').split(',').fil
 const ageVals=(document.getElementById('cf-age').value||'').split(',').filter(Boolean);
 const locationVals=(document.getElementById('cf-location').value||'').split(',').filter(Boolean);
 const image=document.getElementById('cf-image').value;
-return allSessions.filter(s=>
+return compareSessions.filter(s=>
 (genderVals.length===0||genderVals.includes(s.gender))&&
 (ageVals.length===0||ageVals.includes(s.age))&&
 (locationVals.length===0||locationVals.includes(s.location))&&
@@ -2099,11 +2111,19 @@ firstFixModeTs:0
 };
 });
 // avoid duplicating a session that was just captured locally and may not
-// have finished syncing to Supabase yet
-const remoteKeys=new Set(remote.map(r=>r.user+'|'+r.imageName+'|'+r.timestamp));
+// have finished syncing to Supabase yet, and defensively collapse any exact
+// duplicate rows the database might contain (same user+image+timestamp)
+const remoteKeys=new Set();
+const remoteDeduped=[];
+for(const r of remote){
+const key=r.user+'|'+r.imageName+'|'+r.timestamp;
+if(remoteKeys.has(key)) continue;
+remoteKeys.add(key);
+remoteDeduped.push(r);
+}
 const localOnly=allSessions.filter(s=>!remoteKeys.has(s.user+'|'+s.imageName+'|'+s.timestamp));
-allSessions.length=0;
-allSessions.push(...remote, ...localOnly);
+compareSessions.length=0;
+compareSessions.push(...remoteDeduped, ...localOnly);
 }catch(e){
 console.warn('[compare] could not load full history from cloud, showing local sessions only:', e.message);
 }
