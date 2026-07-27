@@ -259,7 +259,7 @@ border-color:rgba(255,255,255,0.6) !important;
 #calOverlay::before{content:'';position:absolute;inset:0;background:url('sky.png') center/cover no-repeat;filter:blur(22px);transform:scale(1.08);z-index:0;pointer-events:none;}
 #calOverlay::after{content:'';position:absolute;inset:0;background:transparent;z-index:1;pointer-events:none;}
 #calCanvas{position:absolute;inset:0;width:100%;height:100%;background:transparent;z-index:2;pointer-events:none;}
-#calStartBtn{position:absolute;top:72%;left:50%;transform:translateX(-50%);display:none;z-index:10;pointer-events:all;background:transparent !important;color:#FF0000 !important;border:1.5px solid #FF0000 !important;box-shadow:none !important;backdrop-filter:none !important;}
+#calStartBtn{position:absolute;top:82%;left:50%;transform:translateX(-50%);display:none;z-index:10;pointer-events:all;background:transparent !important;color:#FF0000 !important;border:1.5px solid #FF0000 !important;box-shadow:none !important;backdrop-filter:none !important;}
 .screen{display:none;position:fixed;inset:0;z-index:1100;flex-direction:column;align-items:center;justify-content:center;}
 .screen-title{font-size:9px;font-weight:300;letter-spacing:0.6em;color:#FF0000;margin-bottom:36px;}
 .lib-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;max-width:720px;width:90vw;margin-bottom:36px;max-height:52vh;overflow-y:auto;}
@@ -650,7 +650,8 @@ background-color: #cc0000;
 [lang="he"] #playBtn,
 [lang="he"] .view-tab,
 [lang="he"] .cf-select,
-[lang="he"] .cf-dropdown-trigger{
+[lang="he"] .cf-dropdown-trigger,
+[lang="he"] .cf-dropdown-option{
 font-size:10pt !important;
 }
 [lang="he"] .custom-select-trigger{
@@ -1059,7 +1060,7 @@ style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer
 <p id="about-label-title" style="font-size:9px;font-weight:700;letter-spacing:0.45em;color:#FF0000;margin:0 0 16px;font-family:Ratzif22,Heebo,sans-serif;text-align:center;">אודות</p>
 <h1 style="font-size:36px;font-weight:900;color:#FF0000;margin:0 0 12px;line-height:1.1;font-family:HaimNum,HaimVariable,Heebo,sans-serif;text-align:center;"><span style="font-weight:700 !important;font-size:24pt !important;font-family:HaimNum,HaimVariable,Heebo,sans-serif !important;">250</span> אלפיות השנייה</h1>
 <p style="font-size:15px;color:#FF0000;margin-top:70px;margin-right:0;margin-bottom:60px;margin-left:57%;line-height:1.8;font-family:Ratzif22,Heebo,sans-serif;text-align:justify;">
-0.25 שניות היא מערכת מעקב עיניים מבוססת דפדפן לניתוח תשומת לב חזותית על תמונות פוליטיות. היא מודדת לאן מסתכלים הצופים, מה הם מבחינים בו ראשון, וכיצד המבט שלהם נע על פני תמונה - ללא חומרה כלשהי מלבד מצלמת רשת רגילה.
+0.25 שניות היא מערכת מעקב עיניים מבוססת דפדפן לניתוח תשומת לב חזותית על דימויים. היא מודדת לאן מסתכלים הצופים, מה הם מבחינים בו ראשון, וכיצד המבט שלהם נע על פני תמונה - ללא חומרה כלשהי מלבד מצלמת רשת רגילה.
 </p>
 <div style="padding-top:60px;margin-bottom:60px;">
 <p id="about-label-system" style="font-size:9px;font-weight:700;letter-spacing:0.4em;color:#FF0000;margin:0 0 8px;margin-right:60%;margin-left:0;font-family:Ratzif22,Heebo,sans-serif;text-align:right;">המערכת</p>
@@ -1067,13 +1068,13 @@ style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer
 המערכת משתמשת ב-MediaPipe לזיהוי 478 נקודות ציון פנים בכל פריים, תוך בידוד מיקום האיריס בזמן אמת. כיול אפיני של 9 נקודות ממפה את תנועת העין לקואורדינטות המסך, ודגימות המבט מסווגות לקיבועים, סקאדות, מסלולי סריקה ומפות חום באמצעות אלגוריתמי I-DT ו-I-VT.
 </p>
 <p style="font-size:15px;color:#FF0000;line-height:1.8;margin-top:20px;margin-right:0;margin-bottom:0;margin-left:55%;font-family:Ratzif22,Heebo,sans-serif;text-align:justify;">
-המערכת תוכננה לחקור דפוסי תשומת לב חזותית על תמונות פוליטיות - בוחנת אילו אזורים מושכים את העין ראשונים, כמה זמן שוהה המבט באזורים שונים, ואם צצים דפוסי צפייה שונים בקרב משקיפים שונים.
+המערכת תוכננה לחקור דפוסי תשומת לב חזותית על דימויים - בוחנת אילו אזורים מושכים את העין ראשונים, כמה זמן שוהה המבט באזורים שונים, ואם צצים דפוסי צפייה שונים בקרב משקיפים שונים.
 </p>
 </div>
 <div style="padding-top:60px;margin-bottom:60px;">
 <p id="about-label-research" style="font-size:9px;font-weight:700;letter-spacing:0.4em;color:#FF0000;margin:0 0 8px;margin-right:63%;margin-left:0;font-family:Ratzif22,Heebo,sans-serif;text-align:right;">מוקד המחקר</p>
 <p style="font-size:15px;color:#FF0000;line-height:1.8;margin-top:0;margin-right:63%;margin-bottom:0;margin-left:0;font-family:Ratzif22,Heebo,sans-serif;text-align:justify;">
-כל סשן מקושר לפרופיל בעל שם הכולל גיל, מגדר ומיקום מזוהה. ההשתתפות היא וולונטרית והנתונים משמשים למטרות מחקר בלבד.
+כל סשן מקושר לפרופיל אנונימי, המזוהה על ידי קוד ייחודי ולא בשם אמיתי, וכולל טווח גיל, מגדר ויישוב. ההשתתפות היא וולונטרית והנתונים משמשים למטרות מחקר בלבד.
 </p>
 </div>
 </div>
@@ -1346,7 +1347,6 @@ ctx.textAlign = prevAlign;
 function drawCalIntro(){const W=window.innerWidth,H=window.innerHeight;const s=uiScale;
 calCtx.clearRect(0,0,W,H);
 calCtx.textAlign='center';
-const bodyY=H/2+10*s;
 const titleY=H/2-110*s;
 calCtx.fillStyle='#FF0000';
 calCtx.font=`400 ${17*s}px Ratzif22,Heebo`;
@@ -1354,15 +1354,26 @@ fillTextSpacedRTL(calCtx,'מערכת ניתוח חזותי',W/2,titleY,3*s);
 calCtx.fillStyle='#FF0000';
 calCtx.font=`700 ${24*s}pt HaimNum,HaimVariable`;
 calCtx.fillText('כיול מעקב עיניים',W/2,titleY+40*s);
+const CAL_STEPS=[
+{n:'1',lines:['שמור על ראשך ללא תנועה']},
+{n:'2',lines:['הזז את עינייך לכל נקודה']},
+{n:'3',lines:['החזק את המבט עד שהטבעת תתמלא לחלוטין']},
+{n:'4',lines:['לאחר הכיול תגיע לעמוד הבית.']},
+{n:'5',lines:['לחץ על "התחל כיול" כדי להתחיל את סשן הצפייה בתמונות.','הכיול ישמש גם לצפייה בתמונות, אין צורך בכיול נוסף.']},
+];
+const NUM_TO_TEXT_GAP=18*s,STEP_GAP=20*s,LINE2_GAP=16*s;
+let curY=H/2-20*s;
+for(const step of CAL_STEPS){
 calCtx.fillStyle='#FF0000';
-calCtx.font=`400 ${17*s}px Ratzif22,Heebo`;
-calCtx.fillText('שמור על ראשך ללא תנועה - הזז רק את עינייך לכל נקודה',W/2,bodyY);
-calCtx.fillText('החזק את המבט עד שהטבעת תתמלא לחלוטין',W/2,bodyY+22*s);
-calCtx.fillText('לאחר הכיול תגיע לעמוד הבית.',W/2,bodyY+52*s);
-calCtx.fillText('לחץ על "התחלה" כדי להתחיל את סשן הצפייה בתמונות.',W/2,bodyY+72*s);
-calCtx.fillStyle='#FF0000';
-calCtx.font=`400 ${17*s}px Ratzif22,Heebo`;
-calCtx.fillText('הכיול ישמש גם לצפייה בתמונות - אין צורך בכיול נוסף.',W/2,bodyY+94*s);
+calCtx.font=`700 ${17*s}pt HaimNum,HaimVariable`;
+calCtx.fillText(step.n,W/2,curY);
+curY+=NUM_TO_TEXT_GAP;
+calCtx.font=`400 ${15*s}px Ratzif22,Heebo`;
+step.lines.forEach((line,li)=>{
+calCtx.fillText(line,W/2,curY);
+curY+=(li<step.lines.length-1)?LINE2_GAP:STEP_GAP;
+});
+}
 }
 function drawCalDone(){const W=window.innerWidth,H=window.innerHeight;const s=uiScale;
 calCtx.clearRect(0,0,W,H);
@@ -2758,12 +2769,12 @@ hide.forEach(id=>{ const el=document.getElementById(id); if(el) el.style.display
 (function(){
 const RED = '#FF0000';
 const MODES = [
-{name:'מבט',num:'01 / 06',desc:'מיקומי מבט גולמיים הנדגמים ברציפות - כל נקודה שבה הסתכלה העין, פריים אחר פריים.'},
-{name:'קיבוע',num:'02 / 06',desc:'מבט ממושך על אזור יחיד למשך 200ms ומעלה. מעיד על עיבוד קוגניטיבי פעיל.'},
-{name:'סקאדה',num:'03 / 06',desc:'תנועות עין מהירות בין קיבועים. חושפות כיצד העין חוקרת וסורקת סצנה.'},
+{name:'מבט',num:'01 / 06',desc:'מיקומי מבט גולמיים הנדגמים ברציפות - כל נקודה שבה הסתכלה העין.'},
+{name:'קיבוע',num:'02 / 06',desc:'מבט ממושך על אזור יחיד למשך 200ms ומעלה.'},
+{name:'סקאדה',num:'03 / 06',desc:'תנועות עין מהירות בין קיבועים.'},
 {name:'מסלול סריקה',num:'04 / 06',desc:'הרצף הכרונולוגי של הקיבועים - המסע החזותי המלא על פני התמונה.'},
-{name:'מפת חום',num:'05 / 06',desc:'מפת צפיפות של תשומת הלב החזותית. אזורים חמים יותר קיבלו יותר קיבועים וממושכים יותר.'},
-{name:'קיבוע ראשון',num:'06 / 06',desc:'האזור הראשון שהובחן - נקודת הכניסה הטרום-מודעת של תשומת הלב החזותית.'}
+{name:'מפת חום',num:'05 / 06',desc:'מפת צפיפות של תשומת הלב החזותית.'},
+{name:'קיבוע ראשון',num:'06 / 06',desc:'האזור הראשון שהובחן, נקודת הכניסה הטרום-מודעת של תשומת הלב החזותית.'}
 ];
 window._MODES_REF = MODES;
 const gazeLog=[
