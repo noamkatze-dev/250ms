@@ -441,13 +441,12 @@ pointer-events:none;opacity:0;transition:opacity 0.15s;border:1px solid #FF0000;
 #compareGrid-wrap{flex:1;overflow:auto;padding:16px 60px;}
 #comparePicker{flex:1;overflow-y:auto;padding:82px 60px 40px;}
 #comparePickerTitle{font-size:9px;font-weight:700;letter-spacing:0.45em;color:#FF0000;text-transform:uppercase;text-align:center;margin-bottom:20px;font-family:Ratzif22,Heebo,sans-serif;}
-#comparePickerGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;max-width:820px;margin:0 auto;}
-.picker-item{cursor:pointer;border-radius:6px;overflow:hidden;background:rgba(255,255,255,0.75);border:1.5px solid transparent;transition:border-color 0.15s,transform 0.15s;}
+#comparePickerGrid{display:grid;direction:rtl;grid-template-columns:repeat(3,1fr);gap:14px;width:100%;}
+.picker-item{cursor:pointer;border-radius:6px;overflow:hidden;background:transparent;border:1.5px solid transparent;transition:border-color 0.15s,transform 0.15s;}
 .picker-item:hover{border-color:#FF0000;transform:scale(1.02);}
 .picker-item img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;}
 .picker-item-label{padding:8px 10px;text-align:center;font-family:Ratzif22,Heebo,sans-serif;}
 .picker-item-name{font-size:9px;font-weight:700;letter-spacing:0.08em;color:#FF0000;}
-.picker-item-count{font-size:8px;font-weight:300;color:#FF0000;margin-top:2px;}
 #compareGrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px;}
 .compare-panel{background:#fff;border:none;overflow:hidden;border-radius:4px;}
 .compare-panel-header{display:flex;flex-direction:row;align-items:baseline;flex-wrap:nowrap;gap:6px;padding:7px 10px;border-bottom:none;overflow:hidden;}
@@ -1314,7 +1313,7 @@ const W_HEAT=200,H_HEAT=112,HEAT_SIGMA=0.07,HEAT_WEIGHT=0.18,HEAT_DECAY=0.9975,G
 const FIXATION_VAR_THRESH_ENTER=0.00015,FIXATION_VAR_THRESH_EXIT=0.0006,FIXATION_LERP=0.008;
 let inFixationLock=false;
 const CAL_PTS=[[0.1,0.1],[0.5,0.1],[0.9,0.1],[0.9,0.5],[0.5,0.5],[0.1,0.5],[0.1,0.9],[0.5,0.9],[0.9,0.9]];
-const CAL_VAR_THRESH=0.0012,CAL_FILL_RATE=0.6,CAL_DRAIN_RATE=0.8,BUF_MAX=30;
+const CAL_VAR_THRESH=0.0028,CAL_FILL_RATE=0.7,CAL_DRAIN_RATE=0.45,BUF_MAX=30;
 const mainImg=document.getElementById('mainImg'),imgWrapper=document.getElementById('imgWrapper');
 const dotCanvas=document.getElementById('dotCanvas'),dotCtx=dotCanvas.getContext('2d');
 const annLayer=document.getElementById('annLayer'),gazeDot=document.getElementById('gazeDot');
@@ -1336,7 +1335,7 @@ const allSessions=[];
 // ── Political spectrum sky video loop control ──────────────────────────
 let spectrumSkyRaf=null;
 function stopSpectrumSky(){ if(spectrumSkyRaf){ cancelAnimationFrame(spectrumSkyRaf); spectrumSkyRaf=null; } }
-function eyeStab(){const N=Math.min(eyeOffXBuf.length,20);if(N<8)return 0;const xs=eyeOffXBuf.slice(-N),ys=eyeOffYBuf.slice(-N);const mx=xs.reduce((a,b)=>a+b,0)/N,my=ys.reduce((a,b)=>a+b,0)/N;const vx=xs.reduce((a,b)=>a+(b-mx)**2,0)/N,vy=ys.reduce((a,b)=>a+(b-my)**2,0)/N;return Math.max(0,Math.min(1,1-(vx+vy)/CAL_VAR_THRESH));}
+function eyeStab(){const N=Math.min(eyeOffXBuf.length,26);if(N<8)return 0;const xs=eyeOffXBuf.slice(-N),ys=eyeOffYBuf.slice(-N);const mx=xs.reduce((a,b)=>a+b,0)/N,my=ys.reduce((a,b)=>a+b,0)/N;const vx=xs.reduce((a,b)=>a+(b-mx)**2,0)/N,vy=ys.reduce((a,b)=>a+(b-my)**2,0)/N;return Math.max(0,Math.min(1,1-(vx+vy)/CAL_VAR_THRESH));}
 function updateFixations(ts){const gh=window._gazeHistory;if(gh.length<2)return;const win=gh.filter(p=>p.ts>ts-600);if(win.length<2)return;const xs=win.map(p=>p.x),ys=win.map(p=>p.y);const disp=(Math.max(...xs)-Math.min(...xs))+(Math.max(...ys)-Math.min(...ys));if(disp<FIX_DISPERSION){const cx=xs.reduce((a,b)=>a+b,0)/xs.length,cy=ys.reduce((a,b)=>a+b,0)/ys.length;if(!currentFixation){currentFixation={startTs:ts,cx,cy};}else{currentFixation.cx=cx;currentFixation.cy=cy;currentFixation.duration=ts-currentFixation.startTs;}}else{if(currentFixation){const dur=ts-currentFixation.startTs;if(dur>=FIX_MIN_DURATION){const fe={x:currentFixation.cx,y:currentFixation.cy,startTs:currentFixation.startTs,endTs:ts,duration:dur};fixationHistory.push(fe);if(fixationHistory.length>100)fixationHistory.shift();scanPathHistory.push(fe);if(scanPathHistory.length>50)scanPathHistory.shift();}currentFixation=null;}}}
 function updateSaccades(ts){const gh=window._gazeHistory;if(gh.length<2)return;const last=gh[gh.length-1],prev=gh[gh.length-2],dt=(last.ts-prev.ts)/1000;if(dt<=0)return;const vel=Math.hypot(last.x-prev.x,last.y-prev.y)/dt;if(vel>=SAC_VELOCITY){if(!saccadeActive){saccadeActive=true;saccadeStart={x:prev.x,y:prev.y,ts:prev.ts};}}else{if(saccadeActive&&saccadeStart){const amp=Math.hypot(last.x-saccadeStart.x,last.y-saccadeStart.y);if(amp>=SAC_MIN_AMP){saccadeHistory.push({fromX:saccadeStart.x,fromY:saccadeStart.y,toX:last.x,toY:last.y,startTs:saccadeStart.ts,endTs:ts,duration:ts-saccadeStart.ts});if(saccadeHistory.length>100)saccadeHistory.shift();}saccadeActive=false;saccadeStart=null;}}}
 function updateHeatmap(){for(let i=0;i<heatmap.length;i++)heatmap[i]*=HEAT_DECAY;const gx=sGX*W_HEAT,gy=sGY*H_HEAT,sigma=HEAT_SIGMA*Math.max(W_HEAT,H_HEAT),r=Math.ceil(3*sigma);const x0=Math.max(0,Math.floor(gx-r)),x1=Math.min(W_HEAT-1,Math.ceil(gx+r));const y0=Math.max(0,Math.floor(gy-r)),y1=Math.min(H_HEAT-1,Math.ceil(gy+r));const inv2s2=1/(2*sigma*sigma);for(let y=y0;y<=y1;y++)for(let x=x0;x<=x1;x++)heatmap[y*W_HEAT+x]+=HEAT_WEIGHT*Math.exp(-((x-gx)**2+(y-gy)**2)*inv2s2);}
@@ -1457,9 +1456,9 @@ calCtx.fillText("מוכן!",W/2,H/2-8*s);
 calCtx.fillStyle='#FF0000';calCtx.font=`400 ${17*s}px Ratzif22,Heebo`;
 calCtx.fillText('הכיול הושלם - עמוד הבית עומד להיפתח.',W/2,H/2+20*s);
 }
-function awaitDot(px,py,index){return new Promise(resolve=>{let progress=0,prevTs=null;const samples=[];function frame(ts){const dt=prevTs?Math.min((ts-prevTs)/1000,0.05):0;prevTs=ts;const s=eyeStab();progress+=s*CAL_FILL_RATE*dt;progress-=(1-s)*CAL_DRAIN_RATE*dt;progress=Math.max(0,Math.min(1,progress));if(s>0.45&&eyeValid)samples.push({ox:curEyeOffX,oy:curEyeOffY});const W=window.innerWidth,H=window.innerHeight;const us=uiScale;
+function awaitDot(px,py,index){return new Promise(resolve=>{let progress=0,prevTs=null;const samples=[];const startTs=performance.now();const MAX_DOT_MS=12000;function frame(ts){const dt=prevTs?Math.min((ts-prevTs)/1000,0.05):0;prevTs=ts;const s=eyeStab();progress+=s*CAL_FILL_RATE*dt;progress-=(1-s)*CAL_DRAIN_RATE*dt;progress=Math.max(0,Math.min(1,progress));if(s>0.45&&eyeValid)samples.push({ox:curEyeOffX,oy:curEyeOffY});if((ts-startTs)>MAX_DOT_MS)progress=1;const W=window.innerWidth,H=window.innerHeight;const us=uiScale;
 calCtx.clearRect(0,0,W,H);
-calCtx.textAlign='right';calCtx.fillStyle='#FF0000';calCtx.font=`400 ${17*us}px Ratzif22,Heebo`;calCtx.direction='ltr';calCtx.fillText((index+1)+' / '+CAL_PTS.length,W-45*us,36*us);calCtx.direction='rtl';calCtx.beginPath();calCtx.arc(px,py,22*us,0,Math.PI*2);calCtx.strokeStyle='rgba(178,224,243,0.5)';calCtx.lineWidth=1.5*us;calCtx.stroke();if(progress>0){calCtx.beginPath();calCtx.arc(px,py,22*us,-Math.PI/2,-Math.PI/2+progress*Math.PI*2);calCtx.strokeStyle='rgba(255,0,0,'+(0.35+s*0.65)+')';calCtx.lineWidth=2*us;calCtx.stroke();}const r=(3.5+s*2.5)*us;calCtx.beginPath();calCtx.arc(px,py,r,0,Math.PI*2);calCtx.fillStyle='rgba(255,0,0,'+(0.2+s*0.8)+')';calCtx.fill();if(progress>=1){calCtx.beginPath();calCtx.arc(px,py,22*us,0,Math.PI*2);calCtx.strokeStyle='rgba(255,0,0,0.9)';calCtx.lineWidth=2*us;calCtx.stroke();const n=samples.length||1;setTimeout(()=>resolve({ox:samples.reduce((a,v)=>a+v.ox,0)/n,oy:samples.reduce((a,v)=>a+v.oy,0)/n}),280);}else requestAnimationFrame(frame);}requestAnimationFrame(frame);});}
+calCtx.textAlign='right';calCtx.fillStyle='#FF0000';calCtx.font=`400 ${17*us}px Ratzif22,Heebo`;calCtx.direction='ltr';calCtx.fillText((index+1)+' / '+CAL_PTS.length,W-45*us,36*us);calCtx.direction='rtl';calCtx.beginPath();calCtx.arc(px,py,22*us,0,Math.PI*2);calCtx.strokeStyle='rgba(178,224,243,0.5)';calCtx.lineWidth=1.5*us;calCtx.stroke();if(progress>0){calCtx.beginPath();calCtx.arc(px,py,22*us,-Math.PI/2,-Math.PI/2+progress*Math.PI*2);calCtx.strokeStyle='rgba(255,0,0,'+(0.35+s*0.65)+')';calCtx.lineWidth=2*us;calCtx.stroke();}const r=(3.5+s*2.5)*us;calCtx.beginPath();calCtx.arc(px,py,r,0,Math.PI*2);calCtx.fillStyle='rgba(255,0,0,'+(0.2+s*0.8)+')';calCtx.fill();if(progress>=1){calCtx.beginPath();calCtx.arc(px,py,22*us,0,Math.PI*2);calCtx.strokeStyle='rgba(255,0,0,0.9)';calCtx.lineWidth=2*us;calCtx.stroke();if(samples.length===0&&eyeValid)samples.push({ox:curEyeOffX,oy:curEyeOffY});const n=samples.length||1;setTimeout(()=>resolve({ox:samples.reduce((a,v)=>a+v.ox,0)/n,oy:samples.reduce((a,v)=>a+v.oy,0)/n}),280);}else requestAnimationFrame(frame);}requestAnimationFrame(frame);});}
 async function startEyeTracking(){
 let fl;
 try{
@@ -1866,13 +1865,10 @@ wrap.classList.toggle('active', stillValid.length>0);
 function renderComparePicker(){
 const grid=document.getElementById('comparePickerGrid');
 grid.innerHTML='';
-const counts={};
-allSessions.forEach(s=>{ counts[s.imageName]=(counts[s.imageName]||0)+1; });
 POLITICAL_IMAGES.forEach(img=>{
 const item=document.createElement('div');
 item.className='picker-item';
-const n=counts[img.name]||0;
-item.innerHTML='<img src="'+img.src+'" alt="'+img.name+'"><div class="picker-item-label"><div class="picker-item-name">'+img.name+'</div><div class="picker-item-count">'+n+' צפיות</div></div>';
+item.innerHTML='<img src="'+img.src+'" alt="'+img.name+'"><div class="picker-item-label"><div class="picker-item-name">'+img.name+'</div></div>';
 item.addEventListener('click',()=>{
 document.getElementById('cf-image').value=img.name;
 showCompareGridView();
